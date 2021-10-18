@@ -56,3 +56,29 @@ body{
 .card:hover {
     box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
 }
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(243, 144, 16);
+    font-size: large;
+}
+nav a{
+    text-decoration: none;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 0.6%;
+    padding-bottom: 0.6%;
+    color: white;
+    transition: all 0.35s;
+}
+nav a:hover{
+    background-color: rgb(206, 117, 0);
+}
+.navEspecial{
+    background-color: rgb(206, 117, 0);
+}
+.Secciones{
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+}
