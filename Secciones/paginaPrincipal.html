@@ -4,12 +4,31 @@
         <title>Página Principal</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
+        <link rel="stylesheet" href="../Css/footerHeader.Css">
     </head>
     <body>
-        <h1>Menú De Las Cafeterías - Turno Vespertino</h1>
+        <div class="header">
+            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
+            <div>
+                <h3>Universidad Tecnológica De Panamá</h3>
+                <h1>DinerSol - Sistema De Cafeterías UTP</h1>
+            </div>
+        </div>
+        <div class="fotoUser">
+            <h3>Aurelio Morales</h3>
+            <img class="FPerfil" src="../Imagenes/user.png" alt="Foto De Perfil" width="3%" height="3%">
+        </div>
+        <nav>
+            <a href="" class="navEspecial">Inicio</a>
+            <a href="">Cafeterías</a>
+            <a href="">Ayuda Estudiantil</a>
+            <a href="">Historial De Compras</a>
+            <a href="">Otra Función</a>
+        </nav>
         <div class="CafCentral" id="CafCentral">
             <h1 class="NomCafeteria">Cafetería Central</h1>   
             <img src="../Imagenes/CafeteriaCentral.jpg" alt="Cafetería Central" width="25%" height="25%">
+            <h1 class="NomCafeteria">Turno Vespertino</h1>
         </div>
         <div class="CafEdi1PB" id="CafEdi1PB" style="display: none;">
             <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Planta Baja</h1>   
@@ -19,7 +38,7 @@
             <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Piso 2</h1>   
             <img src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafetería Central" width="25%" height="25%">
         </div>
-        <div>
+        <div class="radios">
             <input type="radio" id="cafeteria1" name="cafet" onclick="Cual(1)" checked>
             <input type="radio" id="cafeteria2" name="cafet" onclick="Cual(2)">
             <input type="radio" id="cafeteria3" name="cafet" onclick="Cual(3)">
@@ -27,69 +46,13 @@
         </div>
         
         <div class="NoticiasMenu">
-            <div class="Noticias">
-                <div class="Snacks">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Snacks</h2>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Snickers</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Galleta María</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="Snacks">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Refrescos</h2>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Agua</b></h4> 
-                                <h4 class="Precio">$0.75</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Soda Coca-Cola</b></h4> 
-                                <h4 class="Precio">$1.50</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Malta Vigor</b></h4> 
-                                <h4 class="Precio">$1.00</h4> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="Menu">
                 <div class="Central">
                     <div class="HacerPedido">
                         <h2 class="NombreCafeteria">Menú Del Día</h2>
-                        <button><a href="#">Hacer Pedido</a></button>
+                        <div>
+                            <button><a href="#">Hacer Pedido</a></button>
+                        </div>
                     </div>
                     <div class="ComidasDeCafeterias">
                         <div class="card">
@@ -139,9 +102,6 @@
                     </div>                
                 </div>
             </div>
-        </div><br><hr><br>
-        <h2 class="NomCafeteria">Cafetería Del Edificio 3</h2>
-        <div class="NoticiasMenu">
             <div class="Noticias">
                 <div class="Snacks">
                     <div class="HacerPedido">
@@ -170,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><br>
                 <div class="Snacks">
                     <div class="HacerPedido">
                         <h2 class="NombreCafeteria">Refrescos</h2>
@@ -200,291 +160,20 @@
                     </div>
                 </div>
             </div>
-            <div class="Menu">
-                <div class="Central">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Menú Del Día</h2>
-                        <button><a href="#">Hacer Pedido</a></button>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                    </div>                
-                </div>
-            </div>
         </div><br><hr><br>
-        <h2 class="NomCafeteria">Cafetería Del Edificio 1 - Planta Baja</h2>
-        <div class="NoticiasMenu">
-            <div class="Noticias">
-                <div class="Snacks">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Snacks</h2>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Snickers</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Galleta María</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="Snacks">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Refrescos</h2>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Agua</b></h4> 
-                                <h4 class="Precio">$0.75</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Soda Coca-Cola</b></h4> 
-                                <h4 class="Precio">$1.50</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Malta Vigor</b></h4> 
-                                <h4 class="Precio">$1.00</h4> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="Menu">
-                <div class="Central">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Menú Del Día</h2>
-                        <button><a href="#">Hacer Pedido</a></button>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                    </div>                
-                </div>
-            </div>
-        </div><br><hr><br>
-        <h2 class="NomCafeteria">Cafetería Del Edificio 1 - Piso 2</h2>
-        <div class="NoticiasMenu">
-            <div class="Noticias">
-                <div class="Snacks">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Snacks</h2>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Snickers</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Galleta María</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="Snacks">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Refrescos</h2>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Agua</b></h4> 
-                                <h4 class="Precio">$0.75</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Soda Coca-Cola</b></h4> 
-                                <h4 class="Precio">$1.50</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Malta Vigor</b></h4> 
-                                <h4 class="Precio">$1.00</h4> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="Menu">
-                <div class="Central">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Menú Del Día</h2>
-                        <button><a href="#">Hacer Pedido</a></button>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ComidasDeCafeterias">
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                            <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
-                                <h4 class="Precio">$1.25</h4> 
-                            </div>
-                        </div>
-                    </div>                
-                </div>
-            </div>
-        </div><br><hr><br>
+        </div>
+        <div class="footer">
+            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
+            <h3>
+                Universidad Tecnológica de Panamá - 2021<br>
+                Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
+                Campus Metropolitano Víctor Levi Sasso.<br>
+                Teléfono. (507) 560-3000<br>
+                Correo electrónico: buzondesugerencias@utp.ac.pa<br>
+                311 Centro de Atención Ciudadana<br>
+                Políticas de Privacidad<br>
+            </h3>
+        </div>
         <script type="text/javascript" src="../JavaScript/complementos.js"></script>
     </body>
 </html>

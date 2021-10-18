@@ -4,9 +4,10 @@ body{
 .footer{
     display: flex;
     align-items: center;
-    background-color: rgb(243, 171, 77);
+    background-color: rgb(243, 144, 16);
     padding-top: 2.5%;
     padding-bottom: 2%;
+    color: white;
 }
 .footer img{
     margin-left: 12%;
