@@ -1,3 +1,6 @@
+body{
+    margin: 0px;
+}
 .ImagenTituloNoticia{
     display: flex;
     align-items: center;
@@ -74,4 +77,14 @@ hr{
 }
 .NomCafeteria{
     margin-left: 2.5%;
+}
+.CafCentral, .CafEdi1PB, .CafEdi1P2, .CafFisc{
+    display: flex;
+    align-items: center;
+    background-color: rgb(118, 118, 118);
+    color: white;
+}
+.CafCentral h1, .CafEdi1PB h1, .CafEdi1P2 h1, .CafFisc h1{
+    margin-left: 10%;
+    margin-right: 12%;
 }

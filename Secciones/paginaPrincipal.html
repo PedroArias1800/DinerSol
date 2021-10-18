@@ -7,7 +7,25 @@
     </head>
     <body>
         <h1>Menú De Las Cafeterías - Turno Vespertino</h1>
-        <h2 class="NomCafeteria">Cafetería Central</h2>
+        <div class="CafCentral" id="CafCentral">
+            <h1 class="NomCafeteria">Cafetería Central</h1>   
+            <img src="../Imagenes/CafeteriaCentral.jpg" alt="Cafetería Central" width="25%" height="25%">
+        </div>
+        <div class="CafEdi1PB" id="CafEdi1PB" style="display: none;">
+            <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Planta Baja</h1>   
+            <img src="../Imagenes/CafeteriaEdi1PB.PNG" alt="Cafetería Central" width="25%" height="25%">
+        </div>
+        <div class="CafEdi1P2" id="CafEdi1P2" style="display: none;">
+            <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Piso 2</h1>   
+            <img src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafetería Central" width="25%" height="25%">
+        </div>
+        <div>
+            <input type="radio" id="cafeteria1" name="cafet" onclick="Cual(1)" checked>
+            <input type="radio" id="cafeteria2" name="cafet" onclick="Cual(2)">
+            <input type="radio" id="cafeteria3" name="cafet" onclick="Cual(3)">
+            <input type="radio" id="cafeteria4" name="cafet" onclick="Cual(4)">
+        </div>
+        
         <div class="NoticiasMenu">
             <div class="Noticias">
                 <div class="Snacks">
@@ -468,4 +486,73 @@
             </div>
         </div><br><hr><br>
     </body>
+    <script>
+        function Cual(c){
+            var central = document.getElementById("Central");
+            var fotoCentral = document.getElementById("CafCentral");
+
+            var fisc = document.getElementById("Fisc");
+            var fotoFisc = document.getElementById("CafFisc");
+            
+            var pb = document.getElementById("Edi1PB");
+            var fotoPb = document.getElementById("CafEdi1PB");
+
+            var p2 = document.getElementById("Edi1P2");
+            var fotoP2 = document.getElementById("CafEdi1P2");
+
+            if(c === 1){
+                central.style.display = "block";
+                fotoCentral.style.display = "block";
+
+                fisc.style.display = "none";
+                fotoFisc.style.display = "none";
+
+                pb.style.display = "none";
+                fotoPb.style.display = "none";
+                
+                p2.style.display = "none";
+                fotoP2.style.display = "none";
+
+            } else if(c === 2) {
+                central.style.display = "none";
+                fotoCentral.style.display = "none";
+
+                fisc.style.display = "block";
+                fotoFisc.style.display = "block";
+
+                pb.style.display = "none";
+                fotoPb.style.display = "none";
+
+                p2.style.display = "none";
+                fotoP2.style.display = "none";
+
+            } else if(c === 3){
+                central.style.display = "none";
+                fotoCentral.style.display = "none";
+
+                fisc.style.display = "none";
+                fotoFisc.style.display = "none";
+
+                pb.style.display = "block";
+                fotoPb.style.display = "block";
+
+                p2.style.display = "none";
+                fotoP2.style.display = "none";
+
+            } else{
+                central.style.display = "none";
+                fotoCentral.style.display = "none";
+
+                fisc.style.display = "none";
+                fotoFisc.style.display = "none";
+
+                pb.style.display = "none";
+                fotoPb.style.display = "none";
+
+                p2.style.display = "block";
+                fotoP2.style.display = "block";
+            }
+        }
+            
+    </script>
 </html>
