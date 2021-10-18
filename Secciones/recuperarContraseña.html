@@ -4,71 +4,47 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../Css/footerHeader.css">
+        <link rel="stylesheet" href="../Css/login.css">
         <title>DinerSol | Recuperar Contraseña</title>
     </head>
     <body>
-        <header>
-            <div class="header">
-                <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="9%" height="9%">
-                <div>
-                    <h3>Universidad Tecnológica De Panamá</h3>
-                    <h1>DinerSol - Sistema De Cafeterías UTP</h1>
-                </div>
-            </div>
-        </header>
-        <hr>
-        <section>
+        <div class="header">
+            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
             <div>
-                <input type="button" id="volver" value="Volver a Inicio" onclick="window.location.href='../index.html'">
+                <h3>Universidad Tecnológica De Panamá</h3>
+                <h1>DinerSol - Sistema De Cafeterías UTP</h1>
             </div>
-        </section>
-
-        <h2>INGRESE SUS DATOS:</h2>
-
-        <form method="POST" action="">
-            <section>
-                <div>
-                    <p>
-                        <?php
-                            if(isset($_GET['msg']))
-                                echo $_GET['msg'];
-                        ?>
-                    </p>
+        </div>
+        <div>
+            <input type="button" class="btnRegistrarse botones" id="volver" value="Volver a Inicio" onclick="window.location.href='../index.html'">
+        </div>
+        <div class="todo">
+            <h1 class="login">Recuperar Contraseña</h1>       
+            <form method="POST" action="">
+                <div class="card"><br>
+                    <h2>MÉTODO DE RECUPERACIÓN</h2>
+                    <div class="ComidasMenu">
+                        <div class="item">
+                            <input type="radio" id="radioCor" name="tipo" onclick="Tipo(1)" required>
+                            <label for="radioCor">Correo</label>
+                            <input type="radio" id="radioTel" name="tipo" onclick="Tipo(2)">
+                            <label for="radioTel">Teléfono</label>
+                        </div><br>
+                        <div class="item">
+                            <label id="lblCor" for="correo">Correo:</label><br>
+                            <input type="email" id="correo" name="correo" placeholder="Ej: usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required checked>
+                            <label id="lblTel" for="telefono" hidden>Teléfono:</label><br>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1111-1111" pattern="[0-9]{4}-[0-9]{4}" hidden required>
+                        </div>
+                        <h2>El proceso de recuperación de contraseñas puede tardar unos minutos...</h2>
+                        <div class="item">
+                            <input type="reset" class="botones" value="Vaciar">
+                            <input type="submit" class="botones" value="Ingresar">
+                        </div>
+                    </div>
                 </div>
-            </section>
-            <section>
-                <div>
-                    <label for="tipo">Método de recuperación:</label> <br>
-                    <input type="radio" id="radioCor" name="tipo" onclick="Tipo(1)" required>
-                    <label for="radioCor">Correo</label>
-                    <input type="radio" id="radioTel" name="tipo" onclick="Tipo(2)">
-                    <label for="radioTel">Teléfono</label>
-                    <br><br>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <label id="lblCor" for="correo" hidden>Correo:</label><br>
-                    <input type="email" id="correo" name="correo" placeholder="Ej: usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" hidden required>
-                    <br><br>
-                </div>
-                <div>
-                    <label id="lblTel" for="telefono" hidden>Teléfono:</label><br>
-                    <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1111-1111" pattern="[0-9]{4}-[0-9]{4}" hidden required>
-                    <br><br>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <input type="reset" value="Vaciar">
-                </div>
-                <div>
-                    <input type="submit" value="Ingresar">
-                </div>
-                <br>
-            </section>
-        </form>
-        <hr>
+            </form>
+        </div><br>
         <footer>
             <div class="footer">
                 <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
