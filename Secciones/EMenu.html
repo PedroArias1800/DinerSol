@@ -4,12 +4,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../Css/menu izquierda.css">
+        <link rel="stylesheet" href="../Css/footerHeader.css">
         <title>Administración | Editar</title>
     </head>
     <body>
-        <header>
-            <h1>Header nav generalizado</h1>
-        </header>
+            <header>
+                <div class="header">
+                    <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="9%" height="9%">
+                    <div>
+                        <h3>Universidad Tecnológica De Panamá</h3>
+                        <h1>DinerSol - Sistema De Cafeterías UTP</h1>
+                    </div>
+                </div>
+            </header>
         <hr>
         <h2>Administración del Menú</h2>
         <input type="checkbox" class="CBox" id="CBox1">
@@ -45,7 +52,7 @@
                 <br><br><input type="number" id="CMenu" name="CMenu" value="<?php echo $datocafe->CMenu ?>"><br><br>
             </div>
             <section>
-                <div class="tableFixHead">
+                <div>
                     <table class="table">
                       <thead>
                         <tr>
@@ -100,6 +107,18 @@
                 </div>
             </section>
         </form>
+        <div class="footer">
+            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
+            <h3>
+                Universidad Tecnológica de Panamá - 2021<br>
+                Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
+                Campus Metropolitano Víctor Levi Sasso.<br>
+                Teléfono. (507) 560-3000<br>
+                Correo electrónico: buzondesugerencias@utp.ac.pa<br>
+                311 Centro de Atención Ciudadana<br>
+                Políticas de Privacidad<br>
+            </h3>
+        </div>
         <script type="text/javascript" src="../JavaScript/complementos.js"></script>
     </body>
 </html>
