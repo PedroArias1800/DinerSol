@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../Css/menu izquierda.css">
+        <title>Administración | Editar</title>
+    </head>
+    <body>
+        <header>
+            <h1>Header nav generalizado</h1>
+        </header>
+        <hr>
+        <h2>Administración del Menú</h2>
+        <input type="checkbox" class="CBox" id="CBox1">
+        <label class="LBel" for="CBox1">¥</label>
+        <div class="LMenu">
+            <ul>
+                <a href="AMenu.html"><li>Agregar</li></a>
+                <a href="IMenu.html"><li>Inventario</li></a>
+            </ul>
+            </div>
+            <div class="H">
+                <label class="SH">Edite un menú:</label><br><br>
+            </div>
+        <form name="EMenu" method="POST" action="../Secciones/datos.php">
+            <div class="item">
+                <input type="hidden" name="fotoActual" value="<?php echo $datoUser->foto ?>"  >
+                <label for="foto">Foto:</label><br>
+                <input type="file" id="foto" name="foto"><br><br>
+            </div>
+            <section>
+                <div class="item">
+                    <label for="nombre">Nombre del Menú:</label><br>
+                    <input type="text" id="nombre" name="nombre" value="<?php echo $datocafe->NMenu ?>"><br><br>
+                </div>
+                <div class="item">
+                <label for="NCafe">Cafeteria:</label><br>
+                <input type="text" id="NCafe" name="NCafe" value="<?php echo $datocafe->NCafe ?>"><br><br>
+            </div>
+            </section>
+            <section>
+                <div class="item">
+                    <label for="CMenu">Costo:</label>
+                <br><br><input type="number" id="CMenu" name="CMenu" value="<?php echo $datocafe->CMenu ?>"><br><br>
+            </div>
+            <section>
+                <div class="tableFixHead">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th><div class="header-label">Nombre</div><input type="string"></th>
+                          <th><div class="header-label">Cafeteria</div><input type="string"></th>
+                          <th><div class="header-label">Costo</div><input type="number"></th>
+                          <th><div class="header-label">Foto</div><input type="number"></th>
+                        </tr>
+                      </thead>
+                    </form>
+                      <tbody>
+                        <?php 
+                            $sql="SELECT * from Menu WHERE Nombre='$Nombre'";
+                            $result=mysqli_query($conexion,$sql);
+        
+                            while($mostrar=mysqli_fetch_array($result)){
+                            ?>
+        
+                            <tr>
+                                <td><?php echo $mostrar['nombre'] ?></td>
+                                <td><?php echo $mostrar['cafeteria'] ?></td>
+                                <td><?php echo $mostrar['costo'] ?></td>
+                                <td><?php echo $mostrar['foto'] ?></td>
+                            </tr>
+                            <!--echo "<tr>";
+                                echo "<td>"; echo $filas['nombre']; echo "</td>";
+                                echo "<td>"; echo $filas['cafeteria']; echo "</td>";
+                                echo "<td>"; echo $filas['costo']; echo "</td>";
+                                echo "<td>"; echo $filas['foto']; echo "</td>";
+                                echo "<td>  <a href='modif_prod1.php?no=".$filas['nombre']."'> <button type='button' class='btn btn-success'>Modificar</button> </a> </td>";
+                                echo "<td> <a href='eliminar_prod.php?no=".$filas['nombre']."''><button type='button' class='btn btn-danger'>Eliminar</button></a> </td>";
+                              echo "</tr>";-->
+                        <?php 
+                        }
+                        ?>
+                      </tbody>
+                    </table>
+                  </div><section>
+            </section>
+            <section>
+                <div class="end">
+                    <input type="button" id="add" value="Editar Menú">
+                </div>
+                <div class="end"><br>
+                    <input type="button" id="busc" value="Buscar Menú">
+                </div>
+                <div class="end"><br>
+                    <input type="reset" value="Vaciar"><br><br>
+                </div>
+                <div class="end"><br><br>
+                    <input type="button" value="Volver al inicio" onclick="window.location.href='../Secciones/paginaPrincipal.html'">
+                </div>
+            </section>
+        </form>
+        <script type="text/javascript" src="../JavaScript/complementos.js"></script>
+    </body>
+</html>

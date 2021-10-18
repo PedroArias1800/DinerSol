@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../Css/menu izquierda.css">
+        <title>Administración | Agregar</title>
+    </head>
+    <body>
+        <header>
+            <h1>Header nav generalizado</h1>
+        </header>
+        <hr>
+        <h2>Administración del Menú</h2>
+        <input type="checkbox" class="CBox" id="CBox1">
+        <label class="LBel" for="CBox1">¥</label>
+        <div class="LMenu">
+            <ul>
+                <a href="EMenu.html"><li>Editar</li></a>
+                <a href="IMenu.html"><li>Inventario</li></a>
+            </ul>
+            </div>
+            <div class="H">
+                <label class="SH">Agregue un menú:</label><br><br>
+            </div>
+        <form name="RMenu" method="POST" action="../Secciones/datos.php">
+            <div class="item">
+                <input type="hidden" name="fotoActual" value="<?php echo $datoUser->foto ?>"  >
+                <label for="foto">Foto:</label><br>
+                <input type="file" id="foto" name="foto"><br><br>
+            </div>
+            <section>
+                <div class="item">
+                    <label for="nombre">Nombre del Menú:</label><br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Arroz Frito" maxlength="50" required><br><br>
+                </div>
+                <label for="NCafe">Elija la Cafeteria:</label><br>
+                <select name="NCafe" id="NCafe">
+                    <option value="CCafe">Cafeteria central</option>
+                    <option value="Cafe1">Cafeteria 1</option>
+                    <option value="Cafe2">Cafeteria 2</option>
+                    <option value="Cafe3">Cafeteria 3</option>
+                    <option value="Cafe4">Cafeteria 4</option>
+                  </select>
+            </section>
+            <section>
+                <div class="item">
+                    <br><label for="CMenu">Costo:</label>
+                <br><br><input type="number" id="CMenu" name="CMenu" value="0" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required/><br><br>
+            </div>
+            </section>
+            <section>
+                <div class="end">
+                    <input type="reset" value="Vaciar"><br><br>
+                </div>
+            </section>
+        </form>
+        <section>
+            <div class="end">
+                <input type="button" id="add" value="Agregar Menú">
+            </div>
+            <div class="end"><br><br>
+                <input type="button" value="Volver al inicio" onclick="window.location.href='../Secciones/paginaPrincipal.html'">
+            </div>
+        </section>
+        <script type="text/javascript" src="../JavaScript/complementos.js"></script>
+    </body>
+</html>

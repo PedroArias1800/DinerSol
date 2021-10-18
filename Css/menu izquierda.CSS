@@ -1,0 +1,104 @@
+.LBel{
+    width: 3.4rem;
+    height: 2.0rem;
+    background-color: lightblue;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    font-family: sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    transition: left 0.7s;
+}
+.CBox:checked ~ .LBel{
+    left: 40%;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+.LMenu{
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(#34CCFF,#A9FFFF,#FFAD2F);
+    position: absolute;
+    top: 0;
+    left: -40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:  left 0.4s;
+}
+.CBox:checked ~ .LMenu{
+    left: 0;
+}
+.CBox{
+    display: none;
+}
+ul a{
+    color: black;
+    text-decoration: none;
+}
+li{
+    list-style: none;
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 0.5rem;
+    margin: 1rem 0;
+}
+li:hover{
+    color: white;
+    border: solid white;
+    border-width: 0 0.1rem;
+}
+.table {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .table thead {
+    position: sticky;
+    top: 0;
+  }
+  
+  .table thead th {
+    border: 1px solid #e4eff8;
+    background: white;
+    cursor: pointer;
+  }
+  
+  .table thead th.header-label {
+    cursor: pointer;
+    background: linear-gradient(0deg, #e4eff8, #4578a2 5%, #e4eff8 150%);
+    color: white;
+    border: 1px solid white;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.2rem 0.5rem;
+    text-align: center;
+  }
+  
+  .table td {
+    border: 1px solid #e4eff8;
+  }
+  
+  .table .tr-inputs th {
+    position: relative;
+    padding: 0;
+    padding-bottom: 1.2rem;
+    margin: 0;
+  }
+  
+  .table .tr-inputs div {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .table input {
+    width: 100%;
+    box-sizing: border-box;
+  }
