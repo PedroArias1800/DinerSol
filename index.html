@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DinerSol | Recuperar Contraseña</title>
+        <title>DinerSol | Iniciar Sesión</title>
     </head>
     <body>
         <header>
@@ -12,7 +12,7 @@
         <hr>
         <section>
             <div>
-                <input type="button" id="volver" value="Volver a Inicio" onclick="window.location.href='../index.html'">
+                <input type="button" id="registro" value="Registrarse" onclick="window.location.href='Secciones/registrarse.html'">
             </div>
         </section>
 
@@ -31,25 +31,23 @@
             </section>
             <section>
                 <div>
-                    <label for="tipo">Método de recuperación:</label> <br>
-                    <input type="radio" id="radioCor" name="tipo" onclick="Tipo(1)" required>
-                    <label for="radioCor">Correo</label>
-                    <input type="radio" id="radioTel" name="tipo" onclick="Tipo(2)">
-                    <label for="radioTel">Teléfono</label>
+                    <label for="correo">Correo:</label><br>
+                    <input type="email" id="correo" name="correo" placeholder="Ej: usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>
                     <br><br>
                 </div>
             </section>
             <section>
                 <div>
-                    <label id="lblCor" for="correo" hidden>Correo:</label><br>
-                    <input type="email" id="correo" name="correo" placeholder="Ej: usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" hidden required>
-                    <br><br>
+                    <label for="contra1">Contraseña:</label><br>
+                    <input type="password" id="contra1" name="contra1" placeholder="**********" maxlength="30" required>
+                    <br>
                 </div>
+            </section>
+            <section>
                 <div>
-                    <label id="lblTel" for="telefono" hidden>Teléfono:</label><br>
-                    <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1111-1111" pattern="[0-9]{4}-[0-9]{4}" hidden required>
-                    <br><br>
+                    <input type="checkbox" onclick="Mostrar()">Mostrar Contraseña
                 </div>
+                <br>
             </section>
             <section>
                 <div>
@@ -61,9 +59,15 @@
                 <br>
             </section>
         </form>
+        <section>
+            <div>
+                <label for="recuperar">¿Olvidaste tu contraseña?</label><br>
+                <input type="button" id="recuperar" value="Recuperar" onclick="window.location.href='Secciones/recuperarContraseña.html'">
+            </div>
+        </section>
         <footer>
             <!-- FOOTER -->
         </footer>
-        <script type="text/javascript" src="../JavaScript/complementos.js"></script>
+        <script type="text/javascript" src="JavaScript/complementos.js"></script>
     </body>
 </html>

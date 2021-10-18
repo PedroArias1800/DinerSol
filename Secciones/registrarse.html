@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DinerSol | Registro</title>
+    </head>
+    <body>
+        <header>
+            <!-- HEADER -->
+        </header>
+        <hr>
+        <section>
+            <div>
+                <input type="button" id="volver" value="Volver a Inicio" onclick="window.location.href='../index.html'">
+            </div>
+        </section>
+
+        <h2>INGRESE SUS DATOS:</h2>
+
+        <form name="formRegistro" method="POST" action="">
+            <section>
+                <div>
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Aurelio" maxlength="50" required><br><br>
+                </div>
+                <div>
+                    <label for="apellido">Apellido:</label><br>
+                    <input type="text" id="apellido" name="apellido" placeholder="Ej: Morales" maxlength="50" required><br><br>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <label for="cedula">Cédula:</label><br>
+                    <input type="text" id="cedula" name="cedula" placeholder="Ej: 1-111-1111" maxlength="15" required><br><br>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <label for="correo">Correo:</label><br>
+                    <input type="email" id="correo" name="correo" placeholder="Ej: usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>
+                    <br><br>
+                </div>
+                <div>
+                    <label for="telefono">Teléfono Personal:</label><br>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1111-1111" pattern="[0-9]{4}-[0-9]{4}" required>
+                    <br><br>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <label for="contra1">Contraseña:</label><br>
+                    <input type="password" id="contra1" name="contra1" placeholder="**********" maxlength="30" required>
+                    <br>
+                </div>
+                <div>
+                    <label for="contra2">Repetir Contraseña:</label><br>
+                    <input type="password" id="contra2" name="contra2" placeholder="**********" maxlength="30" required>
+                    <br>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <input type="checkbox" onclick="Mostrar()">Mostrar Contraseñas
+                    <br><br>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <p>
+                        <?php
+                            if(isset($_GET['msg']))
+                                echo $_GET['msg'];
+                        ?>
+                    </p>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <input type="reset" value="Vaciar">
+                </div>
+                <div>
+                    <input type="submit" onclick="ComprobarClave()" value="Aceptar">
+                </div>
+            </section>
+        </form>
+        <section>
+        <script type="text/javascript" src="../JavaScript/complementos.js"></script>
+    </body>
+</html>
