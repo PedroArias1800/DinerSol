@@ -52,8 +52,9 @@ body{
     font-size: large;
 }
 .FotoComida{
-    margin-left: 17.5%;
     margin-top: 5%;
+    width: 90%;
+    margin-left: 5%;
 }
 .FotoComida:hover{
     opacity: 80%;
