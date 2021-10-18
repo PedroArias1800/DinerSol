@@ -3,11 +3,10 @@ body{
 }
 .footer{
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    background-color: burlywood;
+    background-color: rgb(243, 171, 77);
     padding-top: 2.5%;
-    padding-bottom: 2.5%;
+    padding-bottom: 2%;
 }
 .footer img{
     margin-left: 12%;
@@ -21,8 +20,7 @@ body{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 2.5%;
-    padding-bottom: 2.5%;
+    padding-top: 0.2%;
 }
 .header img{
     margin-left: 12%;
@@ -34,5 +32,5 @@ body{
 }
 .header h1{
     margin-top: -3%;
-    color: rebeccapurple;
+    color: rgb(243, 144, 16);
 }
