@@ -9,9 +9,9 @@ function Mostrar() {
       x.type = "password";
       y.type = "password";
     }
-  }
+}
 
-  function ComprobarClave(){
+function ComprobarClave(){
     p1 = document.formRegistro.contra1.value;
     p2 = document.formRegistro.contra2.value;
 
@@ -19,9 +19,9 @@ function Mostrar() {
       alert("Ambas claves deben ser iguales.");
       return false;
     }
-  }
+}
 
-  function Tipo(t){
+function Tipo(t){
     var tel = document.getElementById("telefono");
     var cor = document.getElementById("correo");
     var lblT = document.getElementById("lblTel");
@@ -47,4 +47,71 @@ function Mostrar() {
       lblC.hidden = true;
       lblT.hidden = false;
     }
-  }
+}
+
+function Cual(c){
+    var central = document.getElementById("Central");
+    var fotoCentral = document.getElementById("CafCentral");
+
+    var fisc = document.getElementById("Fisc");
+    var fotoFisc = document.getElementById("CafFisc");
+    
+    var pb = document.getElementById("Edi1PB");
+    var fotoPb = document.getElementById("CafEdi1PB");
+
+    var p2 = document.getElementById("Edi1P2");
+    var fotoP2 = document.getElementById("CafEdi1P2");
+
+    if(c == 1){
+        central.style.display = "block";
+        fotoCentral.style.display = "block";
+
+        fisc.style.display = "none";
+        fotoFisc.style.display = "none";
+
+        pb.style.display = "none";
+        fotoPb.style.display = "none";
+        
+        p2.style.display = "none";
+        fotoP2.style.display = "none";
+
+    } else if(c == 2) {
+        central.style.display = "none";
+        fotoCentral.style.display = "none";
+
+        fisc.style.display = "block";
+        fotoFisc.style.display = "block";
+
+        pb.style.display = "none";
+        fotoPb.style.display = "none";
+
+        p2.style.display = "none";
+        fotoP2.style.display = "none";
+
+    } else if(c == 3){
+        central.style.display = "none";
+        fotoCentral.style.display = "none";
+
+        fisc.style.display = "none";
+        fotoFisc.style.display = "none";
+
+        pb.style.display = "block";
+        fotoPb.style.display = "block";
+
+        p2.style.display = "none";
+        fotoP2.style.display = "none";
+
+    } else{
+        central.style.display = "none";
+        fotoCentral.style.display = "none";
+
+        fisc.style.display = "none";
+        fotoFisc.style.display = "none";
+
+        pb.style.display = "none";
+        fotoPb.style.display = "none";
+
+        p2.style.display = "block";
+        fotoP2.style.display = "block";
+    }
+}
