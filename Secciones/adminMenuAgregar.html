@@ -52,7 +52,7 @@
                 <div class="otraBarra">
                     <h2>Agregar Al Menú</h2>
                     <img src="../Imagenes/producto.png" alt="Foto Del Producto" width="30%" height="30%"><br>
-                    <input type="file">
+                    <input type="file" class="botones">
                     <div class="datosProductos">
                         <div class="datosProductos">
                             <h3>Nombre:</h3>
@@ -68,62 +68,23 @@
                             </select>
                         </div>
                     </div>
-                    <div class="datosProductos">
+                    <div class="datosProductos" style="margin-top: -4%;">
                         <div class="datosProductos">
                             <h3>Precio:</h3>
-                            <input type="number" placeholder="Precio Del Producto">
+                            <input type="number" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
                         </div>
                         <div class="datosProductos">
                             <h3>Cantidad:</h3>
-                            <input type="number" placeholder="Cantidad De Productos">
+                            <input type="number" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
                         </div>
+                    </div>
+                    <div class="datosProductos" style="justify-content: center; margin-top: 2%; margin-bottom: -8%;">
+                        <input type="submit" class="botones" value="Guardar Producto">
+                        <input type="reset" class="botones" value="Cancelar">
                     </div>
                 </div>
             </div><br><hr><br>
-        </div><!--
-        <input type="checkbox" class="CBox" id="CBox1">
-        <label class="LBel" for="CBox1">¥</label>
-        <div class="LMenu">
-            <ul>
-                <a href="EMenu.html"><li>Editar</li></a>
-                <a href="IMenu.html"><li>Inventario</li></a>
-            </ul>
         </div>
-        <div class="H">
-            <label class="SH">Agregue un menú:</label><br><br>
-        </div>
-        <form name="RMenu" method="POST" action="../Secciones/datos.php">
-            <div class="item">
-                <input type="hidden" name="fotoActual" value="">
-                <label for="foto">Foto:</label>
-                <input type="file" id="foto" name="foto">
-            </div>
-            <div class="item">
-                <label for="nombre">Nombre del Menú:</label><br>
-                <input type="text" id="nombre" name="nombre" placeholder="Ej: Arroz Frito" maxlength="50" required>
-            </div>
-            <label for="NCafe">Elija la Cafeteria:</label><br>
-            <select name="NCafe" id="NCafe">
-                <option value="CCafe">Cafeteria central</option>
-                <option value="Cafe1">Cafeteria 1</option>
-                <option value="Cafe2">Cafeteria 2</option>
-                <option value="Cafe3">Cafeteria 3</option>
-                <option value="Cafe4">Cafeteria 4</option>
-            </select>
-            <div class="item">
-                <label for="CMenu">Costo:</label>
-            <input type="number" id="CMenu" name="CMenu" value="0" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required/>
-        </div>
-        <div class="end">
-            <input type="reset" value="Vaciar">
-        </div>
-        <div class="end">
-            <input type="button" id="add" value="Agregar Menú">
-        </div>
-        <div class="end">
-            <input type="button" value="Volver al inicio" onclick="window.location.href='../Secciones/paginaPrincipal.html'">
-        </div>
-    </form>-->
     <div class="footer">
         <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
         <h3>
