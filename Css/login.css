@@ -17,12 +17,19 @@ body{
     margin-bottom: 0.8%;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+.item2{
+    margin-left: 7%;
 }
 .item input{
     margin-left: 1.5%;
     margin-bottom: 1%;
     font-size: large;
     border-radius: 5px;
+}
+.item label{
+    margin-left: 5%;
 }
 .todo{
     text-align: center;

@@ -27,48 +27,45 @@
             <form name="formRegistro" method="POST" action="">
                 <div class="card"><br>
                     <h2>INGRESE SUS DATOS</h2>
-                    <div class="ComidasMenu">
+                    <div>
                         <div class="Secciones">
                             <div class="item">
-                                <label for="nombre">Nombre:</label><br>
+                                <label for="nombre">Nombre:</label>
                                 <input type="text" id="nombre" name="nombre" placeholder="Ej: Aurelio" maxlength="50" required><br><br>
                             </div>
-                            <div class="item">
-                                <label for="apellido">Apellido:</label><br>
+                            <div class="item item2">
+                                <label for="apellido">Apellido:</label>
                                 <input type="text" id="apellido" name="apellido" placeholder="Ej: Morales" maxlength="50" required><br><br>
                             </div>
                         </div>
                         <div class="Secciones">
                             <div class="item">
-                                <label for="cedula">Cédula:</label><br>
+                                <label for="cedula">Cédula:</label>
                                 <input type="text" id="cedula" name="cedula" placeholder="Ej: 1-111-1111" maxlength="15" required><br><br>
                             </div>
-                            <div class="item">
-                                <label for="correo">Correo:</label><br>
+                            <div class="item item2">
+                                <label for="correo">Correo:</label>
                                 <input type="email" id="correo" name="correo" placeholder="Ej: usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>
                             </div>
                         </div>
                         <div class="Secciones">
                             <div class="item">
-                                <label for="telefono">Teléfono Personal:</label><br>
+                                <label for="telefono">Teléfono Personal:</label>
                                 <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1111-1111" pattern="[0-9]{4}-[0-9]{4}" required>
-                                <br><br>
-                            </div>
-                            <div class="item">
-                                <label for="contra1">Contraseña:</label><br>
-                                <input type="password" id="contra1" name="contra1" placeholder="**********" maxlength="30" required>
-                                <br>
-                            </div>
-                            <div class="item">
-                                <label for="contra2">Repetir Contraseña:</label><br>
-                                <input type="password" id="contra2" name="contra2" placeholder="**********" maxlength="30" required>
-                                <br>
                             </div>
                         </div>
-                        
-                        <div class="item">
-                            <input type="checkbox" onclick="Mostrar()">Mostrar Contraseñas
-                            <br><br>
+                        <div class="Secciones">
+                            <div class="item">
+                                <label for="contra1">Contraseña:</label>
+                                <input type="password" id="contra1" name="contra1" placeholder="**********" maxlength="30" required>
+                            </div>
+                            <div class="item item2">
+                                <label for="contra2">Repetir Contraseña:</label>
+                                <input type="password" id="contra2" name="contra2" placeholder="**********" maxlength="30" required>
+                            </div>
+                        </div>
+                        <div class="item" style="margin-top: -1%; margin-bottom: -1%;">
+                            <input type="checkbox" onclick="Mostrar()"><h4>Mostrar Contraseñas</h4>
                         </div>
                     </div>
                     <!--
