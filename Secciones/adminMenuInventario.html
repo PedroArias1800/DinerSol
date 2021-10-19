@@ -7,126 +7,100 @@
         <link rel="stylesheet" href="../Css/footerHeader.css">
         <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
         <link rel="stylesheet" href="../Css/drpdwn.css">
+        <link rel="stylesheet" href="../Css/estadisticas.css">
         <title>Administración | Inventario</title>
     </head>
     <body>
-      <header>
-        <div class="header">
-            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="9%" height="9%">
-            <div>
-                <h3>Universidad Tecnológica De Panamá</h3>
-                <h1>DinerSol - Sistema De Cafeterías UTP</h1>
-            </div>
-            <div class="fotoUser">
-              <!-- <h3>Aurelio Morales</h3> -->
-              <div class="dropdown">
-                  <button class="dropbtn"><b>Aurelio Morales</b></button>
-                  <div class="dropdown-content">
-                    <a href="paginaPrincipal.html">Inicio</a>
-                    <a href="">Pedido</a>
-                    <a href="../index.html">Cerrar Sesión</a>
-                  </div>
-              </div>
-              <img class="FPerfil" src="../Imagenes/user.png" alt="Foto De Perfil" width="3%" height="3%">
-            </div>
-        </div>
-    </header>
-    <br><br><hr>
-        <h2>Administración del Menú</h2>
-        <input type="checkbox" class="CBox" id="CBox1">
-        <label class="LBel" for="CBox1">¥</label>
-        <div class="LMenu">
-            <ul>
-                <a href="adminMenuAgregar.html"><li>Agregar</li></a>
-                <a href="adminMenuEditar.html"><li>Editar</li></a>
-            </ul>
-            </div>
-        <form name="IMenu" method="POST" action="">
-        <br><br>
-        <div class="item">
-            <label class="SH">Lista de Menus Disponibles:</label><br><br>
-        </div>
-        <section>
-        <div class="tableFixHead">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th><div class="header-label">Nombre</div><input type="string"></th>
-                  <th><div class="header-label">Cafeteria</div><input type="string"></th>
-                  <th><div class="header-label">Costo</div><input type="number"></th>
-                  <th><div class="header-label">Foto</div><input type="number"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php 
-                    $sql="SELECT * from Menu";
-                    $result=mysqli_query($conexion,$sql);
-
-                    while($mostrar=mysqli_fetch_array($result)){
-                    ?>
-
-                    <tr>
-                        <td><?php echo $mostrar['nombre'] ?></td>
-                        <td><?php echo $mostrar['cafeteria'] ?></td>
-                        <td><?php echo $mostrar['costo'] ?></td>
-                        <td><?php echo $mostrar['foto'] ?></td>
-                    </tr>
-                    <!--echo "<tr>";
-                        echo "<td>"; echo $filas['nombre']; echo "</td>";
-                        echo "<td>"; echo $filas['cafeteria']; echo "</td>";
-                        echo "<td>"; echo $filas['costo']; echo "</td>";
-                        echo "<td>"; echo $filas['foto']; echo "</td>";
-                        echo "<td>  <a href='modif_prod1.php?no=".$filas['nombre']."'> <button type='button' class='btn btn-success'>Modificar</button> </a> </td>";
-                        echo "<td> <a href='eliminar_prod.php?no=".$filas['nombre']."''><button type='button' class='btn btn-danger'>Eliminar</button></a> </td>";
-                      echo "</tr>";-->
-                <?php 
-                }
-                ?>
-                <tr>
-                  <td>Arroz con pollo</td>
-                  <td>Cafeteria1</td>
-                  <td>34.55</td>
-                  <td>foto</td>
-                </tr>
-                <tr>
-                  <td>Arroz con colon</td>
-                  <td>cafeteria central</td>
-                  <td>10.10</td>
-                  <td>foto</td>
-                </tr>
-              </tbody>
-            </table>
-          </div><section>
-            <div class="end"><br><br>
-                <input type="button" id="add" value="Editar Menú">
-            </div>
-            <div class="end"><br><br>
-                <input type="button" id="busc" value="Buscar Menú">
-            </div>
-            <div class="end"><br><br>
-                <input type="button" id="busc" value="Eliminar Menú">
-            </div>
-            <div class="end">
-                <br><br> <input type="reset" value="Vaciar"><br><br>
-            </div>
-            <div class="end"><br><br>
-              <input type="button" value="Volver al inicio" onclick="window.location.href='../Secciones/paginaPrincipal.html'">
-          </div>
-        </section>
-      </form>
-      <hr>
-      <div class="footer">
+      <div class="header">
           <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-          <h3>
-              Universidad Tecnológica de Panamá - 2021<br>
-              Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
-              Campus Metropolitano Víctor Levi Sasso.<br>
-              Teléfono. (507) 560-3000<br>
-              Correo electrónico: buzondesugerencias@utp.ac.pa<br>
-              311 Centro de Atención Ciudadana<br>
-              Políticas de Privacidad<br>
-          </h3>
+          <div>
+              <h3>Universidad Tecnológica De Panamá</h3>
+              <h1>DinerSol - Sistema De Cafeterías UTP</h1>
+          </div>
       </div>
+      <div class="fotoUser">
+          <!-- <h3>Aurelio Morales</h3> -->
+          <div class="dropdown">
+              <button class="dropbtn"><b>Aurelio Morales</b></button>
+              <div class="dropdown-content">
+                <a href="perfilDeUsuario.html">Mi Perfil</a>
+                <a href="">Pedido</a>
+                <a href="../index.html">Cerrar Sesión</a>
+              </div>
+          </div>
+          <img class="FPerfil" src="../Imagenes/user.png" alt="Foto De Perfil" width="3%" height="3%">
+      </div>
+      <nav>
+          <a href="paginaPrincipal.html">Inicio</a>
+          <a href="">Cafeterías</a>
+          <a href="">Ayuda Estudiantil</a>
+          <a href="">Historial De Compras</a>
+          <a href="estadisticas.html">Estadísticas</a>
+      </nav>
+      <div class="TituloCompleto">
+          <h1>Administración De Menús</h1>
+      </div>
+      <div class="HacerPedido inventario">
+        <h2 class="NombreCafeteria">Cafeterías:</h2>
+        <select>
+          <option value="1">Cafetería Central</option>
+          <option value="2">Cafetería Del Edificio 3</option>
+          <option value="3">Cafetería Del Edificio 1 - Planta Baja</option>
+          <option value="4">Cafetería Del Edificio 1 - Piso 2</option>
+      </select>
+      </div>
+      <div class="card">
+          <table>
+            <thead>
+              <tr>
+                <th>Comidas</th>
+                <th>Precio</th>
+                <th>Cantidad Disponible</th>
+                <th>Foto</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody class="tBody">
+              <tr>
+                <td>Arroz Con Pollo</td>
+                <td>$1.25</td>
+                <td>62</td>
+                <td><img src="../Imagenes/arrozConPollo.jpg" alt="Foto" width="9%" height="9%"></td>
+                <td class="tdEspecial"><input type="checkbox" checked><h4>Habilitado</h4></td>
+              </tr>
+              <tr>
+                <td>Snickers</td>
+                <td>$1.00</td>
+                <td>25</td>
+                <td><img src="../Imagenes/snickers.png" alt="Foto" width="9%" height="9%"></td>
+                <td class="tdEspecial"><input type="checkbox"><h4>Deshabilitado</h4></td>
+              </tr>
+              <tr>
+                <td>Macarrones</td>
+                <td>$1.50</td>
+                <td>42</td>
+                <td><img src="../Imagenes/Comida1.jpg" alt="Foto" width="9%" height="9%"></td>
+                <td class="tdEspecial"><input type="checkbox" checked><h4>Habilitado</h4></td>
+              </tr>
+            </tbody>
+          </table><br>
+          </div>
+          <div class="datosProductos inventarioBotones">
+            <button class="botones"><a href="paginaPrincipal.html">Cancelar</a></button>
+            <input type="submit" class="botones" value="Guardar Cambios">
+          </div><br><br>
+        <div class="footer">
+            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
+            <h3>
+                Universidad Tecnológica de Panamá - 2021<br>
+                Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
+                Campus Metropolitano Víctor Levi Sasso.<br>
+                Teléfono. (507) 560-3000<br>
+                Correo electrónico: buzondesugerencias@utp.ac.pa<br>
+                311 Centro de Atención Ciudadana<br>
+                Políticas de Privacidad<br>
+            </h3>
+        </div>
         <script type="text/javascript" src="../JavaScript/complementos.js"></script>
     </body>
 </html>

@@ -193,11 +193,39 @@ nav a:hover{
 .formPedido select{
     font-size: medium;
 }
-.PagarCancelar{
+.PagarCancelar, .tdEspecial{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     background-color: #e8e8e8;
+}
+.tdEspecial input{
+    margin-right: 5%;
+    padding-top: -1%;
+    padding-bottom: -1%;
 }
 .PagarCancelar .botones{
     font-size: x-large;
+}
+.inventario{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1%;
+    align-items: center;
+    justify-content: flex-start;
+}
+.inventario select{
+    font-size:  large;
+    margin-left: 5%;
+    border-radius: 5px;
+}
+.tBody td{
+    font-size: large;
+}
+.inventarioBotones{
+    display: flex;
+    justify-content: center;
+}
+.inventarioBotones input{
+    margin-left: 5%;
 }
