@@ -49,6 +49,7 @@ function Tipo(t){
     }
 }
 
+/*
 function Cual(c){
     var central = document.getElementById("Central");
     var fotoCentral = document.getElementById("CafCentral");
@@ -61,6 +62,8 @@ function Cual(c){
 
     var p2 = document.getElementById("Edi1P2");
     var fotoP2 = document.getElementById("CafEdi1P2");
+
+    var c = document.getElementsByClassName("CafCentral");
 
     if(c == 1){
         central.style.display = "block";
@@ -114,4 +117,24 @@ function Cual(c){
         p2.style.display = "block";
         fotoP2.style.display = "block";
     }
+}
+*/
+
+function Cual(c){
+  var i = document.getElementById("imgCafe");
+  var n = document.getElementById("nameCafe");
+
+  if(c==1){
+    i.src = "../Imagenes/CafeteriaCentral.jpg";
+    n.innerHTML = "Cafeteria Central";
+  } else if(c==2){
+    i.src = "../Imagenes/CafeteriaEdi1PB.PNG";
+    n.innerHTML = "Cafeteria Edificio #1 PB";
+  } else if(c==3){
+    i.src = "../Imagenes/CafeteriaEdi1P2.PNG";
+    n.innerHTML = "Cafeteria Edificio #1 P2";
+  } else{
+    i.src = "../Imagenes/CafeteriaFISC.jpg";
+    n.innerHTML = "Cafeteria Edificio #3";
+  }
 }
