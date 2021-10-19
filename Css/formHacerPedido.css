@@ -1,0 +1,52 @@
+.hacerPedido{
+    margin-top: 1%;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: baseline;
+    text-align: center;
+    font-size: large;
+}
+.barraLateral{
+    width: 30%;
+    background-color: #e8e8e8;
+    border: 2px solid black;
+}
+.barraLateral a{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    text-decoration: none;
+    color: black;
+    font-size: x-large;
+    border: 2px solid black;
+}
+.barraLateral h2{
+    background-color: rgb(243, 144, 16);
+    color: white;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.otraBarra{
+    width: 70%;
+    background-color: #e8e8e8;
+    border: 2px solid black;
+}
+.otraBarra h2{
+    background-color: rgb(243, 144, 16);
+    color: white;
+    padding-top: 0.8%;
+    padding-bottom: 0.8%;
+}
+.datosProductos{    
+    font-size: x-large;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 2%;
+    align-items: center;
+}
+.datosProductos input, .datosProductos select, .otraBarra input{
+    font-size: large;
+    margin-left: 2%;
+    border-radius: 5px;
+}
