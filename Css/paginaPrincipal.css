@@ -175,3 +175,29 @@ nav a:hover{
     background-color: rgb(206, 117, 0);
     border: 1px solid white;
 }
+.botones a{
+    text-decoration: none;
+    color: white;
+}
+.OpcionesPedido{
+    background-color: #e8e8e8;
+}
+.formPedido{
+    display: flex;
+    justify-content: space-evenly;
+}
+.formPedido h3{
+    margin-bottom: 0%;
+    font-size: x-large;
+}
+.formPedido select{
+    font-size: medium;
+}
+.PagarCancelar{
+    display: flex;
+    justify-content: space-around;
+    background-color: #e8e8e8;
+}
+.PagarCancelar .botones{
+    font-size: x-large;
+}
