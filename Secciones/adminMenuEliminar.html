@@ -38,26 +38,22 @@
             <a href="estadisticas.html">Estadísticas</a>
         </nav>
         <div class="TituloCompleto">
-            <h1>Administrar El Menú - Agregar</h1>
+            <h1>Administrar El Menú - Eliminar</h1>
         </div>
         <div class="todo">
             <div class="hacerPedido">
                 <div class="barraLateral">
                     <h2>Opciones</h2>
-                    <a href="">Agregar</a>
+                    <a href="adminMenuAgregar.html">Agregar</a>
                     <a href="adminMenuEditar.html">Editar</a>
-                    <a href="adminMenuEditar.html">Eliminar</a>
+                    <a href="#">Eliminar</a>
                     <a href="adminMenuInventario.html">Inventario</a><br>
                 </div>
                 <div class="otraBarra">
-                    <h2>Agregar Al Menú</h2>
-                    <img src="../Imagenes/producto.png" alt="Foto Del Producto" width="30%" height="30%"><br>
+                    <h2>Eliminar Del Menú</h2>
+                    <img src="../Imagenes/arrozPescadoEnsalada.jpg" alt="Foto Del Producto" width="30%" height="30%"><br>
                     <input type="file" class="botones">
                     <div class="datosProductos">
-                        <div class="datosProductos">
-                            <h3>Nombre:</h3>
-                            <input type="text" placeholder="Nombre del producto">
-                        </div>
                         <div class="datosProductos">
                             <h3>Cafetería:</h3>
                             <select>
@@ -67,20 +63,38 @@
                                 <option value="4">Cafetería Del Edificio 1 - Piso 2</option>
                             </select>
                         </div>
+                        <div class="datosProductos">
+                            <h3>Menú:</h3>
+                            <select>
+                                <option value="1">Arroz Con Pollo</option>
+                                <option value="2">Macarrones</option>
+                                <option value="3">Arroz Con Pescado</option>
+                                <option value="4">Snicker</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="datosProductos" style="margin-top: -4%;">
+                        <div class="datosProductos">
+                            <h3>Nombre:</h3>
+                            <input type="text" placeholder="Nombre del producto" value="Arroz Con Pescado Y Ensalada" disabled>
+                        </div>
+                        <div class="datosProductos">
+                            <h3>Cafetería:</h3>
+                            <input type="text" placeholder="Nombre del producto" value="Cafetería Central" disabled>
+                        </div>
                     </div>
                     <div class="datosProductos" style="margin-top: -4%;">
                         <div class="datosProductos">
                             <h3>Precio:</h3>
-                            <input type="number" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                            <input type="number" placeholder="Precio Del Producto" value="2.75" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" disabled>
                         </div>
                         <div class="datosProductos">
                             <h3>Cantidad:</h3>
-                            <input type="number" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
+                            <input type="number" placeholder="Cantidad De Productos" value="80" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" disabled>
                         </div>
                     </div>
                     <div class="datosProductos" style="justify-content: center; margin-top: 2%; margin-bottom: -8%;">
-                        <input type="submit" class="botones" value="Guardar Producto">
-                        <input type="reset" class="botones" value="Cancelar">
+                        <input type="submit" class="botones" value="Eliminar Producto">
                     </div><br><br>
                 </div>
             </div><br><hr><br>

@@ -3,137 +3,115 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../Css/menu izquierda.css">
         <link rel="stylesheet" href="../Css/footerHeader.css">
-        <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
+        <link rel="stylesheet" href="../Css/paginaPrincipal.css">
         <link rel="stylesheet" href="../Css/drpdwn.css">
-        <title>Administración | Editar</title>
+        <link rel="stylesheet" href="../Css/estadisticas.css">
+        <link rel="stylesheet" href="../Css/formHacerPedido.css">
+        <title>Administración | Agregar</title>
     </head>
     <body>
-            <header>
-                <div class="header">
-                    <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="9%" height="9%">
-                    <div>
-                        <h3>Universidad Tecnológica De Panamá</h3>
-                        <h1>DinerSol - Sistema De Cafeterías UTP</h1>
-                    </div>
+        <div class="header">
+            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
+            <div>
+                <h3>Universidad Tecnológica De Panamá</h3>
+                <h1>DinerSol - Sistema De Cafeterías UTP</h1>
+            </div>
+        </div>
+        <div class="fotoUser">
+            <!-- <h3>Aurelio Morales</h3> -->
+            <div class="dropdown">
+                <button class="dropbtn"><b>Aurelio Morales</b></button>
+                <div class="dropdown-content">
+                  <a href="perfilDeUsuario.html">Mi Perfil</a>
+                  <a href="">Pedido</a>
+                  <a href="../index.html">Cerrar Sesión</a>
                 </div>
-                <div class="fotoUser">
-                    <!-- <h3>Aurelio Morales</h3> -->
-                    <div class="dropdown">
-                        <button class="dropbtn"><b>Aurelio Morales</b></button>
-                        <div class="dropdown-content">
-                          <a href="paginaPrincipal.html">Inicio</a>
-                          <a href="">Pedido</a>
-                          <a href="../index.html">Cerrar Sesión</a>
+            </div>
+            <img class="FPerfil" src="../Imagenes/user.png" alt="Foto De Perfil" width="3%" height="3%">
+        </div>
+        <nav>
+            <a href="paginaPrincipal.html">Inicio</a>
+            <a href="">Cafeterías</a>
+            <a href="">Ayuda Estudiantil</a>
+            <a href="">Historial De Compras</a>
+            <a href="estadisticas.html">Estadísticas</a>
+        </nav>
+        <div class="TituloCompleto">
+            <h1>Administrar El Menú - Editar</h1>
+        </div>
+        <div class="todo">
+            <div class="hacerPedido">
+                <div class="barraLateral">
+                    <h2>Opciones</h2>
+                    <a href="adminMenuAgregar.html">Agregar</a>
+                    <a href="#">Editar</a>
+                    <a href="adminMenuEliminar.html">Eliminar</a>
+                    <a href="adminMenuInventario.html">Inventario</a><br>
+                </div>
+                <div class="otraBarra">
+                    <h2>Agregar Al Menú</h2>
+                    <img src="../Imagenes/arrozPescadoEnsalada.jpg" alt="Foto Del Producto" width="30%" height="30%"><br>
+                    <input type="file" class="botones">
+                    <div class="datosProductos">
+                        <div class="datosProductos">
+                            <h3>Cafetería:</h3>
+                            <select>
+                                <option value="1">Cafetería Central</option>
+                                <option value="2">Cafetería Del Edificio 3</option>
+                                <option value="3">Cafetería Del Edificio 1 - Planta Baja</option>
+                                <option value="4">Cafetería Del Edificio 1 - Piso 2</option>
+                            </select>
+                        </div>
+                        <div class="datosProductos">
+                            <h3>Menú:</h3>
+                            <select>
+                                <option value="1">Arroz Con Pollo</option>
+                                <option value="2">Macarrones</option>
+                                <option value="3">Arroz Con Pescado</option>
+                                <option value="4">Snicker</option>
+                            </select>
                         </div>
                     </div>
-                    <img class="FPerfil" src="../Imagenes/user.png" alt="Foto De Perfil" width="3%" height="3%">
+                    <div class="datosProductos" style="margin-top: -4%;">
+                        <div class="datosProductos">
+                            <h3>Nombre:</h3>
+                            <input type="text" placeholder="Nombre del producto" value="Arroz Con Pescado Y Ensalada">
+                        </div>
+                        <div class="datosProductos">
+                            <h3>Cafetería:</h3>
+                            <input type="text" placeholder="Nombre del producto" value="Cafetería Central">
+                        </div>
+                    </div>
+                    <div class="datosProductos" style="margin-top: -4%;">
+                        <div class="datosProductos">
+                            <h3>Precio:</h3>
+                            <input type="number" placeholder="Precio Del Producto" value="2.75" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                        </div>
+                        <div class="datosProductos">
+                            <h3>Cantidad:</h3>
+                            <input type="number" placeholder="Cantidad De Productos" value="80" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
+                        </div>
+                    </div>
+                    <div class="datosProductos" style="justify-content: center; margin-top: 2%; margin-bottom: -8%;">
+                        <input type="submit" class="botones" value="Editar Producto">
+                        <input type="reset" class="botones" value="Cancelar">
+                    </div><br><br>
                 </div>
-            </header>
-        <br><br><hr>
-        <h2>Administración del Menú</h2>
-        <input type="checkbox" class="CBox" id="CBox1">
-        <label class="LBel" for="CBox1">¥</label>
-        <div class="LMenu">
-            <ul>
-                <a href="adminMenuAgregar.html"><li>Agregar</li></a>
-                <a href="adminMenuInventario.html"><li>Inventario</li></a>
-            </ul>
-            </div>
-            <div class="H">
-                <label class="SH">Edite un menú:</label><br><br>
-            </div>
-        <form name="EMenu" method="POST" action="../Secciones/datos.php">
-            <div class="item">
-                <input type="hidden" name="fotoActual" value="<?php echo $datoUser->foto ?>"  >
-                <label for="foto">Foto:</label><br>
-                <input type="file" id="foto" name="foto"><br><br>
-            </div>
-            <section>
-                <div class="item">
-                    <label for="nombre">Nombre del Menú:</label><br>
-                    <input type="text" id="nombre" name="nombre" value="<?php echo $datocafe->NMenu ?>"><br><br>
-                </div>
-                <div class="item">
-                <label for="NCafe">Cafeteria:</label><br>
-                <input type="text" id="NCafe" name="NCafe" value="<?php echo $datocafe->NCafe ?>"><br><br>
-            </div>
-            </section>
-            <section>
-                <div class="item">
-                    <label for="CMenu">Costo:</label>
-                <br><br><input type="number" id="CMenu" name="CMenu" value="<?php echo $datocafe->CMenu ?>"><br><br>
-            </div>
-            <section>
-                <div>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th><div class="header-label">Nombre</div><input type="string"></th>
-                          <th><div class="header-label">Cafeteria</div><input type="string"></th>
-                          <th><div class="header-label">Costo</div><input type="number"></th>
-                          <th><div class="header-label">Foto</div><input type="number"></th>
-                        </tr>
-                      </thead>
-                    </form>
-                      <tbody>
-                        <?php 
-                            $sql="SELECT * from Menu WHERE Nombre='$Nombre'";
-                            $result=mysqli_query($conexion,$sql);
-        
-                            while($mostrar=mysqli_fetch_array($result)){
-                            ?>
-        
-                            <tr>
-                                <td><?php echo $mostrar['nombre'] ?></td>
-                                <td><?php echo $mostrar['cafeteria'] ?></td>
-                                <td><?php echo $mostrar['costo'] ?></td>
-                                <td><?php echo $mostrar['foto'] ?></td>
-                            </tr>
-                            <!--echo "<tr>";
-                                echo "<td>"; echo $filas['nombre']; echo "</td>";
-                                echo "<td>"; echo $filas['cafeteria']; echo "</td>";
-                                echo "<td>"; echo $filas['costo']; echo "</td>";
-                                echo "<td>"; echo $filas['foto']; echo "</td>";
-                                echo "<td>  <a href='modif_prod1.php?no=".$filas['nombre']."'> <button type='button' class='btn btn-success'>Modificar</button> </a> </td>";
-                                echo "<td> <a href='eliminar_prod.php?no=".$filas['nombre']."''><button type='button' class='btn btn-danger'>Eliminar</button></a> </td>";
-                              echo "</tr>";-->
-                        <?php 
-                        }
-                        ?>
-                      </tbody>
-                    </table>
-                  </div><section>
-            </section>
-            <section>
-                <div class="end">
-                    <input type="button" id="add" value="Editar Menú">
-                </div>
-                <div class="end"><br>
-                    <input type="button" id="busc" value="Buscar Menú">
-                </div>
-                <div class="end"><br>
-                    <input type="reset" value="Vaciar"><br><br>
-                </div>
-                <div class="end"><br><br>
-                    <input type="button" value="Volver al inicio" onclick="window.location.href='../Secciones/paginaPrincipal.html'">
-                </div>
-            </section>
-        </form>
-        <hr>
-        <div class="footer">
-            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-            <h3>
-                Universidad Tecnológica de Panamá - 2021<br>
-                Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
-                Campus Metropolitano Víctor Levi Sasso.<br>
-                Teléfono. (507) 560-3000<br>
-                Correo electrónico: buzondesugerencias@utp.ac.pa<br>
-                311 Centro de Atención Ciudadana<br>
-                Políticas de Privacidad<br>
-            </h3>
+            </div><br><hr><br>
         </div>
+    <div class="footer">
+        <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
+        <h3>
+            Universidad Tecnológica de Panamá - 2021<br>
+            Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
+            Campus Metropolitano Víctor Levi Sasso.<br>
+            Teléfono. (507) 560-3000<br>
+            Correo electrónico: buzondesugerencias@utp.ac.pa<br>
+            311 Centro de Atención Ciudadana<br>
+            Políticas de Privacidad<br>
+        </h3>
+    </div>
         <script type="text/javascript" src="../JavaScript/complementos.js"></script>
     </body>
 </html>

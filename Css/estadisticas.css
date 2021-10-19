@@ -28,10 +28,26 @@ table, tr, td{
 .card2 table tr, .card2 table td{
     font-size: large;
 }
+.Campos form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.Campos h2{
+    width: 20%;
+}
 .Campos form button a{
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: large;
+    width: 20%;
+}
+.Campos form input{
+    margin-right: 50%;
+    margin-left: 2%;
+}
+.Campos form input, .Campos form button{
+    margin-top: 2%;
 }
 table{
     margin-left: 5%;

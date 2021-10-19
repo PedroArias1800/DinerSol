@@ -156,3 +156,22 @@ nav a:hover{
 .radios input:hover{
     cursor: pointer;
 }
+.botones{
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-size: large;
+    background-color: #f39010;
+    border-radius: 2px;
+    color: white;
+    border: 0px solid;
+    padding: 0.5%;
+    transition: all 0.35s;
+    border: 1px solid white;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.botones:hover{
+    transition: all 0.35s;
+    background-color: rgb(206, 117, 0);
+    border: 1px solid white;
+}
