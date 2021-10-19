@@ -44,7 +44,7 @@
                     <!-- <a href="#">Correo</a> -->
                     <a href="#">Contraseña</a>
                     <a href="#">Solicitud</a>
-                    <a href="#">Cerrar Sesión</a>
+                    <a href="../index.html">Cerrar Sesión</a>
                 </div>
                 <div class="contMain-form-contenido">
                     <h3>Editar General</h3>
@@ -74,7 +74,56 @@
                         </div>                                                         
                     </div>
                     <div class="form-btn">
-                        <input type="submit" value="Guadar Cambios">
+                        <input id="EdtGeneral" type="submit" value="Guadar Cambios">
+                    </div>
+                </div>
+
+                <!-- Contraseña -->
+                <div class="contMain-form-contenido contraseña invisible">
+                    <h3>Editar Contraseña</h3>
+                    <div class="_form-contenido-info">
+                        <div >
+                            <p>Para cabiar la contraseña debe agregar su contraseña actual y lugo una nueva contraseña.</p> 
+                        </div>
+                        <div class="campo flex-column">
+                            <label for="actual">Contraseña actual</label>
+                            <input type="password" name="contraseñaA" id="actual" require>
+                        </div>
+                        <div class="campo flex-column">
+                            <label for="nueva">Nueva contraseña</label>
+                            <input type="password" name="contraseñaN" id="nueva" require>
+                        </div>
+                        <div class="campo flex-column">
+                            <label for="nueva">Confirmar contraseña</label>
+                            <input type="password" name="contraseñaNConfr" id="nuevaConfr" require>
+                        </div>                                                        
+                    </div>
+                    <div class="form-btn">
+                        <input id="EdtContrasña" type="submit" value="Confrimar Cambios">
+                    </div>
+                </div>
+
+                 <!-- Solicitud -->
+                 <div class="contMain-form-contenido solicitud invisible">
+                    <h3>Solicitud</h3>
+                    <div class="_form-contenido-info">
+                        <div >
+                            <p>¿Solicitar que se le verifique para ser añadido como?</p>
+                        </div>
+                        <div class="flex-column">
+                            <label for="actual">Tipo de Usuario</label>
+                            <div class="">
+                                <input type="radio" name="tipo" id="tpEstudiante" value="Estudiante">
+                                <label for="tpEstudiante">Estudiante</label>
+                            </div>
+                            <div class="">
+                                <input type="radio" name="tipo" id="tpAdministrativo" value="Administrativo">
+                                <label for="tpAdministrativo">Administrativo</label>
+                            </div>                            
+                        </div>                                                     
+                    </div>
+                    <div class="form-btn">
+                        <input id="EdtSolicitud" type="submit" value="Eviar Solicitud">
                     </div>
                 </div>
             </form>
