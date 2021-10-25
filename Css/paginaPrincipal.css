@@ -30,11 +30,14 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+.ComidasMenu h4{
+    font-size: 100%;
+}
 .HacerPedido{
     display: flex;
     justify-content: space-between;
     margin-right: 0.5%;
-    background-color: rgb(243, 144, 16);
+    background-color: #68086c;
 }
 .HacerPedido h2{
     margin-left: 4%;
@@ -55,6 +58,7 @@ body{
     margin-top: 5%;
     width: 90%;
     margin-left: 5%;
+    filter: drop-shadow(2px 6px 4px black);
 }
 .FotoComida:hover{
     opacity: 80%;
@@ -92,7 +96,7 @@ hr{
 nav{
     display: flex;
     justify-content: center;
-    background-color: rgb(243, 144, 16);
+    background-color: #68086c;
     margin-top: 2%;
     font-size: large;
 }
@@ -106,10 +110,10 @@ nav a{
     transition: all 0.35s;
 }
 nav a:hover{
-    background-color: rgb(206, 117, 0);
+    background-color: #51034f;
 }
 .navEspecial{
-    background-color: rgb(206, 117, 0);
+    background-color: #51034f;
 }
 .NomCafeteria{
     margin-left: 2.5%;
@@ -144,7 +148,7 @@ nav a:hover{
 }
 .Titulo{
     margin-bottom: 0%;
-    background-color: rgb(243, 144, 16);
+    background-color: #51034f;
     padding: .5%;
 }
 .radios{
@@ -160,7 +164,7 @@ nav a:hover{
     margin-top: 1%;
     margin-bottom: 2%;
     font-size: large;
-    background-color: #f39010;
+    background-color: #51034f;
     border-radius: 2px;
     color: white;
     border: 0px solid;
@@ -172,7 +176,7 @@ nav a:hover{
 }
 .botones:hover{
     transition: all 0.35s;
-    background-color: rgb(206, 117, 0);
+    background-color: #51034f;
     border: 1px solid white;
 }
 .botones a{
@@ -205,7 +209,11 @@ nav a:hover{
     padding-bottom: -1%;
 }
 .PagarCancelar .botones{
+    background-color: #68086c;
     font-size: x-large;
+}
+.PagarCancelar .botones:hover{
+    background-color: #51034f;
 }
 .inventario{
     width: 90%;
@@ -228,4 +236,33 @@ nav a:hover{
 }
 .inventarioBotones input{
     margin-left: 5%;
+}
+@media screen and (max-width: 600px){
+    .radios{
+        width: 100%;
+    }
+    nav{    
+        font-size: 2vw;
+        padding: 2% 0%;
+    }
+    .Noticias{
+        margin-left: 5%;
+    }
+    .ComidasDeCafeterias{
+        display: inline;
+        justify-content: center;
+    }
+    .ComidasDeCafeterias div{
+        width: 100%;
+    }
+    .ComidasDeCafeterias div{
+        margin-left: -.5%;
+    }
+    .h3Titulo{
+        width: 55%;
+    }
+    .Precio{
+        width: 30%;
+        margin-right: 5%;
+    }
 }

@@ -4,7 +4,7 @@ body{
 .footer{
     display: flex;
     align-items: center;
-    background-color: rgb(243, 144, 16);
+    background-color: #51034f;
     padding-top: 3.5%;
     padding-bottom: 3.5%;
     color: white;
@@ -16,6 +16,7 @@ body{
 .footer h3{
     font-size: small;
     margin-left: 2.5%;
+    font-weight: normal;
 }
 .header{
     display: flex;
@@ -33,7 +34,7 @@ body{
 }
 .header h1{
     margin-top: -3%;
-    color: rgb(243, 144, 16);
+    color: #68086c;
 }
 .footerP1{
     margin-left: 15%;

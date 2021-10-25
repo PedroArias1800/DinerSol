@@ -9,7 +9,7 @@ body{
 .login{
     margin-bottom: 1%;
     margin-top: 0%;
-    background-color: rgb(243, 144, 16);
+    background-color: #51034f;
     padding: .5%;
 }
 .item{
@@ -41,7 +41,7 @@ body{
     margin-top: 1%;
     margin-bottom: 2%;
     font-size: large;
-    background-color: #f39010;
+    background-color: #68086c;
     border-radius: 2px;
     color: white;
     border: 0px solid;
@@ -53,7 +53,7 @@ body{
 }
 .botones:hover{
     transition: all 0.35s;
-    background-color: rgb(206, 117, 0);
+    background-color: #51034f;
     border: 1px solid white;
 }
 .card {
@@ -69,7 +69,7 @@ body{
 nav{
     display: flex;
     justify-content: center;
-    background-color: rgb(243, 144, 16);
+    background-color: #68086c;
     font-size: large;
 }
 nav a{
@@ -82,10 +82,10 @@ nav a{
     transition: all 0.35s;
 }
 nav a:hover{
-    background-color: rgb(206, 117, 0);
+    background-color: #51034f;
 }
 .navEspecial{
-    background-color: rgb(206, 117, 0);
+    background-color: #51034f;
 }
 .Secciones{
     display: flex;
