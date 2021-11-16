@@ -36,6 +36,11 @@ body{
     margin-top: -3%;
     color: #68086c;
 }
+.merror{
+    font-size: x-large;
+    text-shadow: 0vw 0vw 35px;
+    font-weight: bold;
+}
 .footerP1{
     margin-left: 15%;
     font-size: small;

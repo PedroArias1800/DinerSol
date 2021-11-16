@@ -8,13 +8,7 @@
         <title>DinerSol | Registro</title>
     </head>
     <body>
-        <div class="header">
-            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-            <div>
-                <h3>Universidad Tecnológica De Panamá</h3>
-                <h1>DinerSol - Sistema De Cafeterías UTP</h1>
-            </div>
-        </div>
+        <?php require("header.html"); ?>
         <div>
             <input type="button" class="btnRegistrarse botones" id="volver" value="Volver a Inicio" onclick="window.location.href='../index.html'">
         </div>
@@ -24,7 +18,9 @@
                 <a class="navEspecial" href="#">Registrarse</a>
                 <a href="recuperarContraseña.html">Recuperar Contraseña</a>
             </nav>
-            <form name="formRegistro" method="POST" action="">
+            <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
+            <p class="merror" style="color: ##51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
+            <form name="formRegistro" method="POST" action="../Procesos/registrarse.php" onSubmit="return ComprobarClave()">
                 <div class="card"><br>
                     <h2>INGRESE SUS DATOS</h2>
                     <div>
@@ -45,7 +41,7 @@
                             </div>
                             <div class="item item2">
                                 <label for="correo">Correo:</label>
-                                <input type="email" id="correo" name="correo" placeholder="Ej: usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>
+                                <input type="email" id="correo" name="email" placeholder="Ej: usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>
                             </div>
                         </div>
                         <div class="Secciones">
@@ -79,42 +75,12 @@
                     </div>-->
                     <div class="item">
                         <input type="reset" class="botones" value="Vaciar">
-                        <input type="submit" class="botones" onclick="ComprobarClave()" value="Aceptar">
+                        <input type="submit" class="botones" value="Aceptar">
                     </div>
                 </div>
             </form>
         </div>
-        <footer>
-            <div class="footer">
-                <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-                <h3>
-                    Universidad Tecnológica de Panamá - 2021<br>
-                    Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
-                    Campus Metropolitano Víctor Levi Sasso.<br>
-                    Teléfono. (507) 560-3000<br>
-                    Correo electrónico: buzondesugerencias@utp.ac.pa<br>
-                    311 Centro de Atención Ciudadana<br>
-                    Políticas de Privacidad<br>
-                </h3>
-                <div class="footerP1">
-                    <a href="">Matrícula UTP</a><br>
-                    <a href="">Correo UTP</a><br>
-                    <a href="">Biblioteca UTP</a><br>
-                    <a href="">Publicaciones</a><br>
-                    <a href="">Sala De Prensa</a><br>
-                    <a href="">Bolsa De Trabajo</a><br>
-                    <a href="">Acreditación</a><br>
-                    <a href="">Centro De Lenguas</a><br>
-                </div>
-                <div class="footerP2">
-                    <a href="">Mapa De Ubicación</a><br>
-                    <a href="">Mapa Del Sitio</a><br>
-                    <a href="">Directorio Telefónico</a><br>
-                    <a href="">Contáctenos</a><br>
-                    <a href="">Identidad Visual</a><br>
-                </div>
-            </div>
-        </footer>
+        <?php require("footer.html"); ?>
         <script type="text/javascript" src="../JavaScript/complementos.js"></script>
     </body>
 </html>
