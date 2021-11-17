@@ -58,25 +58,41 @@
       height: 100vh;
       display: grid;
       gap: 2.5rem;
-      grid-template-columns: repeat(2, 1fr); } }
+      grid-template-columns: repeat(2, 1fr); } 
+      .form{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
   
   .contenedor-estetica .imagen {
     height: 30rem;
     background-image: url(../Imagenes/3.jpg_large);
-    background-size: cover;
+    background-size:cover;
     background-position: center center; }
     @media (min-width: 768px) {
       .contenedor-estetica .imagen {
-        height: auto; } }
+        height: auto; }
+      
+    
+      }
 
-          
-  
+
+      .forget{
+          margin-top: -5rem;
+      }
+       
+ 
+
 
 
         .logear{
           display: grid;
           place-items: center;
         }
+
+       
 
         .user.password, .user.username{        
           padding: 0;
@@ -131,7 +147,7 @@
         }
         .block-component{
          
-          margin-top: 4rem;
+          margin-top: 5rem;
         }
 
         .block.opacity {
@@ -196,21 +212,6 @@
           color: white;
         }
 
-        .contra-olv{
-          margin-top: -7rem;
-          background: #ffffff;
-          padding: 1.2rem;
-          border-radius: 2rem 2rem 2rem 2rem;
+        .submit{
+          
         }
-
-        .contra-olv input{
-          cursor: pointer;
-          color: #000;
-          font-weight: 600;
-        }
-
-        .contra-olv input:hover{
-          text-decoration: underline;
-
-        }
-      

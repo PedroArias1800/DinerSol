@@ -1,3 +1,5 @@
+
+
 function Mostrar() {
     var x = document.getElementById("contra1");
     var y = document.getElementById("contra2");
