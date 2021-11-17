@@ -1,3 +1,10 @@
+<?php
+
+    include('../Procesos/verificarUsuario.php');
+    include('../Procesos/consultarUsuario.php');
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,12 +25,15 @@
         <div class="fotoUser">
             <!-- <h3>Aurelio Morales</h3> -->
             <div class="dropdown">
-                <button class="dropbtn"><b>Aurelio Morales</b></button>
+                <button class="dropbtn"><b><?php echo $datosDelUsuario->nombre." ".$datosDelUsuario->apellido; ?></b></button>
                 <div class="dropdown-content">
                   <a href="perfilDeUsuario.html">Mi Perfil</a>
-                  <a href="">Pedido</a>
-                  <a href="adminMenuAgregar.html">Administrar Menú</a>
-                  <a href="../index.html">Cerrar Sesión</a>
+                  <a href="">Pedidos</a>
+                  <?php if($datosDelUsuario->id_tipo == 1){ ?>
+                  <a href="adminProductoAgregar.html">Administrar Productos</a>
+                  <a href="adminMenuInventario.php">Administrar Menús</a>
+                  <?php } ?>
+                  <a href="../Procesos/logout.php">Cerrar Sesión</a>
                 </div>
             </div>
             <img class="FPerfil" src="../Imagenes/user.png" alt="Foto De Perfil" width="3%" height="3%">

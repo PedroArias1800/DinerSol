@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../Css/footerHeader.css">
         <link rel="stylesheet" href="../Css/login.css">
+        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
         <title>DinerSol | Registro</title>
     </head>
     <body>
@@ -14,9 +15,9 @@
         </div>
         <div class="todo">
             <nav>
-                <a href="../index.html">Login</a>
+                <a href="../index.php">Login</a>
                 <a class="navEspecial" href="#">Registrarse</a>
-                <a href="recuperarContraseña.html">Recuperar Contraseña</a>
+                <a href="recuperarContraseña.php">Recuperar Contraseña</a>
             </nav>
             <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
             <p class="merror" style="color: ##51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>

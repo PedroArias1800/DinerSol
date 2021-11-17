@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../Css/footerHeader.css">
         <link rel="stylesheet" href="../Css/login.css">
+        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
         <title>DinerSol | Recuperar Contraseña</title>
     </head>
     <body>
@@ -20,8 +21,8 @@
         </div>
         <div class="todo">
             <nav>
-                <a href="../index.html">Login</a>
-                <a href="registrarse.html">Registrarse</a>
+                <a href="../index.php">Login</a>
+                <a href="registrarse.php">Registrarse</a>
                 <a class="navEspecial" href="#">Recuperar Contraseña</a>
             </nav>       
             <form method="POST" action="">
