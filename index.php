@@ -1,56 +1,78 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Css/login.css">
-        <link rel="stylesheet" href="Css/footerHeader.css">
-        <link rel="shortcut icon" href="Imagenes/logoUTP.jpg" />
-        <title>DinerSol | Iniciar Sesión</title>
-    </head>
-    <body>
-        <?php require('Secciones/header.html'); ?>
-        <div>
-            <input type="button" class="btnRegistrarse botones" id="registro" value="Registrarse" onclick="window.location.href='Secciones/registrarse.php'">
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="Imagenes/logoUTP.jpg" />
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/normalice.css">
+  <title>DinerSol | Iniciar Sesión</title>
+</head>
+
+<body>
+
+
+  <div class="contenedor-estetica">
+
+    <div class="imagen"></div>
+    <div class="logear">
+
+      <header>
+        <div class="utp">
+          <img src="imagenes/logo_utp_1_300.png" alt="">
         </div>
-        <div class="todo">
-            <nav>
-                <a href="#" class="navEspecial">Login</a>
-                <a href="Secciones/registrarse.php">Registrarse</a>
-                <a href="Secciones/recuperarContraseña.php">Recuperar Contraseña</a>
-            </nav>
-            <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
-            <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
-            <div class="card"><br>
-                <form method="POST" action="Procesos/login.php">
-                    <h2 id="t">INGRESE SUS DATOS</h2>
-                    <div class="ComidasMenu">
-                        <div class="item">
-                            <label for="correo">Correo:</label><br>
-                            <input type="email" id="correo" name="email" placeholder="Ej: usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>
-                        </div>
-                        <div class="item">
-                            <label for="contra1">Contraseña:</label><br>
-                            <input type="password" id="contra1" name="password" placeholder="**********" maxlength="30" required>
-                        </div>
-                        <div class="item">
-                            <input type="checkbox" onclick="Mostrar()">Mostrar Contraseña
-                        </div>
-                        <div class="item">
-                            <input type="reset" class="botones" value="Vaciar">
-                            <input type="submit" class="botones" value="Ingresar">
-                        </div>
-                    </div>
-                </form>
-                <div class="item">
-                    <label for="recuperar" style="margin-top: 1.2%;">¿Olvidaste tu contraseña?</label><br>
-                    <input type="button" class="botones" id="recuperar" value="Recuperar" onclick="window.location.href='Secciones/recuperarContraseña.html'">
-                </div><br>
-            </div>
+      </header>
+
+      <h2>Login</h2>
+
+      <form method="POST" action="Procesos/login.php">
+
+        <div class="user username">
+          <span class="icon uil uil-user"></span>
+          <input class="user  input-style" type="email" name="email" id="" placeholder="Email" required>
         </div>
-        
-        <?php require('Secciones/footer.html'); ?>
-        
-        <script type="text/javascript" src="JavaScript/complementos.js"></script>
-    </body>
+
+        <div class=" user password">
+          <span class="icon uil uil-lock-open-alt"></span>
+          <input class=" user input-style" type="password" name="password" id="" placeholder="Password" required>
+        </div>
+
+        <div class="block-component">
+          <div class="opacity-card">
+            <label for="opacity-checkbox-input" class="opacity-checkbox-label">
+              <input type="checkbox" onclick="Mostrar()" id="opacity-checkbox-input" class="opacity-checkbox-input" />
+              <span class="opacity-checkbox-background">
+                <i class="opacity-checkbox-icon uil uil-check"></i>
+              </span>
+              <div class="opacity-checkbox-text">
+                Contraseña oculta
+              </div>
+            </label>
+          </div>
+        </div>
+        <br>
+        <div class="enlaces">
+       
+        <div class="contra-olv">
+          <input type="button" id="recuperar" value="¿Olvidaste tu contraseña?" onclick="window.location.href='Secciones/recuperarContraseña.html'">
+        </div>
+     <div class="yet-olv">
+    <a href="Secciones/registrarse.php">¿Aún no tienes una cuenta? Regístrate</a>
+     </div>
+     </div>
+     
+      </form>
+
+    </div>
+  </div>
+  <footer>
+    <!-- FOOTER -->
+  </footer>
+  <script type="text/javascript" src="JavaScript/complementos.js"></script>
+</body>
+
 </html>

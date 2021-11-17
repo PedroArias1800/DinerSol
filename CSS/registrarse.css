@@ -13,7 +13,9 @@
     font-family: "Poppins", sans-serif;
     font-size: 1.6rem; }
   
- 
+  p {
+    color: #FFFFFF;
+    font-size: 2rem; }
   
     span{
       color: #FFFFFF;
@@ -49,35 +51,48 @@
     text-align: center; }
   
   body {
-    background-color: #681A5D; }
+    background-color: purple; }
   
   @media (min-width: 768px) {
     .contenedor-estetica {
       height: 100vh;
-
       display: grid;
       gap: 2.5rem;
-      grid-template-columns: repeat(2, 1fr); } }
+      grid-template-columns: repeat(2, 1fr); } 
+      .form{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
   
   .contenedor-estetica .imagen {
     height: 30rem;
     background-image: url(../Imagenes/3.jpg_large);
-    background-size: cover;
+    background-size:cover;
     background-position: center center; }
     @media (min-width: 768px) {
       .contenedor-estetica .imagen {
-        height: auto; } }
+        height: auto; }
+      
+    
+      }
 
-          
-  
+
+      .forget{
+          margin-top: -5rem;
+      }
+       
+ 
+
 
 
         .logear{
-          
           display: grid;
           place-items: center;
         }
-        
+
+       
 
         .user.password, .user.username{        
           padding: 0;
@@ -107,14 +122,6 @@
           
         
         }
-        form{
-          margin-bottom: 5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-          gap: 2rem;
-        }
         
         
         .padding, .margin{
@@ -140,7 +147,7 @@
         }
         .block-component{
          
-          margin-top: 4rem;
+          margin-top: 5rem;
         }
 
         .block.opacity {
@@ -205,54 +212,6 @@
           color: white;
         }
 
-        .contra-olv{
-          background: #ffffff;
-          padding: 1.2rem;
-          border-radius: 2rem 2rem 2rem 2rem;
-        }
-
-        .contra-olv input{
-          cursor: pointer;
-          color: #000;
-          font-weight: 600;
-        }
-
-        .contra-olv input:hover{
-          text-decoration: underline;
-
-        }
-      
-         header .utp{
-width: 150px;
-background-position: center center;
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-size: cover;      
-        }
-
-        header{
-          width: 100%;
-          margin-left: -20rem;
-        }
-
-        .enlaces{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-          gap: 1rem;
-        }
-       
-        .yet-olv{
-         color: white;
-          padding: 0.2rem;
-          border-radius: 2rem 2rem 2rem 2rem;
-        }
-        .yet-olv a{
-          color: white;
-        }
-
-        .yet-olv a:hover{
-          text-decoration: underline;
-          color:#e7e7e7;
+        .submit{
+          
         }

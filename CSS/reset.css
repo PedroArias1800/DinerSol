@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+
+}
+
+p {
+  margin: 0 0 1rem;
+  color:black;
+}
+
+button,
+input {
+  
+  background: transparent;
+  border: 0;
+  outline: none;
+  font-size: 1rem;
+}
+
+button,
+label,
+a,
+i {
+  cursor: pointer;
+}
+
+button,
+input,
+select {
+  font-family: "Euclid Circular A", Poppins;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+a:link {
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+a:active {
+  color: inherit;
+}
