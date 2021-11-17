@@ -22,12 +22,16 @@
         <div class="logear">
 
          <header>
-            <!-- HEADER -->
+         <div class="utp">
+           <img src="imagenes/logo_utp_1_300.png" alt="">
+         </div>
         </header>
        
       
 
         <h2>Login</h2>
+
+    
 
         <form method="POST" action="">
            
@@ -60,7 +64,7 @@
                           <i class="opacity-checkbox-icon uil uil-check"></i>
                         </span>
                         <div class="opacity-checkbox-text">
-                          Contraseña ocultaa
+                          Contraseña oculta
                         </div>
                       </label>
                     </div>

@@ -51,11 +51,12 @@
     text-align: center; }
   
   body {
-    background-color: purple; }
+    background-color: #681A5D; }
   
   @media (min-width: 768px) {
     .contenedor-estetica {
       height: 100vh;
+
       display: grid;
       gap: 2.5rem;
       grid-template-columns: repeat(2, 1fr); } }
@@ -74,9 +75,11 @@
 
 
         .logear{
+          
           display: grid;
           place-items: center;
         }
+        
 
         .user.password, .user.username{        
           padding: 0;
@@ -197,7 +200,6 @@
         }
 
         .contra-olv{
-          margin-top: -7rem;
           background: #ffffff;
           padding: 1.2rem;
           border-radius: 2rem 2rem 2rem 2rem;
@@ -214,3 +216,17 @@
 
         }
       
+         header .utp{
+width: 150px;
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;      
+        }
+
+        header{
+          width: 100%;
+          margin-left: -20rem;
+        }
+
+     
