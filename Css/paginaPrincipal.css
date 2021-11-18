@@ -9,6 +9,34 @@ body{
 .h3TituloNoticia{
     margin-left: 5%;
 }
+.iconoProductos{
+    width: 33%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.combos{
+    margin-left: 2%;
+    width: 90%;
+}
+.pedirCombo{
+    width: 100%;
+    background-color: #68086c;
+    margin-bottom: -10%;
+    margin: 1.8%;
+    padding: 2px 16px;
+}
+.pedirCombo h2{
+    margin-left: 4%;
+    margin-right: -4%;
+    color: white;
+}
+.comboC{
+    display: flex;
+    justify-content: space-evenly;
+    margin: -1.8% 0% 1.5% 1.8%;
+    background-color: #f6f6f6;
+}
 .NoticiasMenu{
     display: flex;
     width: 94%;

@@ -1,10 +1,3 @@
-<?php
-
-    include('../Procesos/verificarUsuario.php');
-    include('../Procesos/consultarUsuario.php');
-
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,38 +6,12 @@
         <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
         <link rel="stylesheet" href="../Css/footerHeader.Css">
         <link rel="stylesheet" href="../Css/drpdwn.css">
+        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
     </head>
     <body>
-        <div class="header">
-            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-            <div>
-                <h3>Universidad Tecnológica De Panamá</h3>
-                <h1>DinerSol - Sistema De Cafeterías UTP</h1>
-            </div>
-        </div>
-        <div class="fotoUser">
-            <!-- <h3>Aurelio Morales</h3> -->
-            <div class="dropdown">
-                <button class="dropbtn"><b><?php echo $datosDelUsuario->nombre." ".$datosDelUsuario->apellido; ?></b></button>
-                <div class="dropdown-content">
-                  <a href="perfilDeUsuario.html">Mi Perfil</a>
-                  <a href="">Pedidos</a>
-                  <?php if($datosDelUsuario->id_tipo == 1){ ?>
-                  <a href="adminProductoAgregar.html">Administrar Productos</a>
-                  <a href="adminMenuInventario.php">Administrar Menús</a>
-                  <?php } ?>
-                  <a href="../Procesos/logout.php">Cerrar Sesión</a>
-                </div>
-            </div>
-            <img class="FPerfil" src="../Imagenes/user.png" alt="Foto De Perfil" width="3%" height="3%">
-        </div>
-        <nav>
-            <a href="" class="navEspecial">Inicio</a>
-            <a href="">Cafeterías</a>
-            <a href="">Ayuda Estudiantil</a>
-            <a href="">Historial De Compras</a>
-            <a href="estadisticas.html">Estadísticas</a>
-        </nav>
+    
+        <?php require('header.php'); ?>
+
         <div class="CafCentral" id="CafCentral">
             <h1 id="nameCafe" class="NomCafeteria">Cafetería Central</h1>   
             <img id="imgCafe" src="../Imagenes/CafeteriaCentral.jpg" alt="Cafetería Central" width="25%" height="25%">
@@ -64,12 +31,54 @@
             <input type="radio" id="cafeteria3" name="cafet" onclick="Cual(3)">
             <input type="radio" id="cafeteria4" name="cafet" onclick="Cual(4)">
         </div>
-        <h2 style="text-align: center;">Número identificador de su último pedido: <strong>0012012</strong></h2>        
+        <h2 style="text-align: center;">Número identificador de su último pedido: <strong>0012012</strong></h2>
+        <div class="combos">
+            <div class="pedirCombo">
+                <h2 class="comboT">Combos De Día</h2>
+            </div>
+            <div class="comboC">
+                <div class="card">
+                    <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                    <div class="ComidasMenu">
+                        <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
+                        <h4 class="Precio">$1.25</h4> 
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                    <div class="ComidasMenu">
+                        <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
+                        <h4 class="Precio">$1.25</h4> 
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                    <div class="ComidasMenu">
+                        <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
+                        <h4 class="Precio">$1.25</h4> 
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                    <div class="ComidasMenu">
+                        <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
+                        <h4 class="Precio">$1.25</h4> 
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                    <div class="ComidasMenu">
+                        <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
+                        <h4 class="Precio">$1.25</h4> 
+                    </div>
+                </div>
+            </div>
+        </div>        
         <div class="NoticiasMenu">
             <div class="Menu">
                 <div class="Central">
                     <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Menú Del Día</h2>
+                        <h2 class="NombreCafeteria">Comidas</h2>
                         <div>
                             <button><a href="hacerPedido.html">Hacer Pedido</a></button>
                         </div>

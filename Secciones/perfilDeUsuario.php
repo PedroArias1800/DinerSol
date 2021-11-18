@@ -22,25 +22,15 @@
             <h1>DinerSol - Sistema De Cafeterías UTP</h1>
         </div>
     </div>
-    <div class="fotoUser">
-        <!-- <h3>Aurelio Morales</h3> -->
-        <div class="dropdown">
-            <button class="dropbtn"><b>Aurelio Morales</b></button>
-            <div class="dropdown-content">
-              <a href="paginaPrincipal.html">Inicio</a>
-              <a href="">Pedido</a>
-              <a href="adminMenuAgregar.html">Administrar Menú</a>
-              <a href="../index.html">Cerrar Sesión</a>
-            </div>
-        </div>
-        <img class="FPerfil" src="../Imagenes/user.png" alt="Foto De Perfil" width="3%" height="3%">
-    </div>
+
+    <?php require('dropdown.php'); ?>
+    
     <nav>
-        <a href="paginaPrincipal.html">Inicio</a>
+        <a href="paginaPrincipal.php">Inicio</a>
         <a href="">Cafeterías</a>
         <a href="">Ayuda Estudiantil</a>
         <a href="">Historial De Compras</a>
-        <a href="estadisticas.html">Estadísticas</a>
+        <a href="estadisticas.php">Estadísticas</a>
     </nav>
     <div class="TituloCompleto">
         <h1>Actualizar Perfil</h1>
@@ -56,7 +46,7 @@
                     <!-- <a href="#">Correo</a> -->
                     <a href="#">Contraseña</a>
                     <a href="#">Solicitud</a>
-                    <a href="../index.html">Cerrar Sesión</a>
+                    <a href="../index.php">Cerrar Sesión</a>
                 </div>
                 <div class="contMain-form-contenido">
                     <h3>Editar General</h3>
@@ -70,19 +60,19 @@
                     <div class="_form-contenido-info">
                         <div class="campo flex-column">
                             <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" placeholder="Aurelio" disabled>
+                            <input type="text" name="nombre" id="nombre" value="<?php echo $datosDelUsuario->nombre; ?>" disabled>
                         </div>
                         <div class="campo flex-column">
                             <label for="apellido">Apellido</label>
-                            <input type="text" name="apellido" id="apellido" placeholder="Morales" disabled>
+                            <input type="text" name="apellido" id="apellido" value="<?php echo $datosDelUsuario->apellido; ?>" disabled>
                         </div>
                         <div class="campo flex-column">
                             <label for="correo">Correo</label>
-                            <input type="text" name="correo" id="correo" placeholder="aurelio.morales@utp.ac.pa" disabled>
+                            <input type="text" name="correo" id="correo" value="<?php echo $datosDelUsuario->email; ?>" disabled>
                         </div>
                         <div class="campo flex-column">
                             <label for="telefono">Teléfono</label>
-                            <input type="text" name="telefono" id="telefono" value="6000-0000" require>
+                            <input type="text" name="telefono" id="telefono" value="<?php echo $datosDelUsuario->telefono; ?>" require>
                         </div>                                                         
                     </div>
                     <div class="form-btn">

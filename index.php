@@ -23,7 +23,7 @@
 
       <header>
         <div class="utp">
-          <img src="imagenes/logo_utp_1_300.png" alt="">
+          <img style="background-color: white; border-radius: 80px;" src="imagenes/logo_utp_1_300.png" alt="">
         </div>
       </header>
 
@@ -54,19 +54,15 @@
             </label>
           </div>
         </div>
+        <input type="submit" value="Iniciar Sesión"/><!-- Este boton es por mientras -->
         <br>
         <div class="enlaces">
-       
-        <div class="contra-olv">
-          <input type="button" id="recuperar" value="¿Olvidaste tu contraseña?" onclick="window.location.href='Secciones/recuperarContraseña.html'">
-        </div>
-     <div class="yet-olv">
-    <a href="Secciones/registrarse.php">¿Aún no tienes una cuenta? Regístrate</a>
-     </div>
-     </div>
-     
+          <div class="contra-olv">
+            <input type="button" id="recuperar" value="¿Olvidaste tu contraseña?" onclick="window.location.href='Secciones/recuperarContraseña.html'">
+          </div>
+        <div class="yet-olv">
+        <a href="Secciones/registrarse.php">¿Aún no tienes una cuenta? Regístrate</a>     
       </form>
-
     </div>
   </div>
   <footer>
