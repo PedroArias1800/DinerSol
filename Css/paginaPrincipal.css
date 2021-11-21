@@ -8,7 +8,7 @@ body{
     align-items: center;
 }
 .h3TituloNoticia{
-    margin-left: 5%;
+    margin-left: 1%;
 }
 .iconoProductos{
     width: 33%;
@@ -40,7 +40,7 @@ body{
     background-color: #f6f6f6;
 }
 .comboC .card{
-    width: 30%;
+   
 }
 .NoticiasMenu{
     display: flex;
@@ -48,8 +48,11 @@ body{
     justify-content: space-evenly;
 }
 .ComidasDeCafeterias{
+    background-color: transparent;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items:center;
+    
     background-color: #f6f6f6;
 }
 .DiferentesMenus{
@@ -114,9 +117,9 @@ body{
     padding-top: 2%;
     box-shadow: 0 10px 15px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 33%;
+    width: 33.3%;
     margin: 1.25%;
-    max-height: 20%;
+    max-height: 50%;
 }
 .card:hover {
     box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
@@ -129,12 +132,15 @@ hr{
     margin-left: 2.5%;
     margin-right: 2.5%;
 }
-nav{
+.enlaces{
     display: flex;
-    justify-content: center;
+    padding: 1rem;
+    letter-spacing: 1px;
+    justify-content: space-evenly;
     background-color: #68086c;
     margin-top: 2%;
     font-size: large;
+    color: white;
 }
 nav a{
     text-decoration: none;
@@ -145,11 +151,13 @@ nav a{
     color: white;
     transition: all 0.35s;
 }
+
 nav a:hover{
-    background-color: #51034f;
+    text-decoration: underline;
 }
 .navEspecial{
-    background-color: #51034f;
+   text-decoration: underline;
+   text-decoration-style: 1px;
 }
 .NomCafeteria{
     margin-left: 2.5%;
@@ -324,3 +332,40 @@ tr th, tr td{
         margin-right: 5%;
     }
 }
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    gap: 1rem;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 3 / 7; }
+    .div2 { grid-area: 3 / 1 / 7 / 5; }
+    .div3 { grid-area: 3 / 5 / 5 / 7; }
+    .div4 { grid-area: 5 / 5 / 7 / 7; }
+
+    .div1 p,.div2 p, .div3 p, .div4 p{
+        border-radius: 0.5rem;
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 600;
+        background-color: #51034f;
+        color: white;
+        padding: 2rem;
+        }
+
+        .div3,.div4 {
+            margin-right: 2%;
+        }
+
+        .div1{}
+
+       

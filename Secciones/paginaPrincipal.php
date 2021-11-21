@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
         <link rel="stylesheet" href="../Css/footerHeader.Css">
         <link rel="stylesheet" href="../Css/drpdwn.css">
+        <link rel="stylesheet" href="../Css/normalice.css">
         <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
     </head>
     <body>
@@ -32,10 +33,13 @@
             <input type="radio" id="cafeteria4" name="cafet" onclick="Cual(4)">
         </div>
         <h2 style="text-align: center;">Número identificador de su último pedido: <strong>0012012</strong></h2>
+        <main class="contenedor">
+
+<div class="parent">
+        <div class="div1"> 
+<p>Combo del dia</p>
         <div class="combos">
-            <div class="pedirCombo">
-                <h2 class="comboT">Combos De Día</h2>
-            </div>
+          
 
             <?php $consultarCombo = $datos->query("SELECT nombre_combo, COUNT(c.id_producto), c.costo, p.foto
                                                     FROM combo c INNER JOIN producto p ON c.id_producto=p.id_producto
@@ -43,10 +47,11 @@
                                                     GROUP BY nombre_combo
                                                     ORDER BY id_cafeteria ASC, id_combo ASC");
 
-                  $combos = 0; $nombreCombo1 = ""; $nombreCombo2 = "";
-            ?>
+                  $combos = 0; $nombreCombo1 = ""; $nombreCombo2 = "";   ?>
 
-            <div class="ComidasDeCafeterias" style="width: 102.4%; margin: -2% 0% 0% 1.8%;">
+
+
+            <div class="ComidasDeCafeterias">
                 <?php while($combo = $consultarCombo->fetch(PDO::FETCH_OBJ)){ if($nombreCombo1 != $combo->nombre_combo){ $combos = $combos + 1; $nombreCombo1 = $combo->nombre_combo; ?>
                 <div class="card" value="<?php echo $combo->id_cafeteria?>">
                     <div>
@@ -70,17 +75,13 @@
                 </div>
                 <?php } } ?>
             </div>
-        </div>        
-        <div class="NoticiasMenu">
-            <div class="Menu">
-                <div class="Central">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Comidas</h2>
-                        <div>
-                            <button><a href="hacerPedido.html">Hacer Pedido</a></button>
-                        </div>
-                    </div>
-                    <div class="ComidasDeCafeterias">
+        </div>
+        </div>
+
+        
+        <div class="div2">
+        <p>Comidas</p>
+        <div class="ComidasDeCafeterias">
                         <div class="card">
                             <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
                             <div class="ComidasMenu">
@@ -125,15 +126,12 @@
                                 <h4 class="Precio">$1.25</h4> 
                             </div>
                         </div>
-                    </div>                
-                </div>
-            </div>
-            <div class="Noticias">
-                <div class="Snacks">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Snacks</h2>
-                    </div>
-                    <div class="ComidasDeCafeterias">
+                    </div>             
+    
+    </div>
+        <div class="div3">
+        <p>Snacks</p>
+        <div class="ComidasDeCafeterias">
                         <div class="card">
                             <img src="../Imagenes/snickers.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                             <div class="ComidasMenu">
@@ -155,13 +153,12 @@
                                 <h4 class="Precio">$1.25</h4> 
                             </div>
                         </div>
-                    </div>
-                </div><br>
-                <div class="Snacks">
-                    <div class="HacerPedido">
-                        <h2 class="NombreCafeteria">Refrescos</h2>
-                    </div>
-                    <div class="ComidasDeCafeterias">
+                    </div>        
+    
+    </div>
+        <div class="div4">
+        <p>Refrescos</p>
+        <div class="ComidasDeCafeterias">
                         <div class="card">
                             <img src="../Imagenes/botellaDeAgua.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                             <div class="ComidasMenu">
@@ -183,11 +180,12 @@
                                 <h4 class="Precio">$1.00</h4> 
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div><br><hr><br>
+                    </div>        
+    
+    </div>
         </div>
+
+        </main>
         <div class="footer">
             <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
             <h3>
@@ -218,5 +216,7 @@
             </div>
         </div>
         <script type="text/javascript" src="../JavaScript/complementos.js"></script>
+        <script src="../JavaScript/"></script>
+        <script src="../JavaScript/app2.js"></script>
     </body>
 </html>
