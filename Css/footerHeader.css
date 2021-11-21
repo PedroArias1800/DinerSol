@@ -13,10 +13,10 @@ body{
     margin-left: 12%;
     border-radius: 50%;
 }
-.footer h3{
-    font-size: small;
+.footer h3, footer a{
     margin-left: 2.5%;
     font-weight: normal;
+    font-size: 1vw;
 }
 .header{
     display: flex;
@@ -36,6 +36,9 @@ body{
     margin-top: -3%;
     color: #68086c;
 }
+nav a{
+    font-size: 1vw;
+}
 .merror{
     font-size: x-large;
     text-shadow: 0vw 0vw 35px;
@@ -43,7 +46,6 @@ body{
 }
 .footerP1{
     margin-left: 15%;
-    font-size: small;
     text-align: right;
     align-self: flex-start;
     margin-top: 1%;
@@ -52,7 +54,6 @@ body{
     padding-right: 2%;
 }
 .footerP2{
-    font-size: small;
     margin-left: 2%;
     text-align: left;
     align-self: flex-start;

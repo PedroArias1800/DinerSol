@@ -1,6 +1,7 @@
 body{
     margin: 0px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1vw;
 }
 .ImagenTituloNoticia{
     display: flex;
@@ -34,8 +35,12 @@ body{
 .comboC{
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
     margin: -1.8% 0% 1.5% 1.8%;
     background-color: #f6f6f6;
+}
+.comboC .card{
+    width: 30%;
 }
 .NoticiasMenu{
     display: flex;
@@ -59,7 +64,7 @@ body{
     justify-content: space-between;
 }
 .ComidasMenu h4{
-    font-size: 100%;
+    font-size: 1vw;
 }
 .HacerPedido{
     display: flex;
@@ -80,7 +85,10 @@ body{
 .HacerPedido button a{
     text-decoration: none;
     color: black;
-    font-size: large;
+    font-size: 1vw;
+}
+.card img{
+    border-radius: 0px 15px 15px 15px;
 }
 .FotoComida{
     margin-top: 5%;
@@ -265,12 +273,34 @@ nav a:hover{
 .inventarioBotones input{
     margin-left: 5%;
 }
+tr th, tr td{
+    font-size: 1.6vw;
+}
+.TituloCompleto h1{
+    font-size: 4vw;
+}
 @media screen and (max-width: 600px){
+    .header{
+        margin-left: -12%;
+        margin-bottom: -9%;
+    }
+    .header div{
+        font-size: 1.6vw;
+    }
+    .Fperfil{
+        display: none;
+    }
+    .dropdown-content a{
+        font-size: 1.8vw;
+    }
     .radios{
         width: 100%;
     }
+    .dropbtn{
+        font-size: 1.8vw;
+    }
     nav{    
-        font-size: 2vw;
+        font-size: 1.6vw;
         padding: 2% 0%;
     }
     .Noticias{

@@ -13,11 +13,19 @@ if(isset($_POST['nombreCombo']) && isset($_POST['Cafeteria']) && isset($_POST['c
     $cantidad = $_POST['cantidad'];
     $cafeteria = $_POST['Cafeteria'];
 
-    if($snack == 0)
-        $snack = "NULL";
+    if($snack == 0){
+        $query = "INSERT INTO combo (nombre_combo, id_producto, costo, inventario, id_cafeteria)
+                  VALUES (:nombre, :comida, :costo, :cantidad, :cafeteria), 
+                         (:nombre, :refresco, :costo, :cantidad, :cafeteria)";
+    } else {
+        $query = "INSERT INTO combo (nombre_combo, id_producto, costo, inventario, id_cafeteria)
+                  VALUES (:nombre, :comida, :costo, :cantidad, :cafeteria), 
+                         (:nombre, :snack, :costo, :cantidad, :cafeteria),
+                         (:nombre, :refresco, :costo, :cantidad, :cafeteria)";
+    }
 
     $combo = new Combo($nombre, $comida, $snack, $refresco, $costo, $cantidad, $cafeteria);
-    $insertar = $datos->prepare("INSERT INTO combo (nombre_combo, id_comida, id_snack, id_refresco, costo, inventario, id_cafeteria) VALUES (:nombre, :comida, :snack, :refresco, :costo, :cantidad, :cafeteria)");
+    $insertar = $datos->prepare($query);
 
     //Control de excepciones
     try{

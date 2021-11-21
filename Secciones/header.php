@@ -9,6 +9,7 @@
         <title>Header</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../Css/footerHeader.Css">
+        <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
     </head>
     <body>
         <div class="header">
@@ -41,6 +42,8 @@
         <a href="">Cafeterías</a>
         <a href="">Ayuda Estudiantil</a>
         <a href="historialCompra.php">Historial De Compras</a>
-        <a href="estadisticas.html">Estadísticas</a>
+        <?php if($datosDelUsuario->id_tipo == 1){ ?>
+            <a href="estadisticas.php">Estadísticas</a>
+        <?php } ?>
     </nav>
 <html>
