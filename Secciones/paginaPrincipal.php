@@ -10,8 +10,11 @@
         <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
     </head>
     <body>
-    
-        <?php require('header.php'); ?>
+    <div class="headerphp">
+
+    <?php require('header.php'); ?>
+    </div>
+      
 
         <div class="CafCentral" id="CafCentral">
             <h1 id="nameCafe" class="NomCafeteria">Cafetería Central</h1>   
@@ -67,7 +70,7 @@
                                                                             ORDER BY c.id_cafeteria ASC, c.id_combo ASC, p.tipo_producto ASC");
 
                             while($datosCombo = $consultarDatosCombo->fetch(PDO::FETCH_OBJ)){ ?>
-                                <img src="../Imagenes/<?php echo $datosCombo->foto; ?>" style="width: 30%; height: 30%; border-radius: 0px 15px 15px 15px;" class="FotoComida" alt="Comida1">   
+                                <img  src="../Imagenes/<?php echo $datosCombo->foto; ?>" style="width: 30%; height: 30%; border-radius: 0px 15px 15px 15px;" class="FotoComida" alt="Comida1">   
                             <?php } ?>
                         </div>
                         <div class="ComidasMenu">

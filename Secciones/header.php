@@ -15,14 +15,14 @@
     <body>
         <div class="header">
             <div class="imagen">
-            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="8%" height="1%">
-            <p>Universidad Teconologica de Panamá <br> <strong>DinerSol- Sistemas De cafeterías UTP</strong></p>
+            <img class="img" src="../Imagenes/utpOp.jpg" alt="UTP Logo" width="8%" height="1%">
+            <p>Universidad Teconologica de Panamá <br> <strong>DinerSol- Sistemas De cafeterías UTP</strong></p> 
             </div>
-         
-       
-    </body>
-
-    <a class="ab" href="#paso-1">
+         <div class="titulo">
+           <h1>DinnerSol</h1>
+         </div>
+       <div class="yo">
+       <a class="ab" href="#paso-1">
                 <div class="me ">
                     <div class="block-component">
                         <div class="author-card">
@@ -43,12 +43,25 @@
                 </div>
             </a>
 
-            </div>
+
+       </div>
+   
+
+   
           
+            <ul class="nav">   
+        <li><a href=""> Nuevo</a></li> 
+        <li><a href=""> Proyectos</a></li>
+        <li><a href=""> Sobre mi</a></li>
+        <li><a href=""> Ayuda</a></li>
+        
+    
+    
+    </ul>
 
-    <nav>
 
-    <div class="enlaces">
+            </div>
+            <div class="enlaces">
      <a href="paginaPrincipal.php" class="navEspecial">Inicio</a>
         <a href="">Cafeterías</a>
         <a href="">Ayuda Estudiantil</a>
@@ -60,11 +73,7 @@
    
     
     </div>
+          
 
-    </div>
-    
-   
-
-    </nav>
-   
+    </body>
 <html>

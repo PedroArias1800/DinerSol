@@ -2,6 +2,7 @@ body{
     margin: 0px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1vw;
+    overflow-x: hidden;
 }
 .ImagenTituloNoticia{
     display: flex;
@@ -16,6 +17,7 @@ body{
     align-items: center;
     justify-content: center;
 }
+
 .combos{
     margin-left: 2%;
     width: 90%;
@@ -129,13 +131,15 @@ hr{
     margin-left: 2.5%;
     margin-right: 2.5%;
 }
+
+
 .enlaces{
+
     display: flex;
     padding: 1rem;
     letter-spacing: 1px;
     justify-content: space-evenly;
-    background-color: #68086c;
-    margin-top: 2%;
+    background-color: #68086c; 
     font-size: large;
     color: white;
 }
@@ -306,11 +310,7 @@ tr th, tr td{
 .TituloCompleto h1{
     font-size: 4vw;
 }
-@media screen and (max-width: 600px){
-    .header{
-        margin-left: -12%;
-        margin-bottom: -9%;
-    }
+@media screen and (max-width: 768px){
     .header div{
         font-size: 1.6vw;
     }
@@ -356,21 +356,84 @@ tr th, tr td{
     max-width: 120rem;
     margin: 0 auto;
 }
+.img{
+    width: 150px;
+    height: 140px;
+}
 
-.parent {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    gap: 1rem;
+@media (min-width: 768px) {
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        gap: 1rem;
     }
     
-.div1 { grid-area: 1 / 1 / 3 / 7; }
-.div2 { grid-area: 3 / 1 / 7 / 5; }
-.div3 { grid-area: 3 / 5 / 5 / 7; }
-.div4 { grid-area: 5 / 5 / 7 / 7; }
+    .div1 { grid-area: 1 / 1 / 3 / 7; }
+    .div2 { grid-area: 3 / 1 / 7 / 5; }
+    .div3 { grid-area: 3 / 5 / 5 / 7; }
+    .div4 { grid-area: 5 / 5 / 7 / 7; }
+}
 
+.div1 p,.div2 p, .div3 p, .div4 p{
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+    background-color: #51034f;
+    color: white;
+    padding: 2rem;
+}
+
+.div3,.div4 {
+    margin-right: 2%;
+}
+
+.nav{
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    background-color: purple;
+    right: 0px;
+    height: 60vh;
+    top: 11vh;
+    width: 15%;
+    transform: translateX(100%);
+    opacity: 1;
+    transition: transform 0.5s ease-in;
+}
+        
+.nav li, a{
+    margin-right: 1rem;
+    text-decoration: none;
+    list-style: none;
+    color: aliceblue;
+}
+        
+.nav li{
+    opacity: 0;
+}
+        
+.ul-active{
+    transform: translateX(0%);
+}    
+
+@keyframes ulFade {
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+        
 .div1 p,.div2 p, .div3 p, .div4 p{
     border-radius: 0.5rem;
     font-size: 2rem;
