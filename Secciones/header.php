@@ -28,7 +28,7 @@
                         <div class="author-card">
                           <img
                             class="author-img"
-                            src="../img/<?php echo  $datosDelUsuario->foto; ?>"
+                            src="../Imagenes/<?php echo  $datosDelUsuario->foto; ?>"
                           />
                           <div>
                             <h2 class="author-h2">

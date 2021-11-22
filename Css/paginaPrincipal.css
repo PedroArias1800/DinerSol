@@ -39,9 +39,6 @@ body{
     margin: -1.8% 0% 1.5% 1.8%;
     background-color: #f6f6f6;
 }
-.comboC .card{
-   
-}
 .NoticiasMenu{
     display: flex;
     width: 94%;
@@ -259,6 +256,28 @@ nav a:hover{
 .PagarCancelar .botones:hover{
     background-color: #51034f;
 }
+.btnHacerPedido{
+    background-color: #68086c;
+    padding: 0.2% 5% 0.2% 5%;
+    border-radius: 3px 10px;
+    color: white;
+    transition: all 0.35s;
+    animation: 3s infinite alternate hacerPedido;
+}
+.btnHacerPedido:hover{
+    background-color: #51034f;
+}
+@keyframes hacerPedido{
+    0%{
+        border: 4px solid blue;
+    }
+    50%{
+        border: 4px solid white;
+    }
+    100%{
+        border: 4px solid red;
+    }
+}
 .inventario{
     width: 90%;
     margin-left: 5%;
@@ -347,25 +366,21 @@ tr th, tr td{
     gap: 1rem;
     }
     
-    .div1 { grid-area: 1 / 1 / 3 / 7; }
-    .div2 { grid-area: 3 / 1 / 7 / 5; }
-    .div3 { grid-area: 3 / 5 / 5 / 7; }
-    .div4 { grid-area: 5 / 5 / 7 / 7; }
+.div1 { grid-area: 1 / 1 / 3 / 7; }
+.div2 { grid-area: 3 / 1 / 7 / 5; }
+.div3 { grid-area: 3 / 5 / 5 / 7; }
+.div4 { grid-area: 5 / 5 / 7 / 7; }
 
-    .div1 p,.div2 p, .div3 p, .div4 p{
-        border-radius: 0.5rem;
-        font-size: 2rem;
-        text-align: center;
-        font-weight: 600;
-        background-color: #51034f;
-        color: white;
-        padding: 2rem;
-        }
-
-        .div3,.div4 {
-            margin-right: 2%;
-        }
-
-        .div1{}
-
+.div1 p,.div2 p, .div3 p, .div4 p{
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+    background-color: #51034f;
+    color: white;
+    padding: 2rem;
+}
+.div3,.div4 {
+    margin-right: 2%;
+}
        

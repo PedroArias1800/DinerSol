@@ -20,8 +20,8 @@ if(isset($_POST['nombreCombo']) && isset($_POST['Cafeteria']) && isset($_POST['c
     } else {
         $query = "INSERT INTO combo (nombre_combo, id_producto, costo, inventario, id_cafeteria)
                   VALUES (:nombre, :comida, :costo, :cantidad, :cafeteria), 
-                         (:nombre, :snack, :costo, :cantidad, :cafeteria),
-                         (:nombre, :refresco, :costo, :cantidad, :cafeteria)";
+                         (:nombre, :refresco, :costo, :cantidad, :cafeteria),
+                         (:nombre, :snack, :costo, :cantidad, :cafeteria)";
     }
 
     $combo = new Combo($nombre, $comida, $snack, $refresco, $costo, $cantidad, $cafeteria);
