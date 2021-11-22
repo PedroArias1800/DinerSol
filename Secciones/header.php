@@ -19,16 +19,16 @@
             <p>Universidad Teconologica de Panamá <br> <strong>DinerSol- Sistemas De cafeterías UTP</strong></p> 
             </div>
          <div class="titulo">
-           <h1>DinnerSol</h1>
+           <h1>DinerSol</h1>
          </div>
        <div class="yo">
        <a class="ab" href="#paso-1">
-                <div class="me ">
+          <div class="me">
                     <div class="block-component">
                         <div class="author-card">
                           <img
                             class="author-img"
-                            src="../Imagenes/<?php echo  $datosDelUsuario->foto; ?>"
+                            src="../Imagenes/user.png<?php //echo  $datosDelUsuario->foto; ?>"
                           />
                           <div>
                             <h2 class="author-h2">
@@ -45,18 +45,15 @@
 
 
        </div>
-   
-
-   
           
-            <ul class="nav">   
-        <li><a href=""> Nuevo</a></li> 
-        <li><a href=""> Proyectos</a></li>
-        <li><a href=""> Sobre mi</a></li>
-        <li><a href=""> Ayuda</a></li>
-        
-    
-    
+    <ul class="nav">   
+      <li><a href="perfilDeUsuario.php">Mi Perfil</a></li> 
+      <li><a href="historialCompra.php">Compras</a></li>
+      <?php if($datosDelUsuario->id_usuario == 1){ ?>
+        <li><a href="adminMenuInventario.php">Administrar Menus</a></li>
+        <li><a href="adminCrearCombos.php">Administrar Productos</a></li>
+      <?php } ?>
+      <li><a href="../Procesos/logout.php">Cerrar Sesión</a></li>
     </ul>
 
 

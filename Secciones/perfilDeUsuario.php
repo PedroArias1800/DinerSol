@@ -12,30 +12,14 @@
     <title>DinerSol | Perfil</title>
 </head>
 <body>
-    <!-- Header
-    <?php include("header.html")?> -->
-
-    <div class="header">
-        <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-        <div>
-            <h3>Universidad Tecnológica De Panamá</h3>
-            <h1>DinerSol - Sistema De Cafeterías UTP</h1>
-        </div>
+    
+    <div class="headerphp">
+        <?php require('header.php'); ?>
     </div>
 
-    <?php require('dropdown.php'); ?>
-    
-    <nav>
-        <a href="paginaPrincipal.php">Inicio</a>
-        <a href="">Cafeterías</a>
-        <a href="">Ayuda Estudiantil</a>
-        <a href="">Historial De Compras</a>
-        <a href="estadisticas.php">Estadísticas</a>
-    </nav>
     <div class="TituloCompleto">
         <h1>Actualizar Perfil</h1>
-    </div><br>
-    <br><br>
+    </div>
 
     <!-- Seccion -->
     <section>

@@ -31,7 +31,7 @@
         <div class="TituloCompleto">
             <h1>Historial De Compras</h1>
         </div>
-        <div class="card">
+        <div class="card" style="width: 94%; margin: 0 0 2% 3%">
             <h2 class="TituloTabla">Historial General</h2>
             <table>
                 <thead>
@@ -58,7 +58,7 @@
                 </tbody>
             </table><br>
         </div>
-        <div class="card">
+        <div class="card" style="width: 94%; margin: 0 0 2% 3%">
             <h2 class="TituloTabla">Detalles De Los Pedidos</h2>
             <table>
                 <thead>
@@ -85,7 +85,7 @@
                 </tbody>
             </table><br>
         </div>
-        <h2 style="text-align: center;">¡Gracias Por Preferir Utilizar DinerSol, El Sistema De Cafeterías UTP!</h2>
+        <h2 style="text-align: center; margin: 2% 0 2% 0;">¡Gracias Por Preferir Utilizar <strong>DinerSol</strong>, El Sistema De Cafeterías UTP!</h2>
         
         <?php require("footer.html"); ?>
 

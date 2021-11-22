@@ -28,7 +28,7 @@
                     <h2>Opciones</h2>
                     <a href="adminCrearCombos.php">Crear Combo</a>
                     <a href="adminEditarCombos.php">Editar Combo</a>
-                    <a href="">Agregar Producto</a>
+                    <a href="adminMenuAgregar.html">Agregar Producto</a>
                     <a href="adminMenuEditar.html">Editar Producto</a>
                     <a href="adminMenuEditar.html">Eliminar Producto</a>
                     <a href="adminMenuInventario.php">Inventario</a><br>
