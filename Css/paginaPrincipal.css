@@ -415,12 +415,13 @@ tr th, tr td{
     position: absolute;
     background-color: purple;
     right: 0px;
-    height: 60vh;
-    top: 11vh;
-    width: 15%;
+    height: 92vh;
+    top: 10.2vh;
+    width: 50%;
     transform: translateX(100%);
     opacity: 1;
     transition: transform 0.5s ease-in;
+    z-index: 1;
 }
         
 .nav li, a{
@@ -432,12 +433,13 @@ tr th, tr td{
         
 .nav li{
     opacity: 0;
-    font-size: 1vw;
+    font-size: 1rem;
 }
 
 .ul-active{
     transform: translateX(0%);
 }    
+
 
 @keyframes ulFade {
     from{
