@@ -24,9 +24,7 @@
         <?php require('header.php'); ?>
     </div>
 
-    <div class="TituloCompleto">
-        <h1>Actualizar Perfil</h1>
-    </div>
+   
 
     <!-- Seccion -->
      <div class="editar">
