@@ -31,7 +31,7 @@
         <div class="TituloCompleto">
             <h1>Historial De Compras</h1>
         </div>
-        <div class="card" style="width: 94%; margin: 0 0 2% 3%">
+        <div class="card tablasGrandes">
             <h2 class="TituloTabla">Historial General</h2>
             <table>
                 <thead>
@@ -58,7 +58,7 @@
                 </tbody>
             </table><br>
         </div>
-        <div class="card" style="width: 94%; margin: 0 0 2% 3%">
+        <div class="card tablasGrandes">
             <h2 class="TituloTabla">Detalles De Los Pedidos</h2>
             <table>
                 <thead>

@@ -15,20 +15,124 @@
         <div class="TituloCompleto">
             <h1>Estadísticas Generales</h1>
         </div>
+
+        <?php
+
+            if(isset($_POST['fecha']) && $_POST['fecha'] != "NULL"){
+                $fechas = explode(" ", $_POST['fecha']);
+
+                $consultarCombo = $datos->query("SELECT c.nombre_combo as nombre, COUNT(co.id_orden) AS cantidad, SUM(c.costo) as costo
+                                                    FROM contenido_orden co INNER JOIN combo c ON co.id_combo=c.id_combo
+                                                                            INNER JOIN orden o ON o.id_orden=co.id_orden
+                                                    WHERE o.created_at BETWEEN '$fechas[0]' AND '$fechas[1]'
+                                                    GROUP BY c.nombre_combo"); 
+
+                $consultarMenu = $datos->query("SELECT p.nombre, COUNT(co.id_orden) AS cantidad, SUM(p.costo) as costo
+                                                    FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
+                                                                            INNER JOIN orden o ON o.id_orden=co.id_orden
+                                                    WHERE p.tipo_producto = 'Comida' AND o.created_at BETWEEN '$fechas[0]' AND '$fechas[1]'
+                                                    GROUP BY p.nombre
+                                                    ORDER BY p.tipo_producto ASC");
+
+                $consultarSnack = $datos->query("SELECT p.nombre, COUNT(co.id_orden) AS cantidad, SUM(p.costo) as costo
+                                                    FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
+                                                                            INNER JOIN orden o ON o.id_orden=co.id_orden
+                                                    WHERE p.tipo_producto = 'Snack' AND o.created_at BETWEEN '$fechas[0]' AND '$fechas[1]'
+                                                    GROUP BY p.nombre
+                                                    ORDER BY p.tipo_producto ASC"); 
+
+                $consultarRefresco = $datos->query("SELECT p.nombre, COUNT(co.id_orden) AS cantidad, SUM(p.costo) as costo
+                                                        FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
+                                                                                INNER JOIN orden o ON o.id_orden=co.id_orden
+                                                        WHERE p.tipo_producto = 'Refresco' AND o.created_at BETWEEN '$fechas[0]' AND '$fechas[1]'
+                                                        GROUP BY p.nombre
+                                                        ORDER BY p.tipo_producto ASC"); 
+
+                $consultarUtencilio = $datos->query("SELECT p.nombre as nombre, p.inventario
+                                                        FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
+                                                                                INNER JOIN orden o ON o.id_orden=co.id_orden
+                                                        WHERE p.tipo_producto = 'Utencilio' AND o.created_at BETWEEN '$fechas[0]' AND '$fechas[1]'
+                                                        ORDER BY p.id_producto"); 
+
+                $consultarPedidos = $datos->query("SELECT t.nombre, COUNT(o.id_orden) AS cantidad
+                                                    FROM usuario u INNER JOIN orden o ON u.id_usuario=o.id_usuario
+                                                                    INNER JOIN tipo t ON u.id_tipo=t.id_tipo
+                                                    WHERE o.created_at BETWEEN '$fechas[0]' AND '$fechas[1]'
+                                                    GROUP BY t.nombre
+                                                    ORDER BY t.id_tipo ASC");
+            } else {
+
+                $consultarCombo = $datos->query("SELECT c.nombre_combo as nombre, COUNT(co.id_orden) AS cantidad, SUM(c.costo) as costo
+                                                    FROM contenido_orden co INNER JOIN combo c ON co.id_combo=c.id_combo
+                                                    GROUP BY c.nombre_combo"); 
+
+                $consultarMenu = $datos->query("SELECT p.nombre, COUNT(co.id_orden) AS cantidad, SUM(p.costo) as costo
+                                                    FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
+                                                    WHERE p.tipo_producto = 'Comida'
+                                                    GROUP BY p.nombre
+                                                    ORDER BY p.tipo_producto ASC");
+
+                $consultarSnack = $datos->query("SELECT p.nombre, COUNT(co.id_orden) AS cantidad, SUM(p.costo) as costo
+                                                    FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
+                                                    WHERE p.tipo_producto = 'Snack'
+                                                    GROUP BY p.nombre
+                                                    ORDER BY p.tipo_producto ASC"); 
+
+                $consultarRefresco = $datos->query("SELECT p.nombre, COUNT(co.id_orden) AS cantidad, SUM(p.costo) as costo
+                                                        FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
+                                                        WHERE p.tipo_producto = 'Refresco'
+                                                        GROUP BY p.nombre
+                                                        ORDER BY p.tipo_producto ASC");
+                                                        
+                $consultarUtencilio = $datos->query("SELECT p.nombre as nombre, p.inventario
+                                                        FROM producto p
+                                                        WHERE p.tipo_producto = 'Utencilio'
+                                                        ORDER BY p.id_producto"); 
+                
+                $consultarPedidos = $datos->query("SELECT t.nombre, COUNT(o.id_orden) AS cantidad
+                                                    FROM usuario u INNER JOIN orden o ON u.id_usuario=o.id_usuario
+                                                                    INNER JOIN tipo t ON u.id_tipo=t.id_tipo
+                                                    GROUP BY t.nombre
+                                                    ORDER BY t.id_tipo ASC");
+            }
+
+        ?>
+
         <div class="Campos">
             <h2>Buscar un periodo</h2>
-            <form action="" method="POST">
-                <select name="fecha" id="fecha">
-                    <option value="1">18/10/21 - 24/10/21</option> 
-                    <option value="2">11/10/21 - 17/10/21</option>      
-                    <option value="3">04/10/21 - 10/10/21</option>       
-                    <option value="4">27/10/21 - 03/10/21</option>
+            <form action="estadisticas.php" method="POST">
+                <select name="fecha" id="fecha" style="margin: 0 0 0 -8%">
+                    <option value="NULL">Desde El Inicio</option>
+                    <?php 
+
+                        $consultarPrimeraFecha = $datos->query("SELECT MIN(CAST(created_at AS DATE)) as minimo, MAX(CAST(created_at AS DATE)) as maximo FROM orden");
+                        while($fecha = $consultarPrimeraFecha->fetch(PDO::FETCH_OBJ)){
+                            $ultima = $fecha->maximo;
+                            $primera = $fecha->minimo;
+
+                            $primeraExplode = explode("-", $primera);
+                            $ultimaExplode = explode("-", $ultima);
+
+                            $seguir = true;
+
+                            while($seguir){
+                                if($primeraExplode[0] <= $ultimaExplode[0] AND $primeraExplode[1] <= $ultimaExplode[1]){ 
+                                    if($primeraExplode[1] != 12){
+                                        $primeraExplode[1] = $primeraExplode[1]+1;
+                                    } else { 
+                                        $primeraExplode[0] = $primeraExplode[0]+1;
+                                        $primeraExplode[1] = 0;
+                                    }
+                                    $primera2 = $primeraExplode[0]."-".$primeraExplode[1]."-".$primeraExplode[2];
+                    ?>
+                        <option value="<?php echo $primera." ".$primera2?>">Del <?php echo $primera." hasta el ".$primera2; ?></option>
+                    <?php $primera = $primera2; } else { $seguir = false; } } } ?>
                 </select>
                 <input type="submit" class="botones" value="Buscar" class="buscar">
                 <button class="botones"><a  href="">Generar Reportes</a></button>
             </form>
         </div><hr>
-        <div class="card" style="width: 94%; margin: 0 0 2% 3%">
+        <div class="card tablasGrandes">
             <h2 class="TituloTabla">Ventas De Los Combos</h2>
             <table>
                 <thead>
@@ -38,12 +142,8 @@
                         <th>Ingreso Del Combo</th>
                     </tr>
                 </thead>
-                <tbody><!-- Para controlar el tiempo de búsqueda: SELECT * FROM tabla WHERE fecha >= CAST('2018-11-26' AS datetime)-->
-                    <?php $consultarCombo = $datos->query("SELECT c.nombre_combo as nombre, COUNT(co.id_orden) AS cantidad, SUM(c.costo) as costo
-                                                            FROM contenido_orden co INNER JOIN combo c ON co.id_combo=c.id_combo
-                                                            GROUP BY c.nombre_combo"); 
-                        $costoTotal = 0.00;
-                    ?>
+                <tbody>
+                    <?php $costoTotal = 0.00; ?>
                     <tr>
                         <?php while($combo = $consultarCombo->fetch(PDO::FETCH_OBJ)){ ?>
                         <td><?php echo $combo->nombre; ?></td>
@@ -58,7 +158,7 @@
                 </tbody>
             </table><br>
         </div>
-        <div class="card" style="width: 94%; margin: 0 0 2% 3%">
+        <div class="card tablasGrandes">
             <h2 class="TituloTabla">Ventas De Los Menús</h2>
             <table>
                 <thead>
@@ -69,13 +169,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $consultarMenu = $datos->query("SELECT p.nombre, COUNT(co.id_orden) AS cantidad, SUM(p.costo) as costo
-                                                            FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
-                                                            WHERE p.tipo_producto = 'Comida'
-                                                            GROUP BY p.nombre
-                                                            ORDER BY p.tipo_producto ASC"); 
-                        $costoTotal = 0;
-                    ?>
+                    <?php $costoTotal = 0; ?>
                     <tr>
                         <?php while($menu = $consultarMenu->fetch(PDO::FETCH_OBJ)){ ?>
                         <td><?php echo $menu->nombre; ?></td>
@@ -102,13 +196,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $consultarSnack = $datos->query("SELECT p.nombre, COUNT(co.id_orden) AS cantidad, SUM(p.costo) as costo
-                                                                FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
-                                                                WHERE p.tipo_producto = 'Snack'
-                                                                GROUP BY p.nombre
-                                                                ORDER BY p.tipo_producto ASC"); 
-                            $costoTotal = 0;
-                        ?>
+                        <?php $costoTotal = 0; ?>
                         <tr>
                             <?php while($snack = $consultarSnack->fetch(PDO::FETCH_OBJ)){ ?>
                             <td><?php echo $snack->nombre; ?></td>
@@ -134,13 +222,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $consultarRefresco = $datos->query("SELECT p.nombre, COUNT(co.id_orden) AS cantidad, SUM(p.costo) as costo
-                                                                FROM contenido_orden co INNER JOIN producto p ON co.id_producto=p.id_producto
-                                                                WHERE p.tipo_producto = 'Refresco'
-                                                                GROUP BY p.nombre
-                                                                ORDER BY p.tipo_producto ASC"); 
-                            $costoTotal = 0;
-                        ?>
+                        <?php $costoTotal = 0; ?>
                         <tr>
                             <?php while($refresco = $consultarRefresco->fetch(PDO::FETCH_OBJ)){ ?>
                             <td><?php echo $refresco->nombre; ?></td>
@@ -168,11 +250,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $consultarUtencilio = $datos->query("SELECT p.nombre as nombre, p.inventario
-                                                                    FROM producto p
-                                                                    WHERE p.tipo_producto = 'Utencilio'
-                                                                    ORDER BY p.id_producto"); 
-                        ?>
                         <?php while($utencilio = $consultarUtencilio->fetch(PDO::FETCH_OBJ)){ ?>
                             <tr>
                                 <td><?php echo $utencilio->nombre; ?></td>
@@ -192,12 +269,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $consultarPedidos = $datos->query("SELECT t.nombre, COUNT(o.id_orden) AS cantidad
-                                                                FROM usuario u INNER JOIN orden o ON u.id_usuario=o.id_usuario
-                                                                                INNER JOIN tipo t ON u.id_tipo=t.id_tipo
-                                                                GROUP BY t.nombre
-                                                                ORDER BY t.id_tipo ASC"); 
-                        ?>
                         <?php while($pedido = $consultarPedidos->fetch(PDO::FETCH_OBJ)){ ?>
                             <tr>
                                 <td><?php echo $pedido->nombre; ?></td>

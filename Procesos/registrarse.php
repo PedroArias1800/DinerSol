@@ -25,8 +25,7 @@
             if($ex->errorInfo[1] == 1062){
                 header("Location: ../Secciones/registrarse.php?error=El correo ya está en uso, prueba con otro");
             } else {
-                print($nombre." ".$apellido." ".$cedula." ".$telefono." ".$email." ".$password);
-                print($ex);//header("Location: ../Secciones/registrarse.php?error=Hubo un error...");
+                header("Location: ../Secciones/registrarse.php?error=Hubo un error...");
             }
         }
     } else {

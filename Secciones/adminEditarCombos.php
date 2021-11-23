@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../Css/estadisticas.css">
         <link rel="stylesheet" href="../Css/formHacerPedido.css">
         <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
-        <title>Administración | Crear Combos</title>
+        <title>Administración | Editar Combos</title>
     </head>
     <body>
         
@@ -34,7 +34,7 @@
                     <a href="adminMenuEditar.html">Eliminar Producto</a>
                     <a href="adminMenuInventario.php">Inventario</a><br>
                 </div>
-                <form method="POST" action="../Procesos/registrarCombo.php" class="otraBarra">
+                <form method="POST" action="../Procesos/editarCombo.php" class="otraBarra">
                     <div>
                         <h2>Crear Combo</h2>
                         <div class="datosProductos camposCrearEditar">

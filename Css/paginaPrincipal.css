@@ -470,3 +470,10 @@ tr th, tr td{
 .me{
     padding: 0 5% 0 10%;
 }
+.tablasGrandes{
+    width: 94%;
+    margin: 0 0 2% 3%;
+}
+.camposCrearEditar{
+    margin: 2% 0 1% 1.6%;
+}

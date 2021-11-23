@@ -26,7 +26,7 @@
         </select>
       </div>
       <input type="text" value=1 id="Prueba">
-      <div class="card">
+      <div class="card tablasGrandes">
         
         <?php   $consultarCombos = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
                                                   FROM producto p inner join menu m ON p.id_producto = m.id_producto
@@ -59,7 +59,7 @@
           </tbody>
         </table><br>
       </div>
-      <div class="card">
+      <div class="card tablasGrandes">
 
         <?php $consultarComidas = $datos->query(" SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
                                                   FROM producto p inner join menu m ON p.id_producto = m.id_producto
@@ -92,7 +92,7 @@
           </tbody>
         </table><br>
       </div>
-      <div class="card">
+      <div class="card tablasGrandes">
 
         <?php $consultarSnacks = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
                                                 FROM producto p inner join menu m ON p.id_producto = m.id_producto
@@ -125,7 +125,7 @@
           </tbody>
         </table><br>
       </div>
-      <div class="card">
+      <div class="card tablasGrandes">
 
         <?php $consultarRefrescos = $datos->query(" SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
                                                     FROM producto p inner join menu m ON p.id_producto = m.id_producto
