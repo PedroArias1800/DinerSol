@@ -286,6 +286,14 @@ nav a:hover{
     width: 22%;
     float: left;
 }
+.soloTres1, .soloTres2{
+    width: 100%;
+    justify-content: space-around;
+}
+.soloTres1 .card, .soloTres2 .card{
+    width: 30.5%;
+    float: left;
+}
 
 @keyframes hacerPedido{
     0%{
