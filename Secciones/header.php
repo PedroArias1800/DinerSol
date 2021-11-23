@@ -23,7 +23,7 @@
          </div>
        <div class="yo">
        <a class="ab" href="#paso-1">
-          <div class="me">
+          <div>
                     <div class="block-component">
                         <div class="author-card">
                           <img
@@ -71,6 +71,6 @@
     
     </div>
           
-
+   <script src="../JavaScript/app2.js"></script>
     </body>
 <html>

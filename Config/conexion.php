@@ -7,7 +7,7 @@
         $datos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }catch(PDOException $ex){
         echo $ex->getMessage();
-        echo "Error en la conexión" . $ex.getMessage();
+        echo "Error en la conexión".$ex->getMessage();
     }
 
 ?>

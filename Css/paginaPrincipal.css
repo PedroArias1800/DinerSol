@@ -59,14 +59,20 @@ body{
     width: auto;
 }
 .ComidasMenu{
-    margin: 1.8%;
-    padding: 2px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+    margin-top: 1rem;
+   display: flex;
+   text-align: center;
+   justify-content: space-between;
+   flex-direction: column;
 }
-.ComidasMenu h4{
-    font-size: 1vw;
+.comidas-titulo{
+   font-size: 1.3rem;
+   color: gray;
+}
+.precio{
+    color: red;
+    font-size: 1rem;
 }
 .HacerPedido{
     display: flex;
@@ -272,14 +278,11 @@ nav a:hover{
     background-color: #51034f;
 }
 .soloCuatro{
-    width: 109%;
-    background-color: #51034f;
+display: flex;
+align-items: center;
     justify-content: space-around;
 }
-.soloCuatro .card{
-    width: 22%;
-    float: left;
-}
+
 @keyframes hacerPedido{
     0%{
         border: 4px solid blue;
@@ -358,10 +361,7 @@ tr th, tr td{
     .h3Titulo{
         width: 55%;
     }
-    .Precio{
-        width: 30%;
-        margin-right: 5%;
-    }
+   
 }
 
 .contenedor {
@@ -428,7 +428,7 @@ tr th, tr td{
         
 .nav li{
     opacity: 0;
-    font-size: 1.5vw;
+    font-size: 1vw;
 }
 
 .ul-active{
@@ -458,12 +458,7 @@ tr th, tr td{
 .div3,.div4 {
     margin-right: 2%;
 }
-.ab *{
-    color: #e8e8e8;
-    background-color: #68086c; 
-    border-top-left-radius: 50px; 
-    border-bottom-left-radius: 50px; 
-}
+
 .ab h2{
     color: white;
 }
