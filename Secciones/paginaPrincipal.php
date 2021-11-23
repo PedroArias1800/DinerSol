@@ -79,7 +79,7 @@
                                 <?php } ?>
                             </div>
                             <div class="ComidasMenu">
-                                <h4 class="h3Titulo"><b><?php echo $combo->nombre_combo; ?></b></h4> 
+                                <h4 class="comidas-titulo"><b><?php echo $combo->nombre_combo; ?></b></h4> 
                                 <h4 class="Precio"><?php echo $combo->costo; ?></h4> 
                             </div>
                         </div>
@@ -96,21 +96,21 @@
                 <div class="card">
                     <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
                     <div class="ComidasMenu">
-                        <h4 class="h3Titulo"><b>Arroz Con Pollo</b></h4> 
+                        <h4 class="comidas-titulo"><b>Arroz Con Pollo</b></h4> 
                         <h4 class="Precio">$1.25</h4> 
                     </div>
                 </div>
                 <div class="card">
                     <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
                     <div class="ComidasMenu">
-                        <h4 class="h3Titulo"><b>Macarrones</b></h4> 
+                        <h4 class="comidas-titulo"><b>Macarrones</b></h4> 
                         <h4 class="Precio">$1.25</h4> 
                     </div>
                 </div>
                 <div class="card">
                     <img src="../Imagenes/arrozPescadoEnsalada.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
                     <div class="ComidasMenu">
-                        <h4 class="h3Titulo"><b>Arroz Con Pescado Y Ensalada</b></h4> 
+                        <h4 class="comidas-titulo"><b>Arroz Con Pescado Y Ensalada</b></h4> 
                         <h4 class="Precio">$1.25</h4> 
                     </div>
                 </div>
@@ -119,21 +119,21 @@
                 <div class="card">
                     <img src="../Imagenes/coditosConSalchicha.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
                     <div class="ComidasMenu">
-                        <h4 class="h3Titulo"><b>Coditos Con Salchichas</b></h4> 
+                        <h4 class="comidas-titulo"><b>Coditos Con Salchichas</b></h4> 
                         <h4 class="Precio">$1.25</h4> 
                     </div>
                 </div>
                 <div class="card">
                     <img src="../Imagenes/arrozConLentejasYCarne.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
                     <div class="ComidasMenu">
-                        <h4 class="h3Titulo"><b>Arroz Con Lentejas Y Carne</b></h4> 
+                        <h4 class="comidas-titulo"><b>Arroz Con Lentejas Y Carne</b></h4> 
                         <h4 class="Precio">$1.25</h4> 
                     </div>
                 </div>
                 <div class="card">
                     <img src="../Imagenes/arrozConSalchichaGuisada.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
                     <div class="ComidasMenu">
-                        <h4 class="h3Titulo"><b>Arroz Con Salchichas Guisadas</b></h4> 
+                        <h4 class="comidas-titulo"><b>Arroz Con Salchichas Guisadas</b></h4> 
                         <h4 class="Precio">$1.25</h4> 
                     </div>
                 </div>
@@ -145,7 +145,7 @@
             <div class="card">
                 <img src="../Imagenes/snickers.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                 <div class="ComidasMenu">
-                    <h4 class="h3Titulo"><b>Snickers</b></h4> 
+                    <h4 class="comidas-titulo"><b>Snickers</b></h4> 
                     <h4 class="Precio">$1.25</h4> 
                 </div>
             </div>
@@ -159,8 +159,8 @@
             <div class="card">
                 <img src="../Imagenes/galletaMaria.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                 <div class="ComidasMenu">
-                    <h4 class="h3Titulo"><b>Galleta María</b></h4> 
-                    <h4 class="Precio">$1.25</h4> 
+                    <h4 class="comidas-titulo"><b>Galleta María</b></h4> 
+                    <h4 class="comidas-titulo">$1.25</h4> 
                 </div>
             </div>
         </div>        
@@ -172,21 +172,21 @@
             <div class="card">
                 <img src="../Imagenes/botellaDeAgua.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                 <div class="ComidasMenu">
-                    <h4 class="h3Titulo"><b>Agua</b></h4> 
-                    <h4 class="Precio">$0.75</h4> 
+                    <h4 class="comidas-titulo"><b>Agua</b></h4> 
+                    <h4 class="comidas-titulo">$0.75</h4> 
                 </div>
             </div>
             <div class="card">
                 <img src="../Imagenes/jugoDelMonte.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
                 <div class="ComidasMenu">
-                    <h4 class="h3Titulo"><b>Jugo Del Monte</b></h4> 
+                    <h4 class="comidas-titulo"><b>Jugo Del Monte</b></h4> 
                     <h4 class="Precio">$1.50</h4> 
                 </div>
             </div>
             <div class="card">
                 <img src="../Imagenes/maltaVigor.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                 <div class="ComidasMenu">
-                    <h4 class="h3Titulo"><b>Malta Vigor</b></h4> 
+                    <h4 class="comidas-titulo"><b>Malta Vigor</b></h4> 
                     <h4 class="Precio">$1.00</h4> 
                 </div>
             </div>

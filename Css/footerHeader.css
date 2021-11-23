@@ -95,15 +95,16 @@
   }
 
   .author-card {
+      margin-right: 1rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.5;
+    padding: 0.7rem;
     min-width: 14rem;
     border-color: #4c4954;
     border-radius: 0.5rem;
-    color: #4c4954;
-    background: #ffffff;
+    color: white !important;
+    background: purple;
     box-shadow: 0 45px 75px rgba(58, 35, 91, 0.09);
   }
 
@@ -128,6 +129,7 @@
   }
 
   .block-component {
+      padding-bottom: 2%;
 display: flex;
 align-items: center;
 justify-content: center;

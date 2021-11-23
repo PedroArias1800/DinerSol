@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,10 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/Perfil.css">
-    <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
     <link rel="stylesheet" href="../Css/footerHeader.Css">
     <link rel="stylesheet" href="../Css/estadisticas.css">
-    <link rel="stylesheet" href="../Css/drpdwn.css">
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/normalice.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+
+    
     <title>DinerSol | Perfil</title>
 </head>
 <body>
@@ -22,102 +29,45 @@
     </div>
 
     <!-- Seccion -->
-    <section>
-        <div class="contMain">
-            <form class="contMain-form" action="#" method="post">
-                <div class="contMain-form-menu flex-column">
-                    <a href="#">General</a>
-                    <!-- <a href="#">Correo</a> -->
-                    <a href="#">Contraseña</a>
-                    <a href="#">Solicitud</a>
-                    <a href="../index.php">Cerrar Sesión</a>
-                </div>
-                <div class="contMain-form-contenido">
-                    <h3>Editar General</h3>
-                    <div class="_form-contenido-foto flex-column">
-                        <img src="../Imagenes/user.png" alt="">
-                        <div class="custom-input-file">
-                            <input type="file" name="fotoPerfil" id="fotoPerfil" class="input-file" value="">
-                            Subir Foto
-                        </div>
-                    </div>
-                    <div class="_form-contenido-info">
-                        <div class="campo flex-column">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre" value="<?php echo $datosDelUsuario->nombre; ?>" disabled>
-                        </div>
-                        <div class="campo flex-column">
-                            <label for="apellido">Apellido</label>
-                            <input type="text" name="apellido" id="apellido" value="<?php echo $datosDelUsuario->apellido; ?>" disabled>
-                        </div>
-                        <div class="campo flex-column">
-                            <label for="correo">Correo</label>
-                            <input type="text" name="correo" id="correo" value="<?php echo $datosDelUsuario->email; ?>" disabled>
-                        </div>
-                        <div class="campo flex-column">
-                            <label for="telefono">Teléfono</label>
-                            <input type="text" name="telefono" id="telefono" value="<?php echo $datosDelUsuario->telefono; ?>" require>
-                        </div>                                                         
-                    </div>
-                    <div class="form-btn">
-                        <input id="EdtGeneral" type="submit" value="Guadar Cambios">
-                    </div>
-                </div>
+     <div class="editar">
+    <div class="usuarios usuarios--editar">
+      <h2>Actualizar Usuario</h2>
+    </div>
+    <form action="../php/actualizar.php" method="POST" enctype="multipart/form-data">
+      <div class="block-component">
+        <span class="outline">
+          <img class="outline-img" src="../Imagenes/<?php echo  $datosDelUsuario->foto; ?>" />
+        </span>
+      </div>
 
-                <!-- Contraseña -->
-                <div class="contMain-form-contenido contraseña invisible">
-                    <h3>Editar Contraseña</h3>
-                    <div class="_form-contenido-info">
-                        <div >
-                            <p>Para cabiar la contraseña debe agregar su contraseña actual y lugo una nueva contraseña.</p> 
-                        </div>
-                        <div class="campo flex-column">
-                            <label for="actual">Contraseña actual</label>
-                            <input type="password" name="contraseñaA" id="actual" require>
-                        </div>
-                        <div class="campo flex-column">
-                            <label for="nueva">Nueva contraseña</label>
-                            <input type="password" name="contraseñaN" id="nueva" require>
-                        </div>
-                        <div class="campo flex-column">
-                            <label for="nueva">Confirmar contraseña</label>
-                            <input type="password" name="contraseñaNConfr" id="nuevaConfr" require>
-                        </div>                                                        
-                    </div>
-                    <div class="form-btn">
-                        <input id="EdtContrasña" type="submit" value="Confrimar Cambios">
-                    </div>
-                </div>
+      <div class="user username">
+        <span class="icon uil uil-user"></span>
+        <input class="user  input-style" type="text" name="nombre" id="" value="<?php echo  $datosDelUsuario->nombre; ?>" required>
+      </div>
 
-                 <!-- Solicitud -->
-                 <div class="contMain-form-contenido solicitud invisible">
-                    <h3>Solicitud</h3>
-                    <div class="_form-contenido-info">
-                        <div >
-                            <p>¿Solicitar que se le verifique para ser añadido como?</p>
-                        </div>
-                        <div class="flex-column">
-                            <label for="actual">Tipo de Usuario</label>
-                            <div class="">
-                                <input type="radio" name="tipo" id="tpEstudiante" value="Estudiante">
-                                <label for="tpEstudiante">Estudiante</label>
-                            </div>
-                            <div class="">
-                                <input type="radio" name="tipo" id="tpAdministrativo" value="Administrativo">
-                                <label for="tpAdministrativo">Administrativo</label>
-                            </div>                            
-                        </div>                                                     
-                    </div>
-                    <div class="form-btn">
-                        <input id="EdtSolicitud" type="submit" value="Eviar Solicitud">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
+      <div class="user password">
+        <span class="icon uil uil-user"></span>
+        <input class=" user input-style" type="text" name="dire" id="" value="<?php echo $datosDelUsuario->apellido;  ?>" required>
+      </div>
+      <div class="user disable username">
+        <span class="icon disable uil uil-envelope-edit"></span>
+        <input class="user disable  input-style" type="email" name="correo" id="" value="<?php echo $datosDelUsuario->email; ?>" required disabled>
+      </div>
+      <INPut name="ftpd" type="hidden" value="<?php echo  $datosDelUsuario->foto ?>"> </INPut>
+      <input name="foto" type="file" accept="image/*" />
 
-    <!-- Footer
-    <?php include("footer.html") ?> -->
+      <div class="submit">
+        <button type="submit">Actualizar</button>
+      </div>
+
+    
+
+
+
+     </form>
+  </div>
+
+   
 
     <br><hr><br>
     <div class="footer">
@@ -129,7 +79,8 @@
             Teléfono. (507) 560-3000<br>
             Correo electrónico: buzondesugerencias@utp.ac.pa<br>
             311 Centro de Atención Ciudadana<br>
-            Políticas de Privacidad<br>
+            Políticas de Privacidad<br> 
+            echo $datosDelUsuario->nombre;
         </h3>
         <div class="footerP1">
             <a href="">Matrícula UTP</a><br>
