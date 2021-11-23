@@ -36,7 +36,7 @@
         </div>
 
         <?php $idPedido = $datos->query("SELECT id_orden FROM orden
-                                         WHERE id_usuario = 1 AND created_at = (SELECT MAX(created_at) FROM orden WHERE id_usuario = 1)"); ?>
+                                         WHERE id_usuario = '$datosDelUsuario->id_usuario' AND created_at = (SELECT MAX(created_at) FROM orden WHERE id_usuario = '$datosDelUsuario->id_usuario')"); ?>
 
         <div style="padding: 1.5%; display: flex; justify-content: space-around;">
             <?php while($pedido = $idPedido->fetch(PDO::FETCH_OBJ)){ ?>
@@ -52,7 +52,7 @@
             <p>Combos Del Dia</p>
             <div class="combos">  
 
-                <?php $consultarCombo = $datos->query("SELECT nombre_combo, COUNT(c.id_producto), c.costo, p.foto
+                <?php $consultarCombo = $datos->query("SELECT nombre_combo, COUNT(c.id_producto), c.costo, p.foto, id_cafeteria
                                                         FROM combo c INNER JOIN producto p ON c.id_producto=p.id_producto
                                                         WHERE p.tipo_producto = 'Comida'
                                                         GROUP BY nombre_combo
@@ -64,7 +64,7 @@
 
                 <div class="soloCuatro">
                     <?php while($combo = $consultarCombo->fetch(PDO::FETCH_OBJ)){ if($nombreCombo1 != $combo->nombre_combo){ $combos = $combos + 1; $nombreCombo1 = $combo->nombre_combo; ?>
-                    <div class="card" value="<?php echo $combo->id_cafeteria?>">
+                    <div class="card" value="<?php echo $combo->id_cafeteria; ?>" name="ComboCaf<?php echo $combo->id_cafeteria; ?>">
                         <div>
                             <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="5%" height="5%">
                             <div style="display: flex; justify-content: space-between; margin-top: -33.8%; margin-left: 0.5%; width: 94.5%">
@@ -85,6 +85,13 @@
                         </div>
                     </div>
                     <?php } } ?>
+                    <div class="card">
+                        <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <div class="ComidasMenu">
+                            <h4 class="comidas-titulo"><b>Arroz Con Pollo</b></h4> 
+                            <h4 class="Precio">$1.25</h4> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

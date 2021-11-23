@@ -139,4 +139,12 @@ function Cual(c){
     i.src = "../Imagenes/CafeteriaFISC.jpg";
     n.innerHTML = "Cafeteria Edificio #3";
   }
+
+  for(i=1; i<=c; i++){
+    if(document.getElementById('ComboCaf'+i).value == c){
+      document.getElementById('ComboCaf'+i).style.display = 'inline';
+    } else {
+      document.getElementById('ComboCaf'+i).style.display = 'none';
+    }
+  }
 }
