@@ -4,6 +4,7 @@
         <title>Historial De Compras</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../Css/footerHeader.Css">
         <link rel="stylesheet" href="../Css/estadisticas.css">
         <link rel="stylesheet" href="../Css/drpdwn.css">
@@ -32,9 +33,9 @@
         <div class="TituloCompleto">
             <h1>Historial De Compras</h1>
         </div>
-        <div class="card tablasGrandes">
+        <div  class="card tablasGrandes">
             <h2 class="TituloTabla">Historial General</h2>
-            <table>
+            <table class="styled-table">
                 <thead>
                     <tr>
                         <th>Código Del Pedido</th>
@@ -61,7 +62,7 @@
         </div>
         <div class="card tablasGrandes">
             <h2 class="TituloTabla">Detalles De Los Pedidos</h2>
-            <table>
+            <table class="styled-table">
                 <thead>
                     <tr>
                         <th>Código Del Pedido</th>
@@ -79,7 +80,7 @@
                         <td><?php echo $pedido->costo; $costoTotal = $costoTotal + $pedido->costo; ?></td>
                     </tr>
                     <?php } ?>
-                    <tr class="Totales">
+                    <tr>
                         <td colspan="3">Costo Total De Los Pedidos</td>
                         <td><?php echo number_format($costoTotal, 2); ?></td>
                     </tr>

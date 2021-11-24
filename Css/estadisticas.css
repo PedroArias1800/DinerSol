@@ -67,8 +67,9 @@ th{
     text-align: center;
 }
 .TituloTabla{
-    margin-left: 5%;
-    margin: 0 0 1% 2.5%;
+   text-align: center;
+   font-size: 2rem;
+   font-weight: 600;
 }
 .card, .card2{
     padding-top: 2%;
