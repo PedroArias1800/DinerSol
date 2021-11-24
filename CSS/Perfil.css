@@ -70,12 +70,20 @@ html {
   flex-direction: column;
  
 }
+
 .usuarios h2{
   text-overflow:inherit;
   text-transform:uppercase;
   color: #ffffff;
   font-weight: 600;
-  
+}
+
+.usuarios p{
+  margin: 3rem 0 1rem 0;
+  padding: 0 4rem;
+  text-transform:uppercase;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .editar{
@@ -84,7 +92,7 @@ place-items: center;
   margin: 7rem auto;
   height: 100%;
   max-width: 50%;
-  padding-bottom: 15rem;
+  padding-bottom: 10rem;
   
   border-radius: 21px;
   background: linear-gradient(315deg, #fafafa, #68086C);
@@ -115,8 +123,9 @@ place-items: center;
   text-align: center;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
-
 }
+
+
 .trash:hover{
   color: red;
 }
@@ -154,7 +163,6 @@ place-items: center;
   
 
 }
-
 
 .padding, .margin{
   padding: 0;
@@ -210,14 +218,14 @@ input{
  justify-content: center;
  margin-left: 10rem;
      margin-top: 2rem;
+     margin-bottom: 2rem;
     width: 15rem;
    padding: 2rem;
     background: #732fdf;
   }
+
   .submit button:hover{
     text-decoration: underline;
-   
-
   }
 
   .disable{
@@ -271,4 +279,32 @@ input{
 
 .imagen p{
     font-size: 1.5rem !important;
+}
+
+.invisible{
+  display: none;
+}
+
+.error{
+  margin: .2rem 0;
+  color:rgb(173, 3, 3);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  text-transform:uppercase;
+}
+
+.presForm{
+  margin-top: 2rem;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.presForm:hover{
+  text-decoration: underline;
+}
+
+.link{
+  padding-left: 5.5rem;
 }
