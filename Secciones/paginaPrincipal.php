@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../Css/footerHeader.Css">
         <link rel="stylesheet" href="../Css/drpdwn.css">
         <link rel="stylesheet" href="../Css/normalice.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
         <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
     </head>
     <body>

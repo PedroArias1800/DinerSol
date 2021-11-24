@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="../Css/footerHeader.Css">
         <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
         <link rel="stylesheet" href="../CSS/reset.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
     </head>
     <body>
         <div class="header">

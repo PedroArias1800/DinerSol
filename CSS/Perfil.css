@@ -1,7 +1,7 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%;
-    font-family: 'Bona Nova', serif;
+    font-family: "Euclid Circular A", Poppins;
     
   }
   *,
@@ -27,7 +27,6 @@ html {
   border-collapse: collapse ;
   margin: 25px 0;
   font-size: 0.9em;
-  font-family: sans-serif;
   min-width: 1000px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
@@ -95,7 +94,7 @@ place-items: center;
   padding-bottom: 10rem;
   
   border-radius: 21px;
-  background: linear-gradient(315deg, #fafafa, #68086C);
+  background: linear-gradient(315deg, #99748b, #68086C);
   box-shadow:  -15px -15px 19px rgb(196, 196, 196),
                15px 15px 19px #c5c5c5;
 }
@@ -188,7 +187,7 @@ input{
   }
   [type="file"]::-webkit-file-upload-button {
     
-    background: #732fdf;
+    background: purple;
     border: 2px solid transparent;
     border-radius: 0px 6rem 0rem 0px;
     color: #fff;
@@ -221,7 +220,7 @@ input{
      margin-bottom: 2rem;
     width: 15rem;
    padding: 2rem;
-    background: #732fdf;
+    background: purple;
   }
 
   .submit button:hover{
@@ -297,8 +296,11 @@ input{
   margin-top: 2rem;
   text-align: center;
   cursor: pointer;
+  padding: 1rem;
   text-transform: uppercase;
   font-weight: 600;
+  background-color: #fff;
+  border-radius: 1.5rem;
 }
 
 .presForm:hover{
