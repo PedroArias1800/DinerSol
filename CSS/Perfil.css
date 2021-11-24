@@ -137,7 +137,7 @@ place-items: center;
 }
 
 .user  {
-
+font-size: 1.5rem !important;
   border: transparent;
   display: flex;
   align-items: center;
@@ -249,6 +249,9 @@ input{
     pointer-events:none;
     transition: all 1s;
   }
+  .author-card{
+    padding: 1.3rem !important;
+  }
   #miModal:target{
     opacity:1;
     pointer-events:auto;
@@ -310,3 +313,4 @@ input{
 .link{
   padding-left: 5.5rem;
 }
+

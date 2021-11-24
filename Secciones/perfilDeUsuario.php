@@ -34,7 +34,7 @@
       <form action="../Procesos/actualizarPerfil.php" method="POST" enctype="multipart/form-data">
         <div class="block-component">
           <span class="outline">
-            <img class="outline-img" src="../Imagenes/FotosDePerfil/<?php echo  $datosDelUsuario->foto; ?>" />
+            <img class="outline-img" src="../Imagenes/<?php echo  $datosDelUsuario->foto; ?>" />
           </span>
         </div>
 

@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../Css/footerHeader.Css">
         <link rel="stylesheet" href="../Css/drpdwn.css">
         <link rel="stylesheet" href="../Css/normalice.css">
+        <link rel="stylesheet" href="../Css/flickity-docs.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
         <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
     </head>
@@ -16,11 +17,7 @@
         <?php require('header.php'); ?>
     </div>
 
-        <div class="CafCentral" id="CafCentral">
-            <h1 id="nameCafe" class="NomCafeteria">Cafetería Central</h1>   
-            <img id="imgCafe" src="../Imagenes/CafeteriaCentral.jpg" alt="Cafetería Central" width="25%" height="25%">
-            <h1 class="NomCafeteria">Turno Vespertino</h1>
-        </div>
+      
         <!-- <div class="CafEdi1PB" id="CafEdi1PB" style="display: none;">
             <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Planta Baja</h1>   
             <img src="../Imagenes/CafeteriaEdi1PB.PNG" alt="Cafetería Central" width="25%" height="25%">
@@ -29,12 +26,26 @@
             <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Piso 2</h1>   
             <img src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafetería Central" width="25%" height="25%">
         </div> -->
-        <div class="radios">
-            <input type="radio" id="cafeteria1" name="cafet" onclick="Cual(1)" checked>
-            <input type="radio" id="cafeteria2" name="cafet" onclick="Cual(2)">
-            <input type="radio" id="cafeteria3" name="cafet" onclick="Cual(3)">
-            <input type="radio" id="cafeteria4" name="cafet" onclick="Cual(4)">
-        </div>
+        <div class="gallery js-flickity"
+  data-flickity-options='{ "fade": true }'>
+  <div class="imagen1">
+      <label for="">Cafeterial Central</label>
+       <img src="../Imagenes/cafcentral.jpg" alt="">
+  </div>
+ <div class="imagen1">
+ <label for="">Cafeterial Central</label>
+     <img src="../Imagenes/CafeteriaCentral.jpg" alt="">
+ </div>
+  <div class="imagen1">
+  <label for="">Cafeterial Central</label>
+      <img src="../Imagenes/CafeteriaEdi1P2.PNG" alt="">
+  </div>
+  <div class="imagen1">
+  <label for="">Cafeterial Central</label>
+       <img src="../Imagenes/CafeteriaEdi1PB.PNG" alt=""> 
+  </div>
+
+</div>
 
         <?php $idPedido = $datos->query("SELECT id_orden FROM orden
                                          WHERE id_usuario = '$datosDelUsuario->id_usuario' AND created_at = (SELECT MAX(created_at) FROM orden WHERE id_usuario = '$datosDelUsuario->id_usuario')"); ?>
@@ -228,8 +239,9 @@
         </main>
         
         <?php require('footer.html'); ?>
-
+        
         <script type="text/javascript" src="../JavaScript/complementos.js"></script>
         <script src="../JavaScript/app2.js"></script>
+        <script src="../JavaScript/flickity-docs.min.js"></script>
     </body>
 </html>

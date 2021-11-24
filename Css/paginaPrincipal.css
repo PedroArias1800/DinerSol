@@ -384,7 +384,7 @@ tr th, tr td{
     width: 150px;
     height: 140px;
 }
-@media (min-width: 768px) {
+@media (min-width: 768px){
     .parent {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
@@ -409,6 +409,14 @@ tr th, tr td{
     color: white;
     padding: 2rem;
 }
+
+@media (max-width: 767px ){
+    .parent{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+} 
 
 .div3,.div4 {
     margin-right: 2%;
@@ -486,3 +494,35 @@ tr th, tr td{
 .camposCrearEditar{
     margin: 2% 0 1% 1.6%;
 }
+.gallery {
+    background: #EEE;
+  }
+  
+  
+  
+  
+  .gallery-cell {
+    width: 66%;
+    height: 200px;
+    margin-right: 10px;
+    background: #8C8;
+    counter-increment: gallery-cell;
+  }
+  
+  /* cell number */
+  .gallery-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+  }
+  
+  img{
+      background-size: cover;
+    width:  550px;
+    height: 275px;
+    
+    
+  }

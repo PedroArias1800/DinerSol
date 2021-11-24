@@ -169,7 +169,7 @@ function Cual(c){
   var n = document.getElementById("nameCafe");
 
   if(c==1){
-    i.src = "../Imagenes/CafeteriaCentral.jpg";
+    i.src = "../Imagenes/CafeteriaCentral";
     n.innerHTML = "Cafeteria Central";
   } else if(c==2){
     i.src = "../Imagenes/CafeteriaEdi1PB.PNG";
