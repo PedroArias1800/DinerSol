@@ -1,4 +1,46 @@
+const passN1 = document.querySelector("#contra1");
+const passN2 = document.querySelector("#contra2");
 
+// Validar minimo de caracteres de la contraseña.
+passN1.addEventListener('keyup', (e)=>{
+  const error = document.querySelector('#errorPass1');
+
+  if(passN1.value.length == 0 || passN1.value.length >= 6){
+    error.innerHTML = '';
+    validar = false;
+  }else{
+    error.innerHTML = 'La contraseña debe tener 6 caracteres como minimo';
+    validar = true;
+  }
+});
+
+//Validar coinsidencia de las cotraseñas.
+passN2.addEventListener('keyup', (e)=>{
+  const error = document.querySelector('#errorPass2');
+
+  if(passN2.value.length == 0 || passN2.value == passN1.value){
+    error.innerHTML = '';
+    validar = false;
+  }
+  else{
+    error.innerHTML = 'Las contraseñas no coinsiden';
+    validar = true;
+  }
+});
+
+function cambiarForm(op){
+  let form1 = document.querySelector("#perfil");
+  let form2 = document.querySelector("#contraseña");
+
+  if(op == 1){
+    form1.classList.add("invisible");
+    form2.classList.remove("invisible");
+  }
+  else if(op == 2){
+    form2.classList.add("invisible");
+    form1.classList.remove("invisible");
+  }
+}
 
 function Mostrar() {
     var x = document.getElementById("contra1");
@@ -138,5 +180,13 @@ function Cual(c){
   } else{
     i.src = "../Imagenes/CafeteriaFISC.jpg";
     n.innerHTML = "Cafeteria Edificio #3";
+  }
+
+  for(i=1; i<=c; i++){
+    if(document.getElementById('ComboCaf'+i).value == c){
+      document.getElementById('ComboCaf'+i).style.display = 'inline';
+    } else {
+      document.getElementById('ComboCaf'+i).style.display = 'none';
+    }
   }
 }

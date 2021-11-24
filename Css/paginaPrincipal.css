@@ -278,9 +278,21 @@ nav a:hover{
     background-color: #51034f;
 }
 .soloCuatro{
-display: flex;
-align-items: center;
+    width: 109%;
+    background-color: #51034f;
     justify-content: space-around;
+}
+.soloCuatro .card{
+    width: 22%;
+    float: left;
+}
+.soloTres1, .soloTres2{
+    width: 100%;
+    justify-content: space-around;
+}
+.soloTres1 .card, .soloTres2 .card{
+    width: 30.5%;
+    float: left;
 }
 
 @keyframes hacerPedido{
