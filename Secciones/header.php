@@ -61,7 +61,7 @@
             </div>
             <div class="enlaces">
      <a href="paginaPrincipal.php" class="navEspecial">Inicio</a>
-        <a href="">Cafeterías</a>
+        <a href="cafeterias.php">Cafeterías</a>
         <a href="">Ayuda Estudiantil</a>
         <a href="historialCompra.php">Historial De Compras</a>
         <?php if($datosDelUsuario->id_tipo == 1){ ?>

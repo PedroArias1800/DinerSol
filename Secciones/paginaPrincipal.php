@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../Css/normalice.css">
         <link rel="stylesheet" href="../Css/flickity-docs.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
+        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg"/>
     </head>
     <body>
 

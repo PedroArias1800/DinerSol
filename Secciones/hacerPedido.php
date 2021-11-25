@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
     <link rel="stylesheet" href="../Css/drpdwn.css">
     <link rel="stylesheet" href="../Css/estadisticas.css">
+    <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
     <title>DinerSol | Hacer Pedido</title>
 </head>

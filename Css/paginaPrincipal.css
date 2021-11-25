@@ -522,9 +522,6 @@ tr th, tr td{
     background: #EEE;
   }
   
-  
-  
-  
   .gallery-cell {
     width: 66%;
     height: 200px;
@@ -547,6 +544,28 @@ tr th, tr td{
       background-size: cover;
     width:  550px;
     height: 275px;
-    
-    
   }
+
+.cafeteriasUTP{
+    margin: 2% 0 0 0;
+    width: 94%;
+}
+.cafeteriasUTP h2{
+    margin: 0 0 2% 4.7%;
+    font-size: 2.5vw;
+    color: #68086c;
+}
+.cafeteriasUTP h3{
+    text-align: justify;
+    font-size: 1.5vw;
+    margin: 0 0 0 5%;
+}
+.fotosDeCafeterias{
+    width: 94%;
+    display: flex;
+    justify-content: space-around;
+    margin: 2% 0 2% 7%;
+}
+.fotosDeCafeterias img{
+    border-radius: 10px;
+}
