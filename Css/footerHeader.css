@@ -1,5 +1,6 @@
 
 .footer{
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,7 +22,7 @@
 .footer h3, footer a{
     margin-left: 2.5%;
     font-weight: normal;
-    font-size:0.8rem;
+    font-size:1.3rem;
 }
 @media (min-width: 768px){
 .header{
@@ -65,6 +66,7 @@
     font-weight: bold;
 }
 .footerP1{
+    font-size: 1.2rem;
     margin-left: 15%;
     text-align: right;
     align-self: flex-start;
@@ -74,6 +76,7 @@
     padding-right: 2%;
 }
 .footerP2{
+    font-size: 1.2rem;
     margin-left: 2%;
     text-align: left;
     align-self: flex-start;

@@ -9,6 +9,10 @@ html {
   *:after {
     box-sizing: inherit;
   }
+ .pedido .h2{
+     margin-top: 1rem;
+      font-size: 1.5rem;
+  }
 
 
 body{
@@ -315,7 +319,10 @@ nav a:hover{
     width: 100%;
   
 }
-
+.soloTres2 .card{
+    width: 47%;
+    float: left;
+}
 @keyframes hacerPedido{
     0%{
         border: 4px solid blue;
@@ -409,7 +416,7 @@ tr th, tr td{
     .parent {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         gap: 2rem;
@@ -449,7 +456,7 @@ tr th, tr td{
     background-color: purple;
     right: 0px;
     height: 92vh;
-    top: 10.2vh;
+    top: 11.2vh;
     width: 30%;
     transform: translateX(100%);
     opacity: 1;
@@ -466,7 +473,7 @@ tr th, tr td{
         
 .nav li{
     opacity: 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 .ul-active{
