@@ -16,7 +16,7 @@
     <body>
         <div class="header">
             <div class="imagen">
-            <img class="img" src="../Imagenes/utpOp.jpg" alt="UTP Logo" width="8%" height="1%">
+            <img class="imgutp" src="../Imagenes/utpOp.jpg" alt="UTP Logo" width="8%" height="1%">
             <p>Universidad Teconologica de Panamá <br> <strong>DinerSol- Sistemas De cafeterías UTP</strong></p> 
             </div>
          <div class="titulo">

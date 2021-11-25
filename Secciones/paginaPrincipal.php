@@ -30,19 +30,19 @@
   data-flickity-options='{ "fade": true }'>
   <div class="imagen1">
       <label for="">Cafeterial Central</label>
-       <img src="../Imagenes/cafcentral.jpg" alt="">
+       <img class="imga" src="../Imagenes/cafcentral.jpg" alt="">
   </div>
  <div class="imagen1">
  <label for="">Cafeterial Central</label>
-     <img src="../Imagenes/CafeteriaCentral.jpg" alt="">
+     <img class="imga" src="../Imagenes/CafeteriaCentral.jpg" alt="">
  </div>
   <div class="imagen1">
   <label for="">Cafeterial Central</label>
-      <img src="../Imagenes/CafeteriaEdi1P2.PNG" alt="">
+      <img class="imga" src="../Imagenes/CafeteriaEdi1P2.PNG" alt="">
   </div>
   <div class="imagen1">
   <label for="">Cafeterial Central</label>
-       <img src="../Imagenes/CafeteriaEdi1PB.PNG" alt=""> 
+       <img class="imga" src="../Imagenes/CafeteriaEdi1PB.PNG" alt=""> 
   </div>
 
 </div>
@@ -50,11 +50,11 @@
         <?php $idPedido = $datos->query("SELECT id_orden FROM orden
                                          WHERE id_usuario = '$datosDelUsuario->id_usuario' AND created_at = (SELECT MAX(created_at) FROM orden WHERE id_usuario = '$datosDelUsuario->id_usuario')"); ?>
 
-        <div style="padding: 1.5%; display: flex; justify-content: space-around;">
+        <div class="pedido" style="padding: 1.5%; display: flex; justify-content: space-around;">
             <?php while($pedido = $idPedido->fetch(PDO::FETCH_OBJ)){ ?>
             <h2 style="text-align: center;">Número identificador de su último pedido: <strong><?php echo $pedido->id_orden; ?></strong></h2>
             <?php } ?>
-            <a href="" class="btnHacerPedido" style="margin: -0.5% 0 0 0;"><h2 style="color: white">Hacer Pedido</h2></a>
+            <a href="" class="btnHacerPedido" >Hacer Pedido</a>
         </div>
         <main class="contenedor">
 

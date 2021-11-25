@@ -1,9 +1,24 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: "Euclid Circular A", Poppins;
+    
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+
 body{
     margin: 0px;
     font-family: "Euclid Circular A", Poppins;
-    font-size: 1vw;
+    font-size: 62%;
     overflow-x: hidden;
 }
+
+
 .ImagenTituloNoticia{
     display: flex;
     align-items: center;
@@ -266,9 +281,12 @@ nav a:hover{
 .PagarCancelar .botones:hover{
     background-color: #51034f;
 }
-.btnHacerPedido{
+.pedido .btnHacerPedido{
+    
+    font-size: 1.2rem;
+    font-weight: 600;
     background-color: #68086c;
-    padding: 0.2% 5% 0.2% 5%;
+    padding: 0.5% 5% 0.5% 5%;
     border-radius: 3px 10px;
     color: white;
     transition: all 0.35s;
@@ -278,21 +296,24 @@ nav a:hover{
     background-color: #51034f;
 }
 .soloCuatro{
-    width: 109%;
-    background-color: #51034f;
+    width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: space-around;
 }
 .soloCuatro .card{
-    width: 22%;
+    width: 25%;
     float: left;
 }
 .soloTres1, .soloTres2{
     width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: space-around;
 }
 .soloTres1 .card, .soloTres2 .card{
-    width: 30.5%;
-    float: left;
+    width: 100%;
+  
 }
 
 @keyframes hacerPedido{
@@ -380,7 +401,7 @@ tr th, tr td{
     max-width: 120rem;
     margin: 0 auto;
 }
-.img{
+.imga{
     width: 150px;
     height: 140px;
 }
@@ -391,14 +412,16 @@ tr th, tr td{
         grid-template-rows: repeat(6, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        gap: 1rem;
+        gap: 2rem;
     }
 
     .div1 { grid-area: 1 / 1 / 3 / 7; }
-    .div2 { grid-area: 3 / 1 / 7 / 5; }
-    .div3 { grid-area: 3 / 5 / 5 / 7; }
-    .div4 { grid-area: 5 / 5 / 7 / 7; }
+    .div2 { grid-area: 2 / 1 / 2 / 7; }
+    .div3 { grid-area: 3 / 1 / 3 / 5; }
+    .div4 { grid-area: 3 / 5 / 3 / 7; }
 }
+
+
 
 .div1 p,.div2 p, .div3 p, .div4 p{
     border-radius: 0.5rem;
@@ -410,13 +433,7 @@ tr th, tr td{
     padding: 2rem;
 }
 
-@media (max-width: 767px ){
-    .parent{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-} 
+
 
 .div3,.div4 {
     margin-right: 2%;
@@ -519,7 +536,7 @@ tr th, tr td{
     color: white;
   }
   
-  img{
+  .imga{
       background-size: cover;
     width:  550px;
     height: 275px;
