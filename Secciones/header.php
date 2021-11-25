@@ -19,8 +19,9 @@
             <img class="imgutp" src="../Imagenes/utpOp.jpg" alt="UTP Logo" width="8%" height="1%">
             <p>Universidad Teconologica de Panamá <br> <strong>DinerSol- Sistemas De cafeterías UTP</strong></p> 
             </div>
-         <div class="titulo">
+         <div class="titulo" style="display: flex; justify-content: center; align-items: center;">
            <h1>DinerSol</h1>
+           <img src="../Imagenes/DinerSolLogo.gif" alt="Logo De DinerSol" style="width: 20%; height: 20%; margin: 0 0 0 6%">
          </div>
        <div class="yo">
        <a class="ab" href="#paso-1">
@@ -29,7 +30,7 @@
                         <div class="author-card">
                           <img
                             class="author-img"
-                            src="../Imagenes/<?php echo  $datosDelUsuario->foto; ?>"
+                            src="../Imagenes/FotosDePerfil/<?php echo  $datosDelUsuario->foto; ?>"
                           />
                           <div>
                             <h2 class="author-h2">

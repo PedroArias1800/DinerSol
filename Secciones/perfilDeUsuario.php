@@ -27,14 +27,14 @@
     <!-- Seccion -->
 
     <!--Editar Perfil-->
-    <div id="perfil" class="editar">
+    <div id="perfil" class="editar <?php if(isset($_GET['msg'])) echo 'invisible'?>">
       <div class="usuarios usuarios--editar">
         <h2>Actualizar Usuario</h2>
       </div>
       <form action="../Procesos/actualizarPerfil.php" method="POST" enctype="multipart/form-data">
         <div class="block-component">
           <span class="outline">
-            <img class="outline-img" src="../Imagenes/<?php echo  $datosDelUsuario->foto; ?>" />
+            <img class="outline-img" src="../Imagenes/FotosDePerfil/<?php echo  $datosDelUsuario->foto; ?>" />
           </span>
         </div>
 
@@ -62,17 +62,19 @@
           <button type="submit">Actualizar</button>
         </div>
 
-          <p class="presForm" onclick="cambiarForm(1)">Cambiar Contraseña</p>
+          <p class="presForm" onclick="CambiarForm(1)">Cambiar Contraseña</p>
       </form>
     </div>
 
     <!--Cambiar Contraseña-->
-    <div id="contraseña" class="editar invisible">
+    <div id="contraseña" class="editar <?php if(!(isset($_GET['msg']))) echo 'invisible'?>">
       <div class="usuarios usuarios--editar">
         <h2>Cambiar Contraseña</h2>
         <p>Para cambiar la contraseña primero debe ingresar la contraseña actual seguido de la nueva contraseña.</p>
+
+        <p> <?php if(isset($_GET['msg'])) echo $_GET['msg'];?> </p>
       </div>
-      <form action="../Procesos/actualizarContraseña.php" method="POST">
+      <form action="../Procesos/actualizarContraseña.php" method="POST" onsubmit="return ValidarEnvio()">
         
         <div class="user password">
           <span class="icon uil uil-lock-open-alt"></span>
@@ -95,11 +97,11 @@
         </div>
         
         <div class="submit">
-          <button type="submit">Actualizar</button>
+          <button type="submit" id="btnContraseña">Actualizar</button>
         </div>
 
         <a class="presForm link" href="">¿Olvidaste tu contraseña?</a>
-        <h3 class="presForm" onclick="cambiarForm(2)">Actualizar Perfil</h3>
+        <h3 class="presForm" onclick="CambiarForm(2)">Actualizar Perfil</h3>
       </form>
     </div>
    

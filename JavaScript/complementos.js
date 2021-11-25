@@ -1,16 +1,22 @@
 const passN1 = document.querySelector("#contra1");
 const passN2 = document.querySelector("#contra2");
+let vali1 = false, vali2 = false; 
 
 // Validar minimo de caracteres de la contraseña.
 passN1.addEventListener('keyup', (e)=>{
   const error = document.querySelector('#errorPass1');
 
-  if(passN1.value.length == 0 || passN1.value.length >= 6){
+  if(passN1.value.length == 0){
     error.innerHTML = '';
-    validar = false;
+    vali1 = false;
+  }
+  else if(passN1.value.length >= 6){
+    error.innerHTML = '';
+    vali1 = true;
   }else{
     error.innerHTML = 'La contraseña debe tener 6 caracteres como minimo';
-    validar = true;
+    vali1 = false;
+    ValidarEnvio();
   }
 });
 
@@ -18,17 +24,32 @@ passN1.addEventListener('keyup', (e)=>{
 passN2.addEventListener('keyup', (e)=>{
   const error = document.querySelector('#errorPass2');
 
-  if(passN2.value.length == 0 || passN2.value == passN1.value){
+  if(passN1.value.length == 0){
     error.innerHTML = '';
-    validar = false;
+    vali1 = false;
+  }
+  else if(passN2.value == passN1.value){
+    error.innerHTML = '';
+    vali2 = true;
   }
   else{
     error.innerHTML = 'Las contraseñas no coinsiden';
-    validar = true;
+    vali2 = false;
+    ValidarEnvio();
   }
 });
 
-function cambiarForm(op){
+// Valida el envio del formulario
+function ValidarEnvio(){
+
+  if(vali1 && vali2)
+    return true;
+  else
+    return false;
+}
+
+
+function CambiarForm(op){
   let form1 = document.querySelector("#perfil");
   let form2 = document.querySelector("#contraseña");
 

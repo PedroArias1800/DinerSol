@@ -18,7 +18,7 @@
         $msg = "La contraseña se actualizo de manera exitosa";
     }
     else
-        $msg = "La contraseña antigua que ingresaste es incorrecta, vuelve a intentarlo.";
+        $msg = "La contraseña actual ingresada es incorrecta, vuelve a intentarlo.";
 
-    echo '<meta http-equiv="refresh" content="0; url=../Secciones/perfilDeUsuario.php?'.$msg.'">';
+    echo '<meta http-equiv="refresh" content="0; url=../Secciones/perfilDeUsuario.php?msg='.$msg.'">';
 ?>
