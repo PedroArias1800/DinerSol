@@ -280,8 +280,11 @@
                 </table><br>
             </div>
         </div><br><hr>
-        <h2 style="text-align: center; margin: 2% 0 2% 0;">***Los resultados de las estadísticas están calculadas en base al <strong>tiempo de búsqueda escogido</strong>***</h2>
-        
+
+        <div class="cafeteriasUTP">
+            <h3 style="text-align: center; margin: 2% 0 2% 2%;">***Los resultados de las estadísticas están calculadas en base al <strong>tiempo de búsqueda escogido</strong>***</h3>
+        </div>
+
         <?php require('footer.html'); ?>
 
     </body>

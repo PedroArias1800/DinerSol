@@ -87,8 +87,11 @@
                 </tbody>
             </table><br>
         </div>
-        <h2 style="text-align: center; margin: 2% 0 2% 0;">¡Gracias Por Preferir Utilizar <strong>DinerSol</strong>, El Sistema De Cafeterías UTP!</h2>
-        
+
+        <div class="cafeteriasUTP">
+            <h3 style="text-align: center; margin: 2% 0 2% 2%;">¡Gracias Por Preferir Utilizar <strong>DinerSol</strong>, El Sistema De Cafeterías UTP!</h3>
+        </div>
+
         <?php require("footer.html"); ?>
 
     </body>
