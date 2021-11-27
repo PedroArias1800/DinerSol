@@ -234,8 +234,8 @@ nav a:hover{
     margin-top: 1%;
     margin-bottom: 2%;
     font-size: large;
-    background-color: #51034f;
-    border-radius: 2px;
+    background-color: purple;
+    border-radius: 0.5rem;
     color: white;
     border: 0px solid;
     padding: 0.5%;
@@ -335,11 +335,9 @@ nav a:hover{
     }
 }
 .inventario{
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 1%;
-    align-items: center;
-    justify-content: flex-start;
+    max-width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 .inventario select{
     font-size:  large;
@@ -347,7 +345,12 @@ nav a:hover{
     border-radius: 5px;
 }
 .tBody td{
+    background: transparent;
+    
     font-size: large;
+}
+.tBody input{
+    border: none !important;
 }
 .inventarioBotones{
     display: flex;
@@ -512,8 +515,9 @@ tr th, tr td{
     padding: 0 5% 0 10%;
 }
 .tablasGrandes{
-    width: 94%;
-    margin: 0 0 2% 3%;
+    
+   margin: 0 auto;
+   width: 95%;
 }
 .camposCrearEditar{
     margin: 2% 0 1% 1.6%;

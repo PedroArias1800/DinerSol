@@ -99,6 +99,10 @@
 
         ?>
 
+        <div class="container">
+
+      
+
         <div class="Campos">
             <h2>Buscar un periodo</h2>
             <form action="estadisticas.php" method="POST">
@@ -133,9 +137,9 @@
                 <button class="botones"><a  href="">Generar Reportes</a></button>
             </form>
         </div><hr>
-        <div class="card tablasGrandes">
+        <div class="tablasGrandes">
             <h2 class="TituloTabla">Ventas De Los Combos</h2>
-            <table>
+            <table class="styled-table ">
                 <thead>
                     <tr>
                         <th>Combos Vendidos</th>
@@ -159,9 +163,9 @@
                 </tbody>
             </table><br>
         </div>
-        <div class="card tablasGrandes">
+        <div class="tablasGrandes">
             <h2 class="TituloTabla">Ventas De Los Menús</h2>
-            <table>
+            <table class="styled-table">
                 <thead>
                     <tr>
                         <th>Menús Vendidos</th>
@@ -186,9 +190,9 @@
             </table><br>
         </div>
         <div class="RefrescoSnack">
-            <div class="card2">
+            <div class="">
                 <h2 class="TituloTabla">Ventas De Los Snacks</h2>
-                <table>
+                <table class="styled-table">
                     <thead>
                         <tr>
                             <th>Snacks Vendidos</th>
@@ -212,9 +216,9 @@
                     </tbody>
                 </table><br>
             </div>
-            <div class="card2">
+            <div class="">
                 <h2 class="TituloTabla">Ventas De Los Refrescos</h2>
-                <table>
+                <table class="styled-table">
                     <thead>
                         <tr>
                             <th>Refrescos Vendidos</th>
@@ -241,9 +245,9 @@
         </div><br>
 
         <div class="RefrescoSnack">
-            <div class="card2">
+            <div >
                 <h2 class="TituloTabla">Estadísticas De Los Utencilios</h2>
-                <table>
+                <table class="styled-table">
                     <thead>
                         <tr>
                             <th>Utencilio</th>
@@ -260,9 +264,9 @@
                     </tbody>
                 </table><br>
             </div>
-            <div class="card2">
+            <div>
                 <h2 class="TituloTabla">Estadísticas De Los Pedidos</h2>
-                <table>
+                <table class="styled-table">
                     <thead>
                         <tr>
                             <th>Tipo De Pedidos</th>
@@ -281,6 +285,7 @@
             </div>
         </div><br><hr>
 
+        </div>
         <div class="cafeteriasUTP">
             <h3 style="text-align: center; margin: 2% 0 2% 2%;">***Los resultados de las estadísticas están calculadas en base al <strong>tiempo de búsqueda escogido</strong>***</h3>
         </div>

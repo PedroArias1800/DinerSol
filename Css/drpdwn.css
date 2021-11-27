@@ -14,6 +14,10 @@
     position: relative;
     display: inline-block;
   }
+  .container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
   
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
@@ -35,6 +39,22 @@
   
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {background-color: #ddd;}
+  html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: "Euclid Circular A", Poppins;
+    
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+ .pedido .h2{
+     margin-top: 1rem;
+      font-size: 1.5rem;
+  }
+
   
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
@@ -50,10 +70,11 @@
       color: #595f6e!important;
       overflow-x :auto ;
       border-collapse: collapse ;
-      margin: 8rem auto;
+      margin: 0 auto;
       font-size: 0.9em;
       font-weight: bold;
       min-width: 100px;
+      
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     }
     
@@ -87,3 +108,16 @@
       color: #eb0c0c !important;
     }
     
+    
+
+    .flex{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+   .tBody input{
+     color: rebeccapurple;
+    }

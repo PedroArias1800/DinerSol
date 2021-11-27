@@ -1,3 +1,27 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: "Euclid Circular A", Poppins;
+    
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+ .pedido .h2{
+     margin-top: 1rem;
+      font-size: 1.5rem;
+  }
+
+
+body{
+    margin: 0px;
+    font-size: 62%;
+    overflow-x: hidden;
+}
+
+
 .hacerPedido{
     margin-top: 1%;
     width: 90%;

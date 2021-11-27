@@ -1,3 +1,27 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: "Euclid Circular A", Poppins;
+    
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+ .pedido .h2{
+     margin-top: 1rem;
+      font-size: 1.5rem;
+  }
+
+
+body{
+    margin: 0px;
+    font-family: "Euclid Circular A", Poppins;
+    font-size: 62%;
+    overflow-x: hidden;
+}
+
 .Campos{
     display: flex;
     align-items: center;
@@ -68,8 +92,9 @@ th{
 }
 .TituloTabla{
    text-align: center;
-   font-size: 2rem;
+   font-size: 2.5rem;
    font-weight: 600;
+   padding-bottom: 2rem;
 }
 .card, .card2{
     padding-top: 2%;
@@ -82,10 +107,27 @@ th{
     box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
 }
 .RefrescoSnack{
-    width: 90%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 2.5%;
 }
 .card2{
     width: 45%;
+}
+.adminch{
+    color: red;
+    background: transparent;
+}
+
+.inventario{
+    padding: 1.3rem;
+    border-radius: 0.5rem;
+}
+.inventario h2{
+   
+    align-items: center !important;
+   
+    font-size: 2rem;
+    letter-spacing: 2px;
 }

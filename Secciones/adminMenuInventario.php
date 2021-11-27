@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../Css/menu izquierda.css">
         <link rel="stylesheet" href="../Css/footerHeader.css">
         <link rel="stylesheet" href="../Css/paginaPrincipal.Css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -17,6 +16,9 @@
       <div class="TituloCompleto">
           <h1>Administración De Menús</h1>
       </div>
+      <div class="container">
+
+      
       <?php $consultarCafeterias = $datos->query("SELECT * FROM cafeteria"); ?>
       <div class="HacerPedido inventario">
         <h2 class="NombreCafeteria">Cafeterías:</h2>
@@ -26,8 +28,10 @@
           <?php } ?>
         </select>
       </div>
-      <input type="text" value=1 id="Prueba">
-      <div class="card tablasGrandes">
+      <div class="flex">
+
+   
+      <div class=" tablasGrandes">
         
         <?php   $consultarCombos = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
                                                   FROM producto p inner join menu m ON p.id_producto = m.id_producto
@@ -35,7 +39,7 @@
                                                   WHERE p.tipo_producto = 'Combo'
                                                   ORDER BY c.id_cafeteria ASC, p.tipo_producto ASC"); ?>
         
-        <table id="tablaCombo">
+        <table class="styled-table"  id="tablaCombo">
           <thead>
             <tr>
               <th>Combos</th>
@@ -53,14 +57,14 @@
                 <td><?php echo $combo->costo; ?></td>
                 <td><?php echo $combo->inventario; ?></td>
                 <td><img src="../Imagenes/<?php echo $combo->foto; ?>" alt="Foto" width="20%" height="20%"></td>
-                <td class="tdEspecial"><input type="checkbox" onClick="cambiarEstado()" id="Estado" name="Estado" value="<?php echo $combo->Estado;?>"
+                <td class="tdEspecial"><input class="habilitado" class="adminch" type="checkbox" onClick="cambiarEstado()" id="Estado" name="Estado" value="<?php echo $combo->Estado;?>"
                                                                           <?php if($combo->estado = 1) { ?> checked <?php } ?>><h4 id="h4Estado<?php echo $combo->id_producto; ?>">Habilitado</h4></td>
               </tr>
             <?php } } ?>
           </tbody>
         </table><br>
       </div>
-      <div class="card tablasGrandes">
+      <div class=" tablasGrandes">
 
         <?php $consultarComidas = $datos->query(" SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
                                                   FROM producto p inner join menu m ON p.id_producto = m.id_producto
@@ -68,7 +72,7 @@
                                                   WHERE p.tipo_producto = 'Comida'
                                                   ORDER BY c.id_cafeteria ASC, p.tipo_producto ASC"); ?>
         
-        <table id="tablaComida">
+        <table class="styled-table" id="tablaComida">
           <thead>
             <tr>
               <th>Comidas</th>
@@ -86,14 +90,14 @@
               <td><?php echo $Comida->costo; ?></td>
               <td><?php echo $Comida->inventario; ?></td>
               <td><img src="../Imagenes/<?php echo $Comida->foto; ?>" alt="Foto" width="20%" height="20%"></td>
-              <td class="tdEspecial"><input type="checkbox" onClick="cambiarEstado()" id="Estado" name="Estado" value="<?php echo $Comida->Estado;?>"
+              <td class="tdEspecial"><input class="adminch" type="checkbox" onClick="cambiarEstado()" id="Estado" name="Estado" value="<?php echo $Comida->Estado;?>"
                                                                          <?php if($Comida->estado = 1) { ?> checked <?php } ?>><h4 id="h4Estado<?php echo $Comida->id_producto; ?>">Habilitado</h4></td>
             </tr>
             <?php } ?>
           </tbody>
         </table><br>
       </div>
-      <div class="card tablasGrandes">
+      <div class=" tablasGrandes">
 
         <?php $consultarSnacks = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
                                                 FROM producto p inner join menu m ON p.id_producto = m.id_producto
@@ -101,7 +105,7 @@
                                                 WHERE p.tipo_producto = 'Snack'
                                                 ORDER BY c.id_cafeteria ASC, p.tipo_producto ASC"); ?>
 
-        <table id="tablaSnack">
+        <table class="styled-table" id="tablaSnack">
           <thead>
             <tr>
               <th>Snacks</th>
@@ -126,7 +130,7 @@
           </tbody>
         </table><br>
       </div>
-      <div class="card tablasGrandes">
+      <div class=" tablasGrandes">
 
         <?php $consultarRefrescos = $datos->query(" SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
                                                     FROM producto p inner join menu m ON p.id_producto = m.id_producto
@@ -134,7 +138,7 @@
                                                     WHERE p.tipo_producto = 'Refresco'
                                                     ORDER BY c.id_cafeteria ASC, p.tipo_producto ASC"); ?>
 
-        <table id="tablaRefresco">
+        <table class="styled-table" id="tablaRefresco">
           <thead>
             <tr>
               <th>Refrescos</th>
@@ -152,12 +156,13 @@
                 <td><?php echo $Refreco->costo; ?></td>
                 <td><?php echo $Refreco->inventario; ?></td>
                 <td><img src="../Imagenes/<?php echo $Refresco->foto; ?>" alt="Foto" width="9%" height="9%"></td>
-                <td class="tdEspecial"><input type="checkbox" onClick="cambiarEstado()" id="Estado" name="Estado" value="<?php echo $Refresco->Estado;?>"
+                <td class="tdEspecial"><input  class="habilitado" type="checkbox" onClick="cambiarEstado()" id="Estado" name="Estado" value="<?php echo $Refresco->Estado;?>"
                                                                           <?php if($Refresco->estado = 1) { ?> checked <?php } ?>><h4 id="h4Estado<?php echo $Refresco->id_producto; ?>">Habilitado</h4></td>
               </tr>
             <?php } ?>
           </tbody>
         </table><br>
+      </div>
       </div>
       <div class="datosProductos inventarioBotones">
         <button class="botones"><a href="paginaPrincipal.php">Cancelar</a></button>
@@ -221,7 +226,10 @@
 
         }
 
+        
+
       </script>
+      </div>
       <script type="text/javascript" src="../JavaScript/complementos.js"></script>
     </body>
 </html>
