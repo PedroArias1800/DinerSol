@@ -38,7 +38,7 @@
 
         <div class=" user password">
           <span class="icon uil uil-lock-open-alt"></span>
-          <input class=" user input-style" type="password" name="password" id="" placeholder="Password" required>
+          <input class=" user input-style" type="password" name="password" id="contra1" placeholder="Password" required>
         </div>
 
         <div class="block-component">
@@ -49,7 +49,7 @@
                 <i class="opacity-checkbox-icon uil uil-check"></i>
               </span>
               <div class="opacity-checkbox-text">
-                Contraseña oculta
+                Contraseña Oculta
               </div>
             </label>
           </div>

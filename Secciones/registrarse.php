@@ -80,7 +80,7 @@
                              <i class="opacity-checkbox-icon uil uil-check"></i>
                            </span>
                            <div class="opacity-checkbox-text">
-                             Contraseña ocultaa
+                             Contraseña Oculta
                            </div>
                          </label>
                        </div>
