@@ -52,6 +52,16 @@
   
   body {
     background-color: purple; }
+
+  .column{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .caducado{
+    text-align: center;
+    margin: 9.5rem;
+  }
   
   @media (min-width: 768px) {
     .contenedor-estetica {

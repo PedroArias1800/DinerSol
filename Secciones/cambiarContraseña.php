@@ -1,3 +1,7 @@
+<?php
+    include("../Config/conexion.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +13,7 @@
         <link rel="stylesheet" href="../css/normalice.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
         <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
-        <title>DinerSol | Recuperar Contraseña</title>
+        <title>DinerSol | Cambiar Contraseña</title>
     </head>
     <body>
         <div class="header">
@@ -19,50 +23,53 @@
                 <h1>DinerSol - Sistema De Cafeterías UTP</h1>
             </div>
         </div>
-        <div>
-            <input type="button" class="btnRegistrarse botones" id="volver" value="Volver a Inicio" onclick="window.location.href='../index.html'">
-        </div>
         <div class="todo">
-            <nav>
-                <a href="../index.php">Login</a>
-                <a href="registrarse.php">Registrarse</a>
-                <a class="navEspecial" href="#">Recuperar Contraseña</a>
-            </nav>       
-            <form method="POST" action="../Procesos/procesarSolicitud.php">
-                <div class="card"><br>
-                    <h2>RECUPERAR CONTRASEÑA</h2>
-                    <!--<div class="ComidasMenu">
-                        <div class="item">
-                            <input type="radio" id="radioCor" name="tipo" onclick="Tipo(1)" checked required>
-                            <label for="radioCor">Correo</label>
-                            <input type="radio" id="radioTel" name="tipo" onclick="Tipo(2)">
-                            <label for="radioTel">Teléfono</label>
-                        </div><br>-->
-                        <div class="item">
-                            <h3>Ingresa tu correo electronico y te enviaremos un enlace para que puedas recuperar el acceso a tu cuenta.</h3>
-                            <?php
-                                if(isset($_GET['msg']))
-                                    echo $_GET['smg'];
-                                elseif(isset($_GET['error']))
-                                    echo $_GET['error'];
-                            ?>
-                        </div>
+            <?php
+                if(isset($_GET['h']) && isset($_GET['e'])){
+                    $hash = $_REQUEST['h'];
+                    $email = $_REQUEST['e'];
+            
+                    $resultado = $datos->query("SELECT hash FROM usuario WHERE email='$email'");
+                    $resultado->setFetchMode(PDO::FETCH_ASSOC);
 
-                        <label id="lblCor" for="correo">Correo:</label><br>
-                        <div class="user username">
-                            <span class="icon uil uil-envelope-edit"></span>                        
-                            <input type="email" id="correo" name="correo" placeholder="usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>
-                            <!--<label id="lblTel" for="telefono" hidden>Teléfono:</label><br>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1111-1111" pattern="[0-9]{4}-[0-9]{4}" hidden required>-->
-                        </div>
-                        <h3>El proceso de recuperación de contraseñas puede tardar unos minutos...</h3>
-                        <div class="item">
-                            <input type="reset" class="botones" value="Vaciar">
-                            <input type="submit" class="botones" value="Recuperar">
-                        </div>
-                    </div>
+                    $resultado->execute();
+                    $row = $resultado->fetch();
+
+                    if($hash == $row['hash']){
+            ?>
+                        <form method="POST" action="../Procesos/actualizarContraseña.php">
+                            <div class="column">            
+                                <div class=" user password">
+                                    <span class="icon uil uil-lock-open-alt"></span>
+                                    <input class=" user input-style" id="contra1" type="password" name="contra1" placeholder="Contraseña" required>
+                                </div>
+                                <div class=" user password">
+                                    <span class="icon uil uil-lock-open-alt"></span>
+                                    <input class=" user input-style" id="contra2" type="password" name="contra2" placeholder="Repetir Contraseña" required>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="hash" value="<?php echo $hash ?>">
+                            <input type="hidden" name="email" value="<?php echo $email ?>">
+
+                            <button class="submit" type="submit">Confirmar</button>
+                        </form>
+            <?php
+                    }
+                }else{
+            ?>
+                <div class="caducado">
+            <?php
+                    if(isset($_GET['msg']))
+                        echo $_GET['msg'];
+                    else
+                        echo '<p>Lo sentimos este enlace ya caduco.</p>';
+            ?>
+                    <a href="../index.php">Ir a inicio</a>
                 </div>
-            </form>
+            <?php
+                }
+            ?>
         </div><br>
         <footer>
             <div class="footer">

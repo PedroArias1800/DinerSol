@@ -58,7 +58,7 @@
         <br>
         <div class="enlaces">
           <div class="contra-olv">
-            <input type="button" id="recuperar" value="¿Olvidaste tu contraseña?" onclick="window.location.href='Secciones/recuperarContraseña.html'">
+            <input type="button" id="recuperar" value="¿Olvidaste tu contraseña?" onclick="window.location.href='Secciones/recuperarContraseña.php'">
           </div>
         <div class="yet-olv">
         <a href="Secciones/registrarse.php">¿Aún no tienes una cuenta? Regístrate</a>     
