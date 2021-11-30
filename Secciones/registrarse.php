@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
       <link rel="stylesheet" href="../css/registrarse.css">
+      <link rel="stylesheet" href="../CSS/login.css">
       <link rel="stylesheet" href="../css/normalice.css">
       <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
       <title>DinerSol | Registrarse</title>
@@ -20,6 +21,13 @@
 
         <div class="imagen"></div>
         <div class="logear">
+
+        <header class="header">
+        <div class="utp">
+          <img  src="../imagenes/logo_utp_1_300.png" alt="">
+        </div>
+        <p>Universidad Tecnologica de Panampá</p>
+      </header>
         <div class="titulo">
       <h1>Registrarse</h1>
     </div>
@@ -57,13 +65,10 @@
                  </div>
                  </div>
              
-                <button class="submit" type="submit">Registrar</button>
-   
-                
               
-      
-           </form>
-           <div class="block-component">
+                 <button class="submit" type="submit">Registrar</button>
+
+                 <div class="block-component">
                        <div class="opacity-card">
                          <label
                            for="opacity-checkbox-input"
@@ -85,6 +90,14 @@
                          </label>
                        </div>
                      </div>
+                    <div class="have">
+                    <a href="../index.php">¿Ya eres miembro? Iniciar sesión</a>
+                    </div>
+               
+              
+      
+           </form>
+          
                    <br>
    
         

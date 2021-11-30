@@ -22,7 +22,7 @@
     <div class="logear">
       <header class="header">
         <div class="utp">
-          <img  src="imagenes/logo_utp_1_300.png" alt="">
+          <img src="imagenes/logo_utp_1_300.png" alt="">
         </div>
         <p>Universidad Tecnologica de Panampá</p>
       </header>

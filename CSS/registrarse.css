@@ -157,7 +157,7 @@
         }
         .block-component{
          
-          margin-top: 5rem;
+          margin-top: 0rem !important;
         }
 
         .block.opacity {
@@ -222,6 +222,35 @@
           color: white;
         }
 
+
         .submit{
-          
+         
+          cursor: pointer;
+         width: 15rem;
+         height: 4.5rem;
+          border-radius: 0.5rem;
+          border: none;
+          background-color: #f7f7fe;
+          font-size: 1.7rem;
+          font-weight: 600;
+
         }
+
+        .submit:hover{
+          background: #e7e7e7;
+        }
+
+        .have{
+          color: white;
+           padding: 0.2rem;
+           border-radius: 2rem 2rem 2rem 2rem;
+         }
+         .have a{
+           color: white;
+         }
+ 
+         .have a:hover{
+           text-decoration: underline;
+           color:#e7e7e7;
+         }
+ 
