@@ -85,7 +85,7 @@ background-size: cover;
        
     }
 
-@media (max-width: 787px){
+@media (max-width: 767px){
   header{
     display: flex;
     align-items: center;
