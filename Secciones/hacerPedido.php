@@ -253,7 +253,7 @@
                             </div>
                         </div>
                     </div>
-                    <form class="PagarCancelar" name="formHacerPedido" id="formHacerPedido">
+                    <form class="PagarCancelar" name="formHacerPedido" id="formHacerPedido" onsubmit="confirmarCompra()">
                         <input type="hidden" value="" name="Menu2">
                         <input type="hidden" value="" name="Snack2">
                         <input type="hidden" value="" name="Refresco2">

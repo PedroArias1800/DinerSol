@@ -14,9 +14,12 @@
         $foto = $id.".png";
 
         move_uploaded_file($temp, '../Imagenes/FotosDePerfil/'.$foto);
+        $sqlUpdate = $datos->exec("UPDATE usuario SET nombre = '$nombre', apellido = '$apellido', telefono = '$telefono', foto = '$foto' WHERE id_usuario='$id'");
+        
+    } else {
+        $sqlUpdate = $datos->exec("UPDATE usuario SET nombre = '$nombre', apellido = '$apellido', telefono = '$telefono' WHERE id_usuario='$id'");
     }
 
-    $sqlUpdate = $datos->exec("UPDATE usuario SET nombre = '$nombre', apellido = '$apellido', telefono = '$telefono', foto = '$foto' WHERE id_usuario='$id'");
 
     echo '<meta http-equiv="refresh" content="0; url=../Secciones/perfilDeUsuario.php">';
 ?>

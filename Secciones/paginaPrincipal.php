@@ -54,7 +54,7 @@
             <?php while($pedido = $idPedido->fetch(PDO::FETCH_OBJ)){ ?>
             <h2 class="h2">Número identificador de su último pedido: <strong><?php echo $pedido->id_orden; ?></strong></h2>
             <?php } ?>
-            <a href="" class="btnHacerPedido" >Hacer Pedido</a>
+            <a href="hacerPedido.php" class="btnHacerPedido" >Hacer Pedido</a>
         </div>
         <main class="contenedor">
 
