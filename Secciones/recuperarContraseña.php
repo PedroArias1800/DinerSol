@@ -1,45 +1,39 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../Css/footerHeader.css">
-        <link rel="stylesheet" href="../Css/login.css">
-        <link rel="stylesheet" href="../css/registrarse.css">
-        <link rel="stylesheet" href="../css/normalice.css">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
-        <title>DinerSol | Recuperar Contraseña</title>
-    </head>
-    <body>
-        <div class="header">
-            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-            <div>
-                <h3>Universidad Tecnológica De Panamá</h3>
-                <h1>DinerSol - Sistema De Cafeterías UTP</h1>
-            </div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="Imagenes/logoUTP.jpg" />
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/normalice.css">
+  <title>DinerSol | Iniciar Sesión</title>
+</head>
+
+<body>
+
+
+  <div class="contenedor-estetica">
+
+    <div class="imagen"></div>
+    <div class="logear">
+    <header class="header">
+        <div class="utp">
+          <img src="../imagenes/logo_utp_1_300.png" alt="">
         </div>
-        <div>
-            <input type="button" class="btnRegistrarse botones" id="volver" value="Volver a Inicio" onclick="window.location.href='../index.html'">
-        </div>
-        <div class="todo">
-            <nav>
-                <a href="../index.php">Login</a>
-                <a href="registrarse.php">Registrarse</a>
-                <a class="navEspecial" href="#">Recuperar Contraseña</a>
-            </nav>       
-            <form method="POST" action="../Procesos/procesarSolicitud.php">
-                <div class="card"><br>
-                    <h2>RECUPERAR CONTRASEÑA</h2>
-                    <!--<div class="ComidasMenu">
-                        <div class="item">
-                            <input type="radio" id="radioCor" name="tipo" onclick="Tipo(1)" checked required>
-                            <label for="radioCor">Correo</label>
-                            <input type="radio" id="radioTel" name="tipo" onclick="Tipo(2)">
-                            <label for="radioTel">Teléfono</label>
-                        </div><br>-->
-                        <div class="item">
-                            <h3>Ingresa tu correo electronico y te enviaremos un enlace para que puedas recuperar el acceso a tu cuenta.</h3>
+        <p>Universidad Tecnologica de Panampá</p>
+      </header>
+
+      <h2 class="h2">Recuperar contraseña</h2>
+
+    <form method="POST" action="../Procesos/procesarSolicitud.php" class="from--recuperar">
+             
+                        <div class="msg">
+                            <h4>Ingresa tu correo electronico y te enviaremos un enlace para que puedas recuperar el acceso a tu cuenta.</h4>
                             <?php
                                 if(isset($_GET['msg']))
                                     echo $_GET['smg'];
@@ -48,53 +42,27 @@
                             ?>
                         </div>
 
-                        <label id="lblCor" for="correo">Correo:</label><br>
-                        <div class="user username">
+                        <div class="user-recuperar">
                             <span class="icon uil uil-envelope-edit"></span>                        
                             <input type="email" id="correo" name="correo" placeholder="usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>
                             <!--<label id="lblTel" for="telefono" hidden>Teléfono:</label><br>
                             <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1111-1111" pattern="[0-9]{4}-[0-9]{4}" hidden required>-->
                         </div>
-                        <h3>El proceso de recuperación de contraseñas puede tardar unos minutos...</h3>
+                        <p class="p">El proceso de recuperación de contraseñas puede tardar unos minutos...</p>
                         <div class="item">
                             <input type="reset" class="botones" value="Vaciar">
                             <input type="submit" class="botones" value="Recuperar">
                         </div>
-                    </div>
+                  
                 </div>
             </form>
-        </div><br>
-        <footer>
-            <div class="footer">
-                <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-                <h3>
-                    Universidad Tecnológica de Panamá - 2021<br>
-                    Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
-                    Campus Metropolitano Víctor Levi Sasso.<br>
-                    Teléfono. (507) 560-3000<br>
-                    Correo electrónico: buzondesugerencias@utp.ac.pa<br>
-                    311 Centro de Atención Ciudadana<br>
-                    Políticas de Privacidad<br>
-                </h3>
-                <div class="footerP1">
-                    <a href="">Matrícula UTP</a><br>
-                    <a href="">Correo UTP</a><br>
-                    <a href="">Biblioteca UTP</a><br>
-                    <a href="">Publicaciones</a><br>
-                    <a href="">Sala De Prensa</a><br>
-                    <a href="">Bolsa De Trabajo</a><br>
-                    <a href="">Acreditación</a><br>
-                    <a href="">Centro De Lenguas</a><br>
-                </div>
-                <div class="footerP2">
-                    <a href="">Mapa De Ubicación</a><br>
-                    <a href="">Mapa Del Sitio</a><br>
-                    <a href="">Directorio Telefónico</a><br>
-                    <a href="">Contáctenos</a><br>
-                    <a href="">Identidad Visual</a><br>
-                </div>
-            </div>
-        </footer>
-        <script type="text/javascript" src="../JavaScript/complementos.js"></script>
-    </body>
+    </div>
+  </div>
+  <footer>
+    <!-- FOOTER -->
+  </footer>
+  <script type="text/javascript" src="JavaScript/complementos.js"></script>
+</body>
+
+</html>
 </html>

@@ -318,3 +318,62 @@ background-size: cover;
         .iniciar input:hover{
           background: #e7e7e7;
         }
+
+        .from--recuperar{
+          color: #FFFFFF;
+        }
+
+        .user-recuperar{
+            border: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            max-width: 90%;
+            height: 6rem;
+            padding: 0 1rem;
+            border-radius: 0.25rem;
+            background: white;
+            box-shadow: 0 45px 75px rgba(58, 35, 91, 0.09);
+            
+          
+        }
+
+        .logeaar{
+         
+         
+        }
+        .item input{
+          cursor: pointer;
+          background-color: #fff;
+          color: #4c4954;
+          padding: 1.2rem;
+          border-radius: 0.5rem;
+          
+        }
+        .item{
+         
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+          max-width: 90%;
+        }
+        .item input:hover{
+          text-decoration: underline;
+        }
+
+.msg{
+  max-width: 90%;
+}
+        .msg h4{
+      font-size: 1.5rem;
+        }
+
+        .p{
+          max-width: 90%;
+          font-size: 1.5rem;
+        }
+
+        .h2{
+          margin-top: -2rem;
+        }
