@@ -48,7 +48,7 @@ function ValidarEnvio(){
     return false;
 }
 
-
+//Cambia entre los formularios de Editar Perfil.
 function CambiarForm(op){
   let form1 = document.querySelector("#perfil");
   let form2 = document.querySelector("#contraseña");

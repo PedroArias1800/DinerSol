@@ -159,14 +159,25 @@ hr{
 
 
 .enlaces{
-
-    display: flex;
-    padding: 1rem;
-    letter-spacing: 1px;
+    display: flex; 
+    align-items: center;
     justify-content: space-evenly;
+    letter-spacing: 1px;
     background-color: #68086c; 
     font-size: large;
     color: white;
+   
+}
+.enlaces a{
+     padding: 1rem;
+}
+
+ .enlaces a:hover{   
+    padding: 1rem;
+     border-radius: 0.5rem;
+    background: rgb(61, 0, 61);
+   
+
 }
 nav a{
     text-decoration: none;
@@ -181,10 +192,7 @@ nav a{
 nav a:hover{
     text-decoration: underline;
 }
-.navEspecial{
-   text-decoration: underline;
-   text-decoration-style: 1px;
-}
+
 .NomCafeteria{
     margin-left: 2.5%;
 }

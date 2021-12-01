@@ -20,11 +20,11 @@
 
     <div class="imagen"></div>
     <div class="logear">
-
-      <header>
+      <header class="header">
         <div class="utp">
-          <img style="background-color: white; border-radius: 80px;" src="imagenes/logo_utp_1_300.png" alt="">
+          <img src="imagenes/logo_utp_1_300.png" alt="">
         </div>
+        <p>Universidad Tecnologica de Panampá</p>
       </header>
 
       <h2>Login</h2>
@@ -54,7 +54,10 @@
             </label>
           </div>
         </div>
+
+        <div class="iniciar">
         <input type="submit" value="Iniciar Sesión"/><!-- Este boton es por mientras -->
+        </div>
         <br>
         <div class="enlaces">
           <div class="contra-olv">

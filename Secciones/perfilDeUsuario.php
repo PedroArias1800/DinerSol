@@ -101,7 +101,7 @@
           <button type="submit" id="btnContraseña">Actualizar</button>
         </div>
 
-        <a class="presForm link" href="">¿Olvidaste tu contraseña?</a>
+        <h3 class="presForm link" href=""> <a href="">¿Olvidaste tu contraseña?</a></h3>
         <h3 class="presForm" onclick="CambiarForm(2)">Actualizar Perfil</h3>
       </form>
     </div>
