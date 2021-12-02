@@ -25,10 +25,15 @@
         <div class="utp">
           <img src="../imagenes/logo_utp_1_300.png" alt="">
         </div>
-        <p>Universidad Tecnologica de Panampá</p>
+        <p class="p">Universidad Tecnologica de Panampá </p>
+      
+      
       </header>
-
-      <h2 class="h2">Recuperar contraseña</h2>
+<div class="title">
+<h2 class="h2">Recuperar contraseña</h2>
+      <a class="cuenta" href="../index.php">  Cuenta</a>
+</div>
+ 
 
     <form method="POST" action="../Procesos/procesarSolicitud.php" class="from--recuperar">
              
