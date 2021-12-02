@@ -20,7 +20,7 @@
 
     <div class="imagen"></div>
     <div class="logear">
-      <header class="header">
+      <header class="headr">
         <div class="utp">
           <img src="imagenes/logo_utp_1_300.png" alt="">
         </div>

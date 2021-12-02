@@ -468,7 +468,7 @@ tr th, tr td{
     justify-content: space-around;
     position: absolute;
     background-color: purple;
-    right: 0px;
+    right: -1px;
     height: 92vh;
     top: 11.2vh;
     width: 30%;
