@@ -1,0 +1,57 @@
+.popup-wrapperPagar, .popup-wrapper{
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+ 
+.popupPagar, .popup{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    width: 100%;
+    background: white;
+    margin: 10% auto;
+    padding: 3%;
+    position: relative;
+}
+
+.popup{
+    margin: 15% 0 0 0;
+}
+ 
+.popupPagar a, .popup a{
+    color: white;
+    text-decoration: none;
+    width: 40%;
+    margin: 0 2.5% 0 2.5%;
+    display: block;
+}
+ 
+.popupPagar a:hover, .popup a:hover{
+    transition: all 0.2s;
+}
+ 
+.popup-closePagar, .popup-close{
+    position: absolute;
+    top: 5%;
+    right: 15%;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.popup-contentPagar h3, .popup-content h3{
+    font-size: 3vw;
+} 
+.tarjetaIzquierda, .tarjetaDerecha{
+    width: 40%;
+    margin: 2.5% 2.5% 2.5% 2.5%;
+}
+.tarjetaIzquierda h4, .tarjetaIzquierda h5, .popup-close, .popup-closePagar{
+    font-size: 1.6vw;
+}
+.confirmarCompra{
+    padding: 0 10% 0 10%;
+    margin: 0 2.5% 0 2.5%;
+}
