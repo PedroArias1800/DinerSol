@@ -24,7 +24,7 @@
                 Estas instalaciones que fueron inauguradas por la Rectora, Ingeniera Marcela Paredes de Vásquez, contó con la asistencia de autoridades como la Vicerrectora Administrativa, Ingeniera Myriam González; el Vicerrector Académico, Ingeniero Luis Barahona, y colaboradores de la UTP.
                 Esta cafetería tiene una capacidad de 350 personas y será para uso exclusivo de administrativos, docentes y estudiantes.</h3>
             <div class="fotosDeCafeterias">
-                <img src="../Imagenes/cafcentral.jpg" alt="Cafeteria Central 1" width="30%" height="30%">
+                <img src="../Imagenes/cafcentral.jpg" alt="Cafeteria Central 1" width="31.1%" height="31.1%">
                 <img src="https://utp.ac.pa/sites/default/files/styles/noticias_chicas_hv/public/IMG_8459.jpg?itok=9TTljBFH" alt="Cafeteria Central 2" width="30%" height="30%">
                 <img src="https://utp.ac.pa/sites/default/files/styles/noticias_chicas_hv/public/IMG_8482.jpg?itok=aiU4W3Iq" alt="Cafeteria Central 3" width="30%" height="30%">
             </div>
@@ -42,7 +42,7 @@
             <h2>Cafetería Del Edificio #1 Planta Baja</h2>
                 <h3>Esta cafetería tuvo remodelaciones 3 semanas previas al inicio del año académico 2018, durante la administración del Ingeniero Hector Montemayor para ofrecer un mejor servicio a la comunidad universitaria. Actualmente cuenta con una mayor cantidad de equipos que ayudan a mejor el servicio que brinda, más cajas de cobro, sillas y mesas nuevas, además, para los que prefieran adquirir alimentos de consumo rápido pueden comprarlos en el Kiosco Express.</h3>
             <div class="fotosDeCafeterias">
-                <img src="../Imagenes/CafeteriaEdi1PB.png" alt="Cafeteria Edificio 1 PB 1" width="30%" height="30%">
+                <img src="../Imagenes/CafeteriaEdi1PB.png" alt="Cafeteria Edificio 1 PB 1" width="34.5%" height="34.5%">
                 <img src="../Imagenes/kioscoExpress.png" alt="CafeteriaEdificio 1 PB 2" width="30%" height="30%">
                 <img src="https://pbs.twimg.com/media/DZPhYjZX4AEn41D.jpg" alt="Cafeteria Edificio 1 PB 3" width="26%" height="26%">
             </div>
