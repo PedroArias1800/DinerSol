@@ -17,7 +17,7 @@
         <?php require('header.php'); ?>
 
         <div class="TituloCompleto">
-            <h1>Administrar El Menú - Agregar</h1>
+            <h1>Administrar El Menú - Agregar Producto</h1>
         </div>
         <div style="text-align: center;">
             <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
@@ -43,7 +43,7 @@
                             <input type="text" name="nombre" placeholder="Nombre del producto" style="margin-right: 5%; background-color: white; color: black; border: 1px solid black;" required>
                             <h3>Cafeteria:</h3>
                             <?php $consultarCafeterias = $datos->query("SELECT * FROM cafeteria"); ?>
-                            <select id="Cafeteria" name="cafeteria" onChange="mostrarProductos()" required>
+                            <select id="Cafeteria" name="cafeteria" required>
                             <?php while($cafeteria = $consultarCafeterias->fetch(PDO::FETCH_OBJ)){ ?>
                                 <option value="<?php echo $cafeteria->id_cafeteria; ?>"><?php echo $cafeteria->nombre; ?></option>
                             <?php } ?>

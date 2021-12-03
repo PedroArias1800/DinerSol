@@ -29,7 +29,6 @@
             $foto = $nombre.".png";
     
             move_uploaded_file($temp, '../Imagenes/'.$foto);
-            echo $foto." Aqui estoy";
 
         }
 

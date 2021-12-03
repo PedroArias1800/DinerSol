@@ -13,107 +13,207 @@
         <title>Administración | Editar</title>
     </head>
     <body>
-        <div class="header">
-            <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-            <div>
-                <h3>Universidad Tecnológica De Panamá</h3>
-                <h1>DinerSol - Sistema De Cafeterías UTP</h1>
-            </div>
-        </div>
-        <div class="fotoUser">
-            <!-- <h3>Aurelio Morales</h3> -->
-            <div class="dropdown">
-                <button class="dropbtn"><b>Aurelio Morales</b></button>
-                <div class="dropdown-content">
-                  <a href="perfilDeUsuario.html">Mi Perfil</a>
-                  <a href="">Pedido</a>
-                  <a href="../index.html">Cerrar Sesión</a>
-                </div>
-            </div>
-            <img class="FPerfil" src="../Imagenes/user.png" alt="Foto De Perfil" width="3%" height="3%">
-        </div>
-        <nav>
-            <a href="paginaPrincipal.html">Inicio</a>
-            <a href="">Cafeterías</a>
-            <a href="">Ayuda Estudiantil</a>
-            <a href="">Historial De Compras</a>
-            <a href="estadisticas.html">Estadísticas</a>
-        </nav>
+        
+        <?php require('header.php'); 
+
+            $consultarCafeterias = $datos->query("SELECT * FROM cafeteria");
+        
+            $consultarProductos = $datos->query("SELECT * FROM producto ORDER BY id_producto, id_cafeteria, tipo_producto");
+        
+        ?>
+
+        <script>
+
+            //Para las cafeterias
+            var arrayIdCaf = new Array();
+            var arrayNomCaf = new Array();
+
+            //Para los productos
+            var arrayIdProducto = new Array();
+            var arrayNomProducto = new Array();
+            var arrayTipoProducto = new Array();
+            var arrayCostoProducto = new Array();
+            var arrayFotoProducto = new Array();
+            var arrayInventarioProducto = new Array();
+            var arrayIdCafeteria = new Array();
+
+            <?php
+            $c=0;
+            while($caf=$consultarCafeterias->fetch(PDO::FETCH_OBJ)){
+                echo "arrayIdCaf[$c]=$caf->id_cafeteria;";
+                //echo "arrayIdCaf[$c]=$caf->nombre;";
+                $c++;
+            }
+
+            $n=0;
+            while($producto=$consultarProductos->fetch(PDO::FETCH_OBJ))  {
+                echo "arrayIdCafeteria[$n]=$producto->id_cafeteria;";
+                echo "arrayIdProducto[$n]=$producto->id_producto;";
+                echo "arrayNomProducto[$n]='$producto->nombre';";
+                echo "arrayTipoProducto[$n]='$producto->tipo_producto';";
+                echo "arrayCostoProducto[$n]=$producto->costo;";
+                echo "arrayFotoProducto[$n]='$producto->foto';";
+                echo "arrayInventarioProducto[$n]='$producto->inventario';";
+                $n++;
+                }
+            ?>
+            
+            var c ="<?php echo $c; ?>"; //Total de cafeterias
+            var n ="<?php echo $n; ?>"; //Total de productos
+
+            function mostrarNomPro(){
+
+                document.getElementById('datosDelProducto').style.display = 'none';
+                document.getElementById('imgProSelect').style.display = 'none';
+                document.getElementById('fotoDeComida').style.display = 'flex';
+                var valor=0;
+                var nom=1;
+
+                //asignamos a la variable valor el valor de la lista de menú seleccionado
+                valor=document.proPedido.Cafeteria.value;
+                document.proPedido.nombreProducto1.length=0;
+                document.proPedido.nombreProducto1[0] = new Option("Selecciona un producto",0);
+                document.proPedido.nombreProducto1[0].disabled = true;
+
+                for (x=0;x<n;x++){
+                    if(valor == arrayIdCafeteria[x]){ 
+                        document.proPedido.nombreProducto1[nom] = new Option(arrayNomProducto[x],arrayIdProducto[x]);
+                        nom=nom+1;
+                    }
+                }
+            }
+
+            function mostrarProductos(){
+
+                document.getElementById('datosDelProducto').style.display = 'block';
+                document.getElementById('fotoDeComida').style.display = 'none';
+                document.getElementById('imgProSelect').style.display = 'flex';
+
+                var valor=0;
+                var nom=0;
+
+                //asignamos a la variable valor el valor de la lista de producto seleccionado
+                valor=document.proPedido.nombreProducto1.value;
+                
+                for (x=0;x<n;x++) {
+                    if(valor == arrayIdProducto[x]){
+                        document.proPedido.nombreProducto2.value = arrayNomProducto[x];
+                        document.proPedido.idProducto2.value = arrayIdProducto[x];
+                        document.proPedido.precio.value = parseFloat(arrayCostoProducto[x]).toFixed(2);
+                        document.proPedido.cantidad.value = arrayInventarioProducto[x];
+                        document.proPedido.imgProSelect2.src = "../Imagenes/"+arrayFotoProducto[x];
+                    }
+                    if(document.proPedido.Cafeteria2[x].value == arrayIdCafeteria[x]){
+                        document.proPedido.Cafeteria2[x].selected = true;
+                    }
+                }
+
+            }
+
+
+        </script>
+
         <div class="TituloCompleto">
-            <h1>Administrar El Menú - Editar</h1>
+            <h1>Administrar El Menú - Editar Producto</h1>
         </div>
+
+        <div style="text-align: center;">
+            <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
+            <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
+        </div>
+
         <div class="todo">
-            <div class="hacerPedido">
+            <div class="hacerPedido" style="margin-bottom: 2%;">
                 <div class="barraLateral">
-                    <h2>Opciones</h2>
-                    <a href="adminMenuAgregar.html">Agregar</a>
-                    <a href="#">Editar</a>
-                    <a href="adminMenuEliminar.html">Eliminar</a>
+                    <h2 style="margin: 0 0 3% 0;">Opciones De Combos</h2>
+                    <a href="adminCrearCombos.php">Crear Combo</a>
+                    <a href="adminEditarCombos.php">Editar Combo</a>
+                    <h2 style="margin: 3% 0 3% 0%;">Opciones De Productos</h2>
+                    <a href="adminMenuAgregar.php">Agregar Producto</a>
+                    <a href="adminMenuEditar.php">Editar Producto</a>
+                    <a href="adminMenuEditar.php">Eliminar Producto</a>
                     <a href="adminMenuInventario.php">Inventario</a><br>
                 </div>
-                <div class="otraBarra">
-                    <h2>Agregar Al Menú</h2>
-                    <img src="../Imagenes/arrozPescadoEnsalada.jpg" alt="Foto Del Producto" width="30%" height="30%"><br>
-                    <input type="file" class="botones">
-                    <div class="datosProductos">
-                        <div class="datosProductos">
-                            <h3>Cafetería:</h3>
-                            <select>
-                                <option value="1">Cafetería Central</option>
-                                <option value="2">Cafetería Del Edificio 3</option>
-                                <option value="3">Cafetería Del Edificio 1 - Planta Baja</option>
-                                <option value="4">Cafetería Del Edificio 1 - Piso 2</option>
+                <form method="POST" action="../Procesos/editarProducto.php" class="otraBarra" name="proPedido">
+                    <div>
+                        <h2>Editar Producto</h2>
+                        <div class="datosProductos camposCrearEditar">
+                            <h3 style="margin-left: 5%;">Cafeteria:</h3>
+                            <?php $consultarCafeterias = $datos->query("SELECT * FROM cafeteria"); ?>
+                            <select id="Cafeteria" name="cafeteria" onchange="mostrarNomPro()" required>
+                                <option value="" disabled selected>Escoge la cafeteria</option>
+                            <?php while($cafeteria = $consultarCafeterias->fetch(PDO::FETCH_OBJ)){ ?>
+                                <option value="<?php echo $cafeteria->id_cafeteria; ?>"><?php echo $cafeteria->nombre; ?></option>
+                            <?php } ?>
+                            </select>
+                            <h3 style="margin-left: 5%;">Producto:</h3>
+                            <select name="nombreProducto1" id="nombreProducto1" onchange="mostrarProductos()" required>
+                                <option value="" disabled selected>Escoge una cafeteria</option>
                             </select>
                         </div>
+                        <div style="display: none;" id="datosDelProducto">
+                            <h3>Datos del producto seleccionado: <b>Edite solo los campos que necesita</b></h3>
+                            <div class="datosProductos camposCrearEditar">
+                                <h3 style="margin-left: 5%;">Cafeteria:</h3>
+                                <?php $consultarCafeterias = $datos->query("SELECT * FROM cafeteria"); ?>
+                                <select id="Cafeteria2" name="cafeteria2">
+                                <?php while($cafeteria = $consultarCafeterias->fetch(PDO::FETCH_OBJ)){ ?>
+                                    <option value="<?php echo $cafeteria->id_cafeteria; ?>"><?php echo $cafeteria->nombre; ?></option>
+                                <?php } ?>
+                                </select>
+                                <h3 style="margin-left: 5%;">Nombre:</h3>
+                                <input type="text" name="nombreProducto2" id="nombreProducto2" placeholder="Nombre del producto" style="margin-right: 5%; background-color: white; color: black; border: 1px solid black;">
+                                <input type="hidden" name="idProducto2" id="idProducto2">
+                            </div>
+                            </div>
                         <div class="datosProductos">
-                            <h3>Menú:</h3>
-                            <select>
-                                <option value="1">Arroz Con Pollo</option>
-                                <option value="2">Macarrones</option>
-                                <option value="3">Arroz Con Pescado</option>
-                                <option value="4">Snicker</option>
-                            </select>
+                            <div class="card" style="width: 100%; margin: 4% 2% 0 0;">
+                                <h2 class="proTitulo">Tipo De Producto:</h2>
+                                <div id="fotoDeComida" style="display: flex; justify-content: center; align-items: center; margin: -4% 8% 8% 0;">
+                                    <img src="../Imagenes/comidaIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                                    <img src="../Imagenes/snackIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                                    <img src="../Imagenes/refrescoIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                                    <img src="../Imagenes/cubiertos.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                                </div>
+                                <div id="imgProSelect" style="display: flex; justify-content: center; align-items: center; margin: 0 0 9% 36%; display: none; width: 25%; height: 25%;">
+                                    <img id="imgProSelect2" src="" class="FotoComida" alt="Comida1" width="30%" height="30%">
+                                </div>
+                                <?php $produ = $datos->query("SELECT DISTINCT tipo_producto FROM producto") ?>
+                                <div class="ComidasMenu">
+                                    <select name="tipoProducto" id="tipoProducto" style="width: 40%; margin: -7% 0 2% 26%;" class="selectPro" required>
+                                        <?php while($pro = $produ->fetch(PDO::FETCH_OBJ)){ ?>
+                                            <option value="<?php echo $pro->tipo_producto; ?>"><?php  echo $pro->tipo_producto; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
+                        <div class="datosProductos camposCrearEditar">
+                            <div class="datosProductos">
+                                <h3 style="margin-left: 5%;">Adjunte foto del producto:</h3>
+                                <input name="foto" type="file" accept="image/*"/>
+                            </div>
+                        </div>
+                        <div class="datosProductos camposCrearEditar">
+                            <div class="datosProductos">
+                                <h3 style="margin-left: 5%;">Precio:</h3>
+                                <input type="number" id="precio" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                            </div>
+                            <div class="datosProductos">
+                                <h3 style="margin-left: 15%;">Cantidad:</h3>
+                                <input type="number" id="cantidad" style="background-color: white; color: black; border: 1px solid black;" name="inventario" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
+                            </div>
+                        </div>
+                        <div class="datosProductos" style="justify-content: center; margin-top: 2%;">
+                        <input type="reset" class="botones" value="Cancelar">    
+                        <input type="submit" class="botones" value="Guardar Producto">
                     </div>
-                    <div class="datosProductos" style="margin-top: -4%;">
-                        <div class="datosProductos">
-                            <h3>Nombre:</h3>
-                            <input type="text" placeholder="Nombre del producto" value="Arroz Con Pescado Y Ensalada">
-                        </div>
-                        <div class="datosProductos">
-                            <h3>Cafetería:</h3>
-                            <input type="text" placeholder="Nombre del producto" value="Cafetería Central">
-                        </div>
-                    </div>
-                    <div class="datosProductos" style="margin-top: -4%;">
-                        <div class="datosProductos">
-                            <h3>Precio:</h3>
-                            <input type="number" placeholder="Precio Del Producto" value="2.75" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
-                        </div>
-                        <div class="datosProductos">
-                            <h3>Cantidad:</h3>
-                            <input type="number" placeholder="Cantidad De Productos" value="80" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
-                        </div>
-                    </div>
-                    <div class="datosProductos" style="justify-content: center; margin-top: 2%; margin-bottom: -8%;">
-                        <input type="submit" class="botones" value="Editar Producto">
-                        <input type="reset" class="botones" value="Cancelar">
-                    </div><br><br>
-                </div>
-            </div><br><hr><br>
+                </form>
+            </div>
         </div>
-    <div class="footer">
-        <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-        <h3>
-            Universidad Tecnológica de Panamá - 2021<br>
-            Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
-            Campus Metropolitano Víctor Levi Sasso.<br>
-            Teléfono. (507) 560-3000<br>
-            Correo electrónico: buzondesugerencias@utp.ac.pa<br>
-            311 Centro de Atención Ciudadana<br>
-            Políticas de Privacidad<br>
-        </h3>
-    </div>
+        
+        <?php require('footer.html'); ?>
+
         <script type="text/javascript" src="../JavaScript/complementos.js"></script>
     </body>
 </html>
