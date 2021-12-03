@@ -91,11 +91,11 @@
                         <div class="datosProductos camposCrearEditar">
                             <div class="datosProductos">
                                 <h3 style="margin-left: 5%;">Precio:</h3>
-                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Combo" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
                             </div>
                             <div class="datosProductos">
                                 <h3 style="margin-left: 15%;">Cantidad:</h3>
-                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="cantidad" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
+                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="cantidad" placeholder="Cantidad De Combos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
                             </div>
                         </div>
                         <div class="datosProductos" style="justify-content: center; margin-top: 2%;">

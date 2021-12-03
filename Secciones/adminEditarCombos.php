@@ -17,6 +17,10 @@
         <?php require('header.php'); 
         
             $consultarCafeteria = $datos->query("SELECT id_cafeteria, nombre FROM cafeteria");
+
+            $consultarNomCombo = $datos->query("SELECT DISTINCT id_cafeteria, nombre_combo
+                                                FROM combo
+                                                ORDER BY id_cafeteria ASC, nombre_combo ASC");
         
             $consultarCombos = $datos->query("SELECT c.id_cafeteria, c.id_combo, c.nombre_combo, c.costo, c.inventario
                                                 FROM combo c
@@ -26,11 +30,24 @@
 
         <script>
 
+            //Para los nombre de los combos
             var arrayIdCafeteria = new Array();
+            var arrayNomCombo1 = new Array();
+
+            //Para los datos de los combos
             var arrayIdCombo = new Array();
-            var arrayNomCombo = new Array();
+            var arrayNomCombo2 = new Array();
             var arrayCostoCombo = new Array();
             var arrayInventarioCombo = new Array();
+
+            <?php
+                $n=0;
+                while($combo=$consultarNomCombo->fetch(PDO::FETCH_OBJ))  {
+                    echo "arrayIdCafeteria[$n]=$producto->id_cafeteria;";
+                    echo "arrayNomCombo[$n]='$producto->nombre_combo';";
+                    $n++;
+                }
+            ?>
 
             <?php
                 $n=0;

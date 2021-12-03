@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../Css/estadisticas.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="../Css/formHacerPedido.css">
-        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
+        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg"/>
         <title>Administración | Agregar</title>
     </head>
     <body>
@@ -35,15 +35,15 @@
                     <a href="adminMenuEditar.php">Eliminar Producto</a>
                     <a href="adminMenuInventario.php">Inventario</a><br>
                 </div>
-                <form method="POST" action="../Procesos/registrarCombo.php" class="otraBarra">
+                <form method="POST" action="../Procesos/registrarProducto.php" class="otraBarra">
                     <div>
                         <h2>Agregar Producto</h2>
                         <div class="datosProductos camposCrearEditar">
                             <h3 style="margin-left: 5%;">Nombre:</h3>
-                            <input type="text" name="nombreProducto" placeholder="Nombre del producto" style="margin-right: 5%; background-color: white; color: black; border: 1px solid black;">
+                            <input type="text" name="nombre" placeholder="Nombre del producto" style="margin-right: 5%; background-color: white; color: black; border: 1px solid black;" required>
                             <h3>Cafeteria:</h3>
                             <?php $consultarCafeterias = $datos->query("SELECT * FROM cafeteria"); ?>
-                            <select id="Cafeteria" name="cafeteria" onChange="mostrarProductos()">
+                            <select id="Cafeteria" name="cafeteria" onChange="mostrarProductos()" required>
                             <?php while($cafeteria = $consultarCafeterias->fetch(PDO::FETCH_OBJ)){ ?>
                                 <option value="<?php echo $cafeteria->id_cafeteria; ?>"><?php echo $cafeteria->nombre; ?></option>
                             <?php } ?>
@@ -60,7 +60,7 @@
                                 </div>
                                 <?php $produ = $datos->query("SELECT DISTINCT tipo_producto FROM producto") ?>
                                 <div class="ComidasMenu">
-                                    <select name="tipoProducto" style="width: 40%; margin: -7% 0 2% 26%;" class="selectPro">
+                                    <select name="tipoProducto" style="width: 40%; margin: -7% 0 2% 26%;" class="selectPro" required>
                                         <?php while($pro = $produ->fetch(PDO::FETCH_OBJ)){ ?>
                                             <option value="<?php echo $pro->tipo_producto; ?>"><?php  echo $pro->tipo_producto; ?></option>
                                         <?php } ?>
@@ -71,7 +71,7 @@
                         <div class="datosProductos camposCrearEditar">
                             <div class="datosProductos">
                                 <h3 style="margin-left: 5%;">Adjunte foto del producto:</h3>
-                        <input name="foto" type="file" accept="image/*" style="content: 'Seleccionar Foto';" require/>
+                                <input name="foto" type="file" accept="image/*" required/>
                             </div>
                         </div>
                         <div class="datosProductos camposCrearEditar">
@@ -81,7 +81,7 @@
                             </div>
                             <div class="datosProductos">
                                 <h3 style="margin-left: 15%;">Cantidad:</h3>
-                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="cantidad" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
+                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="inventario" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
                             </div>
                         </div>
                         <div class="datosProductos" style="justify-content: center; margin-top: 2%;">

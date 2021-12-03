@@ -52,7 +52,7 @@
             <p>Combos Del Dia</p>
             <div class="combos">  
 
-                <?php $consultarCombo = $datos->query("SELECT id_combo, nombre_combo, COUNT(c.id_producto), c.costo, p.foto, id_cafeteria
+                <?php $consultarCombo = $datos->query("SELECT id_combo, nombre_combo, COUNT(c.id_producto), c.costo, p.foto, c.id_cafeteria
                                                         FROM combo c INNER JOIN producto p ON c.id_producto=p.id_producto
                                                         WHERE p.tipo_producto = 'Comida'
                                                         GROUP BY nombre_combo
