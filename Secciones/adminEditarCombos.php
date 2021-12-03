@@ -14,10 +14,60 @@
     </head>
     <body>
         
-        <?php require('header.php'); ?>
+        <?php require('header.php'); 
+        
+            $consultarCafeteria = $datos->query("SELECT id_cafeteria, nombre FROM cafeteria");
+        
+            $consultarCombos = $datos->query("SELECT c.id_cafeteria, c.id_combo, c.nombre_combo, c.costo, c.inventario
+                                                FROM combo c
+                                                ORDER BY c.id_cafeteria ASC, c.nombre_combo ASC");
+            
+        ?>
+
+        <script>
+
+            var arrayIdCafeteria = new Array();
+            var arrayIdCombo = new Array();
+            var arrayNomCombo = new Array();
+            var arrayCostoCombo = new Array();
+            var arrayInventarioCombo = new Array();
+
+            <?php
+                $n=0;
+                while($combo=$consultarCombos->fetch(PDO::FETCH_OBJ))  {
+                    echo "arrayIdCafeteria[$n]=$producto->id_cafeteria;";
+                    echo "arrayIdCombo[$n]=$producto->id_combo;";
+                    echo "arrayNomCombo[$n]='$producto->nombre_combo';";
+                    echo "arrayCostoCombo[$n]=$producto->costo;";
+                    echo "arrayInventarioCombo[$n]='$producto->inventario';";
+                    $n++;
+                }
+            ?>
+            var n ="<?php echo $n; ?>"; //total de registros
+
+            function SelectCafeteria()
+            {
+                var valor=0;
+                var nom=0;
+
+                var nombre = document.getElementById('nombre');
+
+                //asignamos a la variable valor el valor de la lista de menú seleccionado
+                valor=document.editCombo.Cafeteria.value;
+                document.editCombo.nombre.length=0;
+                for (x=0;x<n;x++) {
+                    if (valor == arrayIdCafeteria[x])
+                    {
+                        document.editCombo.nombre[nom] = new Option(arrayNomCombo[x],arrayNomCombo[x]);
+                        nom++;
+                    }
+                }
+            }
+
+        </script>
 
         <div class="TituloCompleto">
-            <h1>Administrar El Menú - Crear Combo</h1>
+            <h1>Administrar El Menú - Editar Combo</h1>
         </div>
         <div style="text-align: center;">
             <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
@@ -30,56 +80,65 @@
                     <a href="adminCrearCombos.php">Crear Combo</a>
                     <a href="adminEditarCombos.php">Editar Combo</a>
                     <h2 style="margin: 3% 0 3% 0%;">Opciones De Productos</h2>
-                    <a href="adminMenuAgregar.html">Agregar Producto</a>
-                    <a href="adminMenuEditar.html">Editar Producto</a>
-                    <a href="adminMenuEditar.html">Eliminar Producto</a>
+                    <a href="adminMenuAgregar.php">Agregar Producto</a>
+                    <a href="adminMenuEditar.php">Editar Producto</a>
+                    <a href="adminMenuEditar.php">Eliminar Producto</a>
                     <a href="adminMenuInventario.php">Inventario</a><br>
                 </div>
-                <form method="POST" action="../Procesos/editarCombo.php" class="otraBarra">
+                <form method="POST" action="../Procesos/editarCombo.php" class="otraBarra" name="editCombo">
                     <div>
-                        <h2>Crear Combo</h2>
+                        <h2>Editar Combo</h2>
                         <div class="datosProductos camposCrearEditar">
-                            <h3 style="margin-left: 5%;">Nombre:</h3>
-                            <input type="text" name="nombreCombo" placeholder="Nombre del combo" style="margin-right: 5%; background-color: white; color: black; border: 1px solid black;">
-                            <h3>Cafeteria:</h3>
+                            <h3 style="margin-left: 5%;">Cafeteria:</h3>
                             <?php $consultarCafeterias = $datos->query("SELECT * FROM cafeteria"); ?>
-                            <select id="Cafeteria" name="Cafeteria" onChange="mostrarProductos()">
-                            <?php while($cafeteria = $consultarCafeterias->fetch(PDO::FETCH_OBJ)){ ?>
-                                <option value="<?php echo $cafeteria->id_cafeteria; ?>"><?php echo $cafeteria->nombre; ?></option>
-                            <?php } ?>
+                            <select id="Cafeteria" name="Cafeteria"  onchange="SelectCafeteria()">
+                                <option value="" disabled selected>Elige una cafetería</option>
+                                <?php while($cafeteria = $consultarCafeteria->fetch(PDO::FETCH_OBJ)){ ?>
+                                    <option value="<?php echo $cafeteria->id_cafeteria; ?>"><?php echo $cafeteria->nombre; ?></option>
+                                <?php } ?>
+                            </select>
+                            <h3 style="margin-left: 5%;">Nombre:</h3>
+                            <select name="nombre" id="nombre" onchange="SelectDatosCombo()">
+                                <option value="" disabled selected>Selecciona Primero La Cafetería</option>
                             </select>
                         </div>
                         <div class="datosProductos">
-                            <div class="iconoProductos">
-                                <h3>Comidas</h3>
+                            <div class="card">
+                                <h2 class="proTitulo">Comida:</h2>
+                                <img id="fotoDeComida" src="../Imagenes/comidaIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                                 <?php $Comidas = $datos->query("SELECT * FROM producto WHERE tipo_producto='Comida'") ?>
-                                <img src="../Imagenes/comidaIcono.png" alt="Comida1" width="40%" height="40%" style="margin-top: -2%;"><br>
-                                <select name="comida">
-                                    <?php while($comida = $Comidas->fetch(PDO::FETCH_OBJ)){ ?>
-                                        <option value="<?php echo $comida->id_producto ?>"><?php echo $comida->nombre; ?></option>
-                                    <?php } ?>
-                                </select>
+                                <div class="ComidasMenu">
+                                    <select name="comida" class="selectPro">
+                                        <?php while($comida = $Comidas->fetch(PDO::FETCH_OBJ)){ ?>
+                                            <option value="<?php echo $comida->id_producto ?>"><?php echo $comida->nombre; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="iconoProductos">
-                                <h3>Snacks</h3>
+                            <div class="card">
+                                <h2 class="proTitulo">Snack:</h2>
+                                <img id="fotoDeComida" src="../Imagenes/snackIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                                 <?php $Snacks = $datos->query("SELECT * FROM producto WHERE tipo_producto='Snack'") ?>
-                                <img src="../Imagenes/snackIcono.png" alt="Comida1" width="40%" height="40%" style="margin-top: -2%;"><br>
-                                <select name="snack">
-                                    <option value="0">Ninguno</option>
-                                    <?php while($snack = $Snacks->fetch(PDO::FETCH_OBJ)){ ?>
-                                        <option value="<?php echo $snack->id_producto ?>"><?php echo $snack->nombre; ?></option>
-                                    <?php } ?>
-                                </select>
+                                <div class="ComidasMenu">
+                                    <select name="snack" class="selectPro">
+                                        <option value="0">Ninguno</option>
+                                        <?php while($snack = $Snacks->fetch(PDO::FETCH_OBJ)){ ?>
+                                            <option value="<?php echo $snack->id_producto ?>"><?php echo $snack->nombre; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="iconoProductos">
-                                <h3>Refrescos</h3>
+                            <div class="card">
+                                <h2 class="proTitulo">Refresco:</h2>
+                                <img id="fotoDeComida" src="../Imagenes/refrescoIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                                 <?php $Refrescos = $datos->query("SELECT * FROM producto WHERE tipo_producto='Refresco'") ?>
-                                <img src="../Imagenes/refrescoIcono.png" alt="Comida1" width="40%" height="40%" style="margin-top: -2%;"><br>
-                                <select name="refresco">
-                                    <?php while($refresco = $Refrescos->fetch(PDO::FETCH_OBJ)){ ?>
-                                        <option value="<?php echo $refresco->id_producto ?>"><?php echo $refresco->nombre; ?></option>
-                                    <?php } ?>
-                                </select>
+                                <div class="ComidasMenu">
+                                    <select name="refresco" class="selectPro">
+                                        <?php while($refresco = $Refrescos->fetch(PDO::FETCH_OBJ)){ ?>
+                                            <option value="<?php echo $refresco->id_producto ?>"><?php echo $refresco->nombre; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="datosProductos camposCrearEditar">

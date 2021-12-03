@@ -610,3 +610,10 @@ tr th, tr td{
     padding: 2% 0 2% 0;
     margin: -5% 0 0 0;
 }
+.selectPro{
+    margin: -8% 0 5% 2%;
+    width: 90%;
+}
+.ComidasMenu{
+    margin: 0 0 0 5%;
+}
