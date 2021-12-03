@@ -25,7 +25,7 @@
         <div class="utp">
           <img src="../imagenes/logo_utp_1_300.png" alt="">
         </div>
-        <p class="p">Universidad Tecnologica de Panampá </p>
+        <p class="p">Universidad Tecnologica de Panamá </p>
       
       
       </header>
