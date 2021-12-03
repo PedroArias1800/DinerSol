@@ -314,12 +314,12 @@ nav a:hover{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 .soloCuatro .card{
-    width: 25%;
-    float: left;
+    width: 20%;
+    
 }
 .soloTres1, .soloTres2{
     width: 100%;
