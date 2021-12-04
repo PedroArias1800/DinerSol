@@ -20,7 +20,7 @@
             echo "Inicio de sessión exitoso";
             $_SESSION['ss']=true;
             $_SESSION['id_usuario']=$row["id_usuario"];
-            header('Location: ../Secciones/paginaPrincipal.php');
+            header('Location: ../Secciones/paginaPrincipal.php?exito=¡Iniciaste sesión corretamente!');
             exit;
         } 
         else {

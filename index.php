@@ -24,8 +24,13 @@
         <div class="utp">
           <img src="imagenes/logo_utp_1_300.png" alt="">
         </div>
-        <p>Universidad Tecnologica de Panampá</p>
+        <p>Universidad Tecnologica de Panamá</p>
       </header>
+
+      <div style="text-align: center;">
+            <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
+            <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
+      </div>
 
       <h2>Login</h2>
 

@@ -35,6 +35,11 @@
 
 </div>
 
+        <div style="text-align: center; margin: 2% 0 -2% 0;">
+            <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
+            <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
+        </div>
+
         <?php $idPedido = $datos->query("SELECT id_orden FROM orden
                                          WHERE id_usuario = '$datosDelUsuario->id_usuario' AND created_at = (SELECT MAX(created_at) FROM orden WHERE id_usuario = '$datosDelUsuario->id_usuario')"); ?>
 
