@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../Css/estadisticas.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="../Css/formHacerPedido.css">
-        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg" />
+        <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg"/>
         <title>Administración | Crear Combos</title>
     </head>
     <body>
@@ -32,7 +32,7 @@
                     <h2 style="margin: 3% 0 3% 0%;">Opciones De Productos</h2>
                     <a href="adminMenuAgregar.php">Agregar Producto</a>
                     <a href="adminMenuEditar.php">Editar Producto</a>
-                    <a href="adminMenuEditar.php">Eliminar Producto</a>
+                    <a href="adminMenuEliminar.php">Eliminar Producto</a>
                     <a href="adminMenuInventario.php">Inventario</a><br>
                 </div>
                 <form method="POST" action="../Procesos/registrarCombo.php" class="otraBarra">
