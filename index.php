@@ -73,9 +73,9 @@
       </form>
     </div>
   </div>
-  <footer>
-    <!-- FOOTER -->
-  </footer>
+
+
+  
   <script type="text/javascript" src="JavaScript/complementos.js"></script>
 </body>
 

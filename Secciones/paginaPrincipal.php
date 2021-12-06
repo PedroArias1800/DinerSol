@@ -184,10 +184,38 @@
                         </div>
                     </div>
                     <div class="card">
+                        <img src="../Imagenes/galletaSaltine.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <div class="ComidasMenu">
+                            <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
+                            <h4 class="Precio">$1.25</h4> 
+                        </div>
+                    </div>
+                    <div class="card">
                         <img src="../Imagenes/galletaMaria.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
                             <h4 class="comidas-titulo"><b>Galleta María</b></h4> 
                             <h4 class="comidas-titulo">$1.25</h4> 
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="../Imagenes/galletaSaltine.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <div class="ComidasMenu">
+                            <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
+                            <h4 class="Precio">$1.25</h4> 
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="../Imagenes/galletaSaltine.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <div class="ComidasMenu">
+                            <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
+                            <h4 class="Precio">$1.25</h4> 
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="../Imagenes/galletaSaltine.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <div class="ComidasMenu">
+                            <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
+                            <h4 class="Precio">$1.25</h4> 
                         </div>
                     </div>
                 </div>
