@@ -35,7 +35,7 @@
                     <a href="adminMenuEliminar.php">Eliminar Producto</a>
                     <a href="adminMenuInventario.php">Inventario</a><br>
                 </div>
-                <form method="POST" action="../Procesos/registrarProducto.php" class="otraBarra">
+                <form method="POST" action="../Procesos/registrarProducto.php" class="otraBarra" enctype="multipart/form-data">
                     <div>
                         <h2>Agregar Producto</h2>
                         <div class="datosProductos camposCrearEditar">

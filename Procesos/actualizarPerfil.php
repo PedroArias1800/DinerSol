@@ -15,7 +15,6 @@
 
         move_uploaded_file($temp, '../Imagenes/FotosDePerfil/'.$foto);
         $sqlUpdate = $datos->exec("UPDATE usuario SET nombre = '$nombre', apellido = '$apellido', telefono = '$telefono', foto = '$foto' WHERE id_usuario='$id'");
-        
     } else {
         $sqlUpdate = $datos->exec("UPDATE usuario SET nombre = '$nombre', apellido = '$apellido', telefono = '$telefono' WHERE id_usuario='$id'");
     }

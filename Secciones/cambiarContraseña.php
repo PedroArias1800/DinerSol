@@ -28,48 +28,63 @@
                 if(isset($_GET['h']) && isset($_GET['e'])){
                     $hash = $_REQUEST['h'];
                     $email = $_REQUEST['e'];
+                    
+                    date_default_timezone_set('America/Panama');
+                    $limite = date('Y-m-d H:i:s');
             
-                    $resultado = $datos->query("SELECT hash FROM usuario WHERE email='$email'");
+                    $resultado = $datos->query("SELECT hash, fecha_hash FROM usuario WHERE email='$email'");
                     $resultado->setFetchMode(PDO::FETCH_ASSOC);
 
                     $resultado->execute();
                     $row = $resultado->fetch();
 
                     if($hash == $row['hash']){
+                        if($limite < $row['fecha_hash']){
             ?>
-                        <form method="POST" action="../Procesos/actualizarContraseña.php">
-                            <div class="column">            
-                                <div class=" user password">
-                                    <span class="icon uil uil-lock-open-alt"></span>
-                                    <input class=" user input-style" id="contra1" type="password" name="contra1" placeholder="Contraseña" required>
+                            <form method="POST" action="../Procesos/actualizarContraseña.php">
+                                <div class="column">            
+                                    <div class=" user password">
+                                        <span class="icon uil uil-lock-open-alt"></span>
+                                        <input class=" user input-style" id="contra1" type="password" name="contra1" placeholder="Contraseña" required>
+                                    </div>
+                                    <div class=" user password">
+                                        <span class="icon uil uil-lock-open-alt"></span>
+                                        <input class=" user input-style" id="contra2" type="password" name="contra2" placeholder="Repetir Contraseña" required>
+                                    </div>
                                 </div>
-                                <div class=" user password">
-                                    <span class="icon uil uil-lock-open-alt"></span>
-                                    <input class=" user input-style" id="contra2" type="password" name="contra2" placeholder="Repetir Contraseña" required>
-                                </div>
-                            </div>
-
-                            <input type="hidden" name="hash" value="<?php echo $hash ?>">
-                            <input type="hidden" name="email" value="<?php echo $email ?>">
-
-                            <button class="submit" type="submit">Confirmar</button>
-                        </form>
+    
+                                <input type="hidden" name="hash" value="<?php echo $hash ?>">
+                                <input type="hidden" name="email" value="<?php echo $email ?>">
+    
+                                <button class="submit" type="submit">Confirmar</button>
+                            </form>
+            <?php
+                        }else
+                            echo '<meta http-equiv="refresh" content="0; url=../Procesos/eliminarHash.php?e='.$email.'">';
+                    }else{
+            ?>
+                        <div class="caducado">
+                            <p>Lo sentimos este enlace ya caduco.</p>;
+                        </div>
             <?php
                     }
                 }else{
             ?>
-                <div class="caducado">
+                        <div class="caducado">
             <?php
-                    if(isset($_GET['msg']))
-                        echo $_GET['msg'];
-                    else
-                        echo '<p>Lo sentimos este enlace ya caduco.</p>';
+                            if(isset($_GET['msg']))
+                                echo $_GET['msg'];
+                            else
+                                echo '<p>Lo sentimos este enlace ya caduco.</p>';
             ?>
-                    <a href="../index.php">Ir a inicio</a>
-                </div>
+                            <a href="../index.php">Volver al inicio</a>
+                        </div>
             <?php
                 }
             ?>
+                    
+                    
+            
         </div><br>
         <footer>
             <div class="footer">

@@ -6,8 +6,21 @@
         $correo = $_REQUEST['correo'];
         $hash = md5(rand(10, 1000));
 
+        date_default_timezone_set('America/Panama'); //Colocar la zona horaria de Panamá
+        $fecha = date('Y-m-d'); // Campo para ingresar la fecha actual.
+        
+        //Comprobar los minutos actuales para poder agregarle 15 minutos. 
+        if(date('i') < 45){
+            $fecha .= ' '.date('H').':'.(date('i') + 15);
+        }else{
+            if(date('H') < 22)
+                $fecha .= ' '.(date('H') + 1).':'.((date('i') + 15)-60);
+            else
+                $fecha .= ' '.((date('H') + 1) - 24).':'.((date('i') + 15)-60);
+        }
+
         //$resultado = $datos->query("SELECT nombre, apellido, hash FROM usuario WHERE email='$correo'");
-        $sqlUpdate = $datos->exec("UPDATE usuario SET hash='$hash' WHERE email='$correo'");
+        $sqlUpdate = $datos->exec("UPDATE usuario SET hash='$hash', fecha_hash='$fecha' WHERE email='$correo'");
 
         if($sqlUpdate){
 
@@ -20,11 +33,11 @@
             $subject = "Cambiar Contraseña";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            $headers .= "From: utpdinersol@gmail.com";
-            $message  = '<html><body>
-                        <table style="border:0; background-color:#e0e0e0; display: flex; flex-direction: column; align-items: center;" width="100%" cellpadding="0" cellspacing="0">
+            $headers .= "From: DinerSol";
+            $message  = '<html><body style="width: 100%; background-color:#ffffff;">
+                        <table style="max-width:700px; border:0; background-color:#e0e0e0; display: flex; flex-direction: column; align-items: center;" width="100%" cellpadding="0" cellspacing="0">
                             <tr><td>
-                                <table width="100%" cellpadding="0" cellspacing="0" style="max-width:700px; background-color:#fff; font-family:Verdana, Geneva, sans-serif; border:0;">
+                                <table width="100%" cellpadding="0" cellspacing="0" style=" padding: 0 25%; background-color:#fff; font-family:Verdana, Geneva, sans-serif; border:0;">
                                     <thead>
                                         <tr height="80">
                                             <th colspan="4" style="background-color:#ffffff; border-bottom:solid 1px #bdbdbd; font-family:Verdana, Geneva, sans-serif; color:#333; font-size:34px;">
@@ -87,16 +100,16 @@
                     </body></html>';
 
             if(mail($to, $subject, $message, $headers)){
-                $msg='<p class="msg">Revice el mensaje que le enviamos a su correo para poder cambiar su contraseña.</p>';
+                $msg='Revice el mensaje que le enviamos a su correo para poder cambiar su contraseña.';
                 echo '<meta http-equiv="refresh" content="0; url=../Secciones/recuperarContraseña.php?msg='.$msg.'">';
             }
             else{
-                $msg='<p class="error">Ocurrio un error al enviar el mensaje.</p>';
-                echo '<meta http-equiv="refresh" content="0; url=../Secciones/recuperarContraseña.php?error='.$error.'">';
+                $msg='Ocurrio un error al enviar el mensaje.';
+                echo '<meta http-equiv="refresh" content="0; url=../Secciones/recuperarContraseña.php?error='.$msg.'">';
             }
         }else{
-            $msg='<p class="error">No existe una cuenta asociada al correo ingresado.</p>';
-            echo '<meta http-equiv="refresh" content="0; url=../Secciones/recuperarContraseña.php?error='.$error.'">';
+            $msg='No existe una cuenta asociada al correo ingresado.';
+            echo '<meta http-equiv="refresh" content="8; url=../Secciones/recuperarContraseña.php?error='.$msg.'">';
         }
     }
 ?>

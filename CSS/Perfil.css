@@ -293,14 +293,6 @@ input{
   display: none;
 }
 
-.error{
-  margin: .2rem 0;
-  color:rgb(173, 3, 3);
-  font-weight: 600;
-  text-overflow: ellipsis;
-  text-transform:uppercase;
-}
-
 .presForm{
   margin-top: 2rem;
   text-align: center;

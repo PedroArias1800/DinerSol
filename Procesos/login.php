@@ -10,7 +10,7 @@
         $email = $_POST['email'];
         $password = md5($_POST['password']);
 
-        $iniciarSesion = $datos->query("SELECT id_usuario FROM usuario WHERE email='$email' AND password='$password'"); 
+        $iniciarSesion = $datos->query("SELECT id_usuario, hash FROM usuario WHERE email='$email' AND password='$password'"); 
         $iniciarSesion->setFetchMode(PDO::FETCH_ASSOC);
 
         $iniciarSesion->execute();
@@ -20,6 +20,10 @@
             echo "Inicio de sessión exitoso";
             $_SESSION['ss']=true;
             $_SESSION['id_usuario']=$row["id_usuario"];
+
+            if($row['hash'] != '')
+                $datos->exec("UPDATE usuario SET hash='', fecha_hash= NULL WHERE email='$email'");
+
             header('Location: ../Secciones/paginaPrincipal.php?exito=¡Iniciaste sesión corretamente!');
             exit;
         } 
@@ -31,5 +35,4 @@
     else{
         echo '<meta http-equiv="refresh" content="0; url=../index.php?error=No se recibieron los datos">';
     }
-
 ?>

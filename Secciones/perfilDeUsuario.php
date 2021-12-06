@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
     <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg"/>
 
-
-    
     <title>DinerSol | Perfil</title>
 </head>
 <body>
@@ -22,8 +20,6 @@
     <div class="headerphp">
         <?php require('header.php'); ?>
     </div>
-
-   
 
     <!-- Seccion -->
 

@@ -39,19 +39,16 @@
              
                         <div class="msg">
                             <h4>Ingresa tu correo electronico y te enviaremos un enlace para que puedas recuperar el acceso a tu cuenta.</h4>
-                            <?php
-                                if(isset($_GET['msg']))
-                                    echo $_GET['smg'];
-                                elseif(isset($_GET['error']))
-                                    echo $_GET['error'];
-                            ?>
+                            <?php if(isset($_GET['msg'])){ ?>
+                                    <p class="exito" onload="EliminarHash();"> <?php echo $_GET['msg']; ?> </p>
+                            <?php }elseif(isset($_GET['error'])){ ?>
+                                    <p class="error"> <?php echo $_GET['error']; ?> </p>
+                            <?php }?>
                         </div>
 
                         <div class="user-recuperar">
                             <span class="icon uil uil-envelope-edit"></span>                        
-                            <input type="email" id="correo" name="correo" placeholder="usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>
-                            <!--<label id="lblTel" for="telefono" hidden>Teléfono:</label><br>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1111-1111" pattern="[0-9]{4}-[0-9]{4}" hidden required>-->
+                            <input type="email" id="correo" name="correo" placeholder="usuario@ejemplo.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" maxlength="200" required>                            
                         </div>
                         <p class="p">El proceso de recuperación de contraseñas puede tardar unos minutos...</p>
                         <div class="item">

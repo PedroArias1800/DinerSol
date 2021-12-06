@@ -21,8 +21,6 @@
         else
             $foto = "cubierto.png";
 
-        $temp = "";
-
         if(isset($_FILES['foto']) && $_FILES['foto']['name'] != ""){
 
             $temp = $_FILES['foto']['tmp_name'];

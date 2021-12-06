@@ -371,10 +371,25 @@ background-size: cover;
       font-size: 1.5rem;
         }
 
+        .msg p{
+          text-align: center;
+          margin: 0;
+          font-weight: 600;
+          text-overflow: ellipsis;
+          text-transform:uppercase;
+        }
+
         .p{
           max-width: 90%;
         }
 
+        .exito{
+          color: green;
+        }
+        
+        .error{
+          color:red;
+        }
 
         .cuenta{
           font-size: 2.3rem;

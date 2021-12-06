@@ -1,66 +1,78 @@
 const passN1 = document.querySelector("#contra1");
 const passN2 = document.querySelector("#contra2");
-let vali1 = false, vali2 = false; 
+let vali1 = false, vali2 = false, activa = false;
+let contra2Keyup;
 
 // Validar minimo de caracteres de la contraseña.
-passN1.addEventListener('keyup', (e)=>{
-  const error = document.querySelector('#errorPass1');
+if(passN1){
+    passN1.addEventListener('keyup', (e)=>{
+        const error = document.querySelector('#errorPass1');
+        const contP1 = document.querySelector('#containerPass1');
+  
+        if(passN1.value.length >= 6){
+            contP1.style.border = '';
+            error.innerHTML = '';
+            vali1 = true;
+        }else{
+            contP1.style.border = '2px solid #ff0000';
+            error.innerHTML = 'La contraseña debe tener 6 caracteres como minimo';
+            vali1 = false;
+            ValidarEnvio();
+        }
 
-  if(passN1.value.length == 0){
-    error.innerHTML = '';
-    vali1 = false;
-  }
-  else if(passN1.value.length >= 6){
-    error.innerHTML = '';
-    vali1 = true;
-  }else{
-    error.innerHTML = 'La contraseña debe tener 6 caracteres como minimo';
-    vali1 = false;
-    ValidarEnvio();
-  }
-});
+        if(activa){
+            ValidarPass2();
+        }
+    });
+}
 
-//Validar coinsidencia de las cotraseñas.
-passN2.addEventListener('keyup', (e)=>{
-  const error = document.querySelector('#errorPass2');
+//LLama funcion para comparar las contraseñas.
+if(passN2){
+    passN2.addEventListener('keyup', (e)=>{
+        activa = true;
+        ValidarPass2();
+    });
+}
 
-  if(passN1.value.length == 0){
-    error.innerHTML = '';
-    vali1 = false;
-  }
-  else if(passN2.value == passN1.value){
-    error.innerHTML = '';
-    vali2 = true;
-  }
-  else{
-    error.innerHTML = 'Las contraseñas no coinsiden';
-    vali2 = false;
-    ValidarEnvio();
-  }
-});
+//Validar que las cotraseñas sean iguales.
+function ValidarPass2(){
+    const error = document.querySelector('#errorPass2');
+    const contP2 = document.querySelector('#containerPass2');
+
+    if(passN2.value == passN1.value){
+        contP2.style.border = '';
+        error.innerHTML = '';
+        vali2 = true;
+    }
+    else{
+        contP2.style.border = '2px solid #ff0000';
+        error.innerHTML = 'Las contraseñas no coinsiden';
+        vali2 = false;
+        ValidarEnvio();
+    }
+}
 
 // Valida el envio del formulario
 function ValidarEnvio(){
-
-  if(vali1 && vali2)
-    return true;
-  else
-    return false;
+    if(vali1 && vali2)
+        return true;
+    else
+        return false;
 }
 
 //Cambia entre los formularios de Editar Perfil.
 function CambiarForm(op){
-  let form1 = document.querySelector("#perfil");
-  let form2 = document.querySelector("#contraseña");
+    let form1 = document.querySelector("#perfil");
+    let form2 = document.querySelector("#contraseña");
 
-  if(op == 1){
-    form1.classList.add("invisible");
-    form2.classList.remove("invisible");
-  }
-  else if(op == 2){
-    form2.classList.add("invisible");
-    form1.classList.remove("invisible");
-  }
+    if(op == 1){
+        form1.classList.add("invisible");
+        form2.classList.remove("invisible");
+    }
+    else if(op == 2){
+        form2.classList.add("invisible");
+        form1.classList.remove("invisible");
+    }
 }
 
 function Mostrar() {

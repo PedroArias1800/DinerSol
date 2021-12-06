@@ -14,14 +14,14 @@
 
         if($tipo == 'Comida')
             $foto = "comidaIcono.png";
-        else if($tipo = 'Snack')
+        else if($tipo == 'Snack')
             $foto = "snackIcono.png";
         else if ($tipo == 'Refresco')
             $foto = "refrescoIcono.png";
         else
             $foto = "cubierto.png";
 
-        $temp = "";
+        echo $_FILES['foto'];
 
         if(isset($_FILES['foto']) && $_FILES['foto']['name'] != ""){
 
