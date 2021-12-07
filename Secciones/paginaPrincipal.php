@@ -40,14 +40,28 @@
             <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
         </div>
 
-        <?php $idPedido = $datos->query("SELECT id_orden FROM orden
+        <?php
+
+date_default_timezone_set('America/Panama');
+        $date_now = date("h:i:s");
+        $variable = new DateTime($date_now);
+    
+        if($variable->format('H:i:s') < '12:50:00'){
+            echo "Desayuno";
+        }
+      
+        $to_compare = "2021-12-7 12:50:00";
+        $variable1 = new DateTime($to_compare);
+        $difference = date_diff($variable, $variable1)->format("Difference => %Y years, %m months, %d days, %h hours, and %i minutes");
+        echo $difference;
+        $idPedido = $datos->query("SELECT id_orden FROM orden
                                          WHERE id_usuario = '$datosDelUsuario->id_usuario' AND created_at = (SELECT MAX(created_at) FROM orden WHERE id_usuario = '$datosDelUsuario->id_usuario')"); ?>
 
         <div class="pedido" style="padding: 1.5%; display: flex; justify-content: space-around;">
             <?php while($pedido = $idPedido->fetch(PDO::FETCH_OBJ)){ ?>
             <h2 class="h2">Número identificador de su último pedido: <strong><?php echo $pedido->id_orden; ?></strong></h2>
             <?php } ?>
-            <a href="hacerPedido.php" class="btnHacerPedido" >Hacer Pedido</a>
+            <a href="hacerPedido.php" class="btnHacerPedido" >Hacer Pedido <?php  echo $variable->format('H:i:s'); ?> </a>
         </div>
         <main class="contenedor">
 
