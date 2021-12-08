@@ -281,9 +281,12 @@
 
         </script>
 
-    <div class="TituloCompleto">
-        <h1>Hacer Pedidos</h1>
-    </div><br>
+<div class="headimg">
+            <div class="TituloCompleto">
+            <h1>Cafeterías UTP</h1>
+        </div>
+
+        </div>
         <div class="NoticiasMenu">
             <div class="Noticias" style="margin-left: 5%;">
                 <div class="Snacks">
