@@ -26,8 +26,8 @@
             <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Piso 2</h1>   
             <img src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafetería Central" width="25%" height="25%">
         </div> -->
-        <div class="gallery js-flickity"
-  data-flickity-options='{ "fade": true }' >
+        <div class="gallery js-flickity carousel"
+   data-flickity='{ "autoPlay": true, "fade": true }' >
        <img class="imga" src="../Imagenes/cafcentral.jpg" alt="">
      <img class="imga" src="../Imagenes/CafeteriaCentral.jpg" alt="">
       <img class="imga" src="../Imagenes/CafeteriaEdi1P2.PNG" alt="">
@@ -41,7 +41,7 @@
         </div>
 
         <?php
-
+// SE AGARRA LA FECHA DE PANAMA Y SE HACE UNA COMPARASION SI ES DESAYUNO, LA MISMA LOGICA PARA LAS OTRAS COMIDAS
 date_default_timezone_set('America/Panama');
         $date_now = date("h:i:s");
         $variable = new DateTime($date_now);
