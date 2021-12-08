@@ -171,6 +171,20 @@ hr{
     color: white;
    
 }
+@media (max-width: 768px ){
+    .enlaces{
+        display: flex; 
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        letter-spacing: 1px;
+        background-color: #68086c; 
+        font-size: large;
+        color: white;
+       
+    }
+    
+} 
 .enlaces a{
      padding: 1rem;
 }
