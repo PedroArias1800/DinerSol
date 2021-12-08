@@ -14,8 +14,11 @@
         
         <?php require('header.php'); ?>
 
-        <div class="TituloCompleto">
+         <div class="headimg">
+            <div class="TituloCompleto">
             <h1>Ayuda Alimentaria</h1>
+        </div>
+
         </div>
 
         <div class="cafeteriasUTP">

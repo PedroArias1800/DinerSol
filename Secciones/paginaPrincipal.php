@@ -27,7 +27,7 @@
             <img src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafetería Central" width="25%" height="25%">
         </div> -->
         <div class="gallery js-flickity carousel"
-   data-flickity='{ "autoPlay": true, "fade": true }' >
+   data-flickity='{ "autoPlay": true, "fade": 1500 }' >
        <img class="imga" src="../Imagenes/cafcentral.jpg" alt="">
      <img class="imga" src="../Imagenes/CafeteriaCentral.jpg" alt="">
       <img class="imga" src="../Imagenes/CafeteriaEdi1P2.PNG" alt="">

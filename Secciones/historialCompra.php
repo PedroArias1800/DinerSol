@@ -30,8 +30,11 @@
             $costoTotal = 0;
         ?>
 
-        <div class="TituloCompleto">
+       <div class="headimg">
+            <div class="TituloCompleto">
             <h1>Historial De Compras</h1>
+        </div>
+
         </div>
         <div  class="card tablasGrandes">
             <h2 class="TituloTabla">Historial General</h2>

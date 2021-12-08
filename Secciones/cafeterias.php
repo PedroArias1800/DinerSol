@@ -13,11 +13,13 @@
     <body>
         
         <?php require('header.php'); ?>
-
-        <div class="TituloCompleto">
+        <div class="headimg">
+            <div class="TituloCompleto">
             <h1>Cafeterías UTP</h1>
         </div>
 
+        </div>
+        
         <div class="cafeteriasUTP">
             <h2>Cafetería Central</h2>
             <h3>En el marco de un evento cultural organizado para administrativos y familiares, se llevó a cabo el 18 de enero, la inauguración de la cuarta cafetería del Campus Central, de la Universidad Tecnológica de Panamá (UTP), la cual estará bajo la responsabilidad de la Licda. Judith Barrios.
