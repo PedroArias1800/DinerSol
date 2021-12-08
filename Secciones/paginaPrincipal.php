@@ -26,43 +26,86 @@
             <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Piso 2</h1>   
             <img src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafetería Central" width="25%" height="25%">
         </div> -->
-        <div class="gallery js-flickity carousel"
-   data-flickity='{ "autoPlay": true, "fade": 1500 }' >
-       <img class="imga" src="../Imagenes/cafcentral.jpg" alt="">
-     <img class="imga" src="../Imagenes/CafeteriaCentral.jpg" alt="">
-      <img class="imga" src="../Imagenes/CafeteriaEdi1P2.PNG" alt="">
-       <img class="imga" src="../Imagenes/CafeteriaEdi1PB.PNG" alt=""> 
 
-</div>
+        <?php
+        // SE AGARRA LA FECHA DE PANAMA Y SE HACE UNA COMPARASION SI ES DESAYUNO, LA MISMA LOGICA PARA LAS OTRAS COMIDAS
+        date_default_timezone_set('America/Panama');
+        $date_now = date("H:i:s");
+        $variable = new DateTime($date_now);
+        $nomTurno = "Fuera De Servicio";
+        $turno = 0;
+        $fechaPedido = 0;
+        $dejarComprar = "Si";
+        
+    
+        if($variable->format('H:i:s') < '12:50:00'){
+            $nomTurno = "Matutino";
+            $turno = 1;
+        } else if($variable->format('H:i:s') > '12:50:00' && $variable->format('H:i:s') < '17:50:00'){
+            $nomTurno = "Vespertino";
+            $turno = 2;
+        } else if($variable->format('H:i:s') > '17:50:00' && $variable->format('H:i:s') < '21:50:00'){
+            $nomTurno = "Nocturno";
+            $turno = 3;
+        } else {}
+      
+        $to_compare = "2021-12-7 12:50:00";
+        $variable1 = new DateTime($to_compare);
+        $difference = date_diff($variable, $variable1)->format("Difference => %Y years, %m months, %d days, %h hours, and %i minutes");?>
 
-        <div style="text-align: center; margin: 2% 0 -2% 0;">
+        <div class="gallery js-flickity carousel" data-flickity='{ "autoPlay": true, "fade": 1500 }'>
+            <div class="divCarousel">
+                <h1 class="pH1">Cafetería Central</h1>
+                <img class="imga" src="../Imagenes/cafcentral.jpg" alt="Cafeteria Central">
+                <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
+            </div>
+            <div class="divCarousel">
+                <h1 class="pH1">Cafetería FISC</h1>
+            <img class="imga" src="../Imagenes/CafeteriaCentral.jpg" alt="Cafeteria FISC">
+                <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
+            </div>
+            <div class="divCarousel">
+                <h1 class="pH1">Cafetería Edificio #1 P2</h1>
+            <img class="imga" src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafeteria Edificio #1 P2">
+                <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
+            </div>
+            <div class="divCarousel">
+                <h1 class="pH1">Cafetería Edificio #1 PB</h1>
+            <img class="imga" src="../Imagenes/CafeteriaEdi1PB.PNG" alt="Cafeteria Edificio #1 PB"> 
+                <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 2% 0 -1% 0;">
             <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
             <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
         </div>
 
-        <?php
-// SE AGARRA LA FECHA DE PANAMA Y SE HACE UNA COMPARASION SI ES DESAYUNO, LA MISMA LOGICA PARA LAS OTRAS COMIDAS
-date_default_timezone_set('America/Panama');
-        $date_now = date("h:i:s");
-        $variable = new DateTime($date_now);
-    
-        if($variable->format('H:i:s') < '12:50:00'){
-            echo "Desayuno";
-        }
-      
-        $to_compare = "2021-12-7 12:50:00";
-        $variable1 = new DateTime($to_compare);
-        $difference = date_diff($variable, $variable1)->format("Difference => %Y years, %m months, %d days, %h hours, and %i minutes");
-        echo $difference;
-        $idPedido = $datos->query("SELECT id_orden FROM orden
+        <?php $idPedido = $datos->query("SELECT id_orden, created_at FROM orden
                                          WHERE id_usuario = '$datosDelUsuario->id_usuario' AND created_at = (SELECT MAX(created_at) FROM orden WHERE id_usuario = '$datosDelUsuario->id_usuario')"); ?>
 
         <div class="pedido" style="padding: 1.5%; display: flex; justify-content: space-around;">
             <?php while($pedido = $idPedido->fetch(PDO::FETCH_OBJ)){ ?>
             <h2 class="h2">Número identificador de su último pedido: <strong><?php echo $pedido->id_orden; ?></strong></h2>
-            <?php } ?>
-            <a href="hacerPedido.php" class="btnHacerPedido" >Hacer Pedido <?php  echo $variable->format('H:i:s'); ?> </a>
+            <?php 
+                $fecha = explode(" ",$pedido->created_at);
+                if($fecha[0] == date("Y-m-d")){
+                    if(($turno == 1 && $fecha[1] > '06:35:00' && $fecha[1] < '11:50:00') || ($turno == 2 && $fecha[1] > '11:50:00' && $fecha[1] < '17:35:00') || ($turno == 3 && $fecha[1] > '17:35:00' && $fecha[1] < '21:50:00') || $turno == 0){
+                        $dejarComprar = "No";
+                    }
+                } 
+            } ?>
+
+            <button class="btnHacerPedido" onclick="window.location.href='hacerPedido.php'" <?php if($dejarComprar == "No"){ ?> disabled <?php } ?>>Hacer Pedido <?php  echo $variable->format('H:i:s'); ?></button>
+        
         </div>
+
+        <?php if($dejarComprar == "No"){ ?>
+            <div style="text-align: center; margin: 0 0 2% 0;">
+                <p class="merror" style="color: #fc6e6e"><?php echo "No puede hacer más pedidos en lo que resta del turno" ?></p>
+            </div> 
+        <?php } ?>
+
         <main class="contenedor">
 
         <div class="parent">
@@ -117,7 +160,7 @@ date_default_timezone_set('America/Panama');
             <?php $consultarComidas = $datos->query("SELECT p.nombre, p.costo, p.foto, c.id_cafeteria, m.id_menu
                                                     FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
                                                                     INNER JOIN cafeteria c ON c.id_cafeteria = m.id_cafeteria
-                                                    WHERE p.tipo_producto = 'Comida' AND inventario > 0 AND m.estado = 1
+                                                    WHERE p.tipo_producto = 'Comida' AND inventario > 0 AND m.estado = 1 AND m.turno = '$turno'
                                                     ORDER BY c.id_cafeteria ASC, p.id_producto ASC");
             ?>
 
@@ -169,7 +212,7 @@ date_default_timezone_set('America/Panama');
                 <?php $consultarSnacks = $datos->query("SELECT p.nombre, p.costo, p.foto, c.id_cafeteria, m.id_menu
                                                             FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
                                                                             INNER JOIN cafeteria c ON c.id_cafeteria = m.id_cafeteria
-                                                            WHERE p.tipo_producto = 'Snack' AND inventario > 0 AND m.estado = 1
+                                                            WHERE p.tipo_producto = 'Snack' AND inventario > 0 AND m.estado = 1 AND m.turno = '$turno'
                                                             ORDER BY c.id_cafeteria ASC, p.id_producto ASC");
                 ?>
 
@@ -242,7 +285,7 @@ date_default_timezone_set('America/Panama');
             <?php $consultarRefrescos = $datos->query("SELECT p.nombre, p.costo, p.foto, c.id_cafeteria, m.id_menu
                                                             FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
                                                                             INNER JOIN cafeteria c ON c.id_cafeteria = m.id_cafeteria
-                                                            WHERE p.tipo_producto = 'Refresco' AND inventario > 0 AND m.estado = 1
+                                                            WHERE p.tipo_producto = 'Refresco' AND inventario > 0 AND m.estado = 1 AND m.turno = '$turno'
                                                             ORDER BY c.id_cafeteria ASC, p.id_producto ASC");            
             ?>
 

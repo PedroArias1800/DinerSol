@@ -641,6 +641,20 @@ tr th, tr td{
 
 .carousel.is-fullscreen .carousel-cell {
     height: 100%;
-  
-  }
+}
+
+.divCarousel{
+    display: flex;
+    align-items: center;
+}
+.pH1{
+    max-width: 23%;
+    margin: 0 10% 0 -10%;
+    font-size: 2vw;
+}
+.sH1{
+    max-width: 23%;
+    margin: 0 -10% 0 10%;
+    font-size: 2vw;
+}
   

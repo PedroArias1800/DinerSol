@@ -1,12 +1,10 @@
 
 .footer{
-    
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #51034f;
-    padding-top: 3.5%;
-    padding-bottom: 3.5%;
+    padding: 3.5% 0 3.5% 0;
     color: white;
 }
 .footer img{
