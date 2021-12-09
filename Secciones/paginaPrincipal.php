@@ -123,7 +123,8 @@
                     $combos = 0; $nombreCombo1 = ""; $nombreCombo2 = "";   ?>
 
                 <div class="soloCuatro verCombos">
-                    <?php while($combo = $consultarCombo->fetch(PDO::FETCH_OBJ)){ if($nombreCombo1 != $combo->nombre_combo){ $combos = $combos + 1; $nombreCombo1 = $combo->nombre_combo; ?>
+                    <?php $hay = 0;
+                        while($combo = $consultarCombo->fetch(PDO::FETCH_OBJ)){ if($nombreCombo1 != $combo->nombre_combo){ $combos = $combos + 1; $nombreCombo1 = $combo->nombre_combo; ?>
                     <div class="card" value="<?php echo $combo->id_cafeteria; ?>" name="ComboCaf<?php echo $combo->id_cafeteria; ?>">
                         <div>
                             <form class="verCombo" action="" method="POST">
@@ -148,12 +149,15 @@
                             </div>
                         </div>
                     </div>
-                    <?php } } ?>
+                    <?php } $hay = 1; } 
+                    if($hay == 0){ ?>
+                        <div class="verCombos">
+                            <h2>Actualmente no hay combos disponibles...</h2>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
-        </div>
-
-        <?php echo $turno; ?>
+        </div><br>
 
         <div class="div2" style="margin-left: 1%;">
             <p>Comidas</p>
@@ -162,12 +166,15 @@
             <?php $consultarComidas = $datos->query("SELECT p.nombre, p.costo, p.foto, c.id_cafeteria, m.id_menu
                                                     FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
                                                                     INNER JOIN cafeteria c ON c.id_cafeteria = m.id_cafeteria
-                                                    WHERE p.tipo_producto = 'Comida' AND inventario > 0 AND m.estado = 1 AND m.turno = '$turno'
+                                                                    INNER JOIN menu_turno mt ON mt.id_menu = m.id_menu
+                                                                    INNER JOIN turno t ON mt.id_turno = t.id_turno
+                                                    WHERE p.tipo_producto = 'Comida' AND inventario > 0 AND m.estado = 1 AND t.id_turno = '$turno'
                                                     ORDER BY c.id_cafeteria ASC, p.id_producto ASC");
             ?>
 
                 <div class="soloTres1">
-                <?php while($comida = $consultarComidas->fetch(PDO::FETCH_OBJ)){ ?>
+                <?php $hay = 0;
+                    while($comida = $consultarComidas->fetch(PDO::FETCH_OBJ)){ ?>
                     <div class="card" value="<?php echo $comida->id_cafeteria; ?>">
                         <img src="../Imagenes/<?php echo $comida->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
@@ -175,6 +182,11 @@
                             <h4 class="Precio"><?php echo $comida->costo; ?></h4> 
                         </div>
                     </div>
+                <?php $hay = 1; } 
+                if($hay == 0){ ?>
+                <div>
+                    <h2 style="font-size: 1.5vw">Actualmente no hay comidas disponibles...</h2>
+                </div>
                 <?php } ?>
                 </div>
             </div>            
@@ -186,12 +198,15 @@
                 <?php $consultarSnacks = $datos->query("SELECT p.nombre, p.costo, p.foto, c.id_cafeteria, m.id_menu
                                                             FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
                                                                             INNER JOIN cafeteria c ON c.id_cafeteria = m.id_cafeteria
-                                                            WHERE p.tipo_producto = 'Snack' AND inventario > 0 AND m.estado = 1 AND m.turno = '$turno'
+                                                                    INNER JOIN menu_turno mt ON mt.id_menu = m.id_menu
+                                                                    INNER JOIN turno t ON mt.id_turno = t.id_turno
+                                                            WHERE p.tipo_producto = 'Snack' AND inventario > 0 AND m.estado = 1 AND t.id_turno = '$turno'
                                                             ORDER BY c.id_cafeteria ASC, p.id_producto ASC");
                 ?>
 
                 <div class="soloTres2">
-                    <?php while($snack = $consultarSnacks->fetch(PDO::FETCH_OBJ)){ ?>
+                    <?php $hay = 0;
+                        while($snack = $consultarSnacks->fetch(PDO::FETCH_OBJ)){ ?>
                     <div class="card" value="<?php echo $snack->id_cafeteria; ?>">
                         <img src="../Imagenes/<?php echo $snack->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
@@ -199,7 +214,12 @@
                             <h4 class="Precio"><?php echo $snack->costo; ?></h4> 
                         </div>
                     </div>
-                    <?php } ?>
+                <?php $hay = 1; } 
+                if($hay == 0){ ?>
+                <div>
+                    <h2 style="font-size: 1.5vw">Actualmente no hay snacks disponibles...</h2>
+                </div>
+                <?php } ?>
                 </div>
             </div>
         </div>
@@ -210,18 +230,26 @@
             <?php $consultarRefrescos = $datos->query("SELECT p.nombre, p.costo, p.foto, c.id_cafeteria, m.id_menu
                                                             FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
                                                                             INNER JOIN cafeteria c ON c.id_cafeteria = m.id_cafeteria
-                                                            WHERE p.tipo_producto = 'Refresco' AND inventario > 0 AND m.estado = 1 AND m.turno = '$turno'
+                                                                    INNER JOIN menu_turno mt ON mt.id_menu = m.id_menu
+                                                                    INNER JOIN turno t ON mt.id_turno = t.id_turno
+                                                            WHERE p.tipo_producto = 'Refresco' AND inventario > 0 AND m.estado = 1 AND t.id_turno = '$turno'
                                                             ORDER BY c.id_cafeteria ASC, p.id_producto ASC");            
             ?>
 
             <div class="soloTres2">
-                <?php while($refresco = $consultarRefrescos->fetch(PDO::FETCH_OBJ)){ ?>
+                <?php $hay = 0;
+                    while($refresco = $consultarRefrescos->fetch(PDO::FETCH_OBJ)){ ?>
                 <div class="card" value="<?php echo $refresco->id_cafeteria; ?>">
                     <img src="../Imagenes/<?php echo $refresco->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
                     <div class="ComidasMenu">
                         <h4 class="comidas-titulo"><b><?php echo $refresco->nombre; ?></b></h4> 
                         <h4 class="comidas-titulo"><?php echo $refresco->costo; ?></h4> 
                     </div>
+                </div>
+                <?php $hay = 1; } 
+                if($hay == 0){ ?>
+                <div>
+                    <h2 style="font-size: 1.5vw">Actualmente no hay refrescos disponibles...</h2>
                 </div>
                 <?php } ?>
             </div>

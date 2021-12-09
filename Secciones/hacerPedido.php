@@ -70,6 +70,9 @@
 
             //asignamos a la variable valor el valor de la lista de menú seleccionado
             valor = document.proPedido.Cafeteria.value;
+
+            document.formHacerPedido.Id_Cafeteria2.value = document.proPedido.Cafeteria.value;
+
             document.proPedido.Menu.length = 1; //Limpiamos la lista de menu
             document.proPedido.Snack.length = 1; //Limpiamos la lista de snack
             document.proPedido.Refresco.length = 1; //Limpiamos la lista de refresco
@@ -106,6 +109,7 @@
             nombreDeComida.innerHTML = "Ninguno Por Ahora";
             nombreDeSnack.innerHTML = "Ninguno Por Ahora";
             nombreDeRefresco.innerHTML = "Ninguno Por Ahora";
+            document.formHacerPedido.PTotal.value = 0.00;
 
         }
 
@@ -149,8 +153,14 @@
             preRefresco = preRefresco[1];
 
             pTotal = parseFloat(preComida) + parseFloat(preSnack) + parseFloat(preRefresco);
+            <?php if($_SESSION['id_usuario'] == 5){ ?>
+                pTotal = pTotal + (pTotal * 0.20);
+            <?php } else if($_SESSION['id_usuario'] == 4){ ?>
+                pTotal = pTotal - (pTotal * 0.20);
+            <?php } else {} ?>
             pTotal = parseFloat(pTotal).toFixed(2)
             document.getElementById('pTotal').innerHTML = "$" + pTotal;
+            document.formHacerPedido.PTotal.value = pTotal;
 
         }
 
@@ -196,8 +206,14 @@
             preRefresco = preRefresco[1];
 
             pTotal = parseFloat(preComida) + parseFloat(preSnack) + parseFloat(preRefresco);
-            pTotal = parseFloat(pTotal).toFixed(2)
+            <?php if($_SESSION['id_usuario'] == 5){ ?>
+                pTotal = pTotal + (pTotal * 0.20);
+            <?php } else if($_SESSION['id_usuario'] == 4){ ?>
+                pTotal = pTotal - (pTotal * 0.20);
+            <?php } else {} ?>
+            pTotal = parseFloat(pTotal).toFixed(2);
             document.getElementById('pTotal').innerHTML = "$" + pTotal;
+            document.formHacerPedido.PTotal.value = pTotal;
 
         }
 
@@ -244,8 +260,14 @@
             preRefresco = preRefresco[1];
 
             pTotal = parseFloat(preComida) + parseFloat(preSnack) + parseFloat(preRefresco);
+            <?php if($_SESSION['id_usuario'] == 5){ ?>
+                pTotal = pTotal + (pTotal * 0.20);
+            <?php } else if($_SESSION['id_usuario'] == 4){ ?>
+                pTotal = pTotal - (pTotal * 0.20);
+            <?php } else {} ?>
             pTotal = parseFloat(pTotal).toFixed(2)
             document.getElementById('pTotal').innerHTML = "$" + pTotal;
+            document.formHacerPedido.PTotal.value = pTotal;
 
         }
 
@@ -431,10 +453,13 @@
                 <div class="popup-wrapper">
                     <div class="popup">
                         <div class="popup-close" onclick="esconder(1)">x</div>
-                        <form class="popup-content" name="formHacerPedido" action="../Procesos/ingresarPedido.php" method="POST" onsubmit="return enviar()">
+                        <form class="popup-content" name="formHacerPedido" action="../Procesos/registrarPedido.php" method="POST" onsubmit="return enviar()">
+                            <input type="hidden" value="<?php echo $_SESSION['id_usuario']?>" name="id_usuario">
+                            <input type="hidden" value="" name="Id_Cafeteria2">
                             <input type="hidden" value="" name="Menu2">
                             <input type="hidden" value="" name="Snack2">
                             <input type="hidden" value="" name="Refresco2">
+                            <input type="hidden" value="" name="PTotal">
                             <h3>¿Está seguro de hacer la compra?</h3>
                             <button onclick="esconder(1)" class="botones confirmarCompra"><a>No</a></button>
                             <input type="submit" value="Sí" class="botones confirmarCompra">
