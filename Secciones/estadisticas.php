@@ -14,10 +14,11 @@
         
         <?php require('header.php'); ?>
 
-        <div class="TituloCompleto">
-            <h1>Estadísticas Generales</h1>
+        <div class="headimg">
+            <div class="TituloCompleto">
+            <h1>Administrar El Menú - Agregar Producto</h1>
         </div>
-
+        </div>
         <?php
 
             if(isset($_POST['fecha']) && $_POST['fecha'] != "NULL"){
