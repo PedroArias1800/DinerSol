@@ -38,10 +38,10 @@
         $dejarComprar = "Si";
         
     
-        if($variable->format('H:i:s') < '12:50:00'){
+        if($variable->format('H:i:s') > '06:35:00' && $variable->format('H:i:s') < '11:50:00'){
             $nomTurno = "Matutino";
             $turno = 1;
-        } else if($variable->format('H:i:s') > '12:50:00' && $variable->format('H:i:s') < '17:50:00'){
+        } else if($variable->format('H:i:s') > '11:50:00' && $variable->format('H:i:s') < '17:50:00'){
             $nomTurno = "Vespertino";
             $turno = 2;
         } else if($variable->format('H:i:s') > '17:50:00' && $variable->format('H:i:s') < '21:50:00'){
@@ -96,7 +96,7 @@
                 } 
             } ?>
 
-            <button class="btnHacerPedido" onclick="window.location.href='hacerPedido.php'" <?php if($dejarComprar == "No"){ ?> disabled <?php } ?>>Hacer Pedido <?php  echo $variable->format('H:i:s'); ?></button>
+            <button class="btnHacerPedido" onclick="window.location.href='hacerPedido.php'" <?php if($dejarComprar == "No"){ ?> disabled style="display: none;" <?php } ?>>Hacer Pedido <?php  echo $variable->format('H:i:s'); ?></button>
         
         </div>
 
@@ -144,7 +144,7 @@
                                 <?php } ?>
                             </div>
                             <div class="ComidasMenu">
-                                <h4 class="comidas-titulo"><b><?php echo $combo->nombre_combo; ?></b></h4> 
+                                <h4 class="comidas-titulo" style="margin: 5% 0 0 -1%;"><b><?php echo $combo->nombre_combo; ?></b></h4> 
                                 <h4 class="Precio"><?php echo $combo->costo; ?></h4> 
                             </div>
                         </div>

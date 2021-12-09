@@ -12,8 +12,8 @@
             $idC = $_POST['Id_Cafeteria2'];
             $pTotal = $_POST['PTotal'];
 
-            $query = "INSERT INTO orden (id_cafeteria, id_usuario, total)
-                      VALUES ('$idC', '$idU', '$pTotal')";
+            $query = "INSERT INTO orden (id_cafeteria, id_usuario, total, estado)
+                      VALUES ('$idC', '$idU', '$pTotal', 'Pendiente')";
 
             $insertar = $datos->prepare($query);
 
@@ -68,7 +68,7 @@
 
                 }catch(PDOException $ex){
                     echo $ex;
-                    //header("Location: ../Secciones/hacerPedido.php?error=Se ha producto un error, inténtelo nuevamente...");
+                    header("Location: ../Secciones/hacerPedido.php?error=Se ha producto un error, inténtelo nuevamente...");
                     exit;
                 }
 

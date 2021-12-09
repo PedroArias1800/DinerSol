@@ -28,6 +28,14 @@
                                         ORDER BY o.id_cafeteria ASC, o.id_orden ASC, p.tipo_producto ASC");
 
             $costoTotal = 0;
+            $tipo = 0;
+            $cantTotal = 0;
+
+            if($_SESSION['id_usuario'] == 4){
+                $tipo = 0.20;
+            } else if($_SESSION['id_usuario'] == 5){
+                $tipo = 0.20;
+            }
         ?>
 
        <div class="headimg">
@@ -80,7 +88,11 @@
                         <td><?php echo $pedido->id_orden; ?></td>
                         <td><?php echo $pedido->tipo_producto; ?></td>
                         <td><?php echo $pedido->nombre; ?></td>
-                        <td><?php echo $pedido->costo; $costoTotal = $costoTotal + $pedido->costo; ?></td>
+                        <td><?php if($_SESSION['id_usuario'] == 4){ $cantTotal = $pedido->costo - ($pedido->costo * $tipo); echo number_format($cantTotal, 2); $costoTotal = $costoTotal + $cantTotal; }
+                                  else if($_SESSION['id_usuario'] == 5){ $cantTotal = $pedido->costo + ($pedido->costo * $tipo); echo number_format($cantTotal, 2); $costoTotal = $costoTotal + $cantTotal; }
+                                  else { echo number_format($pedido->costo, 2);
+                                  $costoTotal = $costoTotal + ($pedido->costo + $tipo); }?>
+                        </td>
                     </tr>
                     <?php } ?>
                     <tr>
