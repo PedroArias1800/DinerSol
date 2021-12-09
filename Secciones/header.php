@@ -54,6 +54,7 @@
       <?php if($datosDelUsuario->id_usuario == 1){ ?>
         <li><a href="adminMenuInventario.php">Administrar Menus</a></li>
         <li><a href="adminCrearCombos.php">Administrar Productos</a></li>
+        <li><a href="atenderOrdenes.php">Atender Ordenes</a></li>
       <?php } ?>
       <li><a href="../Procesos/logout.php">Cerrar Sesión</a></li>
     </ul>
