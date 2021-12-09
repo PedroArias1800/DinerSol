@@ -73,7 +73,7 @@
                         <div class="datosProductos camposCrearEditar">
                             <div class="datosProductos">
                                 <h3 style="margin-left: 5%;">Adjunte foto del producto:</h3>
-                                <input name="foto" type="file" accept="image/*" required/>
+                                <input name="foto" type="file" accept="image/*"  required/>
                             </div>
                         </div>
                         <div class="datosProductos camposCrearEditar">
