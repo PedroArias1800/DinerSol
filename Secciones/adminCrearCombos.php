@@ -19,6 +19,7 @@
         <div class="TituloCompleto">
             <h1>Administrar El Menú - Crear Combo</h1>
         </div>
+        
         <div style="text-align: center;">
             <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
             <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>

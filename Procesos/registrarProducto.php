@@ -41,7 +41,27 @@
         //Control de excepciones
         try{
             $insertar->execute((array)$producto);
-            header("Location: ../Secciones/adminMenuAgregar.php?exito=¡Se ha registrado el producto exitosamente!");
+
+            $idPro = 0;
+
+            $selectPro = $datos->query("SELECT id_producto FROM producto ORDER BY id_producto DESC LIMIT 1");
+            while($select = $selectPro->fetch(PDO::FETCH_OBJ)){
+                $idPro = $select->id_producto;
+            }
+
+            $query = "INSERT INTO menu (id_cafeteria, id_producto, id_combo, estado, turno)
+                      VALUES ('$cafeteria', '$idPro', NULL, 0, 1)";
+
+            $insertar = $datos->prepare($query);
+
+            try{
+                $insertar->execute();
+                header("Location: ../Secciones/adminMenuAgregar.php?exito=¡Se ha registrado el producto exitosamente!");
+
+            } catch(PDOException $ex){
+                header("Location: ../Secciones/adminMenuAgregar.php?error=No se ha podido agregar al Menu...");
+            }
+
         } catch (PDOException $ex){
             if($ex->errorInfo[1] == 1062){
                 header("Location: ../Secciones/adminMenuAgregar.php?error=Ya existe ese producto en esa cafeteria");
