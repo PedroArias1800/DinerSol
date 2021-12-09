@@ -18,7 +18,10 @@
 
             $consultarCafeterias = $datos->query("SELECT * FROM cafeteria");
         
-            $consultarProductos = $datos->query("SELECT * FROM producto ORDER BY id_producto, id_cafeteria, tipo_producto");
+            $consultarProductos = $datos->query("SELECT c.id_cafeteria, p.id_producto, p.nombre, p.tipo_producto, p.costo, p.foto, p.inventario FROM producto p
+                                                          INNER JOIN cafeteria_producto cp ON cp.id_producto = p.id_producto
+                                                          INNER JOIN cafeteria c ON cp.id_cafeteria = c.id_cafeteria
+                                                ORDER BY id_producto, id_cafeteria, tipo_producto");
         
         ?>
 
@@ -56,7 +59,9 @@
                 echo "arrayInventarioProducto[$n]='$producto->inventario';";
                 $n++;
                 }
+                echo $c." XXXXXX ".$n;
             ?>
+            
             
             var c ="<?php echo $c; ?>"; //Total de cafeterias
             var n ="<?php echo $n; ?>"; //Total de productos
@@ -111,6 +116,7 @@
                         document.proPedido.precio.value = parseFloat(arrayCostoProducto[x]).toFixed(2);
                         document.proPedido.cantidad.value = arrayInventarioProducto[x];
                         document.proPedido.imgProSelect2.src = "../Imagenes/"+arrayFotoProducto[x];
+                        
                     }
                     if(document.proPedido.Cafeteria2[x].value == arrayIdCafeteria[x]){
                         document.proPedido.Cafeteria2[x].selected = true;
@@ -120,10 +126,10 @@
 
         </script>
 
-<div class="headimg">
+        <div class="headimg">
             <div class="TituloCompleto">
-            <h1>Administrar El Menú - Editar Producto</h1>
-        </div>
+                <h1>Administrar El Menú - Editar Producto</h1>
+            </div>
         </div>
 
         <div style="text-align: center;">
