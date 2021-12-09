@@ -106,14 +106,30 @@
       </div>
       <div class="flex">
 
-   
       <div class=" tablasGrandes">
         
         <?php   $consultarCombos = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
                                                   FROM producto p inner join menu m ON p.id_producto = m.id_producto
                                                       inner join cafeteria c ON m.id_cafeteria = c.id_cafeteria
                                                   WHERE p.tipo_producto = 'Combo'
-                                                  ORDER BY c.id_cafeteria ASC, p.tipo_producto ASC"); ?>
+                                                  ORDER BY c.id_cafeteria ASC, p.tipo_producto ASC");
+                           
+                $consultarComida = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria
+                                                  FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                  WHERE p.tipo_producto = 'Comida'
+                                                  ORDER BY m.id_cafeteria ASC, p.tipo_producto ASC");
+
+                $consultarSnack = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria
+                                                  FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                  WHERE p.tipo_producto = 'Snack'
+                                                  ORDER BY m.id_cafeteria ASC, p.tipo_producto ASC");
+
+                $consultarRefresco = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria
+                                                  FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                  WHERE p.tipo_producto = 'Refresco'
+                                                  ORDER BY m.id_cafeteria ASC, p.tipo_producto ASC");
+                                                  
+        ?>
         
         <table class="styled-table"  id="tablaCombo">
           <thead>
@@ -148,11 +164,19 @@
               <th>Precio</th>
               <th>Cantidad Disponible</th>
               <th>Foto</th>
-              <th>Estado</th>
+              <th>Disponible</th>
             </tr>
           </thead>
           <tbody class="tBody" id="Comidas">
-
+            <?php while($comida = $consultarComida->fetch(PDO::FETCH_OBJ)){ ?>
+            <tr value="<?php echo $comida->id_cafeteria; ?>">
+              <td><?php echo $comida->nombre; ?></td>
+              <td><?php echo $comida->costo; ?></td>
+              <td><?php echo $comida->inventario; ?></td>
+              <td><img src="..Imagenes/<?php echo $comida->foto; ?>" alt="Foto" width="20%" height="20%"></td>
+              <td><input type="checkbox" <?php if($comida->estado == 1){ ?> checked <?php } ?>></td>
+            </tr>
+            <?php } ?>
           </tbody>
         </table><br>
       </div>
@@ -168,7 +192,15 @@
             </tr>
           </thead>
           <tbody class="tBody" id="Snacks">
-
+            <?php while($snack = $consultarSnack->fetch(PDO::FETCH_OBJ)){ ?>
+            <tr value="<?php echo $snack->id_cafeteria; ?>">
+              <td><?php echo $snack->nombre; ?></td>
+              <td><?php echo $snack->costo; ?></td>
+              <td><?php echo $snack->inventario; ?></td>
+              <td><img src="..Imagenes/<?php echo $snack->foto; ?>" alt="Foto" width="20%" height="20%"></td>
+              <td><input type="checkbox" <?php if($snack->estado == 1){ ?> checked <?php } ?>></td>
+            </tr>
+            <?php } ?>
           </tbody>
         </table><br>
       </div>
@@ -184,7 +216,15 @@
             </tr>
           </thead>
           <tbody class="tBody" id="Refrescos">
-
+            <?php while($refresco = $consultarRefresco->fetch(PDO::FETCH_OBJ)){ ?>
+            <tr value="<?php echo $refresco->id_cafeteria; ?>">
+              <td><?php echo $refresco->nombre; ?></td>
+              <td><?php echo $refresco->costo; ?></td>
+              <td><?php echo $refresco->inventario; ?></td>
+              <td><img src="..Imagenes/<?php echo $refresco->foto; ?>" alt="Foto" width="20%" height="20%"></td>
+              <td><input type="checkbox" <?php if($refresco->estado == 1){ ?> checked <?php } ?>></td>
+            </tr>
+            <?php } ?>
           </tbody>
         </table><br>
       </div>

@@ -153,6 +153,8 @@
             </div>
         </div>
 
+        <?php echo $turno; ?>
+
         <div class="div2" style="margin-left: 1%;">
             <p>Comidas</p>
             <div class="ComidasDeCafeterias">
@@ -174,34 +176,6 @@
                         </div>
                     </div>
                 <?php } ?>
-                    <div class="card">
-                        <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="comidas-titulo"><b>Arroz Con Pollo</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="comidas-titulo"><b>Arroz Con Pollo</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../Imagenes/Comida1.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="comidas-titulo"><b>Macarrones</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../Imagenes/arrozPescadoEnsalada.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="comidas-titulo"><b>Arroz Con Pescado Y Ensalada</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
                 </div>
             </div>            
         </div>
@@ -226,55 +200,6 @@
                         </div>
                     </div>
                     <?php } ?>
-                    <div class="card">
-                        <img src="../Imagenes/snickers.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="comidas-titulo"><b>Snickers</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../Imagenes/galletaSaltine.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../Imagenes/galletaSaltine.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../Imagenes/galletaMaria.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="comidas-titulo"><b>Galleta María</b></h4> 
-                            <h4 class="comidas-titulo">$1.25</h4> 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../Imagenes/galletaSaltine.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../Imagenes/galletaSaltine.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../Imagenes/galletaSaltine.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                        <div class="ComidasMenu">
-                            <h4 class="h3Titulo"><b>Galleta Saltine</b></h4> 
-                            <h4 class="Precio">$1.25</h4> 
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -299,20 +224,6 @@
                     </div>
                 </div>
                 <?php } ?>
-                <div class="card">
-                    <img src="../Imagenes/jugoDelMonte.jpg" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                    <div class="ComidasMenu">
-                        <h4 class="comidas-titulo"><b>Jugo Del Monte</b></h4> 
-                        <h4 class="Precio">$1.50</h4> 
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="../Imagenes/maltaVigor.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                    <div class="ComidasMenu">
-                        <h4 class="comidas-titulo"><b>Malta Vigor</b></h4> 
-                        <h4 class="Precio">$1.00</h4> 
-                    </div>
-                </div>
             </div>
         </div>        
     </div>

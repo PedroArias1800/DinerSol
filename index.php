@@ -27,9 +27,8 @@
         <p>Universidad Tecnologica de Panamá</p>
       </header>
 
-      <div style="text-align: center;">
+      <div style="text-align: center; margin: -3.5% 0 0 0; font-size: large; text-shadow: 0vw 0vw 35px; font-weight: bold;">
             <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
-            <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
       </div>
 
       <h2>Login</h2>
