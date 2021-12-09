@@ -16,8 +16,10 @@
 
         <?php require('header.php'); ?>
 
-        <div class="TituloCompleto">
+        <div class="headimg">
+            <div class="TituloCompleto">
             <h1>Administrar El Menú - Agregar Producto</h1>
+        </div>
         </div>
         <div style="text-align: center;">
             <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>

@@ -109,8 +109,10 @@
 
         </script>
 
-        <div class="TituloCompleto">
+<div class="headimg">
+            <div class="TituloCompleto">
             <h1>Administrar El Menú - Eliminar Producto</h1>
+        </div>
         </div>
 
         <div style="text-align: center; margin: 1% 0 1% 0;">

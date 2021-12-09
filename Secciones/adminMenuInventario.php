@@ -86,9 +86,12 @@
 
       </script>
 
-      <div class="TituloCompleto">
-          <h1>Administración De Menús</h1>
-      </div>
+<div class="headimg">
+            <div class="TituloCompleto">
+            <h1>Administracion De Menús</h1>
+        </div>
+
+        </div>
       <div class="container" id="Cafeterias">
       
       <?php $consultarCafeterias = $datos->query("SELECT * FROM cafeteria"); ?>
