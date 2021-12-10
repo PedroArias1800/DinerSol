@@ -122,7 +122,7 @@
                                                         GROUP BY nombre_combo
                                                         ORDER BY id_cafeteria ASC, id_combo ASC");
 
-                    $combos = 0; $nombreCombo1 = ""; $nombreCombo2 = "";   ?>
+                    $combos = 0; $nombreCombo1 = ""; $nombreCombo2 = ""; $precio = 0;  ?>
 
                 <div class="soloCuatro verCombos">
                     <?php $hay = 0;
@@ -146,7 +146,14 @@
                             </div>
                             <div class="ComidasMenu">
                                 <h4 class="comidas-titulo" style="margin: 5% 0 0 -1%;"><b><?php echo $combo->nombre_combo; ?></b></h4> 
-                                <h4 class="Precio"><?php echo $combo->costo; ?></h4>
+                                <?php if($_SESSION['id_tipo'] == 5){
+                                    $precio = $combo->costo + ($combo->costo * 0.20);
+                                } else if($_SESSION['id_tipo'] == 4){
+                                    $precio = $combo->costo - ($combo->costo * 0.20);
+                                } else {
+                                    $precio = $combo->costo;
+                                } ?>
+                                <h4 class="Precio"><?php echo "$".number_format($precio, 2); ?></h4>
                                 <h4 class="comidas-titulo" style="margin: -5% 0 2% -5%;"><b><?php echo $combo->nombre; ?></b></h4> 
                             </div>
                         </div>
@@ -238,7 +245,14 @@
                         <img src="../Imagenes/<?php echo $comida->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
                             <h4 class="comidas-titulo"><b><?php echo $comida->nombre; ?></b></h4> 
-                            <h4 class="Precio"><?php echo $comida->costo; ?></h4> 
+                            <?php if($_SESSION['id_tipo'] == 5){
+                                    $precio = $comida->costo + ($comida->costo * 0.20);
+                                } else if($_SESSION['id_tipo'] == 4){
+                                    $precio = $comida->costo - ($comida->costo * 0.20);
+                                } else {
+                                    $precio = $comida->costo;
+                                } ?>
+                            <h4 class="Precio"><?php echo "$".number_format($precio, 2); ?></h4> 
                         </div>
                     </div>
                 <?php $hay = 1; } 
@@ -270,7 +284,14 @@
                         <img src="../Imagenes/<?php echo $snack->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
                             <h4 class="comidas-titulo"><b><?php echo $snack->nombre; ?></b></h4> 
-                            <h4 class="Precio"><?php echo $snack->costo; ?></h4> 
+                            <?php if($_SESSION['id_tipo'] == 5){
+                                    $precio = $snack->costo + ($snack->costo * 0.20);
+                                } else if($_SESSION['id_tipo'] == 4){
+                                    $precio = $snack->costo - ($snack->costo * 0.20);
+                                } else {
+                                    $precio = $snack->costo;
+                                } ?>
+                            <h4 class="Precio"><?php echo "$".number_format($precio, 2); ?></h4>
                         </div>
                     </div>
                 <?php $hay = 1; } 
@@ -302,7 +323,14 @@
                     <img src="../Imagenes/<?php echo $refresco->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
                     <div class="ComidasMenu">
                         <h4 class="comidas-titulo"><b><?php echo $refresco->nombre; ?></b></h4> 
-                        <h4 class="comidas-titulo"><?php echo $refresco->costo; ?></h4> 
+                        <?php if($_SESSION['id_tipo'] == 5){
+                                $precio = $refresco->costo + ($refresco->costo * 0.20);
+                            } else if($_SESSION['id_tipo'] == 4){
+                                $precio = $refresco->costo - ($refresco->costo * 0.20);
+                            } else {
+                                $precio = $refresco->costo;
+                            } ?>
+                        <h4 class="Precio"><?php echo "$".number_format($precio, 2); ?></h4> 
                     </div>
                 </div>
                 <?php $hay = 1; } 

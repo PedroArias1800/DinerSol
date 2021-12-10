@@ -132,7 +132,7 @@
                         </div>
                         <div class="order-total">
                             <p>Total
-                            <strong><?php echo $producto->total; ?></strong></p>
+                            <strong><?php echo "$".$producto->total; ?></strong></p>
                         </div>
                     </div>
                     <button class="btn" <?php if($producto->estado == "Atendido"){ ?> style="background-color: #63c028;" disabled <?php } ?>><?php echo $producto->estado; ?> </button>

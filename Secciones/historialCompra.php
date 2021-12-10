@@ -61,12 +61,12 @@
                         <td><?php echo $orden->id_orden; ?></td>
                         <td><?php echo $orden->nombre; ?></td>
                         <td><?php echo $orden->created_at; ?></td>
-                        <td><?php echo $orden->total; $costoTotal = $costoTotal + $orden->total; ?></td>
+                        <td><?php echo "$".$orden->total; $costoTotal = $costoTotal + $orden->total; ?></td>
                     </tr>
                     <?php } ?>
                     <tr class="Totales">
                         <td colspan="3">Costo Total De Los Pedidos</td>
-                        <td><?php echo number_format($costoTotal, 2); ?></td>
+                        <td><?php echo "$".number_format($costoTotal, 2); ?></td>
                     </tr>
                 </tbody>
             </table><br>
@@ -88,16 +88,16 @@
                         <td><?php echo $pedido->id_orden; ?></td>
                         <td><?php echo $pedido->tipo_producto; ?></td>
                         <td><?php echo $pedido->nombre; ?></td>
-                        <td><?php if($_SESSION['id_usuario'] == 4){ $cantTotal = $pedido->costo - ($pedido->costo * $tipo); echo number_format($cantTotal, 2); $costoTotal = $costoTotal + $cantTotal; }
-                                  else if($_SESSION['id_usuario'] == 5){ $cantTotal = $pedido->costo + ($pedido->costo * $tipo); echo number_format($cantTotal, 2); $costoTotal = $costoTotal + $cantTotal; }
-                                  else { echo number_format($pedido->costo, 2);
+                        <td><?php if($_SESSION['id_usuario'] == 4){ $cantTotal = $pedido->costo - ($pedido->costo * $tipo); echo "$".number_format($cantTotal, 2); $costoTotal = $costoTotal + $cantTotal; }
+                                  else if($_SESSION['id_usuario'] == 5){ $cantTotal = $pedido->costo + ($pedido->costo * $tipo); echo "$".number_format($cantTotal, 2); $costoTotal = $costoTotal + $cantTotal; }
+                                  else { echo "$".number_format($pedido->costo, 2);
                                   $costoTotal = $costoTotal + ($pedido->costo + $tipo); }?>
                         </td>
                     </tr>
                     <?php } ?>
                     <tr>
                         <td colspan="3">Costo Total De Los Pedidos</td>
-                        <td><?php echo number_format($costoTotal, 2); ?></td>
+                        <td><?php echo "$".number_format($costoTotal, 2); ?></td>
                     </tr>
                 </tbody>
             </table><br>

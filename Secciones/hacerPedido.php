@@ -39,6 +39,7 @@
         cero = parseFloat(cero).toFixed(2);
 
         var env = 0;
+        var Compra = false;
 
         var i = 1;
         var pTotal = 0.00;
@@ -272,13 +273,11 @@
         }
 
         function pagar(x) {
-            if (pTotal > 0.00) {
-                if (x == 0) {
-                    document.querySelector('.popup-wrapperPagar').style.display = 'block';
-                } else {
-                    document.querySelector('.popup-wrapperPagar').style.display = 'none';
-                    document.querySelector('.popup-wrapper').style.display = 'block';
-                }
+            if(x==0){
+                document.querySelector('.popup-wrapperPagar').style.display = 'block';
+            } else {
+                document.querySelector('.popup-wrapperPagar').style.display = 'none';
+                document.querySelector('.popup-wrapper').style.display = 'block';
             }
         }
 
@@ -288,14 +287,6 @@
             } else {
                 document.querySelector('.popup-wrapper').style.display = 'none';
                 document.querySelector('.popup-wrapperPagar').style.display = 'block';
-            }
-        }
-
-        function enviar() {
-            if (pTotal > 0.00) {
-                return true;
-            } else {
-                window.location.href("paginaPrincipal.php");
             }
         }
 
