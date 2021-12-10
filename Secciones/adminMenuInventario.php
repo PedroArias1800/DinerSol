@@ -86,80 +86,85 @@
 
       </script>
 
-<div class="headimg">
-            <div class="TituloCompleto">
+        <div class="headimg">
+          <div class="TituloCompleto">
             <h1>Administracion De Menús</h1>
+          </div>
         </div>
 
-        </div>
+        <div class="cafeteriasUTP">
+            <h3 style="text-align: center; margin: 2% 0 2% 2%;">Presione <strong>el botón de la disponibilidad</strong> para alternarlo entre <strong>Sí o No</strong></h3>
+        </div><hr><br><br>
+
       <div class="container" id="Cafeterias">
-      
-      <?php $consultarCafeterias = $datos->query("SELECT * FROM cafeteria"); ?>
-      <div class="HacerPedido inventario">
-        <h2 class="NombreCafeteria">Cafeterías:</h2>
-        <select id="Cafeteria20" name="Cafeteria" onchange="mostrarProductos()">
-          <option value="" disabled selected>Selecciona Una Cafetería</option>
-          <?php while($cafeteria = $consultarCafeterias->fetch(PDO::FETCH_OBJ)){ ?>
-            <option value="<?php echo $cafeteria->id_cafeteria; ?>"><?php echo $cafeteria->nombre; ?></option>
-          <?php } ?>
-        </select>
-      </div>
+
       <div class="flex">
 
-      <div class=" tablasGrandes">
+      <div class="tablasGrandes">
         
-        <?php   $consultarCombos = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria
-                                                  FROM producto p inner join menu m ON p.id_producto = m.id_producto
-                                                      inner join cafeteria c ON m.id_cafeteria = c.id_cafeteria
+        <?php   $consultarCombos = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria, c.nombre as nomCaf
+                                                  FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                                  INNER JOIN cafeteria c ON m.id_cafeteria = c.id_cafeteria
                                                   WHERE p.tipo_producto = 'Combo'
-                                                  ORDER BY c.id_cafeteria ASC, p.tipo_producto ASC");
+                                                  ORDER BY c.id_cafeteria ASC, p.nombre ASC");
                            
-                $consultarComida = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria
+                $consultarComida = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria, c.nombre as nomCaf
                                                   FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                                  INNER JOIN cafeteria c ON m.id_cafeteria = c.id_cafeteria
                                                   WHERE p.tipo_producto = 'Comida'
-                                                  ORDER BY m.id_cafeteria ASC, p.tipo_producto ASC");
+                                                  ORDER BY m.id_cafeteria ASC, p.nombre ASC");
 
-                $consultarSnack = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria
+                $consultarSnack = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria, c.nombre as nomCaf
                                                   FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                                  INNER JOIN cafeteria c ON m.id_cafeteria = c.id_cafeteria
                                                   WHERE p.tipo_producto = 'Snack'
-                                                  ORDER BY m.id_cafeteria ASC, p.tipo_producto ASC");
+                                                  ORDER BY m.id_cafeteria ASC, p.nombre ASC");
 
-                $consultarRefresco = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria
+                $consultarRefresco = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria, c.nombre as nomCaf
                                                   FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                                  INNER JOIN cafeteria c ON m.id_cafeteria = c.id_cafeteria
                                                   WHERE p.tipo_producto = 'Refresco'
-                                                  ORDER BY m.id_cafeteria ASC, p.tipo_producto ASC");
+                                                  ORDER BY m.id_cafeteria ASC, p.nombre ASC");
                                                   
         ?>
         
         <table class="styled-table"  id="tablaCombo">
           <thead>
             <tr>
+              <th>Cafeteria</th>
               <th>Combos</th>
               <th>Precio</th>
               <th>Cantidad Disponible</th>
               <th>Foto</th>
-              <th>Estado</th>
+              <th>Disponible</th>
             </tr>
           </thead>
           <tbody class="tBody">
             <?php while($combo = $consultarCombos->fetch(PDO::FETCH_OBJ)){ 
               if ($combo->tipo_producto == "Comida"){ ?>
-              <tr value="<?php echo $combo->id_cafeteria; ?>">
-                <td><?php echo $combo->nombre; ?></td>
-                <td><?php echo $combo->costo; ?></td>
-                <td><?php echo $combo->inventario; ?></td>
-                <td><img src="../Imagenes/<?php echo $combo->foto; ?>" alt="Foto" width="20%" height="20%"></td>
-                <td class="tdEspecial"><input class="habilitado" class="adminch" type="checkbox" onClick="cambiarEstado()" id="Estado" name="Estado" value="<?php echo $combo->Estado;?>"
-                                                                          <?php if($combo->estado = 1) { ?> checked <?php } ?>><h4 id="h4Estado<?php echo $combo->id_producto; ?>">Habilitado</h4></td>
-              </tr>
+              <form action="../Procesos/actualizarMenu.php" method="POST">
+                <tr>
+                  <td><?php echo $combo->nomCaf; ?></td>
+                  <td><?php echo $combo->nombre; ?></td>
+                  <td><?php echo $combo->costo; ?></td>
+                  <td><?php echo $combo->inventario; ?></td>
+                  <td><img src="../Imagenes/<?php echo $snack->foto; ?>" alt="Foto" width="35%" height="35%"></td>
+                  <td class="cambiarEstado"><input type="submit" value="<?php if($snack->estado == 1){ echo "Si"; } else { echo "No"; } ?>" <?php if($snack->inventario < 0){ ?> disabled <?php } ?>></td>
+                </tr>
+                <input type="hidden" value="<?php echo $snack->inventario; ?>" name="inventario">
+                <input type="hidden" value="<?php echo $snack->id_producto; ?>" name="id_producto">
+                <input type="hidden" value="<?php echo $snack->estado; ?>" name="estado">
+                <input type="hidden" value="<?php echo $snack->id_cafeteria; ?>" name="id_cafeteria">
+              </form>
             <?php } } ?>
           </tbody>
         </table><br>
       </div>
-      <div class=" tablasGrandes">
+      <div class="tablasGrandes">
         <table class="styled-table" id="tablaComida">
           <thead>
             <tr>
+              <th>Cafeteria</th>
               <th>Comidas</th>
               <th>Precio</th>
               <th>Cantidad Disponible</th>
@@ -169,71 +174,90 @@
           </thead>
           <tbody class="tBody" id="Comidas">
             <?php while($comida = $consultarComida->fetch(PDO::FETCH_OBJ)){ ?>
-            <tr value="<?php echo $comida->id_cafeteria; ?>">
-              <td><?php echo $comida->nombre; ?></td>
-              <td><?php echo $comida->costo; ?></td>
-              <td><?php echo $comida->inventario; ?></td>
-              <td><img src="..Imagenes/<?php echo $comida->foto; ?>" alt="Foto" width="20%" height="20%"></td>
-              <td><input type="checkbox" <?php if($comida->estado == 1){ ?> checked <?php } ?>></td>
-            </tr>
+            <form action="../Procesos/actualizarMenu.php" method="POST">
+              <tr>
+                <td><?php echo $comida->nomCaf; ?></td>
+                <td><?php echo $comida->nombre; ?></td>
+                <td><?php echo $comida->costo; ?></td>
+                <td><?php echo $comida->inventario; ?></td>
+                <td><img src="../Imagenes/<?php echo $comida->foto; ?>" alt="Foto" width="35%" height="35%"></td>
+                <td class="cambiarEstado"><input type="submit" value="<?php if($comida->estado == 1){ echo "Si"; } else { echo "No"; } ?>" <?php if($comida->inventario < 0){ ?> disabled <?php } ?>></td>
+              </tr>
+              <input type="hidden" value="<?php echo $comida->inventario; ?>" name="inventario">
+              <input type="hidden" value="<?php echo $comida->id_producto; ?>" name="id_producto">
+              <input type="hidden" value="<?php echo $comida->estado; ?>" name="estado">
+              <input type="hidden" value="<?php echo $comida->id_cafeteria; ?>" name="id_cafeteria">
+            </form>
             <?php } ?>
           </tbody>
         </table><br>
       </div>
-      <div class=" tablasGrandes">
+      <div class="tablasGrandes">
         <table class="styled-table" id="tablaSnack">
           <thead>
             <tr>
+              <th>Cafeteria</th>
               <th>Snacks</th>
               <th>Precio</th>
               <th>Cantidad Disponible</th>
               <th>Foto</th>
-              <th>Estado</th>
+              <th>Disponible</th>
             </tr>
           </thead>
           <tbody class="tBody" id="Snacks">
             <?php while($snack = $consultarSnack->fetch(PDO::FETCH_OBJ)){ ?>
-            <tr value="<?php echo $snack->id_cafeteria; ?>">
-              <td><?php echo $snack->nombre; ?></td>
-              <td><?php echo $snack->costo; ?></td>
-              <td><?php echo $snack->inventario; ?></td>
-              <td><img src="..Imagenes/<?php echo $snack->foto; ?>" alt="Foto" width="20%" height="20%"></td>
-              <td><input type="checkbox" <?php if($snack->estado == 1){ ?> checked <?php } ?>></td>
-            </tr>
+            <form action="../Procesos/actualizarMenu.php" method="POST">
+              <tr>
+                <td><?php echo $snack->nomCaf; ?></td>
+                <td><?php echo $snack->nombre; ?></td>
+                <td><?php echo $snack->costo; ?></td>
+                <td><?php echo $snack->inventario; ?></td>
+                <td><img src="../Imagenes/<?php echo $snack->foto; ?>" alt="Foto" width="35%" height="35%"></td>
+                <td class="cambiarEstado"><input type="submit" value="<?php if($snack->estado == 1){ echo "Si"; } else { echo "No"; } ?>" <?php if($snack->inventario < 0){ ?> disabled <?php } ?>></td>
+              </tr>
+              <input type="hidden" value="<?php echo $snack->inventario; ?>" name="inventario">
+              <input type="hidden" value="<?php echo $snack->id_producto; ?>" name="id_producto">
+              <input type="hidden" value="<?php echo $snack->estado; ?>" name="estado">
+              <input type="hidden" value="<?php echo $snack->id_cafeteria; ?>" name="id_cafeteria">
+            </form>
             <?php } ?>
           </tbody>
         </table><br>
       </div>
-      <div class=" tablasGrandes">
+      <div class="tablasGrandes">
         <table class="styled-table" id="tablaRefresco">
           <thead>
             <tr>
+              <th>Cafeteria</th>
               <th>Refrescos</th>
               <th>Precio</th>
               <th>Cantidad Disponible</th>
               <th>Foto</th>
-              <th>Estado</th>
+              <th>Disponible</th>
             </tr>
           </thead>
           <tbody class="tBody" id="Refrescos">
             <?php while($refresco = $consultarRefresco->fetch(PDO::FETCH_OBJ)){ ?>
-            <tr value="<?php echo $refresco->id_cafeteria; ?>">
-              <td><?php echo $refresco->nombre; ?></td>
-              <td><?php echo $refresco->costo; ?></td>
-              <td><?php echo $refresco->inventario; ?></td>
-              <td><img src="..Imagenes/<?php echo $refresco->foto; ?>" alt="Foto" width="20%" height="20%"></td>
-              <td><input type="checkbox" <?php if($refresco->estado == 1){ ?> checked <?php } ?>></td>
-            </tr>
+            <form action="../Procesos/actualizarMenu.php" method="POST">
+              <tr>
+                <td><?php echo $refresco->nomCaf; ?></td>
+                <td><?php echo $refresco->nombre; ?></td>
+                <td><?php echo $refresco->costo; ?></td>
+                <td><?php echo $refresco->inventario; ?></td>
+                <td><img src="../Imagenes/<?php echo $refresco->foto; ?>" alt="Foto" width="35%" height="35%"></td>
+                <td class="cambiarEstado"><input type="submit" value="<?php if($refresco->estado == 1){ echo "Si"; } else { echo "No"; } ?>" <?php if($refresco->inventario < 0){ ?> disabled <?php } ?>></td>
+              </tr>
+              <input type="hidden" value="<?php echo $refresco->inventario; ?>" name="inventario">
+              <input type="hidden" value="<?php echo $refresco->id_producto; ?>" name="id_producto">
+              <input type="hidden" value="<?php echo $refresco->estado; ?>" name="estado">
+              <input type="hidden" value="<?php echo $refresco->id_cafeteria; ?>" name="id_cafeteria">
+            </form>
             <?php } ?>
           </tbody>
         </table><br>
       </div>
       </div>
-      <div class="datosProductos inventarioBotones">
-        <button class="botones"><a href="paginaPrincipal.php">Cancelar</a></button>
-        <input type="submit" class="botones" value="Guardar Cambios">
-      </div>
-      </div>
+      </div><br><br>
 
       <?php require('footer.html');?>
 

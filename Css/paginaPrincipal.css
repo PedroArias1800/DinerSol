@@ -547,9 +547,8 @@ tr th, tr td{
     padding: 0 5% 0 10%;
 }
 .tablasGrandes{
-    
    margin: 0 auto;
-   width: 95%;
+   width: 94%;
 }
 .camposCrearEditar{
     margin: 2% 0 1% 1.6%;
@@ -657,4 +656,15 @@ tr th, tr td{
     margin: 0 -10% 0 10%;
     font-size: 2vw;
 }
-  
+.cambiarEstado input{
+    width: 100%;
+    height: 100%;
+    font-size: 1.5vw;
+    background-color: #68086c;
+    border-radius: 5px;
+    color: white;
+    transition: all 0.35s;
+}
+.cambiarEstado input:hover{
+    background-color: #51034f;
+}
