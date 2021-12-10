@@ -33,7 +33,7 @@ margin-bottom: 2rem;
 }
 
 .ordenes{
-    border: 2px solid rgb(118, 116, 116);
+    border: 2px solid rgb(255, 0, 0);
     padding: 5rem;
     border-radius: 0.5rem;
     display: flex;
@@ -109,15 +109,16 @@ margin-bottom: 2rem;
 
 .btn{
     border: 1px solid transparent;
-    background: rgb(0, 0, 0);
+    background: rgb(255, 0, 0);
     color: aliceblue;
     font-size: 2rem;
     border-radius: 1.5rem;
     align-items: center;
     text-align: center;
- font-weight: 600;
- padding: 1.5rem;
- cursor: pointer;
+    font-weight: 600;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.35s;
 }
 .btn:hover{
     background-color: blueviolet;
