@@ -57,8 +57,6 @@
                     }
                 }
 
-                echo $query;
-
                 $insertar = $datos->prepare($query);
 
                 try{

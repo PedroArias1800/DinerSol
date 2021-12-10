@@ -604,7 +604,7 @@ tr th, tr td{
 .fotosDeCafeterias img{
     border-radius: 10px;
 }
-.verCombo input{
+.verCombo button{
     width: 100%;
     font-size: 1.5vw;
     background-color: #68086c;
@@ -614,7 +614,7 @@ tr th, tr td{
     padding: 2% 5% 2% 5%;
     transition: all .35s;
 }
-.verCombo input:hover{
+.verCombo button:hover{
     background-color: #51034f;
 
 }

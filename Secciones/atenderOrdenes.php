@@ -73,6 +73,58 @@
 
                     </div>
 
+                    <div class="order-pedido-info">
+
+                        <?php
+
+                            $cualEra = 0;
+                            $idCom = 0;
+
+                            $comboOProducto = $datos->query("SELECT id_producto, id_combo FROM contenido_orden WHERE id_orden = $producto->id_orden");
+                            while($cual = $comboOProducto->fetch(PDO::FETCH_OBJ)){
+                                if($cual->id_producto == "" && $cual->id_combo != ""){
+                                    $cualEra = 1;
+                                    $idCom = $cual->id_combo;
+                                }
+                            }
+
+                            if($cualEra == 0){
+                                $contenidoOrden = $datos->query("SELECT p.nombre FROM contenido_orden co 
+                                                                        INNER JOIN producto p ON co.id_producto = p.id_producto
+                                                                WHERE co.id_orden = $producto->id_orden
+                                                                ORDER BY p.tipo_producto");
+                            } else {
+                                $nombreCombo = "";
+
+                                $buscarNombre = $datos->query("SELECT c.nombre_combo FROM contenido_orden co 
+                                                                        INNER JOIN combo c ON co.id_combo = c.id_combo
+                                                                        INNER JOIN producto p ON c.id_producto = p.id_producto
+                                                                WHERE co.id_orden = $producto->id_orden
+                                                                ORDER BY p.tipo_producto");
+
+                                while($nombre = $buscarNombre->fetch(PDO::FETCH_OBJ)){
+                                    $nombreCombo = $nombre->nombre_combo;
+                                }
+
+                                $contenidoOrden = $datos->query("SELECT p.nombre FROM combo c
+                                                                            INNER JOIN producto p ON c.id_producto = p.id_producto
+                                                                WHERE c.nombre_combo = '$nombreCombo'
+                                                                ORDER BY p.tipo_producto");
+                            }
+
+                        ?>
+
+                        <div class="order-pedido">
+                            <label for="">Contenido:</label>
+                            <P style="display: flex;">
+                                <?php while($con = $contenidoOrden->fetch(PDO::FETCH_OBJ)){ ?>
+                                    <strong><?php echo $con->nombre; ?> .</strong>
+                                <?php } ?>
+                            <P>
+                        </div>
+
+                    </div>
+
                     <div class="order-pedido-info2">
                         <div class="order-fecha">
                             <label for="">Fecha del pedido:</label>
