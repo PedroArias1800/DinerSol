@@ -115,10 +115,10 @@
                         ?>
 
                         <div class="order-pedido">
-                            <label for="">Contenido:</label>
+                            <label for="">Pedido:</label>
                             <P style="display: flex;">
                                 <?php while($con = $contenidoOrden->fetch(PDO::FETCH_OBJ)){ ?>
-                                    <strong><?php echo $con->nombre; ?> .</strong>
+                                    <label><?php echo $con->nombre; ?> .</label>
                                 <?php } ?>
                             <P>
                         </div>
@@ -135,7 +135,7 @@
                             <strong><?php echo "$".$producto->total; ?></strong></p>
                         </div>
                     </div>
-                    <button class="btn" <?php if($producto->estado == "Atendido"){ ?> style="background-color: #63c028;" disabled <?php } ?>><?php echo $producto->estado; ?> </button>
+                    <button class="btn" <?php if($producto->estado == "Atendido"){ ?> style="background-color: #63c028;   cursor: not-allowed;" disabled <?php } ?>><?php echo $producto->estado; ?> </button>
                 </div>
             </form>
             <?php } ?>
