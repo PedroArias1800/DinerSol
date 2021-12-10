@@ -47,6 +47,9 @@ box-shadow:  20px 20px 60px #d9d9d9,
   
 
 }
+.ordenes:hover{
+    border: 2px solid rgb(0, 0, 0);
+}
 .ordenes h2{
     font-size: 3rem;
     font-weight: 600;
@@ -128,7 +131,7 @@ box-shadow:  20px 20px 60px #d9d9d9,
     transition: all 0.35s;
 }
 .btn:hover{
-    background-color: blueviolet;
+    background-color: #000;
 }
 
 label{
