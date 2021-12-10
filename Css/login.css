@@ -414,3 +414,64 @@ background-size: cover;
           border-right: 2px solid #ffffff;
           padding-right: 4rem;
         }
+
+
+        .block.stacked {
+          background: #373942;
+        }
+
+        .stacked-alert {
+          display: grid;
+          gap: 1rem;
+          grid-template-columns: auto 1fr;
+          align-items: center;
+          width: 26rem;
+          height: 5.5rem;
+          padding: 0 1rem;
+          border-radius: 0.5rem;
+          color: #4c4954;
+          background: #ffffff;
+          border-left: 0.5rem solid;
+          box-shadow: 0 45px 75px rgba(58, 35, 91, 0.09);
+        }
+
+        .stacked-alert:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+
+        .stacked-alert-icon {
+          font-size: 1.7rem;
+          color: inherit;
+        }
+
+        .stacked-alert-text {
+          font-weight: 600;
+          color: #45424d;
+        }
+
+        .stacked-alert--danger {
+          color: #d45759;
+          border-color: #d45759;
+        }
+
+      
+
+        .block-inner {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+
+.block-component {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 14rem;
+}
