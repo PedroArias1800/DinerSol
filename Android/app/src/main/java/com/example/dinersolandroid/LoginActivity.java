@@ -66,11 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                                             usuario.getNombre(),
                                             usuario.getApellido(),
                                             usuario.getCedula(),
-                                            usuario.getTelefono(),
-                                            usuario.getFoto(),
                                             usuario.getTipoUsuario(),
                                             usuario.getEmail(),
-                                            usuario.getPassword()
+                                            usuario.getId_orden(),
+                                            usuario.getTotalOrden(),
+                                            usuario.getEstado(),
+                                            usuario.getCafeteria()
                                     );
 
                             Toast.makeText(getApplicationContext(),"Login Exitoso",Toast.LENGTH_LONG).show();

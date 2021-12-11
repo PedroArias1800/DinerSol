@@ -6,22 +6,24 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String cedula;
-    private String telefono;
-    private String foto;
     private int tipoUsuario;
     private String email;
-    private String password;
+    private int id_orden;
+    private int total_Orden;
+    private String estado;
+    private String cafeteria;
 
-    public Usuario(int idU, String n, String a, String c, String t, String f, int tU, String e, String p){
+    public Usuario(int idU, String n, String a, String c,  int tU, String e, int iO, int tO, String es, String Ca){
         id_usuario = idU;
         nombre = n;
         apellido = a;
         cedula = c;
-        telefono = t;
-        foto = f;
         tipoUsuario = tU;
         email = e;
-        password = p;
+        id_orden = iO;
+        total_Orden = tO;
+        estado = es;
+        cafeteria = Ca;
     }
 
     public int getId_usuario() {
@@ -40,14 +42,6 @@ public class Usuario {
         return cedula;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
     public int getTipoUsuario() {
         return tipoUsuario;
     }
@@ -56,7 +50,16 @@ public class Usuario {
         return email;
     }
 
-    public String getPassword() {
-        return password;
+ public int getId_orden() {
+        return id_orden;
     }
-}
+
+  public int getTotalOrden() {
+        return total_Orden;
+    }
+     public String getEstado() {
+        return estado;
+    }
+ public String getCafeteria() {
+        return cafeteria;
+    }

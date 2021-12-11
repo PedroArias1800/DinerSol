@@ -13,7 +13,12 @@
 
         if($con == 'login'){
 
-            $consulta = $datos->query("SELECT id_usuario, CONCAT(nombre, ' ', apellido) as nombreCompleto, cedula, email, id_tipo FROM usuario WHERE email='$u' AND password='$p'");
+         $consulta = $datos->query("SELECT u.id_usuario, u.nombre, u.apellido, u.cedula, u.id_tipo, u.email, o.id_orden, o.total, o.estado, c.nombre as nomCaf
+                                    FROM usuario u INNER JOIN orden o ON u.id_usuario = o.id_usuario
+                                    INNER JOIN cafeteria c ON c.id_cafeteria = o.id_cafeteria
+                                    WHERE email='$u' AND password='$p'
+                                    ORDER BY o.id_orden DESC
+                                    LIMIT 1 ");       
 
             $listadoUsuarios=$consulta->fetchAll(PDO::FETCH_OBJ);
             $num_rows = count($listadoUsuarios);
