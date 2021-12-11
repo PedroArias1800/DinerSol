@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.25625" />
+        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/drawable-v24/rounded_item.xml" value="0.2703125" />
+        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/drawable/background_color.xml" value="0.14635416666666667" />
+        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/drawable/password_icon.xml" value="0.2703125" />
+        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/drawable/persona_icon.xml" value="0.2703125" />
+        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/layout/activity_menu_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/xampp/htdocs/DinerSol/Android/app/src/main/res/layout/activity_registrarse.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
