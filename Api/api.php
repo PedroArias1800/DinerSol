@@ -2,25 +2,28 @@
 
     include('../Config/conexion.php');
     include('../Clases/Usuario.php');
-
+    
     if(isset($_GET['con'])){
         $con = $_GET['con'];
 
+        $u = $_GET['u'];
+        $p = md5($_GET['p']);
+
+        $num_rows = 0;
+
         if($con == 'login'){
-            $u = $_GET['u'];
-            $p = md5($_GET['p']);
 
-            $fila = 0;
+            $consulta = $datos->query("SELECT id_usuario, CONCAT(nombre, ' ', apellido) as nombreCompleto, cedula, email, id_tipo FROM usuario WHERE email='$u' AND password='$p'");
 
-            $consultarUsuario = $datos->exec("SELECT * FROM usuario WHERE id_usuario = '$u' AND password = '$p'");
-            while($usuario = $consultarUsuario->fetch(PDO::FETCH_OBJ)){
-                $fila++;
-            }
-            if($fila != 0){
-                print json_encode($consultarUsuario);
+            $listadoUsuarios=$consulta->fetchAll(PDO::FETCH_OBJ);
+            $num_rows = count($listadoUsuarios);
+
+            if($num_rows > 0){
+                print_r(json_encode($listadoUsuarios,JSON_UNESCAPED_UNICODE));
             } else {
-                print json_encode(null);
+                print_r(json_encode(null,JSON_UNESCAPED_UNICODE));
             }
+
         }
 
         if($con == 'registrar'){   
@@ -46,7 +49,6 @@
             }
 
         }
-
 
     }
 

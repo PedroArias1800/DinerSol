@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.dinersolandroid.Clases.Usuario;
 import com.example.dinersolandroid.Interfaces.ApiService;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText txtUser, txtPass;
     MediaPlayer click;
+    String password="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private void inicializarVariables(){
         txtUser = (EditText)findViewById(R.id.txtUser);
         txtPass = (EditText)findViewById(R.id.txtPasss);
+        //password = getMD5(txtPass.getText().toString());
     }
 
     public void IniciarSesion(View v){
@@ -43,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
             click.start();
             String user = txtUser.getText().toString();
             String pass = txtPass.getText().toString();
+
+            //txtUser.setText(password);
 
             Call<Usuario> response = ApiService.getApiService().getUsuarioLogin(user,pass);
             response.enqueue(new Callback<Usuario>() {
@@ -92,6 +100,26 @@ public class LoginActivity extends AppCompatActivity {
             int x = 1;
         }
     }
+/*
+    private String getMD5(final String s) {
+        try{
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(s.getBytes());
+            byte messageDigest[] = digest.digest();
+            StringBuilder hexString = new StringBuilder();
+            for(int i = 0; i < messageDigest.length; i++){
+                String h = Integer.toHexString(0xFF & messageDigest[i]);
+                while(h.length() < 2){
+                    h = "0" + h;
+                }
+                hexString.append(h);
+            }
+            return hexString.toString();
+        }catch (NoSuchAlgorithmException e){
+            Log.e("MD5", "md5() NoSuchAlgorithmException: " + e.getMessage());
+        }
+        return "";
+    }*/
 
     public void Registrarse(View v){
         click.start();
