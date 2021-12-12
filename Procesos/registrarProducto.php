@@ -11,6 +11,7 @@
         $tipo = $_POST['tipoProducto'];
         $costo = $_POST['costo'];
         $inventario = $_POST['inventario'];
+        $turno = $_POST['turno'];
 
         if($tipo == 'Comida')
             $foto = "comidaIcono.png";
@@ -49,14 +50,33 @@
                 $idPro = $select->id_producto;
             }
 
-            $query = "INSERT INTO menu (id_cafeteria, id_producto, id_combo, estado, turno)
-                      VALUES ('$cafeteria', '$idPro', NULL, 0, 1)";
+            $query = "INSERT INTO menu (id_cafeteria, id_producto, id_combo, estado)
+                      VALUES ('$cafeteria', '$idPro', NULL, 0)";
 
             $insertar = $datos->prepare($query);
 
             try{
                 $insertar->execute();
-                header("Location: ../Secciones/adminMenuAgregar.php?exito=¡Se ha registrado el producto exitosamente!");
+
+                $idMenu = 0;
+
+                $selectMenu = $datos->query("SELECT id_menu FROM menu ORDER BY id_menu DESC LIMIT 1");
+                while($select = $selectMenu->fetch(PDO::FETCH_OBJ)){
+                    $idMenu = $select->id_menu;
+                }
+                
+                $query = "INSERT INTO menu_turno (id_menu, id_turno)
+                      VALUES ('$idMenu', '$turno')";
+
+                $insertar = $datos->prepare($query);
+
+                try{
+                    $insertar->execute();
+                    header("Location: ../Secciones/adminMenuAgregar.php?exito=¡Se ha registrado el producto exitosamente!");
+                }catch(PDOException $ex){
+                    header("Location: ../Secciones/adminMenuAgregar.php?error=No se ha podido agregar al Turno...");
+                }
+
 
             } catch(PDOException $ex){
                 header("Location: ../Secciones/adminMenuAgregar.php?error=No se ha podido agregar al Menu...");

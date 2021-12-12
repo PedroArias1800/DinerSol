@@ -465,10 +465,9 @@ flex-direction: column;
 
 
 .block-component {
-  padding: -5% 0 -5% 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 14rem;
-  margin-top: -5rem;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 14rem;
+margin-top: -5rem;
 }

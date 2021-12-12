@@ -76,13 +76,19 @@
                                 <input name="foto" type="file" accept="image/*"  required/>
                             </div>
                         </div>
-                        <div class="datosProductos camposCrearEditar">
+                        <div class="camposCrearEditar">
                             <div class="datosProductos">
-                                <h3 style="margin-left: 5%;">Precio:</h3>
-                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                                <h3 style="margin-left: 12%;">Precio:</h3>
+                                <h3 style="margin-left: 20%;">Turno:</h3>
+                                <h3 style="margin-left: 16%;">Cantidad:</h3>
                             </div>
-                            <div class="datosProductos">
-                                <h3 style="margin-left: 15%;">Cantidad:</h3>
+                            <div class="datosProductos" style="margin-left: 3.5%;">
+                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                                <select style="padding: 0 7% 0 7%; background-color: white; color: black; border: 1px solid black;" name="turno" required>
+                                    <option value="1">Matutino</option>
+                                    <option value="2">Vespertino</option>
+                                    <option value="3">Nocturno</option>
+                                </select>
                                 <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="inventario" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
                             </div>
                         </div>
