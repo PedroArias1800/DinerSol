@@ -137,12 +137,11 @@
     color: #a19eab;
   }
 
-  .block-component {
-      padding-bottom: 2%;
-display: flex;
-align-items: center;
-justify-content: center;
-
+.block-component {
+    padding-bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .a{
     margin-right: 5%;

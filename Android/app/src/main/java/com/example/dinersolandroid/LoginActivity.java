@@ -25,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText txtUser, txtPass;
     MediaPlayer click;
-    String password="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,34 +58,33 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.isSuccessful()){
                         Usuario usuario = response.body();
                         if (usuario != null){
-
                             Usuario user =
                                     new Usuario(
                                             usuario.getId_usuario(),
                                             usuario.getNombre(),
                                             usuario.getApellido(),
-                                            usuario.getCedula(),
-                                            usuario.getTipoUsuario(),
+                                            usuario.getCdula(),
+                                            usuario.getId_tipo(),
                                             usuario.getEmail(),
                                             usuario.getId_orden(),
-                                            usuario.getTotalOrden(),
+                                            usuario.getTotal(),
                                             usuario.getEstado(),
-                                            usuario.getCafeteria()
+                                            usuario.getNomCaf()
                                     );
-
-                            Toast.makeText(getApplicationContext(),"Login Exitoso",Toast.LENGTH_LONG).show();
 
                             Intent i = new Intent(getApplicationContext(), MenuLoginActivity.class);
 
                             i.putExtra("Nombre", usuario.getNombre());
                             i.putExtra("Apellido", usuario.getApellido());
-                            i.putExtra("Tipaje", usuario.getTipoUsuario());
+                            i.putExtra("Tipaje", usuario.getId_tipo());
+
+                            Toast.makeText(getApplicationContext(),i+" XXXX "+user.getNombre()+" "+user.getApellido(),Toast.LENGTH_LONG).show();
 
                             startActivity(i);
 
                         }
                     }else {
-                        Toast.makeText(getApplicationContext(),"Error Al Iniciar Sesión",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Error Al VVVVV Iniciar Sesión",Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -97,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         }catch (Exception e){
-            Toast.makeText(getApplicationContext(),"Error Al Iniciar Sesión",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Error Al Iniciar Sesión "+e,Toast.LENGTH_LONG).show();
             int x = 1;
         }
     }

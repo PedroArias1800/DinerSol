@@ -63,13 +63,45 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginTop="50dp"
             android:textStyle="italic"
             android:textSize="30dp"
             android:textColor="#ffffff"
             android:id="@+id/txtNombreLogin"
             android:gravity="center"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp">
+
+                <EditText
+                    android:id="@+id/TextInputNombre"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:hint="Nombre"
+                    android:textColorHint="#ffffff"
+                    android:textColor="#ffffff"
+                    android:backgroundTint="#ffffff"
+                    android:singleLine="true"
+                    android:layout_gravity="center_horizontal"/>
+
+                <EditText
+                    android:id="@+id/TextInputApellido"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:hint="Apellido"
+                    android:textColorHint="#ffffff"
+                    android:textColor="#ffffff"
+                    android:backgroundTint="#ffffff"
+                    android:singleLine="true"
+                    android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

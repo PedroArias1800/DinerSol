@@ -15,20 +15,20 @@
 
          $consulta = $datos->query("SELECT u.id_usuario, u.nombre, u.apellido, u.cedula, u.id_tipo, u.email, o.id_orden, o.total, o.estado, c.nombre as nomCaf
                                     FROM usuario u INNER JOIN orden o ON u.id_usuario = o.id_usuario
-                                    INNER JOIN cafeteria c ON c.id_cafeteria = o.id_cafeteria
+                                                   INNER JOIN cafeteria c ON c.id_cafeteria = o.id_cafeteria
                                     WHERE email='$u' AND password='$p'
                                     ORDER BY o.id_orden DESC
                                     LIMIT 1 ");       
 
-            $listadoUsuarios=$consulta->fetchAll(PDO::FETCH_OBJ);
-            $num_rows = count($listadoUsuarios);
-
-            if($num_rows > 0){
-                print_r(json_encode($listadoUsuarios,JSON_UNESCAPED_UNICODE));
-            } else {
-                print_r(json_encode(null,JSON_UNESCAPED_UNICODE));
+            while($listadoUsuarios=$consulta->fetch(PDO::FETCH_OBJ)){
+                $arr = array('id_usuario' => $listadoUsuarios->id_usuario, 'nombre' => $listadoUsuarios->nombre, 'apellido'=>$listadoUsuarios->apellido, 'cedula'=>$listadoUsuarios->cedula, 'id_tipo'=>$listadoUsuarios->id_tipo, 'email' => $listadoUsuarios->email, 'id_orden'=> $listadoUsuarios->id_orden, 'total'=>$listadoUsuarios->total, 'estado'=>$listadoUsuarios->estado, 'nomCaf'=>$listadoUsuarios->nomCaf);
+                $num_rows = 1;
+                echo json_encode($arr);
             }
 
+            if($num_rows == 0){
+                print json_encode(null);
+            }
         }
 
         if($con == 'registrar'){   

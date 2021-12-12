@@ -49,9 +49,10 @@ public class RegistrarseActivity extends AppCompatActivity {
                                         nombre.getText().toString(),
                                         apellido.getText().toString(),
                                         cedula.getText().toString(),
-                                        telefono.getText().toString(),
+                                        0,
                                         "user.png",
-                                        5,
+                                        0,
+                                        0,
                                         email.getText().toString(),
                                         pass1.getText().toString());
 
