@@ -332,25 +332,25 @@ nav a:hover{
     justify-content: safe;
     flex-wrap: wrap;
 }
-.soloCuatro .card{
+.soloCuatro .card{ 
     width: 22%;
     
 }
-.soloTres1, .soloTres2{
+.soloTres1, .soloTres2, .solo2{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: start;
     flex-wrap: wrap;
- 
 }
 .soloTres1 .card, .soloTres2 .card{
     width: 20%;
-  
 }
 .soloTres2 .card{
     width: 22%;
-    
+}
+.solo2 .card{
+    width: 47%;
 }
 @keyframes hacerPedido{
     0%{

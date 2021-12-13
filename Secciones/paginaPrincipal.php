@@ -244,7 +244,7 @@
                     <div class="card" value="<?php echo $comida->id_cafeteria; ?>">
                         <img src="../Imagenes/<?php echo $comida->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
-                            <h4 class="comidas-titulo"><b><?php echo $comida->nombre; ?></b></h4> 
+                            <h4 class="comidas-titulo" style="margin: 5% 0 0 -1%;"><b><?php echo $comida->nombre; ?></b></h4> 
                             <?php if($_SESSION['id_tipo'] == 5){
                                     $precio = $comida->costo + ($comida->costo * 0.20);
                                 } else if($_SESSION['id_tipo'] == 4){
@@ -283,7 +283,7 @@
                     <div class="card" value="<?php echo $snack->id_cafeteria; ?>">
                         <img src="../Imagenes/<?php echo $snack->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
-                            <h4 class="comidas-titulo"><b><?php echo $snack->nombre; ?></b></h4> 
+                            <h4 class="comidas-titulo" style="margin: 5% 0 0 -1%;"><b><?php echo $snack->nombre; ?></b></h4> 
                             <?php if($_SESSION['id_tipo'] == 5){
                                     $precio = $snack->costo + ($snack->costo * 0.20);
                                 } else if($_SESSION['id_tipo'] == 4){
@@ -316,13 +316,13 @@
                                                             ORDER BY c.id_cafeteria ASC, p.id_producto ASC");            
             ?>
 
-            <div class="soloTres2">
+            <div class="solo2">
                 <?php $hay = 0;
                     while($refresco = $consultarRefrescos->fetch(PDO::FETCH_OBJ)){ ?>
                 <div class="card" value="<?php echo $refresco->id_cafeteria; ?>">
                     <img src="../Imagenes/<?php echo $refresco->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
                     <div class="ComidasMenu">
-                        <h4 class="comidas-titulo"><b><?php echo $refresco->nombre; ?></b></h4> 
+                        <h4 class="comidas-titulo" style="margin: 5% 0 0 -1%;"><b><?php echo $refresco->nombre; ?></b></h4> 
                         <?php if($_SESSION['id_tipo'] == 5){
                                 $precio = $refresco->costo + ($refresco->costo * 0.20);
                             } else if($_SESSION['id_tipo'] == 4){

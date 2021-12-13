@@ -16,7 +16,7 @@
 
         <div class="headimg">
             <div class="TituloCompleto">
-            <h1>Administrar El Menú - Agregar Producto</h1>
+            <h1>Estadísticas</h1>
         </div>
         </div>
         <?php
@@ -103,12 +103,10 @@
 
         <div class="container">
 
-      
-
         <div class="Campos">
-            <h2>Buscar un periodo</h2>
+            <h2 style="font-size: 1.2vw;">Buscar un periodo</h2>
             <form action="estadisticas.php" method="POST">
-                <select name="fecha" id="fecha" style="margin: 0 0 0 -8%">
+                <select name="fecha" id="fecha">
                     <option value="NULL">Desde El Inicio</option>
                     <?php 
 
@@ -128,7 +126,7 @@
                                         $primeraExplode[1] = $primeraExplode[1]+1;
                                     } else { 
                                         $primeraExplode[0] = $primeraExplode[0]+1;
-                                        $primeraExplode[1] = 0;
+                                        $primeraExplode[1] = "01";
                                     }
                                     $primera2 = $primeraExplode[0]."-".$primeraExplode[1]."-".$primeraExplode[2];
                     ?>
@@ -136,7 +134,6 @@
                     <?php $primera = $primera2; } else { $seguir = false; } } } ?>
                 </select>
                 <input type="submit" class="botones" value="Buscar" class="buscar">
-                <button class="botones"><a  href="">Generar Reportes</a></button>
             </form>
         </div><hr>
         <div class="tablasGrandes">
@@ -176,14 +173,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $costoTotal = 0; ?>
-                    <tr>
-                        <?php while($menu = $consultarMenu->fetch(PDO::FETCH_OBJ)){ ?>
-                        <td><?php echo $menu->nombre; ?></td>
-                        <td><?php echo $menu->cantidad; ?></td>
-                        <td><?php echo $menu->costo."$"; $costoTotal = $costoTotal + $menu->costo; ?></td>
-                        <?php } ?>
-                    </tr>
+                    <?php $costoTotal = 0;
+                          while($menu = $consultarMenu->fetch(PDO::FETCH_OBJ)){ ?>
+                        <tr>
+                            <td><?php echo $menu->nombre; ?></td>
+                            <td><?php echo $menu->cantidad; ?></td>
+                            <td><?php echo $menu->costo."$"; $costoTotal = $costoTotal + $menu->costo; ?></td>
+                        </tr>
+                    <?php } ?>
                     <tr class="Totales">
                         <td colspan="2">Totales</td>
                         <td><?php echo number_format($costoTotal, 2)."$"; ?></td>

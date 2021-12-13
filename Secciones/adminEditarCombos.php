@@ -64,13 +64,19 @@
             var n ="<?php echo $n; ?>"; //Total de datos de combos
 
             function SelectCafeteria(){
+                
+                document.getElementById('nombre').disabled = false;
+                document.getElementById('datosDelProducto').disabled = true;
+
                 var valor=0;
-                var nom=0;
+                var nom=1;
 
                 //asignamos a la variable valor el valor de la lista de menú seleccionado
                 valor=document.editCombo.cafeteria.value;
                 document.editCombo.hidd.value = valor;
                 document.editCombo.nombre.length=0;
+                document.editCombo.nombre[0] = new Option("Selecciona un combo",0);
+                document.editCombo.nombre[0].disabled = true;
 
                 for(x=0;x<com;x++){
                     if(valor == arrayIdCafeteria1[x]){
@@ -81,6 +87,12 @@
                 if(nom==0){
                     document.editCombo.nombre[nom] = new Option("No hay combos...",0);
                 }
+            }
+
+            function selectDatosCombo(){
+
+                document.getElementById('datosDelProducto').disabled = false;
+
             }
 
         </script>
@@ -121,8 +133,8 @@
                             </select>
                             <input type="hidden" id="hidd" value="aa">
                             <h3 style="margin-left: 5%;">Nombre:</h3>
-                            <select name="nombre" id="nombre" onchange="SelectDatosCombo()">
-                                <option value="" disabled selected>Selecciona Primero La Cafetería</option>
+                            <select name="nombre" id="nombre" onchange="SelectDatosCombo()" disabled>
+                                <option value="" selected>Primero La Cafetería</option>
                             </select>
                         </div>
                         <div style="display: none;" id="datosDelProducto">
@@ -179,14 +191,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="datosProductos camposCrearEditar">
+                        <div class="camposCrearEditar">
                             <div class="datosProductos">
-                                <h3 style="margin-left: 5%;">Precio:</h3>
-                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                                <h3 style="margin-left: 12%;">Precio:</h3>
+                                <h3 style="margin-left: 20%;">Turno:</h3>
+                                <h3 style="margin-left: 16%;">Cantidad:</h3>
                             </div>
-                            <div class="datosProductos">
-                                <h3 style="margin-left: 15%;">Cantidad:</h3>
-                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="cantidad" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
+                            <div class="datosProductos" style="margin-left: 3.5%;">
+                                <input type="number" id="precio" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                                <select id="turno" style="padding: 0 7% 0 7%; background-color: white; color: black; border: 1px solid black;" name="turno" disabled required>
+                                    <option value="1">Matutino</option>
+                                    <option value="2">Vespertino</option>
+                                    <option value="3">Nocturno</option>
+                                </select>
+                                <input type="number" id="cantidad" style="background-color: white; color: black; border: 1px solid black;" name="inventario" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
                             </div>
                         </div>
                         <div class="datosProductos" style="justify-content: center; margin-top: 2%;">

@@ -14,6 +14,12 @@
         $email = $_POST['email'];
         $password = md5($_POST['contra1']);
 
+        
+        $tipoEmail = explode("@", $email);
+        if(strtolower($tipoEmail[1]) == "utp.ac.pa"){
+            $tipoUsuario = 4;
+        }
+
         $user = new Usuario($nombre, $apellido, $cedula, $telefono, $foto, $tipoUsuario, $email, $password);
         $insertar = $datos->prepare("INSERT INTO usuario (nombre, apellido, cedula, telefono, foto, id_tipo, email, password) VALUES (:nombre, :apellido, :cedula, :telefono, :foto, :tipoUsuario, :email, :password)");
 

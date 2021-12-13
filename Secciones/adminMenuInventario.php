@@ -92,6 +92,11 @@
           </div>
         </div>
 
+        <div style="text-align: center;">
+            <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
+            <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
+        </div>
+
         <div class="cafeteriasUTP">
             <h3 style="text-align: center; margin: 2% 0 2% 2%;">Presione <strong>el botón de la disponibilidad</strong> para alternarlo entre <strong>Sí o No</strong></h3>
         </div><hr><br><br>

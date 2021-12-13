@@ -18,9 +18,8 @@
 
             $consultarCafeterias = $datos->query("SELECT * FROM cafeteria");
         
-            $consultarProductos = $datos->query("SELECT c.id_cafeteria, p.id_producto, p.nombre, p.tipo_producto, p.costo, p.foto, p.inventario FROM producto p
-                                                          INNER JOIN cafeteria_producto cp ON cp.id_producto = p.id_producto
-                                                          INNER JOIN cafeteria c ON cp.id_cafeteria = c.id_cafeteria
+            $consultarProductos = $datos->query("SELECT p.id_cafeteria, p.id_producto, p.nombre, p.tipo_producto, p.costo, p.foto, p.inventario
+                                                FROM producto p
                                                 ORDER BY id_producto, id_cafeteria, tipo_producto");
         
         ?>
@@ -59,7 +58,6 @@
                 echo "arrayInventarioProducto[$n]='$producto->inventario';";
                 $n++;
                 }
-                echo $c." XXXXXX ".$n;
             ?>
             
             
@@ -74,6 +72,7 @@
                 document.getElementById('tipoProducto').disabled = true;
                 document.getElementById('foto').disabled = true;
                 document.getElementById('precio').disabled = true;
+                document.getElementById('turno').disabled = true;
                 document.getElementById('cantidad').disabled = true;
 
                 var valor=0;
@@ -101,6 +100,7 @@
                 document.getElementById('tipoProducto').disabled = false;
                 document.getElementById('foto').disabled = false;
                 document.getElementById('precio').disabled = false;
+                document.getElementById('turno').disabled = false;
                 document.getElementById('cantidad').disabled = false;
 
                 var valor=0;
@@ -114,6 +114,7 @@
                         document.proPedido.nombreProducto2.value = arrayNomProducto[x];
                         document.proPedido.idProducto2.value = arrayIdProducto[x];
                         document.proPedido.precio.value = parseFloat(arrayCostoProducto[x]).toFixed(2);
+                        document.proPedido.cantidad.value = arrayInventarioProducto[x];
                         document.proPedido.cantidad.value = arrayInventarioProducto[x];
                         document.proPedido.imgProSelect2.src = "../Imagenes/"+arrayFotoProducto[x];
                         
@@ -177,7 +178,7 @@
                                 <?php } ?>
                                 </select>
                                 <h3 style="margin-left: 5%;">Nombre:</h3>
-                                <input type="text" name="nombreProducto2" id="nombreProducto2" placeholder="Nombre del producto" style="margin-right: 5%; background-color: white; color: black; border: 1px solid black;">
+                                <input type="text" name="nombreProducto2" id="nombreProducto2" placeholder="Nombre del producto" style="margin-right: 5%; background-color: white; color: black; border: 1px solid black;" require>
                                 <input type="hidden" name="idProducto2" id="idProducto2">
                             </div>
                         </div>
@@ -209,14 +210,20 @@
                                 <input name="foto" type="file" accept="image/*" id="foto" disabled/>
                             </div>
                         </div>
-                        <div class="datosProductos camposCrearEditar">
+                        <div class="camposCrearEditar">
                             <div class="datosProductos">
-                                <h3 style="margin-left: 5%;">Precio:</h3>
-                                <input type="number" id="precio" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" disabled required>
+                                <h3 style="margin-left: 12%;">Precio:</h3>
+                                <h3 style="margin-left: 20%;">Turno:</h3>
+                                <h3 style="margin-left: 16%;">Cantidad:</h3>
                             </div>
-                            <div class="datosProductos">
-                                <h3 style="margin-left: 15%;">Cantidad:</h3>
-                                <input type="number" id="cantidad" style="background-color: white; color: black; border: 1px solid black;" name="inventario" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" disabled required>
+                            <div class="datosProductos" style="margin-left: 3.5%;">
+                                <input type="number" id="precio" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                                <select id="turno" style="padding: 0 7% 0 7%; background-color: white; color: black; border: 1px solid black;" name="turno" disabled required>
+                                    <option value="1">Matutino</option>
+                                    <option value="2">Vespertino</option>
+                                    <option value="3">Nocturno</option>
+                                </select>
+                                <input type="number" id="cantidad" style="background-color: white; color: black; border: 1px solid black;" name="inventario" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
                             </div>
                         </div>
                         <div class="datosProductos" style="justify-content: center; margin-top: 2%;">

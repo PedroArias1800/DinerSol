@@ -11,6 +11,7 @@
         $tipo = $_POST['tipoProducto'];
         $costo = $_POST['costo'];
         $inventario = $_POST['inventario'];
+        $turno = $_POST['turno'];
 
         if($tipo == 'Comida')
             $foto = "comidaIcono.png";
@@ -21,6 +22,18 @@
         else
             $foto = "cubierto.png";
 
+        $idMenu = 0;
+
+        $datoMenu = $datos->query("SELECT id_menu FROM menu WHERE id_producto='$idPro'"); 
+        $datoMenu->setFetchMode(PDO::FETCH_ASSOC);
+
+        $datoMenu->execute();
+        $row = $datoMenu->fetch();
+
+        if($datoMenu->rowCount() > 0){
+            $idMenu=$row["id_menu"];
+        }
+
         if(isset($_FILES['foto']) && $_FILES['foto']['name'] != ""){
 
             $temp = $_FILES['foto']['tmp_name'];
@@ -29,11 +42,15 @@
             move_uploaded_file($temp, '../Imagenes/'.$foto);
         
             $sqlUpdate = $datos->exec("UPDATE producto SET nombre = '$nombre', tipo_producto = '$tipo', costo = '$costo', foto = '$foto', inventario = '$inventario', id_cafeteria = '$cafeteria' WHERE id_producto='$idPro'");
+            $sqlUpdate = $datos->exec("UPDATE menu_turno SET id_turno = '$turno' WHERE id_menu='$idMenu'");
+            
             echo '<meta http-equiv="refresh" content="0; url=../Secciones/adminMenuEditar.php?exito=¡Se actualizó el producto correctamente!">';
             exit;
 
         } else {
             $sqlUpdate = $datos->exec("UPDATE producto SET nombre = '$nombre', tipo_producto = '$tipo', costo = '$costo', inventario = '$inventario', id_cafeteria = '$cafeteria' WHERE id_producto='$idPro'");
+            $sqlUpdate = $datos->exec("UPDATE menu_turno SET id_turno = '$turno' WHERE id_menu='$idMenu'");
+            
             echo '<meta http-equiv="refresh" content="0; url=../Secciones/adminMenuEditar.php?exito=¡Se actualizó el producto correctamente!">';
             exit;
 
