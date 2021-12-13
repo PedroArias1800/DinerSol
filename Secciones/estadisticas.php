@@ -148,13 +148,13 @@
                 </thead>
                 <tbody>
                     <?php $costoTotal = 0.00; ?>
-                    <tr>
                         <?php while($combo = $consultarCombo->fetch(PDO::FETCH_OBJ)){ ?>
-                        <td><?php echo $combo->nombre; ?></td>
-                        <td><?php echo $combo->cantidad; ?></td>
-                        <td><?php echo $combo->costo."$"; $costoTotal = $costoTotal + $combo->costo; ?></td>
+                        <tr>
+                            <td><?php echo $combo->nombre; ?></td>
+                            <td><?php echo $combo->cantidad; ?></td>
+                            <td><?php echo $combo->costo."$"; $costoTotal = $costoTotal + $combo->costo; ?></td>
+                        </tr>
                         <?php } ?>
-                    </tr>
                     <tr class="Totales">
                         <td colspan="2">Totales</td>
                         <td><?php echo number_format($costoTotal, 2)."$"; ?></td>
@@ -200,14 +200,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $costoTotal = 0; ?>
-                        <tr>
-                            <?php while($snack = $consultarSnack->fetch(PDO::FETCH_OBJ)){ ?>
-                            <td><?php echo $snack->nombre; ?></td>
-                            <td><?php echo $snack->cantidad; ?></td>
-                            <td><?php echo $snack->costo."$"; $costoTotal = $costoTotal + $snack->costo; ?></td>
-                            <?php } ?>
-                        </tr>
+                        <?php $costoTotal = 0;
+                            while($snack = $consultarSnack->fetch(PDO::FETCH_OBJ)){ ?>
+                            <tr>
+                                <td><?php echo $snack->nombre; ?></td>
+                                <td><?php echo $snack->cantidad; ?></td>
+                                <td><?php echo $snack->costo."$"; $costoTotal = $costoTotal + $snack->costo; ?></td>
+                            </tr>
+                        <?php } ?>
                         <tr class="Totales">
                             <td colspan="2">Totales</td>
                             <td><?php echo number_format($costoTotal, 2)."$"; ?></td>
@@ -226,14 +226,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $costoTotal = 0; ?>
-                        <tr>
-                            <?php while($refresco = $consultarRefresco->fetch(PDO::FETCH_OBJ)){ ?>
-                            <td><?php echo $refresco->nombre; ?></td>
-                            <td><?php echo $refresco->cantidad; ?></td>
-                            <td><?php echo $refresco->costo."$"; $costoTotal = $costoTotal + $refresco->costo; ?></td>
-                            <?php } ?>
-                        </tr>
+                        <?php $costoTotal = 0; 
+                            while($refresco = $consultarRefresco->fetch(PDO::FETCH_OBJ)){ ?>
+                            <tr>
+                                <td><?php echo $refresco->nombre; ?></td>
+                                <td><?php echo $refresco->cantidad; ?></td>
+                                <td><?php echo $refresco->costo."$"; $costoTotal = $costoTotal + $refresco->costo; ?></td>
+                            </tr>
+                        <?php } ?>
                         <tr class="Totales">
                             <td colspan="2">Totales</td>
                             <td><?php echo number_format($costoTotal, 2)."$"; ?></td>

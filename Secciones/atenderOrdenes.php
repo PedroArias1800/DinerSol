@@ -29,7 +29,7 @@
                 
                 FROM orden o INNER JOIN cafeteria c ON o.id_cafeteria=c.id_cafeteria
                             INNER JOIN usuario U ON o.id_usuario = U.id_usuario
-                ORDER BY o.estado DESC, o.id_orden ASC");
+                ORDER BY o.estado DESC, o.id_orden DESC");
             ?>
 
         </div>
@@ -40,8 +40,13 @@
             </div>
         </div>
 
+        <div style="text-align: center; margin: 2% 0 -1% 0;">
+            <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
+            <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
+        </div>
+
         <div class="cafeteriasUTP">
-            <h3 style="text-align: center; margin: 2% 0 2% 2%;">Presione <strong>el botón del estado</strong> para marcar un pedido como atendido</h3>
+            <h3 style="text-align: center; margin: 3% 0 2% 2%;">Presione <strong>el botón del estado</strong> para marcar un pedido como atendido</h3>
         </div><hr><br><br>
 
         <div class="main">

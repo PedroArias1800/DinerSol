@@ -18,13 +18,40 @@
 
     <?php require('header.php');
 
+    // SE AGARRA LA FECHA DE PANAMA Y SE HACE UNA COMPARASION SI ES DESAYUNO, LA MISMA LOGICA PARA LAS OTRAS COMIDAS
+    date_default_timezone_set('America/Panama');
+    $date_now = date("H:i:s");
+    $variable = new DateTime($date_now);
+    $nomTurno = "Fuera De Servicio";
+    $turno = 0;
+    $fechaPedido = 0;
+    $dejarComprar = "Si";
+
+
+    if($variable->format('H:i:s') > '06:35:00' && $variable->format('H:i:s') < '11:50:00'){
+        $nomTurno = "Matutino";
+        $turno = 1;
+    } else if($variable->format('H:i:s') > '11:50:00' && $variable->format('H:i:s') < '17:50:00'){
+        $nomTurno = "Vespertino";
+        $turno = 2;
+    } else if($variable->format('H:i:s') > '17:50:00' && $variable->format('H:i:s') < '21:50:00'){
+        $nomTurno = "Nocturno";
+        $turno = 3;
+    } else {}
+
+    $to_compare = "2021-12-7 12:50:00";
+    $variable1 = new DateTime($to_compare);
+    $difference = date_diff($variable, $variable1)->format("Difference => %Y years, %m months, %d days, %h hours, and %i minutes");    
+
     $consultarCafeteria = $datos->query("SELECT id_cafeteria, nombre FROM cafeteria");
 
     $consultarProductos = $datos->query("SELECT m.id_cafeteria, m.id_producto, p.nombre, p.tipo_producto, p.costo, p.foto
                                                 FROM menu m INNER JOIN producto p ON m.id_producto=p.id_producto
-                                                WHERE estado=1 AND p.inventario>0
+                                                            INNER JOIN menu_turno mt ON m.id_menu = mt.id_menu
+                                                WHERE estado = 1 AND p.inventario > 0 AND mt.id_turno = $turno
                                                 ORDER BY m.id_cafeteria ASC, p.tipo_producto ASC");
 
+    
     ?>
 
     <script>
@@ -383,21 +410,21 @@
                 <div class="ComidasDeCafeterias">
                     <div class="card">
                         <h2 class="proTitulo">Comida:</h2>
-                        <img id="fotoDeComida" src="../Imagenes/comidaIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <img id="fotoDeComida" src="../Imagenes/comidaIcono.png" class="FotoComida imgComidas" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
                             <h4 class="h3Titulo"><b id="nombreDeComida">Ninguno Por Ahora</b></h4>
                         </div>
                     </div>
                     <div class="card">
                         <h2 class="proTitulo">Snack:</h2>
-                        <img id="fotoDeSnack" src="../Imagenes/snackIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <img id="fotoDeSnack" src="../Imagenes/snackIcono.png" class="FotoComida imgComidas" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
                             <h4 class="h3Titulo"><b id="nombreDeSnack">Ninguno Por Ahora</b></h4>
                         </div>
                     </div>
                     <div class="card">
                         <h2 class="proTitulo">Refresco:</h2>
-                        <img id="fotoDeRefresco" src="../Imagenes/refrescoIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <img id="fotoDeRefresco" src="../Imagenes/refrescoIcono.png" class="FotoComida imgComidas" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
                             <h4 class="h3Titulo"><b id="nombreDeRefresco">Ninguno Por Ahora</b></h4>
                         </div>
@@ -409,7 +436,7 @@
                 </div>
                 <form class="popup-wrapperPagar" onsubmit="return comprarSiempre()">
                     <div class="popupPagar">
-                        <div class="popup-closePagar" onclick="esconder(0)">x</div>
+                        <div style="margin: -0.15% -10% 0 0;" class="popup-closePagar" onclick="esconder(0)">x</div>
                         <div class="popup-contentPagar">
                             <h3>Ingrese los datos de su tarjeta de crédito:</h3>
                             <div class="divTarjetas">
@@ -454,7 +481,7 @@
                 </form>
                 <div class="popup-wrapper">
                     <div class="popup">
-                        <div class="popup-close" onclick="esconder(1)">x</div>
+                        <div style="margin: 1% -10% 0 0;" class="popup-close" onclick="esconder(1)">x</div>
                         <form class="popup-content" name="formHacerPedido" action="../Procesos/registrarPedido.php" method="POST" onsubmit="return comprarSiempre()">
                             <input type="hidden" value="<?php echo $_SESSION['id_usuario']?>" name="id_usuario">
                             <input type="hidden" value="" name="Id_Cafeteria2">

@@ -9,7 +9,7 @@
         $atendido = "Atendido";
 
         $sqlUpdate = $datos->exec("UPDATE orden SET estado = '$atendido' WHERE id_orden='$idPro'");
-        echo '<meta http-equiv="refresh" content="0; url=../Secciones/atenderOrdenes.php?exito=¡Se actualizó la orden correctamente!">';
+        header("Location: ../Secciones/atenderOrdenes.php?exito=¡Se atendió la orden $idPro correctamente!");
         exit;
 
     }else{

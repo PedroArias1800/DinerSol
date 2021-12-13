@@ -337,7 +337,7 @@ nav a:hover{
     flex-wrap: wrap;
 }
 .soloCuatro .card{ 
-    width: 22%;
+    width: 22.5%;
     
 }
 .soloTres1, .soloTres2, .solo2{
@@ -347,11 +347,11 @@ nav a:hover{
     justify-content: start;
     flex-wrap: wrap;
 }
-.soloTres1 .card, .soloTres2 .card{
-    width: 20%;
-}
 .soloTres2 .card{
-    width: 22%;
+    width: 22.5%;
+}
+.soloTres1 .card{
+    width: 22.5%;
 }
 .solo2 .card{
     width: 47%;

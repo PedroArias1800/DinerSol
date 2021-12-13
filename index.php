@@ -26,6 +26,7 @@
         </div>
         <p>Universidad Tecnologica de Panamá</p>
       </header>
+      <p style="font-size: x-large; color: white;">Sistema De Cafeterías UTP</p>
 
     
   <?php if(isset($_GET['error'])){ ?>

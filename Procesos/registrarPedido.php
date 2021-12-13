@@ -33,13 +33,13 @@
 
                 if((isset($_POST['Menu2']) && $_POST['Menu2'] != '')){
                     $idComida = $_POST['Menu2'];
-                    echo $idComida;
+                    $sqlUpdate = $datos->exec("UPDATE producto SET inventario = inventario - 1 WHERE id_producto = '$idComida'");
                     $query = $query."('$idOrd', '$idComida')";
                     $si = 1;
                 }
                 if((isset($_POST['Snack2']) && $_POST['Snack2'] != '')){
                     $idSnack = $_POST['Snack2'];
-                    echo $idSnack;
+                    $sqlUpdate = $datos->exec("UPDATE producto SET inventario = inventario - 1 WHERE id_producto = '$idSnack'");
                     if($si == 1){
                         $query = $query.", ('$idOrd', '$idSnack')";
                     } else {
@@ -49,7 +49,7 @@
                 }
                 if((isset($_POST['Refresco2']) && $_POST['Refresco2'] != '')){
                     $idRefresco = $_POST['Refresco2'];
-                    echo $idRefresco;
+                    $sqlUpdate = $datos->exec("UPDATE producto SET inventario = inventario - 1 WHERE id_producto = '$idRefresco'");
                     if($si == 1){
                         $query = $query.", ('$idOrd', '$idRefresco')";
                     } else {
