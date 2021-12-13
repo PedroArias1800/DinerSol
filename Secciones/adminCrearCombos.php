@@ -29,7 +29,7 @@
             <div class="hacerPedido" style="margin-bottom: 2%;">
                 <div class="barraLateral">
                     <h2 style="margin: 0 0 3% 0;">Opciones De Combos</h2>
-                    <a href="adminCrearCombos.php">Crear Combo</a>
+                    <a href="adminCrearCombos.php" style="animation: 1s infinite alternate resaltar;">Crear Combo</a>
                     <a href="adminEditarCombos.php">Editar Combo</a>
                     <h2 style="margin: 3% 0 3% 0%;">Opciones De Productos</h2>
                     <a href="adminMenuAgregar.php">Agregar Producto</a>
@@ -90,14 +90,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="datosProductos camposCrearEditar">
+                        <div class="camposCrearEditar">
                             <div class="datosProductos">
-                                <h3 style="margin-left: 5%;">Precio:</h3>
-                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Combo" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                                <h3 style="margin-left: 12%;">Precio:</h3>
+                                <h3 style="margin-left: 20%;">Turno:</h3>
+                                <h3 style="margin-left: 16%;">Cantidad:</h3>
                             </div>
-                            <div class="datosProductos">
-                                <h3 style="margin-left: 15%;">Cantidad:</h3>
-                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="cantidad" placeholder="Cantidad De Combos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
+                            <div class="datosProductos" style="margin-left: 3.5%;">
+                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
+                                <select style="padding: 0 7% 0 7%; background-color: white; color: black; border: 1px solid black;" name="turno" required>
+                                    <option value="1">Matutino</option>
+                                    <option value="2">Vespertino</option>
+                                    <option value="3">Nocturno</option>
+                                </select>
+                                <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="cantidad" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
                             </div>
                         </div>
                         <div class="datosProductos" style="justify-content: center; margin-top: 2%;">

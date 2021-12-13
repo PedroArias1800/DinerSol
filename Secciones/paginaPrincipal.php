@@ -18,17 +18,7 @@
         <?php require('header.php'); ?>
     </div>
 
-      
-        <!-- <div class="CafEdi1PB" id="CafEdi1PB" style="display: none;">
-            <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Planta Baja</h1>   
-            <img src="../Imagenes/CafeteriaEdi1PB.PNG" alt="Cafetería Central" width="25%" height="25%">
-        </div>
-        <div class="CafEdi1P2" id="CafEdi1P2" style="display: none;">
-            <h1 class="NomCafeteria">Cafetería Del Edificio 1 - Piso 2</h1>   
-            <img src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafetería Central" width="25%" height="25%">
-        </div> -->
-
-        <?php
+    <?php
         // SE AGARRA LA FECHA DE PANAMA Y SE HACE UNA COMPARASION SI ES DESAYUNO, LA MISMA LOGICA PARA LAS OTRAS COMIDAS
         date_default_timezone_set('America/Panama');
         $date_now = date("H:i:s");
@@ -52,73 +42,77 @@
       
         $to_compare = "2021-12-7 12:50:00";
         $variable1 = new DateTime($to_compare);
-        $difference = date_diff($variable, $variable1)->format("Difference => %Y years, %m months, %d days, %h hours, and %i minutes");?>
+        $difference = date_diff($variable, $variable1)->format("Difference => %Y years, %m months, %d days, %h hours, and %i minutes");
+    ?>
 
-        <div class="gallery js-flickity carousel" data-flickity='{ "autoPlay": true, "fade": 1500 }'>
-            <div class="divCarousel">
-                <h1 class="pH1">Cafetería Central</h1>
-                <img class="imga" src="../Imagenes/cafcentral.jpg" alt="Cafeteria Central">
-                <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
-            </div>
-            <div class="divCarousel">
-                <h1 class="pH1">Cafetería FISC</h1>
-            <img class="imga" src="../Imagenes/CafeteriaCentral.jpg" alt="Cafeteria FISC">
-                <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
-            </div>
-            <div class="divCarousel">
-                <h1 class="pH1">Cafetería Edificio #1 P2</h1>
-            <img class="imga" src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafeteria Edificio #1 P2">
-                <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
-            </div>
-            <div class="divCarousel">
-                <h1 class="pH1">Cafetería Edificio #1 PB</h1>
-            <img class="imga" src="../Imagenes/CafeteriaEdi1PB.PNG" alt="Cafeteria Edificio #1 PB"> 
-                <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
-            </div>
+    <div class="gallery js-flickity carousel" data-flickity='{ "autoPlay": true, "fade": 1500 }'>
+        <div class="divCarousel">
+            <h1 class="pH1">Cafetería Central</h1>
+            <img class="imga" src="../Imagenes/cafcentral.jpg" alt="Cafeteria Central">
+            <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
         </div>
-
-        <div style="text-align: center; margin: 2% 0 -1% 0;">
-            <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
-            <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
+        <div class="divCarousel">
+            <h1 class="pH1">Cafetería FISC</h1>
+        <img class="imga" src="../Imagenes/CafeteriaCentral.jpg" alt="Cafeteria FISC">
+            <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
         </div>
-
-        <?php $idPedido = $datos->query("SELECT id_orden, created_at FROM orden
-                                         WHERE id_usuario = '$datosDelUsuario->id_usuario' AND created_at = (SELECT MAX(created_at) FROM orden WHERE id_usuario = '$datosDelUsuario->id_usuario')"); ?>
-
-        <div class="pedido" style="padding: 1.5%; display: flex; justify-content: space-around;">
-            <?php while($pedido = $idPedido->fetch(PDO::FETCH_OBJ)){ ?>
-            <h2 class="h2">Número identificador de su último pedido: <strong><?php echo $pedido->id_orden; ?></strong></h2>
-            <?php 
-                $fecha = explode(" ",$pedido->created_at);
-                if($fecha[0] == date("Y-m-d")){
-                    if(($turno == 1 && $fecha[1] > '06:35:00' && $fecha[1] < '11:50:00') || ($turno == 2 && $fecha[1] > '11:50:00' && $fecha[1] < '17:35:00') || ($turno == 3 && $fecha[1] > '17:35:00' && $fecha[1] < '21:50:00') || $turno == 0){
-                        $dejarComprar = "No";
-                    }
-                } 
-            } ?>
-
-            <button class="btnHacerPedido" onclick="window.location.href='hacerPedido.php'" <?php if($dejarComprar == "No"){ ?> disabled style="display: none;" <?php } ?>>Hacer Pedido <?php  echo $variable->format('H:i:s'); ?></button>
-        
+        <div class="divCarousel">
+            <h1 class="pH1">Cafetería Edificio #1 P2</h1>
+        <img class="imga" src="../Imagenes/CafeteriaEdi1P2.PNG" alt="Cafeteria Edificio #1 P2">
+            <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
         </div>
+        <div class="divCarousel">
+            <h1 class="pH1">Cafetería Edificio #1 PB</h1>
+        <img class="imga" src="../Imagenes/CafeteriaEdi1PB.PNG" alt="Cafeteria Edificio #1 PB"> 
+            <h1 class="sH1">Turno:<br><?php echo $nomTurno;?></h1>
+        </div>
+    </div>
 
-        <?php if($dejarComprar == "No"){ ?>
-            <div style="text-align: center; margin: 0 0 2% 0;">
-                <p class="merror" style="color: #fc6e6e"><?php echo "No puede hacer más pedidos en lo que resta del turno" ?></p>
-            </div> 
-        <?php } ?>
+    <div style="text-align: center; margin: 2% 0 -1% 0;">
+        <p class="merror" style="color: #fc6e6e"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
+        <p class="merror" style="color: #51034f"><?php if(isset($_GET['exito'])) echo $_GET['exito']; ?></p>
+    </div>
 
-        <main class="contenedor">
+    <?php $idPedido = $datos->query("SELECT id_orden, created_at FROM orden
+                                        WHERE id_usuario = '$datosDelUsuario->id_usuario' AND created_at = (SELECT MAX(created_at) FROM orden WHERE id_usuario = '$datosDelUsuario->id_usuario')"); ?>
 
-        <div class="parent">
+    <div class="pedido" style="padding: 1.5%; display: flex; justify-content: space-around;">
+        <?php while($pedido = $idPedido->fetch(PDO::FETCH_OBJ)){ ?>
+        <h2 class="h2">Número identificador de su último pedido: <strong><?php echo $pedido->id_orden; ?></strong></h2>
+        <?php 
+            $fecha = explode(" ",$pedido->created_at);
+            if($fecha[0] == date("Y-m-d")){
+                if(($turno == 1 && $fecha[1] > '06:35:00' && $fecha[1] < '11:50:00') || ($turno == 2 && $fecha[1] > '11:50:00' && $fecha[1] < '17:35:00') || ($turno == 3 && $fecha[1] > '17:35:00' && $fecha[1] < '21:50:00') || $turno == 0){
+                    $dejarComprar = "No";
+                }
+            } 
+        } ?>
+
+        <button class="btnHacerPedido" onclick="window.location.href='hacerPedido.php'" <?php if($dejarComprar == "No"){ ?> disabled style="display: none;" <?php } ?>>Hacer Pedido <?php  echo $variable->format('H:i:s'); ?></button>
+    
+    </div>
+
+    <?php if($dejarComprar == "No" && $turno != 0){ ?>
+        <div style="text-align: center; margin: 0 0 2% 0;">
+            <p class="merror" style="color: #fc6e6e"><?php echo "No puede hacer más pedidos en lo que resta del turno" ?></p>
+        </div> 
+    <?php } ?>
+
+    <main class="contenedor">
+
+    <?php if($turno != 0){ ?>
+
+    <div class="parent">
 
         <div class="div1"> 
             <p>Combos Del Dia</p>
             <div class="combos">  
 
-                <?php $consultarCombo = $datos->query("SELECT id_combo, nombre_combo, COUNT(c.id_producto), c.costo, p.foto, c.id_cafeteria, ca.nombre 
+                <?php $consultarCombo = $datos->query("SELECT c.id_combo, nombre_combo, COUNT(c.id_producto), c.costo, p.foto, c.id_cafeteria, ca.nombre 
                                                         FROM combo c INNER JOIN producto p ON c.id_producto=p.id_producto
                                                                      INNER JOIN cafeteria ca ON c.id_cafeteria = ca.id_cafeteria
-                                                        WHERE p.tipo_producto = 'Comida' AND c.inventario > 0
+                                                                     INNER JOIN menu m ON m.id_combo = c.id_combo
+                                                        WHERE p.tipo_producto = 'Comida' AND c.inventario > 0 and m.estado=1
                                                         GROUP BY nombre_combo
                                                         ORDER BY id_cafeteria ASC, id_combo ASC");
 
@@ -132,7 +126,7 @@
                             <div class="verCombo">
                                 <button value="<?php echo $combo->id_combo; ?>" onclick="pagar(0), idCombo(<?php echo $combo->id_combo;?>)"><a>Comprar</a></button>
                             </div>
-                            <img src="../Imagenes/arrozConPollo.jpg" class="FotoComida" alt="Comida1" width="5%" height="5%">
+                            <img src="../Imagenes/<?php echo $combo->foto; ?>" class="FotoComida imgComidas" alt="Comida1" width="5%" height="5%">
                             <div style="display: flex; justify-content: space-between; margin-top: -33.8%; margin-left: 0.5%; width: 94.5%">
                                 <?php 
                                         $consultarDatosCombo = $datos->query("SELECT p.foto
@@ -161,7 +155,7 @@
                     <?php } $hay = 1; } 
                     if($hay == 0){ ?>
                         <div class="verCombos">
-                            <h2>Actualmente no hay combos disponibles...</h2>
+                            <h2 style="font-size: 1.5vw">Actualmente no hay combos disponibles...</h2>
                         </div>
                     <?php } ?>
                 </div>
@@ -242,7 +236,7 @@
                 <?php $hay = 0;
                     while($comida = $consultarComidas->fetch(PDO::FETCH_OBJ)){ ?>
                     <div class="card" value="<?php echo $comida->id_cafeteria; ?>">
-                        <img src="../Imagenes/<?php echo $comida->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <img src="../Imagenes/<?php echo $comida->foto; ?>" class="FotoComida imgComidas" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
                             <h4 class="comidas-titulo" style="margin: 5% 0 0 -1%;"><b><?php echo $comida->nombre; ?></b></h4> 
                             <?php if($_SESSION['id_tipo'] == 5){
@@ -255,12 +249,12 @@
                             <h4 class="Precio"><?php echo "$".number_format($precio, 2); ?></h4> 
                         </div>
                     </div>
-                <?php $hay = 1; } 
-                if($hay == 0){ ?>
-                <div>
-                    <h2 style="font-size: 1.5vw">Actualmente no hay comidas disponibles...</h2>
-                </div>
-                <?php } ?>
+                    <?php $hay = 1; } 
+                    if($hay == 0){ ?>
+                    <div>
+                        <h2 style="font-size: 1.5vw">Actualmente no hay comidas disponibles...</h2>
+                    </div>
+                    <?php } ?>
                 </div>
             </div>            
         </div>
@@ -281,7 +275,7 @@
                     <?php $hay = 0;
                         while($snack = $consultarSnacks->fetch(PDO::FETCH_OBJ)){ ?>
                     <div class="card" value="<?php echo $snack->id_cafeteria; ?>">
-                        <img src="../Imagenes/<?php echo $snack->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
+                        <img src="../Imagenes/<?php echo $snack->foto; ?>" class="FotoComida imgComidas" alt="Comida1" width="65%" height="65%">
                         <div class="ComidasMenu">
                             <h4 class="comidas-titulo" style="margin: 5% 0 0 -1%;"><b><?php echo $snack->nombre; ?></b></h4> 
                             <?php if($_SESSION['id_tipo'] == 5){
@@ -304,47 +298,54 @@
             </div>
         </div>
         <div class="div4">
-        <p>Refrescos</p>
-        <div class="ComidasDeCafeterias">
+            <p>Refrescos</p>
+            <div class="ComidasDeCafeterias">
 
-            <?php $consultarRefrescos = $datos->query("SELECT p.nombre, p.costo, p.foto, c.id_cafeteria, m.id_menu
-                                                            FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
-                                                                            INNER JOIN cafeteria c ON c.id_cafeteria = m.id_cafeteria
-                                                                    INNER JOIN menu_turno mt ON mt.id_menu = m.id_menu
-                                                                    INNER JOIN turno t ON mt.id_turno = t.id_turno
-                                                            WHERE p.tipo_producto = 'Refresco' AND inventario > 0 AND m.estado = 1 AND t.id_turno = '$turno'
-                                                            ORDER BY c.id_cafeteria ASC, p.id_producto ASC");            
-            ?>
+                <?php $consultarRefrescos = $datos->query("SELECT p.nombre, p.costo, p.foto, c.id_cafeteria, m.id_menu
+                                                                FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                                                INNER JOIN cafeteria c ON c.id_cafeteria = m.id_cafeteria
+                                                                        INNER JOIN menu_turno mt ON mt.id_menu = m.id_menu
+                                                                        INNER JOIN turno t ON mt.id_turno = t.id_turno
+                                                                WHERE p.tipo_producto = 'Refresco' AND inventario > 0 AND m.estado = 1 AND t.id_turno = '$turno'
+                                                                ORDER BY c.id_cafeteria ASC, p.id_producto ASC");            
+                ?>
 
-            <div class="solo2">
-                <?php $hay = 0;
-                    while($refresco = $consultarRefrescos->fetch(PDO::FETCH_OBJ)){ ?>
-                <div class="card" value="<?php echo $refresco->id_cafeteria; ?>">
-                    <img src="../Imagenes/<?php echo $refresco->foto; ?>" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                    <div class="ComidasMenu">
-                        <h4 class="comidas-titulo" style="margin: 5% 0 0 -1%;"><b><?php echo $refresco->nombre; ?></b></h4> 
-                        <?php if($_SESSION['id_tipo'] == 5){
-                                $precio = $refresco->costo + ($refresco->costo * 0.20);
-                            } else if($_SESSION['id_tipo'] == 4){
-                                $precio = $refresco->costo - ($refresco->costo * 0.20);
-                            } else {
-                                $precio = $refresco->costo;
-                            } ?>
-                        <h4 class="Precio"><?php echo "$".number_format($precio, 2); ?></h4> 
+                <div class="solo2">
+                    <?php $hay = 0;
+                        while($refresco = $consultarRefrescos->fetch(PDO::FETCH_OBJ)){ ?>
+                    <div class="card" value="<?php echo $refresco->id_cafeteria; ?>">
+                        <img src="../Imagenes/<?php echo $refresco->foto; ?>" class="FotoComida imgComidas" alt="Comida1" width="65%" height="65%">
+                        <div class="ComidasMenu">
+                            <h4 class="comidas-titulo" style="margin: 5% 0 0 -1%;"><b><?php echo $refresco->nombre; ?></b></h4> 
+                            <?php if($_SESSION['id_tipo'] == 5){
+                                    $precio = $refresco->costo + ($refresco->costo * 0.20);
+                                } else if($_SESSION['id_tipo'] == 4){
+                                    $precio = $refresco->costo - ($refresco->costo * 0.20);
+                                } else {
+                                    $precio = $refresco->costo;
+                                } ?>
+                            <h4 class="Precio"><?php echo "$".number_format($precio, 2); ?></h4> 
+                        </div>
                     </div>
+                    <?php $hay = 1; } 
+                    if($hay == 0){ ?>
+                    <div>
+                        <h2 style="font-size: 1.5vw">Actualmente no hay refrescos disponibles...</h2>
+                    </div>
+                    <?php } ?>
                 </div>
-                <?php $hay = 1; } 
-                if($hay == 0){ ?>
-                <div>
-                    <h2 style="font-size: 1.5vw">Actualmente no hay refrescos disponibles...</h2>
-                </div>
-                <?php } ?>
-            </div>
-        </div>        
-    </div>
+            </div>        
         </div>
+    </div>
 
-        </main>
+    <?php } else { ?>
+        <div style="width: 90%; margin: 2% 0 4% 5%; text-align: center">
+            <h2 style="font-size: 2.5vw; margin: 0 0 5% 0;">❌Actualmente estamos fuera de servicio❌</h2>
+            <h2 style="font-size: 2vw">Gracias Por Elegir <strong>DinerSol</strong>, el Sistema De Cafeterías UTP</h2>
+        </div>
+    <?php } ?>
+
+    </main>
         
         <?php require('footer.html'); ?>
 

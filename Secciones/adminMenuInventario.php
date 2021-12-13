@@ -107,27 +107,34 @@
 
       <div class="tablasGrandes">
         
-        <?php   $consultarCombos = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, c.id_cafeteria, c.nombre as nomCaf
-                                                  FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
-                                                                  INNER JOIN cafeteria c ON m.id_cafeteria = c.id_cafeteria
-                                                  WHERE p.tipo_producto = 'Combo'
-                                                  ORDER BY c.id_cafeteria ASC, p.nombre ASC");
+        <?php   $consultarCombos = $datos->query("SELECT c.id_cafeteria, c.id_combo, c.nombre_combo, c.costo, c.inventario, m.estado, ca.nombre as nomCaf, t.nombre as turno
+                                                  FROM combo c INNER JOIN menu m ON c.id_combo = m.id_combo
+                                                               INNER JOIN cafeteria ca ON ca.id_cafeteria = c.id_cafeteria
+                                                                  INNER JOIN menu_turno mt ON m.id_menu = mt.id_menu
+                                                                  INNER JOIN turno t ON mt.id_turno = t.id_turno
+                                                  ORDER BY c.id_cafeteria ASC, c.nombre_combo ASC");
                            
-                $consultarComida = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria, c.nombre as nomCaf
+                $consultarComida = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria, c.nombre as nomCaf, t.nombre as turno
                                                   FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
                                                                   INNER JOIN cafeteria c ON m.id_cafeteria = c.id_cafeteria
+                                                                  INNER JOIN menu_turno mt ON m.id_menu = mt.id_menu
+                                                                  INNER JOIN turno t ON mt.id_turno = t.id_turno
                                                   WHERE p.tipo_producto = 'Comida'
                                                   ORDER BY m.id_cafeteria ASC, p.nombre ASC");
 
-                $consultarSnack = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria, c.nombre as nomCaf
+                $consultarSnack = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria, c.nombre as nomCaf, t.nombre as turno
                                                   FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
                                                                   INNER JOIN cafeteria c ON m.id_cafeteria = c.id_cafeteria
+                                                                  INNER JOIN menu_turno mt ON m.id_menu = mt.id_menu
+                                                                  INNER JOIN turno t ON mt.id_turno = t.id_turno
                                                   WHERE p.tipo_producto = 'Snack'
                                                   ORDER BY m.id_cafeteria ASC, p.nombre ASC");
 
-                $consultarRefresco = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria, c.nombre as nomCaf
+                $consultarRefresco = $datos->query("SELECT p.id_producto, p.tipo_producto, p.nombre, p.costo, p.foto, p.inventario, m.estado, m.id_cafeteria, c.nombre as nomCaf, t.nombre as turno
                                                   FROM producto p INNER JOIN menu m ON p.id_producto = m.id_producto
                                                                   INNER JOIN cafeteria c ON m.id_cafeteria = c.id_cafeteria
+                                                                  INNER JOIN menu_turno mt ON m.id_menu = mt.id_menu
+                                                                  INNER JOIN turno t ON mt.id_turno = t.id_turno
                                                   WHERE p.tipo_producto = 'Refresco'
                                                   ORDER BY m.id_cafeteria ASC, p.nombre ASC");
                                                   
@@ -140,28 +147,27 @@
               <th>Combos</th>
               <th>Precio</th>
               <th>Cantidad Disponible</th>
-              <th>Foto</th>
+              <th>Turno</th>
               <th>Disponible</th>
             </tr>
           </thead>
           <tbody class="tBody">
-            <?php while($combo = $consultarCombos->fetch(PDO::FETCH_OBJ)){ 
-              if ($combo->tipo_producto == "Comida"){ ?>
+            <?php while($combo = $consultarCombos->fetch(PDO::FETCH_OBJ)){ ?>
               <form action="../Procesos/actualizarMenu.php" method="POST">
                 <tr>
                   <td><?php echo $combo->nomCaf; ?></td>
-                  <td><?php echo $combo->nombre; ?></td>
+                  <td><?php echo $combo->nombre_combo; ?></td>
                   <td><?php echo $combo->costo; ?></td>
                   <td><?php echo $combo->inventario; ?></td>
-                  <td><img src="../Imagenes/<?php echo $snack->foto; ?>" alt="Foto" width="35%" height="35%"></td>
-                  <td class="cambiarEstado"><input type="submit" value="<?php if($snack->estado == 1){ echo "Si"; } else { echo "No"; } ?>" <?php if($snack->inventario < 0){ ?> disabled <?php } ?>></td>
+                  <td><?php echo $combo->turno; ?></td>
+                  <td class="cambiarEstado"><input type="submit" value="<?php if($combo->estado == 1){ echo "Si"; } else { echo "No"; } ?>" <?php if($combo->inventario < 0){ ?> disabled <?php } ?>></td>
                 </tr>
-                <input type="hidden" value="<?php echo $snack->inventario; ?>" name="inventario">
-                <input type="hidden" value="<?php echo $snack->id_producto; ?>" name="id_producto">
-                <input type="hidden" value="<?php echo $snack->estado; ?>" name="estado">
-                <input type="hidden" value="<?php echo $snack->id_cafeteria; ?>" name="id_cafeteria">
+                <input type="hidden" value="<?php echo $combo->inventario; ?>" name="inventario">
+                <input type="hidden" value="<?php echo $combo->id_combo; ?>" name="id_combo">
+                <input type="hidden" value="<?php echo $combo->estado; ?>" name="estado">
+                <input type="hidden" value="<?php echo $combo->id_cafeteria; ?>" name="id_cafeteria">
               </form>
-            <?php } } ?>
+            <?php } ?>
           </tbody>
         </table><br>
       </div>
@@ -174,6 +180,7 @@
               <th>Precio</th>
               <th>Cantidad Disponible</th>
               <th>Foto</th>
+              <th>Turno</th>
               <th>Disponible</th>
             </tr>
           </thead>
@@ -186,6 +193,7 @@
                 <td><?php echo $comida->costo; ?></td>
                 <td><?php echo $comida->inventario; ?></td>
                 <td><img src="../Imagenes/<?php echo $comida->foto; ?>" alt="Foto" width="35%" height="35%"></td>
+                <td><?php echo $comida->turno; ?></td>
                 <td class="cambiarEstado"><input type="submit" value="<?php if($comida->estado == 1){ echo "Si"; } else { echo "No"; } ?>" <?php if($comida->inventario < 0){ ?> disabled <?php } ?>></td>
               </tr>
               <input type="hidden" value="<?php echo $comida->inventario; ?>" name="inventario">
@@ -206,6 +214,7 @@
               <th>Precio</th>
               <th>Cantidad Disponible</th>
               <th>Foto</th>
+              <th>Turno</th>
               <th>Disponible</th>
             </tr>
           </thead>
@@ -218,6 +227,7 @@
                 <td><?php echo $snack->costo; ?></td>
                 <td><?php echo $snack->inventario; ?></td>
                 <td><img src="../Imagenes/<?php echo $snack->foto; ?>" alt="Foto" width="35%" height="35%"></td>
+                <td><?php echo $snack->turno; ?></td>
                 <td class="cambiarEstado"><input type="submit" value="<?php if($snack->estado == 1){ echo "Si"; } else { echo "No"; } ?>" <?php if($snack->inventario < 0){ ?> disabled <?php } ?>></td>
               </tr>
               <input type="hidden" value="<?php echo $snack->inventario; ?>" name="inventario">
@@ -238,6 +248,7 @@
               <th>Precio</th>
               <th>Cantidad Disponible</th>
               <th>Foto</th>
+              <th>Turno</th>
               <th>Disponible</th>
             </tr>
           </thead>
@@ -250,6 +261,7 @@
                 <td><?php echo $refresco->costo; ?></td>
                 <td><?php echo $refresco->inventario; ?></td>
                 <td><img src="../Imagenes/<?php echo $refresco->foto; ?>" alt="Foto" width="35%" height="35%"></td>
+                <td><?php echo $refresco->turno; ?></td>
                 <td class="cambiarEstado"><input type="submit" value="<?php if($refresco->estado == 1){ echo "Si"; } else { echo "No"; } ?>" <?php if($refresco->inventario < 0){ ?> disabled <?php } ?>></td>
               </tr>
               <input type="hidden" value="<?php echo $refresco->inventario; ?>" name="inventario">

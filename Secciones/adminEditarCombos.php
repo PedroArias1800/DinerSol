@@ -112,7 +112,7 @@
                 <div class="barraLateral">
                     <h2 style="margin: 0 0 3% 0;">Opciones De Combos</h2>
                     <a href="adminCrearCombos.php">Crear Combo</a>
-                    <a href="adminEditarCombos.php">Editar Combo</a>
+                    <a href="adminEditarCombos.php" style="animation: 1s infinite alternate resaltar;">Editar Combo</a>
                     <h2 style="margin: 3% 0 3% 0%;">Opciones De Productos</h2>
                     <a href="adminMenuAgregar.php">Agregar Producto</a>
                     <a href="adminMenuEditar.php">Editar Producto</a>
@@ -204,7 +204,7 @@
                                     <option value="2">Vespertino</option>
                                     <option value="3">Nocturno</option>
                                 </select>
-                                <input type="number" id="cantidad" style="background-color: white; color: black; border: 1px solid black;" name="inventario" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
+                                <input type="number" id="cantidad" style="background-color: white; color: black; border: 1px solid black;" name="cantidad" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
                             </div>
                         </div>
                         <div class="datosProductos" style="justify-content: center; margin-top: 2%;">

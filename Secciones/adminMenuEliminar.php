@@ -129,7 +129,7 @@
                     <h2 style="margin: 3% 0 3% 0%;">Opciones De Productos</h2>
                     <a href="adminMenuAgregar.php">Agregar Producto</a>
                     <a href="adminMenuEditar.php">Editar Producto</a>
-                    <a href="adminMenuEliminar.php">Eliminar Producto</a>
+                    <a href="adminMenuEliminar.php" style="animation: 1s infinite alternate resaltar;">Eliminar Producto</a>
                     <a href="adminMenuInventario.php">Inventario</a><br>
                 </div>
                 <form method="POST" action="../Procesos/eliminarProducto.php" class="otraBarra" name="proPedido">
