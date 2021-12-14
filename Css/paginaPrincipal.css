@@ -682,7 +682,7 @@ tr th, tr td{
     0%{
         background-color: #51034f;
         color: white;
-        text-shadow: 0vw 0vw 35px;
+      
         border: 2px solid blue;
     }
     50%{
@@ -692,7 +692,7 @@ tr th, tr td{
     100%{
         background-color: #51034f;
         color: white;
-        text-shadow: 0vw 0vw 35px;
+      
         border: 2px solid red;
     }
     
