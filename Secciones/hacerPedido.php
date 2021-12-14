@@ -338,7 +338,7 @@
     <div class="NoticiasMenu">
         <div class="Noticias" style="margin-left: 5%;">
             <div class="Snacks">
-                <div class="HacerPedido">
+                <div class="HacerPedido hp">
                     <h2 class="NombreCafeteria">Formulario Del Pedido:</h2>
                 </div>
                 <form name="proPedido" id="proPedido" enctype="multipart/form-data" class="OpcionesPedido" method="POST" action="">
@@ -373,7 +373,7 @@
                             </select>
                         </div>
                     </div><br>
-                    <table>
+                    <table class="styled-table hacer-pedido"  >
                         <thead>
                             <tr>
                                 <th>Artículos</th>
@@ -404,7 +404,7 @@
         </div>
         <div class="Menu">
             <div class="Central">
-                <div class="HacerPedido">
+                <div class="HacerPedido hp">
                     <h2 class="NombreCafeteria">Resumen Del Pedido:</h2>
                 </div>
                 <div class="ComidasDeCafeterias">
@@ -430,7 +430,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="PagarCancelar" id="formHacerPedido">
+                <div class="PagarCancelar" id="form fhp">
                     <button class="botones"><a href="paginaPrincipal.php">Cancelar</a></button>
                     <button class="botones" onclick="pagar(0)"><a>Confirmar</a></button>
                 </div>
@@ -482,7 +482,7 @@
                 <div class="popup-wrapper">
                     <div class="popup">
                         <div style="margin: 1% -10% 0 0;" class="popup-close" onclick="esconder(1)">x</div>
-                        <form class="popup-content" name="formHacerPedido" action="../Procesos/registrarPedido.php" method="POST" onsubmit="return comprarSiempre()">
+                        <form class="popup-content" name="formHacerPedido fhp" action="../Procesos/registrarPedido.php" method="POST" onsubmit="return comprarSiempre()">
                             <input type="hidden" value="<?php echo $_SESSION['id_usuario']?>" name="id_usuario">
                             <input type="hidden" value="" name="Id_Cafeteria2">
                             <input type="hidden" value="" name="Menu2">
