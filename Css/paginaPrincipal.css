@@ -142,7 +142,10 @@ body{
 }
 .Menu{
     width: 60%;
-    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
 }
 .card {
     padding-top: 2%;
@@ -301,6 +304,7 @@ nav a:hover{
     justify-content: center;
     align-items: center;
     background-color: #e8e8e8;
+    gap: 2rem;
 }
 .tdEspecial input{
     margin-right: 5%;
@@ -309,7 +313,7 @@ nav a:hover{
 }
 .PagarCancelar .botones{
     background-color: #68086c;
-    font-size: x-large;
+    font-size: 2.1rem;
 }
 .PagarCancelar .botones:hover{
     background-color: #51034f;
@@ -633,6 +637,7 @@ tr th, tr td{
     text-align: center;
     padding: 2% 0 2% 0;
     margin: -5% 0 0 0;
+    border-radius: 0.5rem;
 }
 .selectPro{
     margin: -8% 0 5% 2%;
