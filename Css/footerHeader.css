@@ -85,6 +85,9 @@
     color: white;
     margin-bottom: 0.2%;
 }
+.footer div a:hover, .footer h3 a:hover{
+    text-decoration: underline white;
+}
 
 .imagen p{
     font-size: 2rem;

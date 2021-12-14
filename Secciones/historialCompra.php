@@ -18,14 +18,14 @@
             $ordenes = $datos->query("SELECT o.id_orden, c.nombre, o.created_at, o.total
                                         FROM orden o INNER JOIN cafeteria c ON o.id_cafeteria = c.id_cafeteria 
                                         WHERE id_usuario = ".$_SESSION['id_usuario']."
-                                        ORDER BY o.id_cafeteria ASC");
+                                        ORDER BY o.id_orden ASC, o.id_cafeteria ASC");
                                         
             $pedidos = $datos->query("SELECT o.id_orden, p.tipo_producto, p.nombre, p.costo
                                         FROM orden o INNER JOIN cafeteria c ON o.id_cafeteria = c.id_cafeteria 
                                         INNER JOIN contenido_orden co ON co.id_orden = o.id_orden
                                         INNER JOIN producto p ON co.id_producto = p.id_producto
                                         WHERE id_usuario = ".$_SESSION['id_usuario']."
-                                        ORDER BY o.id_cafeteria ASC, o.id_orden ASC, p.tipo_producto ASC");
+                                        ORDER BY o.id_orden ASC, p.tipo_producto ASC, o.id_cafeteria ASC");
 
             $costoTotal = 0;
             $tipo = 0;

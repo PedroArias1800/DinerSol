@@ -16,8 +16,10 @@
     <body>
 
     <div class="headerphp">
-            <?php require('header.php'); 
+            <?php require('header.php');
             
+                $hay = 0;
+
                 $consultarProductos = $datos->query("SELECT
                 o.id_orden,
                 c.nombre,
@@ -29,6 +31,7 @@
                 
                 FROM orden o INNER JOIN cafeteria c ON o.id_cafeteria=c.id_cafeteria
                             INNER JOIN usuario U ON o.id_usuario = U.id_usuario
+                WHERE o.created_at BETWEEN '".date('Y-m-d')." 00:00:00' AND '".date('Y-m-d')." 23:59:59'
                 ORDER BY o.estado DESC, o.id_orden DESC");
             ?>
 
@@ -51,7 +54,7 @@
 
         <div class="main">
 
-            <?php  while($producto=$consultarProductos->fetch(PDO::FETCH_OBJ)) {  ?>
+            <?php  while($producto=$consultarProductos->fetch(PDO::FETCH_OBJ)) { $hay = 1;  ?>
             <form action="../Procesos/adminAtenderOrdenes.php" method="POST">
                 <div class="ordenes" <?php if($producto->estado == "Atendido"){ ?> style="border: 2px solid #63c028;" <?php } ?>>
                     <div class="order-nombre">
@@ -143,6 +146,15 @@
                     <button class="btn" <?php if($producto->estado == "Atendido"){ ?> style="background-color: #63c028;   cursor: not-allowed;" disabled <?php } ?>><?php echo $producto->estado; ?> </button>
                 </div>
             </form>
+            <?php } 
+            if($hay == 0){ ?>
+
+            
+            <div style="width: 90%; margin: 2% 0 4% 0; text-align: center">
+                <h2 style="font-size: 2.5vw; margin: 0 0 5% 0;">Aún no hay pedidos para atender, vuelva luego</h2>
+                <h2 style="font-size: 2vw">Equipo de <strong>DinerSol</strong>, el Sistema De Cafeterías UTP</h2>
+            </div>
+
             <?php } ?>
         </div>
     

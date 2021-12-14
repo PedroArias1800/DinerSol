@@ -32,10 +32,10 @@
         if($variable->format('H:i:s') > '06:35:00' && $variable->format('H:i:s') < '11:50:00'){
             $nomTurno = "Matutino";
             $turno = 1;
-        } else if($variable->format('H:i:s') > '11:50:00' && $variable->format('H:i:s') < '20:30:00'){
+        } else if($variable->format('H:i:s') > '11:50:00' && $variable->format('H:i:s') < '17:35:00'){
             $nomTurno = "Vespertino";
             $turno = 2;
-        } else if($variable->format('H:i:s') > '20:30:00' && $variable->format('H:i:s') < '21:50:00'){
+        } else if($variable->format('H:i:s') > '17:35:00' && $variable->format('H:i:s') < '21:50:00'){
             $nomTurno = "Nocturno";
             $turno = 3;
         } else {}
@@ -115,7 +115,7 @@
                                                                 INNER JOIN cafeteria ca ON c.id_cafeteria = ca.id_cafeteria
                                                                 INNER JOIN menu m ON m.id_producto = c.id_producto
                                                                 INNER JOIN menu_turno mt ON mt.id_menu = m.id_menu
-                                                        WHERE p.tipo_producto = 'Comida' AND c.inventario > 0 AND m.estado = 1 AND mt.id_turno = 2
+                                                        WHERE p.tipo_producto = 'Comida' AND c.inventario > 0 AND m.estado = 1 AND mt.id_turno = $turno
                                                         GROUP BY nombre_combo
                                                         ORDER BY id_cafeteria ASC, id_combo ASC");
 
