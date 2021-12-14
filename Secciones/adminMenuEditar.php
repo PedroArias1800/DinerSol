@@ -60,7 +60,6 @@
                 }
             ?>
             
-            
             var c ="<?php echo $c; ?>"; //Total de cafeterias
             var n ="<?php echo $n; ?>"; //Total de productos
 
@@ -109,18 +108,14 @@
                 //asignamos a la variable valor el valor de la lista de producto seleccionado
                 valor=document.proPedido.nombreProducto1.value;
                 
-                for (x=0;x<n;x++) {
+                for (x=0;x<valor;x++) {
                     if(valor == arrayIdProducto[x]){
                         document.proPedido.nombreProducto2.value = arrayNomProducto[x];
                         document.proPedido.idProducto2.value = arrayIdProducto[x];
                         document.proPedido.precio.value = parseFloat(arrayCostoProducto[x]).toFixed(2);
                         document.proPedido.cantidad.value = arrayInventarioProducto[x];
-                        document.proPedido.cantidad.value = arrayInventarioProducto[x];
                         document.proPedido.imgProSelect2.src = "../Imagenes/"+arrayFotoProducto[x];
                         
-                    }
-                    if(document.proPedido.Cafeteria2[x].value == arrayIdCafeteria[x]){
-                        document.proPedido.Cafeteria2[x].selected = true;
                     }
                 }
             }
@@ -228,7 +223,7 @@
                         </div>
                         <div class="datosProductos" style="justify-content: center; margin-top: 2%;">
                         <input type="reset" class="botones" value="Cancelar">    
-                        <input type="submit" class="botones" value="Guardar Producto">
+                        <input type="submit" class="botones" value="Editar Producto">
                     </div>
                 </form>
             </div>

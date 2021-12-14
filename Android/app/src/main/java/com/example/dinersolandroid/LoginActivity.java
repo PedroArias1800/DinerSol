@@ -63,13 +63,13 @@ public class LoginActivity extends AppCompatActivity {
                                             usuario.getId_usuario(),
                                             usuario.getNombre(),
                                             usuario.getApellido(),
-                                            usuario.getCdula(),
+                                            usuario.getCedula(),
                                             usuario.getId_tipo(),
                                             usuario.getEmail(),
                                             usuario.getId_orden(),
                                             usuario.getTotal(),
                                             usuario.getEstado(),
-                                            usuario.getNomCaf()
+                                            usuario.getCafeteria()
                                     );
 
                             Intent i = new Intent(getApplicationContext(), MenuLoginActivity.class);

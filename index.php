@@ -27,21 +27,20 @@
         <p>Universidad Tecnologica de Panamá</p>
       </header>
       <p style="font-size: x-large; color: white;">Sistema De Cafeterías UTP</p>
-
     
-  <?php if(isset($_GET['error'])){ ?>
+      <?php if(isset($_GET['error'])){ ?>
       <div class="block-component">
-              <div>
-            
-                <div class="stacked-alert stacked-alert--danger">
-                  <span class="stacked-alert-icon uil uil-times-square"></span>
-                  <span class="stacked-alert-text"> <?php if(isset($_GET['error'])) echo $_GET['error']; ?> </span>
-                </div>
-            
-              </div>
-            </div>
+        <div>
+      
+          <div class="stacked-alert stacked-alert--danger">
+            <span class="stacked-alert-icon uil uil-times-square"></span>
+            <span class="stacked-alert-text"> <?php if(isset($_GET['error'])) echo $_GET['error']; ?> </span>
+          </div>
+      
+        </div>
+      </div>
          
-            <?php } ?>
+      <?php } ?>
 
       <h2>Login</h2>
 

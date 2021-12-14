@@ -86,37 +86,7 @@
                     
             
         </div><br>
-        <footer>
-            <div class="footer">
-                <img src="https://yt3.ggpht.com/Y1L8TzdsdTe30KxXrueVXL8N5W9CL3JCR0oiFtlieiTJ4p24mMiDYRNHHuS9nPawWz1vEFO0BZY=s900-c-k-c0x00ffffff-no-rj" alt="UTP Logo" width="6%" height="6%">
-                <h3>
-                    Universidad Tecnológica de Panamá - 2021<br>
-                    Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,<br>
-                    Campus Metropolitano Víctor Levi Sasso.<br>
-                    Teléfono. (507) 560-3000<br>
-                    Correo electrónico: buzondesugerencias@utp.ac.pa<br>
-                    311 Centro de Atención Ciudadana<br>
-                    Políticas de Privacidad<br>
-                </h3>
-                <div class="footerP1">
-                    <a href="">Matrícula UTP</a><br>
-                    <a href="">Correo UTP</a><br>
-                    <a href="">Biblioteca UTP</a><br>
-                    <a href="">Publicaciones</a><br>
-                    <a href="">Sala De Prensa</a><br>
-                    <a href="">Bolsa De Trabajo</a><br>
-                    <a href="">Acreditación</a><br>
-                    <a href="">Centro De Lenguas</a><br>
-                </div>
-                <div class="footerP2">
-                    <a href="">Mapa De Ubicación</a><br>
-                    <a href="">Mapa Del Sitio</a><br>
-                    <a href="">Directorio Telefónico</a><br>
-                    <a href="">Contáctenos</a><br>
-                    <a href="">Identidad Visual</a><br>
-                </div>
-            </div>
-        </footer>
+        <?php require('footer.html'); ?>
         <script type="text/javascript" src="../JavaScript/complementos.js"></script>
     </body>
 </html>

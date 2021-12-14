@@ -32,10 +32,10 @@
         if($variable->format('H:i:s') > '06:35:00' && $variable->format('H:i:s') < '11:50:00'){
             $nomTurno = "Matutino";
             $turno = 1;
-        } else if($variable->format('H:i:s') > '11:50:00' && $variable->format('H:i:s') < '17:50:00'){
+        } else if($variable->format('H:i:s') > '11:50:00' && $variable->format('H:i:s') < '20:30:00'){
             $nomTurno = "Vespertino";
             $turno = 2;
-        } else if($variable->format('H:i:s') > '17:50:00' && $variable->format('H:i:s') < '21:50:00'){
+        } else if($variable->format('H:i:s') > '20:30:00' && $variable->format('H:i:s') < '21:50:00'){
             $nomTurno = "Nocturno";
             $turno = 3;
         } else {}
@@ -127,7 +127,7 @@
                     <div class="card" value="<?php echo $combo->id_cafeteria; ?>" name="ComboCaf<?php echo $combo->id_cafeteria; ?>">
                         <div>
                             <div class="verCombo">
-                                <button value="<?php echo $combo->id_combo; ?>" onclick="pagar(0), idCombo(<?php echo $combo->id_combo;?>)"><a>Comprar</a></button>
+                                <button value="<?php echo $combo->id_combo; ?>" onclick="pagar(0), idCombo(<?php echo $combo->id_combo;?>)" <?php if($dejarComprar == "No"){ ?> disabled style="display: none;" <?php } ?>><a>Comprar</a></button>
                             </div>
                             <img src="../Imagenes/<?php echo $combo->foto; ?>" class="FotoComida imgComidas" alt="Comida1" width="5%" height="5%">
                             <div style="display: flex; justify-content: space-between; margin-top: -33.8%; margin-left: 0.5%; width: 94.5%">
@@ -283,9 +283,9 @@
         </div>
     </div>
 
-    <form class="popup-wrapperPagar" onsubmit="return comprarSiempre()">
-            <div class="popupPagar">
-                <div style="margin: -0.15% -10% 0 0;" class="popup-closePagar" onclick="esconder(0)">x</div>
+    <div class="popup-wrapperPagar" onsubmit="return comprarSiempre()">
+        <form class="popupPagar">
+            <div style="margin: -0.15% -10% 0 0;" class="popup-closePagar" onclick="esconder(0)">x</div>
                 <div class="popup-contentPagar">
                     <h3>Ingrese los datos de su tarjeta de crédito:</h3>
                     <div class="divTarjetas">

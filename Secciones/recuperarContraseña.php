@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="shortcut icon" href="Imagenes/logoUTP.jpg" />
+  <link rel="shortcut icon" href="../Imagenes/logoUTP.jpg"/>
   <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../css/normalice.css">
   <title>DinerSol | Iniciar Sesión</title>
@@ -26,9 +26,10 @@
           <img src="../imagenes/logo_utp_1_300.png" alt="">
         </div>
         <p class="p">Universidad Tecnologica de Panamá </p>
-      
-      
       </header>
+      <p style="font-size: x-large; color: white;">Sistema De Cafeterías UTP</p>
+
+
 <div class="title">
 <h2 class="h2">Recuperar contraseña</h2>
       <a class="cuenta" href="../index.php">  Cuenta</a>

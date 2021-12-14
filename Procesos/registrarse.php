@@ -9,12 +9,11 @@
         $apellido = $_POST['apellido'];
         $cedula = $_POST['cedula'];
         $telefono = $_POST['telefono'];
-        $foto = "user.jpg";
+        $foto = "user.png";
         $tipoUsuario = 5;
         $email = $_POST['email'];
         $password = md5($_POST['contra1']);
 
-        
         $tipoEmail = explode("@", $email);
         if(strtolower($tipoEmail[1]) == "utp.ac.pa"){
             $tipoUsuario = 4;

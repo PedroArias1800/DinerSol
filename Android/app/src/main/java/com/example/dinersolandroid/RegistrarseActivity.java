@@ -54,7 +54,8 @@ public class RegistrarseActivity extends AppCompatActivity {
                                         0,
                                         0,
                                         email.getText().toString(),
-                                        pass1.getText().toString());
+                                        //pass1.getText().toString()
+                                        0 );
 
             Call<Integer> response = ApiService.getApiService().postRegistrarUsuario(usuario);
             response.enqueue(new Callback<Integer>() {

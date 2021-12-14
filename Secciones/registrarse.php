@@ -28,6 +28,8 @@
         </div>
         <p>Universidad Tecnologica de Panamá</p>
       </header>
+      <p style="font-size: x-large; color: white; margin: -5% 0 0 0;">Sistema De Cafeterías UTP</p>
+
         <div class="titulo">
       <h1>Registrarse</h1>
     </div>
@@ -36,7 +38,7 @@
            <div class="form">
                <div class="user username">
                    <span class="icon uil uil-user"></span>
-                   <input class="user  input-style" type="email" name="nombre" id="" placeholder="Nombre" required>
+                   <input class="user  input-style" type="text" name="nombre" id="" placeholder="Nombre" required>
                  </div>
            
                  <div class=" user password">
@@ -49,7 +51,7 @@
                  </div>
                  <div class=" user password">
                    <span class="icon uil uil-envelope-edit"></span>
-                   <input class=" user input-style" type="text" name="email" id="" placeholder="Correo" required>
+                   <input class=" user input-style" type="email" name="email" id="" placeholder="Correo" required>
                  </div>
                  <div class=" user password">
                    <span class="icon uil uil-calling"></span>

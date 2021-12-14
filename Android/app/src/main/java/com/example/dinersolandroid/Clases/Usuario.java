@@ -11,9 +11,9 @@ public class Usuario {
     private int id_orden;
     private int total_Orden;
     private String estado;
-    private String cafeteria;
+    private int cafeteria;
 
-    public Usuario(int idU, String n, String a, String c,  int tU, String e, int iO, int tO, String es, String Ca){
+    public Usuario(int idU, String n, String a, String c, int tU, String e, int iO, int tO, String es, int Ca) {
         id_usuario = idU;
         nombre = n;
         apellido = a;
@@ -42,7 +42,7 @@ public class Usuario {
         return cedula;
     }
 
-    public int getTipoUsuario() {
+    public int getId_tipo() {
         return tipoUsuario;
     }
 
@@ -50,16 +50,19 @@ public class Usuario {
         return email;
     }
 
- public int getId_orden() {
+    public int getId_orden() {
         return id_orden;
     }
 
-  public int getTotalOrden() {
+    public int getTotal() {
         return total_Orden;
     }
-     public String getEstado() {
+
+    public String getEstado() {
         return estado;
     }
- public String getCafeteria() {
+
+    public int getCafeteria() {
         return cafeteria;
     }
+}

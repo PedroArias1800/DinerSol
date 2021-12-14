@@ -182,7 +182,7 @@
                         </div>
                         <div class="datosProductos" style="justify-content: center; margin-top: 2%;">
                         <input type="reset" class="botones" value="Cancelar">    
-                        <input type="submit" class="botones" value="Guardar Producto">
+                        <input type="submit" class="botones" value="Eliminar Producto">
                     </div>
                 </form>
             </div>
