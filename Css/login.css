@@ -471,3 +471,7 @@ justify-content: center;
 height: 9rem;
 
 }
+.stacked-alert--success {
+  color: #1ac0a2;
+  border-color: #1ac0a2;
+}
