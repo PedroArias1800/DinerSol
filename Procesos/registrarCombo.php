@@ -34,7 +34,9 @@
 
             $idCom = 0;
 
-            $selectCom = $datos->query("SELECT id_combo FROM combo ORDER BY id_combo DESC LIMIT 1");
+            $selectCom = $datos->query("SELECT id_combo FROM combo 
+                                        WHERE nombre_combo = '$nombre'
+                                        ORDER BY id_combo ASC LIMIT 1");
             while($select = $selectCom->fetch(PDO::FETCH_OBJ)){
                 $idCom = $select->id_combo;
             }

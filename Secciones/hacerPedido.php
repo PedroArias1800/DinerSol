@@ -181,9 +181,9 @@
             preRefresco = preRefresco[1];
 
             pTotal = parseFloat(preComida) + parseFloat(preSnack) + parseFloat(preRefresco);
-            <?php if($_SESSION['id_usuario'] == 5){ ?>
+            <?php if($_SESSION['id_tipo'] == 5){ ?>
                 pTotal = pTotal + (pTotal * 0.20);
-            <?php } else if($_SESSION['id_usuario'] == 4){ ?>
+            <?php } else if($_SESSION['id_tipo'] == 4){ ?>
                 pTotal = pTotal - (pTotal * 0.20);
             <?php } else {} ?>
             pTotal = parseFloat(pTotal).toFixed(2)
@@ -234,9 +234,9 @@
             preRefresco = preRefresco[1];
 
             pTotal = parseFloat(preComida) + parseFloat(preSnack) + parseFloat(preRefresco);
-            <?php if($_SESSION['id_usuario'] == 5){ ?>
+            <?php if($_SESSION['id_tipo'] == 5){ ?>
                 pTotal = pTotal + (pTotal * 0.20);
-            <?php } else if($_SESSION['id_usuario'] == 4){ ?>
+            <?php } else if($_SESSION['id_tipo'] == 4){ ?>
                 pTotal = pTotal - (pTotal * 0.20);
             <?php } else {} ?>
             pTotal = parseFloat(pTotal).toFixed(2);
@@ -288,9 +288,9 @@
             preRefresco = preRefresco[1];
 
             pTotal = parseFloat(preComida) + parseFloat(preSnack) + parseFloat(preRefresco);
-            <?php if($_SESSION['id_usuario'] == 5){ ?>
+            <?php if($_SESSION['id_tipo'] == 5){ ?>
                 pTotal = pTotal + (pTotal * 0.20);
-            <?php } else if($_SESSION['id_usuario'] == 4){ ?>
+            <?php } else if($_SESSION['id_tipo'] == 4){ ?>
                 pTotal = pTotal - (pTotal * 0.20);
             <?php } else {} ?>
             pTotal = parseFloat(pTotal).toFixed(2)
@@ -430,7 +430,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="PagarCancelar" id="form fhp">
+                <div class="PagarCancelar fhp" id="formHacerPedido">
                     <button class="botones"><a href="paginaPrincipal.php">Cancelar</a></button>
                     <button class="botones" onclick="pagar(0)"><a>Confirmar</a></button>
                 </div>
@@ -482,7 +482,7 @@
                 <div class="popup-wrapper">
                     <div class="popup">
                         <div style="margin: 1% -10% 0 0;" class="popup-close" onclick="esconder(1)">x</div>
-                        <form class="popup-content" name="formHacerPedido fhp" action="../Procesos/registrarPedido.php" method="POST" onsubmit="return comprarSiempre()">
+                        <form class="popup-content fhp" name="formHacerPedido" action="../Procesos/registrarPedido.php" method="POST" onsubmit="return comprarSiempre()">
                             <input type="hidden" value="<?php echo $_SESSION['id_usuario']?>" name="id_usuario">
                             <input type="hidden" value="" name="Id_Cafeteria2">
                             <input type="hidden" value="" name="Menu2">

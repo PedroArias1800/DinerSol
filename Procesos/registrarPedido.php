@@ -61,6 +61,7 @@
 
                 try{
                     $insertar->execute();
+
                     header("Location: ../Secciones/paginaPrincipal.php?exito=¡Tu pedido ya está siendo atendido!");
                     exit;
 

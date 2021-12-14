@@ -14,7 +14,43 @@
     </head>
     <body>
         
-        <?php require('header.php'); ?>
+        <?php require('header.php'); 
+
+            date_default_timezone_set('America/Panama');
+            $date_now = date("H:i:s");
+            $variable = new DateTime($date_now);
+            $nomTurno = "Fuera De Servicio";
+            $turno = 0;
+            $fechaPedido = 0;
+            $dejarComprar = "Si";
+
+
+            if($variable->format('H:i:s') > '06:35:00' && $variable->format('H:i:s') < '11:50:00'){
+                $nomTurno = "Matutino";
+                $turno = 1;
+            } else if($variable->format('H:i:s') > '11:50:00' && $variable->format('H:i:s') < '17:35:00'){
+                $nomTurno = "Vespertino";
+                $turno = 2;
+            } else if($variable->format('H:i:s') > '17:35:00' && $variable->format('H:i:s') < '21:50:00'){
+                $nomTurno = "Nocturno";
+                $turno = 3;
+            } else {}
+        
+            $Comidas = $datos->query("SELECT * FROM producto p 
+                                                INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                INNER JOIN menu_turno mt ON mt.id_menu = m.id_menu
+                                        WHERE tipo_producto='Comida' AND mt.id_turno = $turno");
+
+            $Snacks = $datos->query("SELECT * FROM producto p 
+                                                INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                INNER JOIN menu_turno mt ON mt.id_menu = m.id_menu
+                                        WHERE tipo_producto='Snack' AND mt.id_turno = $turno");
+            $Refrescos = $datos->query("SELECT * FROM producto p 
+                                                INNER JOIN menu m ON p.id_producto = m.id_producto
+                                                INNER JOIN menu_turno mt ON mt.id_menu = m.id_menu
+                                        WHERE tipo_producto='Refresco' AND mt.id_turno = $turno");
+        
+        ?>
 
         <div class="headimg">
             <div class="TituloCompleto">
@@ -45,7 +81,7 @@
                             <input type="text" name="nombreCombo" placeholder="Nombre del combo" style="margin-right: 5%; background-color: white; color: black; border: 1px solid black;">
                             <h3>Cafeteria:</h3>
                             <?php $consultarCafeterias = $datos->query("SELECT * FROM cafeteria"); ?>
-                            <select id="Cafeteria" name="Cafeteria" onChange="mostrarProductos()">
+                            <select id="Cafeteria" name="Cafeteria">
                             <?php while($cafeteria = $consultarCafeterias->fetch(PDO::FETCH_OBJ)){ ?>
                                 <option value="<?php echo $cafeteria->id_cafeteria; ?>"><?php echo $cafeteria->nombre; ?></option>
                             <?php } ?>
@@ -55,9 +91,9 @@
                             <div class="card">
                                 <h2 class="proTitulo">Comida:</h2>
                                 <img id="fotoDeComida" src="../Imagenes/comidaIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                                <?php $Comidas = $datos->query("SELECT * FROM producto WHERE tipo_producto='Comida'") ?>
                                 <div class="ComidasMenu">
                                     <select name="comida" class="selectPro">
+                                        <option value="0">Ninguno</option>
                                         <?php while($comida = $Comidas->fetch(PDO::FETCH_OBJ)){ ?>
                                             <option value="<?php echo $comida->id_producto ?>"><?php echo $comida->nombre; ?></option>
                                         <?php } ?>
@@ -67,7 +103,6 @@
                             <div class="card">
                                 <h2 class="proTitulo">Snack:</h2>
                                 <img id="fotoDeComida" src="../Imagenes/snackIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                                <?php $Snacks = $datos->query("SELECT * FROM producto WHERE tipo_producto='Snack'") ?>
                                 <div class="ComidasMenu">
                                     <select name="snack" class="selectPro">
                                         <option value="0">Ninguno</option>
@@ -80,9 +115,9 @@
                             <div class="card">
                                 <h2 class="proTitulo">Refresco:</h2>
                                 <img id="fotoDeComida" src="../Imagenes/refrescoIcono.png" class="FotoComida" alt="Comida1" width="65%" height="65%">
-                                <?php $Refrescos = $datos->query("SELECT * FROM producto WHERE tipo_producto='Refresco'") ?>
                                 <div class="ComidasMenu">
                                     <select name="refresco" class="selectPro">
+                                        <option value="0">Ninguno</option>
                                         <?php while($refresco = $Refrescos->fetch(PDO::FETCH_OBJ)){ ?>
                                             <option value="<?php echo $refresco->id_producto ?>"><?php echo $refresco->nombre; ?></option>
                                         <?php } ?>
@@ -99,9 +134,13 @@
                             <div class="datosProductos" style="margin-left: 3.5%;">
                                 <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="costo" placeholder="Precio Del Producto" pattern="[0-9]+([\.,][0-9]+)?" step="0.01" maxlength="99999.00" required>
                                 <select style="padding: 0 7% 0 7%; background-color: white; color: black; border: 1px solid black;" name="turno" required>
-                                    <option value="1">Matutino</option>
-                                    <option value="2">Vespertino</option>
-                                    <option value="3">Nocturno</option>
+                                    <?php if($turno == 1) { ?>
+                                        <option value="1">Matutino</option>
+                                    <?php } else if($turno == 2){ ?>
+                                        <option value="2">Vespertino</option>
+                                    <?php } else if($turno == 3){ ?>
+                                        <option value="3">Nocturno</option>
+                                    <?php } else {}?>
                                 </select>
                                 <input type="number" style="background-color: white; color: black; border: 1px solid black;" name="cantidad" placeholder="Cantidad De Productos" pattern="[0-9]+([\.,][0-9]+)?" step="1" maxlength="999999" required>
                             </div>

@@ -40,9 +40,6 @@
             $turno = 3;
         } else {}
       
-        $to_compare = "2021-12-7 12:50:00";
-        $variable1 = new DateTime($to_compare);
-        $difference = date_diff($variable, $variable1)->format("Difference => %Y years, %m months, %d days, %h hours, and %i minutes");
     ?>
 
     <div class="gallery js-flickity carousel" data-flickity='{ "autoPlay": true, "fade": 1500 }'>
@@ -108,7 +105,7 @@
 
         <div class="div1"> 
             <p>Combos Del Dia</p>
-            <div class="combos">  
+            <div class="combos">
 
                 <?php $consultarCombo = $datos->query("SELECT c.id_combo, nombre_combo, COUNT(c.id_producto), c.costo, p.foto, c.id_cafeteria, ca.nombre 
                                                         FROM combo c INNER JOIN producto p ON c.id_producto=p.id_producto

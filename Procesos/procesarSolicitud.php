@@ -27,7 +27,7 @@
             //$full_name = $row['nombre']. ' '. $row['apellido'];
     
             $text_message = 'Ingrese al siguiente enlace para cambiar su contraseña y recuperar el accesos a su cuenta.'.
-                            '<br><a href="localhost/Universidad/DinerSol/Secciones/cambiarContraseña.php?h='.$hash.'&e='.$correo.'">Cambiar Contraseña</a>';
+                            '<br><a href="localhost/DinerSol/Secciones/cambiarContraseña.php?h='.$hash.'&e='.$correo.'">Cambiar Contraseña</a>';
 
             $to = $correo;
             $subject = "Cambiar Contraseña";
