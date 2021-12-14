@@ -78,19 +78,19 @@
           <input class="user  input-style" type="password" name="contraA" id="contraA" required placeholder="Contraseña actual">
         </div>
         <div class="container-password">
-          <p class="error" id="errorPass1"></p>
-          <div class="user password">
+          <div class="user password" id="containerPass1">
             <span class="icon uil uil-lock-alt"></span>
             <input class=" user input-style" type="password" name="contra1" id="contra1" required placeholder="Nueva contraseña">
           </div>
+          <p class="error" id="errorPass1"></p>
         </div>
         
         <div id="container-password">
-          <p class="error" id="errorPass2"></p>
-          <div class="user password">
+          <div class="user password" id="containerPass2">
             <span class="icon uil uil-lock-alt"></span>
             <input class=" user input-style" type="password" name="contra2" id="contra2" required placeholder="Confirmar contraseña">
           </div>
+          <p class="error" id="errorPass2"></p>
         </div>
         
         <div class="submit">
